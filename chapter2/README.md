@@ -211,27 +211,4 @@ Since our variables `one` through `ten` (and possibly more) have already been de
 </details>
 <p></p>
 
-## Loading pre-written worlds
-
-We already know that closing `irb` will result in the program world being destroyed – and next time we start `irb`, it'll be a fresh new world. All the names we declared won't exist any more, and we'll have to start over from scratch.
-
-What a pain! So do we have to type our instructions from-scratch every time we start a program? Of course not. We can use a **file** to store the instructions we would have to type into the REPL each time, and **execute** the file automatically when we create the world. This will give us the world we want – containing the names we've already made – and the REPL can provide an interactive window into that world.
-
-<gif of world being created from a file>
-
-To move your instructions into a file, we must make a Ruby-specific file (just as a Microsoft Word document has the file suffix `.doc`, so Ruby has the suffix `.rb`), and then write our instructions into it, just as we would the REPL:
-
-1. _**Create a Ruby file. We could call the file `variables.rb`, since we're going to store our variables inside it.**_
-2. _**Open this file in a text editor, such as [Sublime Text](https://www.sublimetext.com/).**_
-3. _**Assign variables, named after numerals, to all the number objects you want to use in your calculator: just as you did in the REPL.**_
-4. _**Save the file.**_
-
-We can use `irb` to first set up a Ruby world, then immediately load this file to set up our names (so we can use them in the REPL straight away).
-
-- Make sure your command prompt is in the directory to which you saved `variables.rb`. 
-- Start `irb` using the command `irb -r variables.rb`.
-- Use the numeral calculator without defining variables in the REPL.
-
-> There are two ways we can start Ruby programs from the command line. We already know about `irb`, which runs the program and then gives us a window into it. You can also use `ruby variables.rb`, which just runs the program, and then exits the program – destroying the world.
-
 > I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, an smaller, sub-world (a 'function') is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction: but why does Ruby do this klind of on-the-fly generation? The answer is: this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function: it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.

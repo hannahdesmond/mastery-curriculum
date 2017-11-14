@@ -129,5 +129,23 @@ $> irb
 
 In `irb`, we can type `exit` and hit return, to close the program. What happens to our world? It disappears: everything that ever existed inside it is gone. When you next run the REPL program `irb`, you'll get a brand-new world.
 
-[Next module](./2_variables_and_statements.md)
+## Loading pre-written worlds
+
+Closing `irb` with `exit` will result in the program world being destroyed. Next time we start `irb`, we'll generate a fresh new world. Anything we've done to alter our program world will be wiped, and we'll have to start over.
+
+Instead of starting from scratch each time, we can use a **file** to store the instructions we would have to type into the REPL. When we **require** (import) the file into the program, it'll be **executed** automatically. The result of executing these pre-written instructions is the world we want – and the REPL, if we want to use that, can provide an interactive window into that world.
+
+<gif of world being created from a file>
+
+To move your instructions into a file, we must make a Ruby-specific file (just as a Microsoft Word document has the file suffix `.doc`, so Ruby has the suffix `.rb`), and then write our instructions into it, just as we would the REPL:
+
+1. _**Create a Ruby file. Call the file `hello_world.rb`.**_
+2. _**Open this file in a text editor, such as [Sublime Text](https://www.sublimetext.com/).**_
+3. _**Inside the file, type a line: `puts "Hello World!"`.**_
+4. _**Save the file.**_
+5. _**Launch IRB, immediately requiring this file using `irb -r ./hello_world.rb`.**_
+6. _**Run the file directly using `ruby ./hello_world.rb`**_
+7. _**Describe the difference between the two.**_
+
+[Next module](../chapter2/README.md)
 
