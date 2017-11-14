@@ -17,7 +17,7 @@ We're going to build a numeral calculator. It'll work just like a normal calcula
 
 We know now that typing `irb` into the console starts a REPL: the computer sets up a Ruby world, and we, the user, get the ability to write Ruby code to modify that world on-the-fly.
 
-![A user starting IRB in the terminal, causing a world to come into existence with a window as the 'REPL'](./images/2-irb-world.gif)
+![A user starting IRB in the terminal, causing a world to come into existence with a window as the 'REPL'](../images/2-irb-world.gif)
 
 You might think this world starts off empty: but it doesn't.
 
@@ -27,7 +27,7 @@ When the Universe began, the great computer in the sky ran a 'Universe' program,
 
 When our computer sets up a Ruby world, it creates a Universe ('main program function'), and it adds a bunch of useful denizens to it. In Ruby, we call these denizens 'objects'. One good example of such a 'pre-created' object are _numbers_.
 
-![Animation showing the number objects being created on startup](./images/2-numbers.gif)
+![Animation showing the number objects being created on startup](../images/2-numbers.gif)
 
 Every object that's created:
 
@@ -39,7 +39,7 @@ For numbers, each number that's created:
 * Knows how much it's worth, and
 * Knows how to interact with other objects (especially other numbers).
 
-![Numbers interacting inside a program, by adding together](./images/2-numbers-interacting.gif)
+![Numbers interacting inside a program, by adding together](../images/2-numbers-interacting.gif)
 
 We can interact with these numbers in `irb`. Start `irb` from the console. Then, to call up a number:
 
@@ -69,7 +69,7 @@ Let's try this again with another number:
 
 What just happened? We went into the program world, and asked for the number 2. The world fetched the number 2, and **returned** it to us.
 
-![Requesting the number 2 from the command line, and the program retrieving it](./images/2-retrieving-a-number.gif)
+![Requesting the number 2 from the command line, and the program retrieving it](../images/2-retrieving-a-number.gif)
 
 ## What doesn't exist inside a Ruby program?
 
@@ -94,7 +94,7 @@ Let's try to ask the program world for something non-existent.
 
 Ugh. That looks tricky. But let's take a minute to understand what the world's trying to tell us:
 
-![An error message, decomposed as a quote](./images/2-decomposing-error.jpg)
+![An error message, decomposed as a quote](../images/2-decomposing-error.jpg)
 
 In short, the program world is saying "you asked for something called `one`. It doesn't exist, as far as I can see."
 
@@ -133,7 +133,7 @@ Let's try this out.
 
 Whenever we ask the program world for the variable `one`, it will return the object that variable is pointing at:
 
-![Asking the program world for a variable, and the world retrieving the object via pointer](./images/2-retrieving-object-by-variable.gif)
+![Asking the program world for a variable, and the world retrieving the object via pointer](../images/2-retrieving-object-by-variable.gif)
 
 Let's ask the program world for the object pointed to by the variable `one`:
 

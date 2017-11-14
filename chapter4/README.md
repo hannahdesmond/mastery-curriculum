@@ -8,11 +8,11 @@ In [module 2](./2_variables_and_statements.md), we saw that numbers were ready a
 
 > **Naming** is the process of **assigning variables** to objects.
 
-In [module 3](./3_messages_and_interfaces.md), we found out that we could instruct objects to do things using **messages**. We learned that the list of messages we can send to an object is called its **interface**. We saw that you could make a good guess at what an object was, based on the **methods** defined on its interface.
+In [module 3](./3_messages_and_interfaces.md), we found out that we could instruct objects to do things using **messages**. Objects might require **arguments** to be able to answer a message. We learned that the list of messages we can send to an object is called its **interface**. We saw that you could make a good guess at what an object was, based on the **methods** defined on its interface. We also saw that you can **chain** messages, thanks to **referential transparency**.
 
 > **Messages** call **methods** on an object's **interface**.
 
-So far, we've mostly been working with one type of object: numbers. They're all pre-created at the point the program world starts up. This module will ask:
+So far, we've mostly been working with two types of object: integers and floats. They're all pre-created at the point the program world starts up. This module will ask:
 
 * what other objects exist in this world?
 * what are they for?
