@@ -31,7 +31,7 @@ $ bundle install
 
 ## Instructions
 
-1. Work through the numbered chapters (beginning with `/1_hello_world`).
+1. Work through the numbered chapters (beginning with `chapter1`).
 
 2. Work through a chapter.
 
@@ -47,7 +47,7 @@ Your aim is to get through all the chapters, but you only move on from a chapter
 
 ## How to complete a quiz
 
-* Each question is in a separate file e.g. `1_hello_world/quiz1/question_1.rb`.
+* Each question is in a separate file e.g. `chapter1/quiz1/question_1.rb`.
 
 * A typical question file might look like this:
 
@@ -66,14 +66,14 @@ Your aim is to get through all the chapters, but you only move on from a chapter
 * To check your answer for a question:
 
 ```
-$ cd 1_hello_world/quiz1
+$ cd chapter1/quiz1
 $ rspec spec/question_1_spec.rb
 ```
 
 * To check your answers for all the questions in a quiz:
 
 ```
-$ cd 1_hello_world/quiz1
+$ cd chapter1/quiz1
 $ rspec
 ```
 
