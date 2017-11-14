@@ -56,7 +56,7 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 </details>
 <p></p>
 
-> This 'type your instruction' followed by 'send your instruction to the program world' pattern is the basis on which all coding happens.
+> This 'enter your instruction' followed by 'send your instruction to the program world' pattern is the basis by which all coding happens.
 
 Let's try this again with another number:
 
