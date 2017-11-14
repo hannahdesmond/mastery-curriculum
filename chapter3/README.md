@@ -35,11 +35,65 @@ In both cases, we're sending a message to an object – but in the first case, w
 
 What might surprise you is that the second way is, secretly, the only way to send messages to objects in Ruby. The `.` (**dot**) means 'send this object a message'. `1.integer?` means "send the object referenced by `1` a message asking it to answer if it's an integer or not."
 
-In the first case, `1 + 2`, Ruby is actually translating this to `1.+ 2`. We say, and see, 'one plus two', and Ruby translates that to "send the object referenced by `1` a message to add itself to the object referenced by `2`."
+In the first case, `1 + 2`, Ruby is actually translating this to `1.+(2)`. We say, and see, 'one plus two', and Ruby translates that to "send the object referenced by `1` a message to add itself to the object referenced by `2`."
 
-So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience.Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby syntax differs from normal – are rare. They're referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of the rules of the language.
+##### Arguments
 
-- _**Convert your numeral calculator to use dot syntax.**_
+Sometimes, a messaged object knows everything it needs to know to answer the message. For instance: `1.integer?` is perfectly answerable by `1` all on its own: it doesn't need any other object to tell us whether it's an integer.
+
+Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example: `1` would right ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
+
+```
+> # 2 is the argument
+> 1.+(2)
+> => 3
+```
+
+```
+> # five is the argument
+> four.+(five)
+> => 9
+```
+
+It's formally-correct (like dot syntax) to wrap an argument in **parentheses** `()`. But, sometimes that's optional:
+
+```
+> # 2 is the argument
+> 1 + 2
+> => 3
+```
+
+```
+> # five is the argument
+> four + five
+=> 9
+```
+
+> So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience.Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby syntax differs from normal – are rare. They're referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of the rules of the language.
+
+- _**Convert your numeral calculator to use dot syntax with parentheses.**_
+
+> We'll be using dot syntax with parentheses from now on.
+
+## Chaining messages
+
+It's perfectly OK to send lots of messages to objects, one after the other:
+
+```
+> four.+(five).+(seven).-(one)
+=> 15
+```
+
+This 'multiple messages' is referred to as **chaining**. This works because, read left-to-right, each `object.message` is replaced by the value returned from sending that message to that object:
+
+<animation showing referential transparency through chaining>
+
+- We say "hey `4`, go get us the float with a value equal to your value".
+- `4` says "OK, here's `4.0`". 
+- Then we say "hey `4.0`, divide yourself with `5`".
+- `4.0` says "OK, that's `0.8`".
+
+> The principle that "`object.message` gets replaced by the return value, which can be a new `object` for a new `message`" is called **referential transparency**.
 
 ## Interfaces
 
@@ -85,7 +139,7 @@ How do we find out what an object's interface is? Two ways:
 Something pretty weird happens when we do divison with our numeral calculator:
 
 ```irb
-> nine / two
+> nine./(two)
 => 4
 ```
 
@@ -115,23 +169,20 @@ When we send an integer object the message `to_f`, the integer object says "OK! 
 We can now divide this returned float object by another integer (or another float):
 
 ```
-> 4.to_f / 5
+> 4.to_f./(5)
 => 0.8
 ```
 
 Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division; it destroys readability:
 
 ```
-> four.to_f / five
+> four.to_f./(five)
 => 0.8
 ```
 
-- _**Figure out how to rewrite your numeral calculator to achieve the following functionality:**_
+- _**Figure out how to rewrite your numeral calculator to achieve the following functionality (without dot syntax):**_
 
 ```
 > four / five
 => 0.8
 ```
-
-
-
