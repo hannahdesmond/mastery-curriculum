@@ -11,6 +11,8 @@ We're going to build a numeral calculator. It'll work just like a normal calcula
 => 20
 ```
 
+> Ruby numbers use `+` for addition, `-` for subtraction, `*` for multiplication, and `/` for division. Our numeral calculator won't be able to do division, yet.
+
 ### Introduction
 
 We know now that typing `irb` into the console starts a REPL: the computer sets up a Ruby world, and we, the user, get the ability to write Ruby code to modify that world on-the-fly.
@@ -193,7 +195,7 @@ We call an expression like `1 + 2` a **statement**. (We did a statement earlier,
 
 Since our variables `one` through `ten` (and possibly more) have already been defined, and point at the objects `1` through `10`, we should be able to get our numeral calculator working straight away.
 
-* _**Make the numeral calculator work in the REPL.**_
+* _**Make the numeral calculator work in the REPL. You won't be able to do division just yet.**_
 
 <details>
 <summary>See how I'd do it</summary>

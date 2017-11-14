@@ -1,10 +1,10 @@
 # Messages and Interfaces
 
-Our REPL provides us with a window through which we can interact with the program world. But how does that interaction happen?
+Our REPL provides us with a window through which we can interact with the program world. But how does that interaction happen? And what kinds of interaction are allowed?
 
 ## Messages
 
-We interact with the program world by sending it **messages**. In our REPL, by default we're interacting with the main object.
+We interact with the program world by sending it **messages**. In our REPL, by default we're interacting with the Main Object (the 'Universe').
 
 <gif showing me interacting with the main object by sending it messages>
 
@@ -37,7 +37,7 @@ What might surprise you is that the second way is, secretly, the only way to sen
 
 In the first case, `1 + 2`, Ruby is actually translating this to `1.+ 2`. We say, and see, 'one plus two', and Ruby translates that to "send the object referenced by `1` a message to add itself to the object referenced by `2`."
 
-So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience. Remember – Ruby was designed. At its core, Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby disobeys its own core rules for the sake of extra readability – are rare. These situations are referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of existing Ruby syntax.
+So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience.Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby syntax differs from normal – are rare. They're referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of the rules of the language.
 
 - _**Convert your numeral calculator to use dot syntax.**_
 
@@ -76,4 +76,62 @@ How do we find out what an object's interface is? Two ways:
 
 > If you're using the docs, right now we're using the word _interface_ interchangeably with _public instance methods_. We'll go deeper in the next module!
 
-- _**Write down every method defined on the interface of the object referenced by `1`.**_
+- _**Find out every method defined on the interface of the object referenced by `1` (you don't have to memorise them).**_
+
+> Many beginner programmers feel like they have to memorise every method on an object's interface. That's not true. While there are core methods you should learn – like `+`, `-`, and so on – it's far more useful to get good at looking methods up. One benefit to Ruby methods is they're well-named: they usually do just what they say on the tin.
+
+## Integers and floats
+
+Something pretty weird happens when we do divison with our numeral calculator:
+
+```irb
+> nine / two
+=> 4
+```
+
+What's going on here? 
+
+The problem is that _integer objects don't understand decimal points, so they round them down_: 9/2 is 4.5, which the integer referenced by `nine` rounds down to 4.
+
+To use decimal points, we need to use a different kind of number: a **float** (short for 'floating point number' – that is, the decimal point can float anywhere along the line of numbers).
+
+Here are some example floats:
+
+```
+ 1.6
+28.004
+-0.41
+```
+
+Floats have a very specific purpose in programs: to do very fine calculations usually involving division, and as such they're rarely-used (as [Chris Pine points out](https://pine.fm/LearnToProgram/chap_01.html), who wants to look at 7.4 emails, or browse 1.8 webpages, or listen to 5.24 of their favorite songs?). But we need floats now!
+
+When we send an integer object the message `to_f`, the integer object says "OK! You're looking for a float object with the same value as me", and returns that corresponding float object:
+
+```
+> 4.to_f
+=> 4.0
+```
+
+We can now divide this returned float object by another integer (or another float):
+
+```
+> 4.to_f / 5
+=> 0.8
+```
+
+Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division; it destroys readability:
+
+```
+> four.to_f / five
+=> 0.8
+```
+
+- _**Figure out how to rewrite your numeral calculator to achieve the following functionality:**_
+
+```
+> four / five
+=> 0.8
+```
+
+
+
