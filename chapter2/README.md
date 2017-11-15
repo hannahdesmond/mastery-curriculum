@@ -50,9 +50,8 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 <summary>See how I'd do this</summary>
 <p>
 
-```irb
-> 1
-=> 1
+```eval-ruby
+1
 ```
 </p>
 </details>
@@ -62,9 +61,8 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 
 Let's try this again with another number:
 
-```irb
-> 2
-=> 2
+```eval-ruby
+2
 ```
 
 What just happened? We went into the program world, and asked for the number 2. The world fetched the number 2, and **returned** it to us.
@@ -84,9 +82,8 @@ Let's try to ask the program world for something non-existent.
 <summary>See how I'd do this</summary>
 <p>
   
-```irb
-> one
-=> NameError: undefined local variable or method `one' for main:Object
+```eval-ruby
+one
 ```
 </p>
 </details>
@@ -123,9 +120,8 @@ Let's try this out.
 <summary>See how I'd do this</summary>
 <p>
 
-```irb
-> one = 1
-=> 1
+```eval-ruby
+one = 1
 ```
 </p>
 </details>
@@ -137,9 +133,9 @@ Whenever we ask the program world for the variable `one`, it will return the obj
 
 Let's ask the program world for the object pointed to by the variable `one`:
 
-```irb
-> one
-=> 1
+```eval-ruby
+one = 1
+one
 ```
 
 Nice! Now over to you: define names for:
@@ -151,14 +147,11 @@ Nice! Now over to you: define names for:
 <summary>See how I'd do this</summary>
 <p>
 
-```irb
-> one = 1
-=> 1
-> two = 2
-=> 2
-> three = 3
-=> 3
-...and so on
+```eval-ruby
+one = 1
+two = 2
+three = 3
+# and so on
 ```
 </p>
 </details>
@@ -173,9 +166,8 @@ I mentioned earlier that numbers know:
 
 Here's an example of that in action in `irb`:
 
-```
-> 1 + 2
-=> 3
+```eval-ruby
+1 + 2
 ```
 
 In the case above, here's what's happening. The computer executes the code `1 + 1` character-by-character:
@@ -186,6 +178,23 @@ In the case above, here's what's happening. The computer executes the code `1 + 
 - The program world fetches the object referenced by the name `2`.
 - The first object referenced by `1` adds the value of the object referenced by `2` to itself. The result is returned to the program world.
 - The program world returns the result to the user: `3`.
+
+Here's the above, as a sequence:
+
+```sequence
+REPL->Program World: "Give me the object referenced by the name '1'."
+Program World->1: "Hey, come here."
+1-->REPL: "OK, what do you want?"
+REPL->1: "Do you understand the message '+'?"
+1-->REPL: "Yes, it means 'add the value of whatever number object comes with it."
+REPL->Program World: "Give me the object referenced by the name '2'."
+Program World->2: "Hey, come here."
+2-->REPL: "OK, what do you want?"
+REPL->1: "+(2), please."
+Note over both 1 and 2: 1 adds its value to 2.
+1->3: "Hey, come here."
+3-->REPL: "OK, what do you want?"
+```
 
 Here's the above, visually:
 
