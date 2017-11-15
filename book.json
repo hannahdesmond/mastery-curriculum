@@ -4,6 +4,6 @@
   "author": "Mary Rose Cook and Sam Morgan",
   "plugins": [
     "klipse",
-    "js-sequence-diagram"
+    "accordion"
   ]
 }

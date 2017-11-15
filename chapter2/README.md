@@ -146,20 +146,15 @@ Nice! Now over to you: define names for:
 - _**`2` through `10`, and**_
 - _**as many numbers as you want until you get the point.**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
-```eval-ruby
 one = 1
 two = 2
 three = 3
 # and so on
 ```
 
-</p>
-</details>
-<p></p>
+%/accordion%
 
 ## Making objects interact
 
@@ -182,12 +177,6 @@ In the case above, here's what's happening. The computer executes the code `1 + 
 - The program world fetches the object referenced by the name `2`.
 - The first object referenced by `1` adds the value of the object referenced by `2` to itself. The result is returned to the program world.
 - The program world returns the result to the user: `3`.
-
-Here's the above, as a sequence:
-
-```sequence
-REPL->Program World: "Give me the object referenced by the name '1'."
-```
 
 Here's the above, visually:
 
