@@ -110,20 +110,41 @@ You can start the Ruby world and the REPL by typing `irb` from the console, and 
 
 * _**Start an interactive Ruby program using `irb`.**_
 
-<details>
-  <summary>See how I'd do it</summary>
-  <p>
+%accordion%See how I'd do this%accordion%
     
 ```
 $> irb
  >
 ```
 
-> In code examples, I'll include the IRB prompt as a chevron ('`>`'). You don't need to enter the chevron into your IRB. If I'm typing in the console (Terminal), rather than in IRB, I'll include the prompt as a dollar-chevron `$>`. Again, you don't need to enter the dollar-chevron into the console.
+%/accordion%
 
-</p>
-</details>
-<p></p>
+## A note about code examples
+
+There are two kinds of code examples in this curriculum. In some of them, you can play with the Ruby code in-browser. These look like this:
+
+```eval-ruby
+1 + 1
+```
+
+> You can and should play with the interactive code samples. Try changing one number to another, or one sign around, or adding extra things. Each time, try to develop a picture of what's happening in the program world when you make changes.
+
+Another kind of code example is non-interactive. They look like this:
+
+```
+$> irb
+ >
+```
+
+In these code examples, I'll include the IRB prompt as a chevron ('`>`'). You don't need to enter the chevron into your IRB. If I'm typing in the console (Terminal), rather than in IRB, I'll include the prompt as a dollar-chevron `$>`. Again, you don't need to enter the dollar-chevron into the console.
+
+When I want to illustrate something but I don't want the code to be executed, I'll put a hashtag (`#`) in front of the code:
+
+```ruby
+# This line of code will not be executed.
+```
+
+In Ruby, putting a `#` at the beginning of a line of code means it won't be executed by the computer. Lines like this are used to give extra information about the code. They're called **comments**.
 
 ## Destroying worlds
 
@@ -148,4 +169,3 @@ To move your instructions into a file, we must make a Ruby-specific file (just a
 7. _**Describe the difference between the two.**_
 
 [Next module](../chapter2/README.md)
-

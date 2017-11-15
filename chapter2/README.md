@@ -46,17 +46,13 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 * _**Type an instruction. In this case, we want to ask the program to read a number. So, we type `1`.**_
 * _**Send your instruction to the program world by pressing 'Return'.**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
 ```eval-ruby
 1
 ```
 
-</p>
-</details>
-<p></p>
+%/accordion%
 
 > This 'enter your instruction' followed by 'send your instruction to the program world' pattern is the basis by which all coding happens.
 
@@ -79,17 +75,13 @@ Let's try to ask the program world for something non-existent.
 * _**Start `irb` from the console.**_
 * _**Then, try to ask for something called `one`.**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
   
 ```eval-ruby
 one
 ```
 
-</p>
-</details>
-<p></p>
+%/accordion%
 
 Ugh. That looks tricky. But let's take a minute to understand what the world's trying to tell us:
 
@@ -118,17 +110,13 @@ Let's try this out.
 
 > In Ruby, we use `=` to point names at objects. It's called the **assignment operator**.
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
 ```eval-ruby
 one = 1
 ```
 
-</p>
-</details>
-<p></p>
+%/accordion%
 
 Whenever we ask the program world for the variable `one`, it will return the object that variable is pointing at:
 
@@ -189,9 +177,7 @@ Since our variables `one` through `ten` (and possibly more) have already been de
 
 * _**Make the numeral calculator work in the REPL. You won't be able to do division just yet.**_
 
-<details>
-<summary>See how I'd do it</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
 ```irb
 > one + two
@@ -199,9 +185,7 @@ Since our variables `one` through `ten` (and possibly more) have already been de
 > four * five
 => 20
 ```
-</p>
-</details>
-<p></p>
+%/accordion%
 
 ## Objects that change, and objects that don't
 
@@ -224,17 +208,13 @@ When we start the program world, some constants come into existence automaticall
 * _**Open a REPL, and output the `RUBY_VERSION` constant.**_
 * _**Answer this: why isn't `RUBY_VERSION` just called `ruby_version`?**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
 ```irb
 > RUBY_VERSION
 => "2.4.1"
 ```
-</p>
-</details>
-<p></p>
+%/accordion%
 
 In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants.
 

@@ -126,23 +126,16 @@ We need an object that stores and can manipulate some text. What better object t
 * _**Assign a variable `todo_1` to a new instance of `String`, storing the text `"wash the dog"`.**_
 * _**Send the string referenced by `todo_1` a message that activates the `capitalize` method on its interface.**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
-```irb
-> todo_1 = String.new("wash the dog")
-=> "wash the dog"
-> todo_1.capitalize
-=> "Wash the dog"
+```eval-ruby
+todo_1 = String.new("wash the dog")
+todo_1.capitalize
 ```
-</p>
-</details>
-<p></p>
+
+%/accordion%
 
 <Animation showing String being called into existence, knowing about the text, and capitalizing>
-
-> Note that when we call 
 
 ## Different objects, different purposes
 
@@ -160,23 +153,17 @@ What happens if integers try to interact with strings? In other words, what happ
 * _**Explain what happens, and why it's different from the `1 + 2` statement we did with instances of `Integer`.**_
 * _**Try adding together a string with an integer. Explain what happens.**_
 
-<details>
-<summary>See how I'd do this</summary>
-<p>
+%accordion%See how I'd do this%accordion%
 
-```irb
-> one_string = String.new("1")
-=> "1"
-> two_string = String.new("2")
-=> "2"
-> one_string + two_string
-=> "12"
+```eval-ruby
+one_string = String.new("1")
+two_string = String.new("2")
+one_string + two_string
 ```
-</p>
-</details>
-<p></p>
 
-> Notice that the interfaces of both instances of `String` and instances of `Integer` define methods for the message `+`: even though `+` does quite different things in each case (for integers, `+` adds, for strings, `+` concatenates). Messages are interpreted differently depending on the kind of object being interacted with.
+%/accordion%
+
+Notice that the interfaces of both instances of `String` and instances of `Integer` define methods for the message `+`: even though `+` does quite different things in each case (for integers, `+` adds, for strings, `+` concatenates). Messages are interpreted differently depending on the kind of object being interacted with.
 
 ## Class and Instance interfaces
 
@@ -184,11 +171,9 @@ It's easy to get confused between classes and instances. The simple solution is:
 
 Because Classes are different objects to Instances, they have different interfaces. For instance: `String` defines `new` on its interface. When called, `String.new` produces a new instance of `String`. This instance, however, does not define `new` on its interface, because it's not a class and so isn't responsible for creating new instances.
 
-```irb
-> string_instance = String.new("some words")
-=> "some words"
-> string_instance_instance = string_instance.new
-=> NoMethodError: undefined method `new' for "some words":String
+```eval-ruby
+string_instance = String.new("some words")
+string_instance_instance = string_instance.new
 ```
 
 Decomposing that error:

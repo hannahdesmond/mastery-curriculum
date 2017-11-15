@@ -4,7 +4,7 @@ Our REPL provides us with a window through which we can interact with the progra
 
 ## Messages
 
-We interact with the program world by sending it **messages**. In our REPL, by default we're interacting with the Main Object (the 'Universe').
+We interact with the program world by sending it **messages**. In response to our messages, objects **return** something. In our REPL, by default we're interacting with the Main Object (the 'Universe').
 
 <gif showing me interacting with the main object by sending it messages>
 
@@ -43,10 +43,9 @@ Sometimes, a messaged object knows everything it needs to know to answer the mes
 
 Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example: `1` would right ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
 
-```
-> # 2 is the argument
-> 1.+(2)
-> => 3
+```eval-ruby
+# 2 is the argument
+1.+(2)
 ```
 
 ```
@@ -57,13 +56,12 @@ Other times, a messaged object needs to know something else to answer the messag
 
 It's formally-correct (like dot syntax) to wrap an argument in **parentheses** `()`. But, sometimes that's optional:
 
-```
-> # 2 is the argument
-> 1 + 2
-> => 3
+```eval-ruby
+# 2 is the argument
+1 + 2
 ```
 
-```
+```irb
 > # five is the argument
 > four + five
 => 9
@@ -79,7 +77,7 @@ It's formally-correct (like dot syntax) to wrap an argument in **parentheses** `
 
 It's perfectly OK to send lots of messages to objects, one after the other:
 
-```
+```irb
 > four.+(five).+(seven).-(one)
 => 15
 ```
@@ -161,28 +159,26 @@ Floats have a very specific purpose in programs: to do very fine calculations us
 
 When we send an integer object the message `to_f`, the integer object says "OK! You're looking for a float object with the same value as me", and returns that corresponding float object:
 
-```
-> 4.to_f
-=> 4.0
+```eval-ruby
+4.to_f
 ```
 
 We can now divide this returned float object by another integer (or another float):
 
-```
-> 4.to_f./(5)
-=> 0.8
+```eval-ruby
+4.to_f./(5)
 ```
 
-Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division; it destroys readability:
+Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division; it makes the code super-hard to read:
 
-```
+```irb
 > four.to_f./(five)
 => 0.8
 ```
 
 - _**Figure out how to rewrite your numeral calculator to achieve the following functionality (without dot syntax):**_
 
-```
+```irb
 > four / five
 => 0.8
 ```
