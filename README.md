@@ -1,7 +1,5 @@
 # Mastery Curriculum
 
-Want to get started? Go to the [Summary](./SUMMARY.md).
-
 ## Setup
 
 1. Fork this repository.
