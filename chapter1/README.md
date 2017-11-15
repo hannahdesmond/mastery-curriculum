@@ -91,7 +91,7 @@ These objects, obvious and non-obvious, can interact with one another in set way
 
 ![The Word world being interacted with: saving, moving the cursor, and exiting the program](../images/1-word-interactions.gif)
 
-Moreover, the world is _itself_ an object: in Ruby, it's called the 'main Object'. It’s like our real-life Universe: although everything that exists does so within the Universe, the Universe is itself a thing. It’s conceivable that some higher power could ‘exit the Universe’: with pretty catastrophic results for all us objects within it.
+Moreover, the world is _itself_ an object: in Ruby, it's called the 'main Object' (`main`) It’s like our real-life Universe: although everything that exists does so within the Universe, the Universe is itself a thing. It’s conceivable that some higher power could ‘exit the Universe’: with pretty catastrophic results for all us objects within it.
 
 Ruby is a language for writing code – setting up a program, or world – and it’s also an environment in which that world can exist. Whenever we run a Ruby program, we set up a main object, and a bunch of other objects too. For the next few chapters, we’ll be exploring these objects, who they are, and how they work, using a special kind of Ruby program called a **REPL (or ‘Read–Evaluate–Print Loop’)**. 
 
@@ -141,7 +141,7 @@ To move your instructions into a file, we must make a Ruby-specific file (just a
 
 1. _**Create a Ruby file. Call the file `hello_world.rb`.**_
 2. _**Open this file in a text editor, such as [Sublime Text](https://www.sublimetext.com/).**_
-3. _**Inside the file, type a line: `puts "Hello World!"`.**_
+3. _**Inside the file, type a line: `puts self`.**_
 4. _**Save the file.**_
 5. _**Launch IRB, immediately requiring this file using `irb -r ./hello_world.rb`.**_
 6. _**Run the file directly using `ruby ./hello_world.rb`**_

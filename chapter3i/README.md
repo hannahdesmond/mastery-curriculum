@@ -1,2 +1,5 @@
-# Control Flow
+# Input and Output?
+
+- `puts`
+- `gets`
 
