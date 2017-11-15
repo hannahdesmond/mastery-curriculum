@@ -2,9 +2,8 @@
 
 Most programming guides will start like this
 
-```
+```eval-ruby
 print “Hello World!”
-Hello World!
 ```
 
 They’ll then introduce all the various parts you need to be able to program:

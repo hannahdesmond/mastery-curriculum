@@ -1,5 +1,6 @@
 {
   "title": "Mastery Curriculum",
   "description": "The Mastery Curriculum for the Makers Academy PreCourse.",
-  "author": "Mary Rose Cook and Sam Morgan"
+  "author": "Mary Rose Cook and Sam Morgan",
+  "plugins": ["klipse"]
 }
