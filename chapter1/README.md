@@ -119,6 +119,7 @@ $> irb
 
 %/accordion%
 
+
 ## A note about code examples
 
 There are two kinds of code examples in this curriculum. In some of them, you can play with the Ruby code in-browser. These look like this:
@@ -137,6 +138,8 @@ $> irb
 ```
 
 In these code examples, I'll include the IRB prompt as a chevron ('`>`'). You don't need to enter the chevron into your IRB. If I'm typing in the console (Terminal), rather than in IRB, I'll include the prompt as a dollar-chevron `$>`. Again, you don't need to enter the dollar-chevron into the console.
+
+> Each line of the interactive code examples can be typed into IRB as a separate instruction. In Ruby, generally speaking, a newline (↵) means 'execute this instruction'. IRB allows you to send line-by-line instructions: interactive examples allow you to queue up instructions to send one-after-the-other.
 
 When I want to illustrate something but I don't want the code to be executed, I'll put a hashtag (`#`) in front of the code:
 

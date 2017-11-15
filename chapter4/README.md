@@ -135,6 +135,7 @@ todo_1.capitalize
 
 %/accordion%
 
+
 <Animation showing String being called into existence, knowing about the text, and capitalizing>
 
 ## Different objects, different purposes
@@ -162,6 +163,7 @@ one_string + two_string
 ```
 
 %/accordion%
+
 
 Notice that the interfaces of both instances of `String` and instances of `Integer` define methods for the message `+`: even though `+` does quite different things in each case (for integers, `+` adds, for strings, `+` concatenates). Messages are interpreted differently depending on the kind of object being interacted with.
 

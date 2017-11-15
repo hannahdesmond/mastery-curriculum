@@ -54,6 +54,7 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 
 %/accordion%
 
+
 > This 'enter your instruction' followed by 'send your instruction to the program world' pattern is the basis by which all coding happens.
 
 Let's try this again with another number:
@@ -82,6 +83,7 @@ one
 ```
 
 %/accordion%
+
 
 Ugh. That looks tricky. But let's take a minute to understand what the world's trying to tell us:
 
@@ -118,6 +120,7 @@ one = 1
 
 %/accordion%
 
+
 Whenever we ask the program world for the variable `one`, it will return the object that variable is pointing at:
 
 ![Asking the program world for a variable, and the world retrieving the object via pointer](../images/2-retrieving-object-by-variable.gif)
@@ -140,10 +143,18 @@ Nice! Now over to you: define names for:
 one = 1
 two = 2
 three = 3
+four = 4
+five = 5
+six = 6
+seven = 7
+eight = 8
+nine = 9
+ten = 10
 # and so on
 ```
 
 %/accordion%
+
 
 ## Making objects interact
 
@@ -179,13 +190,23 @@ Since our variables `one` through `ten` (and possibly more) have already been de
 
 %accordion%See how I'd do this%accordion%
 
-```irb
-> one + two
-=> 3
-> four * five
-=> 20
+```eval-ruby
+one = 1
+two = 2
+three = 3
+four = 4
+five = 5
+six = 6
+seven = 7
+eight = 8
+nine = 9
+ten = 10
+
+four * five
 ```
+
 %/accordion%
+
 
 ## Objects that change, and objects that don't
 
@@ -210,11 +231,13 @@ When we start the program world, some constants come into existence automaticall
 
 %accordion%See how I'd do this%accordion%
 
-```irb
+```eval-ruby
 > RUBY_VERSION
 => "2.4.1"
 ```
+
 %/accordion%
+
 
 In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants.
 
