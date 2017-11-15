@@ -135,14 +135,3 @@ There's usually some code to execute in here. You can't generally copy-paste it 
 ### Extensions or tangents
 
 > If something isn't directly related, but might be interesting, provide context, or more information, it'll be in a blockquote (like this).
-
-### Chapters
-
-1. [Hello World](./chapter1/README.md)
-1. [Variables and Statements](./chapter2/README.md)
-1. [Messages and Interfaces](./chapter3/README.md)
-1. [Other Objects](./chapter4/README.md) :construction:
-1. [Arrays](./chapter5/README.md) :construction:
-1. [Procedures](./chapter6/README.md) :construction:
-1. [Conditionals](./chapter7/README.md) :construction:
-1. [:question: Classes :question:](./chapter8/README.md) :construction:
