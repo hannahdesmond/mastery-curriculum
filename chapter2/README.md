@@ -53,6 +53,7 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 ```eval-ruby
 1
 ```
+
 </p>
 </details>
 <p></p>
@@ -85,6 +86,7 @@ Let's try to ask the program world for something non-existent.
 ```eval-ruby
 one
 ```
+
 </p>
 </details>
 <p></p>
@@ -123,6 +125,7 @@ Let's try this out.
 ```eval-ruby
 one = 1
 ```
+
 </p>
 </details>
 <p></p>
@@ -153,6 +156,7 @@ two = 2
 three = 3
 # and so on
 ```
+
 </p>
 </details>
 <p></p>
@@ -183,17 +187,6 @@ Here's the above, as a sequence:
 
 ```sequence
 REPL->Program World: "Give me the object referenced by the name '1'."
-Program World->1: "Hey, come here."
-1-->REPL: "OK, what do you want?"
-REPL->1: "Do you understand the message '+'?"
-1-->REPL: "Yes, it means 'add the value of whatever number object comes with it."
-REPL->Program World: "Give me the object referenced by the name '2'."
-Program World->2: "Hey, come here."
-2-->REPL: "OK, what do you want?"
-REPL->1: "+(2), please."
-Note over both 1 and 2: 1 adds its value to 2.
-1->3: "Hey, come here."
-3-->REPL: "OK, what do you want?"
 ```
 
 Here's the above, visually:
