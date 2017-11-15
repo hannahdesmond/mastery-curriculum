@@ -2,8 +2,9 @@
 
 Most programming guides will start like this
 
-```eval-ruby
-print “Hello World!”
+```irb
+> print “Hello World!”
+=> Hello World!
 ```
 
 They’ll then introduce all the various parts you need to be able to program:
@@ -120,7 +121,7 @@ $> irb
 
 > In code examples, I'll include the IRB prompt as a chevron ('`>`'). You don't need to enter the chevron into your IRB. If I'm typing in the console (Terminal), rather than in IRB, I'll include the prompt as a dollar-chevron `$>`. Again, you don't need to enter the dollar-chevron into the console.
 
-  </p>
+</p>
 </details>
 <p></p>
 
