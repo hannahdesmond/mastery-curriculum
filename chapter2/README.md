@@ -5,9 +5,9 @@
 We're going to build a numeral calculator. It'll work just like a normal calculator, except we'll be able to use numerals (English words representing numbers) to do basic maths. Something like this:
 
 ```irb
-> one + two
+> ONE + TWO
 => 3
-> four * five
+> FOUR * FIVE
 => 20
 ```
 
@@ -210,5 +210,53 @@ Since our variables `one` through `ten` (and possibly more) have already been de
 </p>
 </details>
 <p></p>
+
+## Objects that change, and objects that don't
+
+Some objects change throughout the course of the program. In [Module 5](../chapter5/README.md), we'll meet one of these kinds of objects: a string. We can bolt things onto these objects, and we can remove things from them, too. In [Module 7](../chapter7/README.md), we'll meet another: an array. Again, we can shove things into and pull things out of these objects. These kinds of objects are known as **mutable** objects.
+
+Some objects cannot change throughout the course of the program. Integers, like `1`, are a good example. `1` is `1` is `1` is `1`, and there's nothing we can do to change it. Even if we add `2` to `1`, the program world just goes and fetches another object: `3`. 
+
+`1` doesn't turn into `3`, it just stays as `1`. Forever. Or, until we turn off the program.
+
+In Ruby, we call these never-changing objects **constants**. We use naming for assigning constants, just like variables. But, there are special rules for naming constants: they have to start with a capital letter. Conventionally, the entire name is in capital letters.
+
+Here's an example of assigning a name, `CONSTANT`, to an object called `object`:
+
+```
+CONSTANT = object
+```
+
+When we start the program world, some constants come into existence automatically. One of these is `RUBY_VERSION`.
+
+* _**Open a REPL, and output the `RUBY_VERSION` constant.**_
+* _**Answer this: why isn't `RUBY_VERSION` just called `ruby_version`?**_
+
+<details>
+<summary>See how I'd do this</summary>
+<p>
+
+```irb
+> RUBY_VERSION
+=> "2.4.1"
+```
+</p>
+</details>
+<p></p>
+
+In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants.
+
+That's OK, though, as each name should be pointing to a different integer: and the integers are constant objects.
+
+* _**Extract your numeral calculator into a prewritten file, `variables.rb`.**_
+* _**Load `variables.rb` into IRB immediately, with `irb -r ./variables.rb`.**_
+* _**Ensure your numeral calculator works as below:**_
+
+```irb
+> ONE + TWO
+=> 3
+> FOUR * FIVE
+=> 20
+```
 
 > I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, an smaller, sub-world (a 'function') is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction: but why does Ruby do this klind of on-the-fly generation? The answer is: this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function: it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.
