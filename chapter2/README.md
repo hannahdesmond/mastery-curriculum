@@ -148,6 +148,7 @@ Nice! Now over to you: define names for:
 
 %accordion%See how I'd do this%accordion%
 
+```eval-ruby
 one = 1
 two = 2
 three = 3
