@@ -1,4 +1,6 @@
-# Code Curriculum
+# Mastery Curriculum
+
+Want to get started? Go to the [Summary](./SUMMARY.md).
 
 ## Setup
 
