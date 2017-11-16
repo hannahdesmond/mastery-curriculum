@@ -207,6 +207,22 @@ four * five
 
 %/accordion%
 
+## Variables and statements
+
+We can assign names to the results of statements:
+
+```eval-ruby
+fifteen = 10 + 5
+```
+
+Here's another example:
+
+```eval-ruby
+one = 1
+zero = one - one
+```
+
+> This is the first example we've seen where the computer doesn't just read and execute a file from top-to-bottom, left-to-right. First, `10 + 5` and `one - one` are evaluated. Second, the result (`15` and `0`) is assigned to the variable. In [Module 3](../chapter3/README.md), we'll learn some rules for deciding which 'chunk' of a line is executed first.
 
 ## Objects that change, and objects that don't
 
@@ -253,5 +269,17 @@ That's OK, though, as each name should be pointing to a different integer: and t
 > FOUR * FIVE
 => 20
 ```
+
+Another benefit to doing this is that constant names will complain if you try to reassign them:
+
+```irb
+> ONE = 1
+> ONE = ONE + ONE
+warning: already initialized constant ONE
+warning: previous definition of ONE was here
+=> 2
+```
+
+This makes sense for our purposes: we don't want anyone – be it another programmer or a user of the numeral calculator – the reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear: don't reassign these names, please: they're meant to stay this way.
 
 > I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, an smaller, sub-world (a 'function') is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction: but why does Ruby do this klind of on-the-fly generation? The answer is: this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function: it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.

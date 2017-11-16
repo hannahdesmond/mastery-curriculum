@@ -4,6 +4,12 @@
   "author": "Mary Rose Cook and Sam Morgan",
   "plugins": [
     "klipse",
-    "accordion"
-  ]
+    "accordion",
+    "flowchart"
+  ],
+  "pluginsConfig": {
+    "flowchart": {
+      "line-color": "black"
+    }
+  }
 }

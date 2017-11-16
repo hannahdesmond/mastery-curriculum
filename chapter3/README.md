@@ -12,11 +12,11 @@ The main object will then figure out what to do with the message. Just as we, th
 
 Here's a visual depiction of us, the programmer, interacting with the REPL by requesting an object by name (`one`). Provided that we have defined this variable, the REPL goes and fetches the object referenced by that name:
 
-<gif showing me interacting with the main object by sending it the message `one` and it figuring out to get me the '1' object>
+![Asking the program world for a variable, and the world retrieving the object via pointer](../images/2-retrieving-object-by-variable.gif)
 
 Now that we have the object referenced by `one`, we can send it messages directly. For instance, we can send it the '`+`' message, telling it to add another number to itself, and return the result:
 
-<gif showing me executing `1 + 2` and the resulting messages that are sent in the world>
+![Numbers interacting inside a program, by adding together](../images/2-numbers-interacting.gif)
 
 Or, we can send the object referenced by `one` other messages, like `integer?`, to tell us about itself:
 
@@ -37,7 +37,7 @@ What might surprise you is that the second way is, secretly, the only way to sen
 
 In the first case, `1 + 2`, Ruby is actually translating this to `1.+(2)`. We say, and see, 'one plus two', and Ruby translates that to "send the object referenced by `1` a message to add itself to the object referenced by `2`."
 
-##### Arguments
+## Arguments
 
 Sometimes, a messaged object knows everything it needs to know to answer the message. For instance: `1.integer?` is perfectly answerable by `1` all on its own: it doesn't need any other object to tell us whether it's an integer.
 
@@ -119,7 +119,7 @@ The set of messages that can be sent to an object is called its **interface** (f
 
 Interfaces are a list of object methods. Methods make up the interfaces of objects.
 
-<diagram of the above>
+<diagram of interfaces as holes on an object>
 
 How do we find out what an object's interface is? Two ways:
 
