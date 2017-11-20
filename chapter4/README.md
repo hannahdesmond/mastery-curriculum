@@ -30,7 +30,7 @@ So, we send `dad` a message: "Hey Dad, can you bake me a cake?". Maybe we ask th
 
 Dad goes off and does that, and once he's done, he `return`s the cake to us. Let's represent that as a flowchart:
 
-![A flowchart of Dad's cake recipe](4-flowchart-cake.png)
+![A flowchart of Dad's cake recipe](../images/4-flowchart-cake.png)
 
 ## Conditional procedures
 
@@ -39,13 +39,13 @@ Procedures are about more than just executing one set of instructions, though. R
 We'd like Dad to be able to stop his procedure if he doesn't have any flour. And we'd like him to `return` something to us in this case (maybe `0`, representing an 'error code' we agreed with him earlier), so we know what's gone wrong. Let's amend the first few procedures:
 
 1. Get bowl.
-2. IF flour exists, add flour.
-3. IF flour exists, add eggs.
-4. IF flour exists, add sugar.
-5. IF flour exists, bake mixture for 20 minutes.
-6. IF flour exists, cool mixture.
-7. IF flour exists, return mixture.
-8. IF flour does not exist, return `0`.
+2. _If flour exists_ add flour.
+3. _If flour exists_ add eggs.
+4. _If flour exists_ add sugar.
+5. _If flour exists_ bake mixture for 20 minutes.
+6. _If flour exists_ cool mixture.
+7. _If flour exists_ return mixture.
+8. _If flour does not exist_ return `0`.
 
 Steps 2 through 8 will now only be executed by Dad if flour exists. If flour doesn't exist, he'll jump straight to step 9, and return `0`. Since we know what `0` means when we ask Dad to `cake` (it means there's no flour), we can make a decision about what to do next. Here's the new flowchart:
 
@@ -58,7 +58,7 @@ These sorts of 'conditional' procedures are how the majority of programs work. D
 Let's investigate a more code-y example. How does `1` know to return `true` here?
 
 ```eval-ruby
--1.positive?
+1.positive?
 ```
 
 And `-1` knows to return `false`?
@@ -128,7 +128,7 @@ Update the flow chart, with the obvious conclusion of the flow:
 
 ![A flowchart demonstrating the flow of information through the statement, with 1 > 0 substituted for true](../images/4-flowchart-true.png)
 
-> This kind of process, replacing statements and names via referential transparency, is the first key skill in **computational thinking** (aka, thinking like a computer).
+> This kind of process, replacing statements and names via referential transparency, is the first key skill in **computational thinking**.
 
 So, when the program world runs the instructions within `1` (i.e. with `self` set to `1`), the result is:
 
@@ -142,7 +142,9 @@ end
 
 And that's how `positive?` works.
 
-> This process might seem laborious, but I'm trying to get you to think like the computer. In fact, Ruby will translate code statements like `if 1 < 0; else...` into something very similar to the flowchart we made: an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree). Being able to deconstruct code into similar structures – whether you verbalise them, draw them out, or something else – is a crucial part of learning to work with code.
+> Ruby will translate code statements like `if 1 < 0; else...` into something very similar to the flowchart we made: an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree). Being able to deconstruct code into similar structures – whether you verbalise them, draw them out, or something else – is a crucial part of learning to work with code.
+
+## Control Flow
 
 The idea of _controlling which instructions get executed and which don't_ is called the **control flow**. There are other ways to adjust the control flow: we'll meet them in a minute.
 
@@ -182,7 +184,7 @@ end
 
 ## More complex conditional procedures
 
-So far, we've seen conditionals that contain the simplest possible procedures: `return` a value depending on the truthiness or falsiness of some _condition_. 
+So far, we've seen conditionals that contain the simplest possible conditional procedures: `return` a value depending on the truthiness or falsiness of some condition. 
 
 In the last example above, we saw that these conditional procedures could be statements, too:
 
@@ -263,7 +265,7 @@ We've seen the comparison operators `>` and `<`. Here are the rest:
 <=
 ```
 
-Play in the REPL below to figure out which one means what.
+- _**Play in the REPL below to figure out which conditional operator means what.**_
 
 ```eval-ruby
 1 > 0
