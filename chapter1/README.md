@@ -159,6 +159,8 @@ Closing `irb` with `exit` will result in the program world being destroyed. Next
 
 Instead of starting from scratch each time, we can use a **file** to store the instructions we would have to type into the REPL. When we **require** (import) the file into the program, it'll be **executed** automatically. The result of executing these pre-written instructions is the world we want – and the REPL, if we want to use that, can provide an interactive window into that world.
 
+> a set of instructions stored up one after the other (for instance, in a file), is called a **procedure**. A real-world cake recipe (take a bowl, add flour, add eggs, add sugar, turn on oven to 200, cook for 20 minutes, remove mixture, cool) is an example of a procedure. Each step is executed one-at-a-time. The whole recipe can be 'reloaded' to create a ready-to-go cake at any time.
+
 <gif of world being created from a file>
 
 To move your instructions into a file, we must make a Ruby-specific file (just as a Microsoft Word document has the file suffix `.doc`, so Ruby has the suffix `.rb`), and then write our instructions into it, just as we would the REPL:
