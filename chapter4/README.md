@@ -383,7 +383,7 @@ Last module, we met `rand`, which generates random numbers. We could use it to w
 
 1. If I roll higher than my opponent, I win.
 
-Let's agree now that the program returning `false` means 'I lose', and `true` means 'I win.
+Let's agree now that the program returning `false` means 'I lose', and `true` means 'I win'.
 
 - _**Write the dice game as above.**_
 - _**Upgrade the dice game: now both I and my opponent roll two six-sided dice each.**_
