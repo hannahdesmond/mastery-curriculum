@@ -1,4 +1,6 @@
-# Arrays
+# Advanced Control Flow
+
+Now that we have access to a couple more Ruby objects, we can create much more powerful programs.
 
 This chapter
 
