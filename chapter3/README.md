@@ -182,3 +182,30 @@ Of course, this is going to get pretty ugly for our poor numeral calculator. We 
 > four / five
 => 0.8
 ```
+
+## Calling methods on the program object
+
+If we don't specify an object to send a message, by default it'll be sent to `main`, the main program object:
+
+```eval-ruby
++(3)
+```
+
+The main program object has a few useful methods. You've already met one: `puts`. Another useful one is `rand`:
+
+```eval-ruby
+rand
+```
+
+Each time you run `rand`, you'll get a random float between zero and one. If you give `rand` an integer argument:
+
+```eval-ruby
+integer = 6
+
+rand(integer)
+```
+
+You'll get a random number between zero and `integer - 1`.
+
+- _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command-line.**_
+

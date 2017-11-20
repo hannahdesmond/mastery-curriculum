@@ -376,3 +376,15 @@ end
 ```
 
 - _**Write a program that prints only odd numbers under 100 to the console.**_
+
+## Random conditionals
+
+Last module, we met `rand`, which generates random numbers. We could use it to write a simple dice game. The rules are:
+
+1. If I roll higher than my opponent, I win.
+
+Let's agree now that the program returning `false` means 'I lose', and `true` means 'I win.
+
+- _**Write the dice game as above.**_
+- _**Upgrade the dice game: now both I and my opponent roll two six-sided dice each.**_
+- _**Upgrade the game once more: now we play the best of three rounds (still with two dice each).**_
