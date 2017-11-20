@@ -234,9 +234,13 @@ Let's quickly investigate the difference between the two.
 puts String.new("Hello World!")
 ```
 
+%accordion%Here's my explanation%accordion%
+
 Here's my explanation: the REPL treats you, the REPL-typer, as if you (the programmer) were _just another object in the program_. When you ask an object something – say `1.integer?`, `1` treats that message as if it arrived from another program object. So, you get the return value (`true`), which is helpfully shown to you in the REPL.
 
 On the other hand: the method `puts` doesn't expect to be used from a REPL. It's designed to output information from the program to the console when you're _not_ using the REPL – in other words, when you're not 'inside' the program. `puts` actually does two things: outputs information to the console, and then returns `nil`.
+
+%/accordion%
 
 > `puts` is used a lot in pre-written programs, because it's one of the only ways to 'see into' the program world when you're not using a REPL.
 

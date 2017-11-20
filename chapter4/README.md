@@ -258,14 +258,13 @@ end
 We've seen the comparison operators `>` and `<`. Here are the rest:
 
 ```
->
-<
 ==
+!=
 =>
 <=
 ```
 
-- _**Play in the REPL below to figure out which conditional operator means what.**_
+- _**Play in the REPL below to figure out which comparison operator means what.**_
 
 ```eval-ruby
 1 > 0
