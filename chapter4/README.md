@@ -2,7 +2,7 @@
 
 We already know that when we start a Ruby program, some **objects** are made for us.
 
-![A user starting IRB in the terminal, causing a world to come into existence with a window as the 'REPL'](../images/2-irb-world.gif)
+![A user starting IRB in the terminal, causing a world to come into existence with a window as the 'REPL'](../images/2-numbers.gif)
 
 In [module 2](../chapter2/README.md), we saw that integer objects were ready and waiting for us whenever we set up the Ruby world. And, we **assigned** these pre-existent numbers to **variables**: in other words, we gave them programmer-friendly **names**.
 
@@ -30,7 +30,7 @@ And `-1` knows to return `false`?
 
 Let's go inside the `positive?` method defined on the interface of `1`:
 
-<animation showing 'going into' the method defined on these interfaces>
+<animation showing 'going into' the method defined on these interfaces and seeing some instructions>
 
 Inside `1`'s `positive?` method is a set of instructions (aka some _code_) like this:
 
@@ -62,8 +62,8 @@ Let's depict the contents of the `positive?` method as a flow chart, and simplif
 {% flowchart %}
 
 st=>start: positive?
-true=>end: True
-false=>end: False
+true=>operation: True
+false=>operation: False
 cond=>condition: is self > 0?
 
 st->cond
@@ -87,8 +87,8 @@ end
 {% flowchart %}
 
 st=>start: positive?
-true=>end: True
-false=>end: False
+true=>operation: True
+false=>operation: False
 cond=>condition: is 1 > 0?
 
 st->cond
@@ -114,8 +114,8 @@ Update the flow chart, with the obvious conclusion of the flow:
 {% flowchart %}
 
 st=>start: positive?
-true=>end: True
-false=>end: False
+true=>operation: True
+false=>operation: False
 cond=>condition: is true?
 
 st->cond
