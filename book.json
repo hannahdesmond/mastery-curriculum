@@ -5,11 +5,11 @@
   "plugins": [
     "klipse",
     "accordion",
-    "flowchart"
+    "disqus"
   ],
   "pluginsConfig": {
-    "flowchart": {
-      "line-color": "black"
+   "disqus": {
+      "shortName": "makers-mastery"
     }
   }
 }
