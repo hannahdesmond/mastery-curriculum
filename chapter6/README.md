@@ -425,4 +425,31 @@ move_number += 1
 
 That is to say: `a += b` is the same as writing `a = (a + b)`. It's a powerful, space-saving feature!
 
-%/accordion
+So, here's my complete program:
+
+```ruby
+move_number = 1
+
+while true
+  puts "You're facing forward. You can type forward, left, or right."
+
+  user_input = gets.chomp
+
+  if user_input == "right"
+    puts "You were killed by a goblin!"
+    break
+  elsif user_input == "left"
+    puts "You were killed by a werewolf!"
+    break
+  elsif user_input == "forward"
+    if move_number == 2
+      puts "You win!"
+      break
+    end
+
+    move_number += 1
+  end
+end
+```
+
+%/accordion%
