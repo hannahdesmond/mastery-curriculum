@@ -167,10 +167,28 @@ To move your instructions into a file, we must make a Ruby-specific file (just a
 
 1. _**Create a Ruby file. Call the file `hello_world.rb`.**_
 2. _**Open this file in a text editor, such as [Sublime Text](https://www.sublimetext.com/).**_
-3. _**Inside the file, type a line: `puts self`.**_
+3. _**Inside the file, type a line: `puts 1 + 1`.**_
 4. _**Save the file.**_
 5. _**Launch IRB, immediately requiring this file using `irb -r ./hello_world.rb`.**_
 6. _**Run the file directly using `ruby ./hello_world.rb`**_
 7. _**Describe the difference between the two.**_
 
-[Next module](../chapter2/README.md)
+## Getting output from a program
+
+The REPL treats us, the programmer, as if we were 'inside' the program world. That is to say: we can instruct objects in the program world directly, as if we too were an object.
+
+When we tell an object to do something, it always responds. This is the foundation of [Chapter 3](../chapter3/README.md), which goes into detail about how this 'messaging' works.
+
+However, when we tell ruby to load a pre-written world – to run a program from a file – we don't get to live in that world alongside the objects. It's created, it does its thing, then it disappears (unless you expressly tell it to stick around).
+
+So how can we get a view into this world while it exists – while the program's running? We can use a special command: `puts`. It stands for 'put string'. 
+
+> We'll find out more about strings in [Chapter 5](../chapter5/README.md).
+
+`puts` is really only useful to us when we run pre-written code (for example, by running `ruby hello_world.rb` like we did above). In fact, something weird goes on when we try to use it in the REPL:
+
+```eval-ruby
+puts 1 + 1
+```
+
+When we get to 'messages and interfaces', we'll think more about this. For now, it's enough to know that **`puts` can be used to print information from a program without a REPL**.

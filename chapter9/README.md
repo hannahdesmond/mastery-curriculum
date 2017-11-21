@@ -1,9 +1,9 @@
-# Classes
+# Writing your own methods
 
 This chapter
 
-* Queries what the hell this `Time` thing is and why it has an uppercase
-* Points out that some things, like `Time`, should really only exist once (there's only one 'Time')
-* Points out that there are many different _instances_ of 'Time' (1 o'clock, 2 o'clock, and so on)
-* Uses `new` with `Time` to capture _instances of `Time`_
-* Uses _Plato's Theory of Forms_ to generalise what classes are, and how they relate to instances.
+* Introduces procedures as a way to avoid having to type things all the time ('how do we make our program greet us?')
+* Introduces the idea of a code file as 'stored procedures'
+* Introduces the difference between defining a procedure and calling it (by defining a `greet` function in a file required by `irb` with `irb -r greet.rb` and then immediately invoking it, first in the REPL then in the file)
+* Introduces the idea of MVP steps
+* Introduces the idea of 'global scope' by how the procedure is defined on the Universe (main function) itself

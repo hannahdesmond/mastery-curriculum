@@ -4,7 +4,7 @@ Our REPL provides us with a window through which we can interact with the progra
 
 ## Messages
 
-We interact with the program world by sending it **messages**. In response to our messages, objects **return** something. In our REPL, by default we're interacting with the Main Object (the 'Universe').
+We interact with the program world by sending it **messages**. In response to our messages, objects **return** something (the 'return value'). In our REPL, by default we're interacting with the Main Object (the 'Universe').
 
 <gif showing me interacting with the main object by sending it messages>
 
@@ -183,7 +183,25 @@ Of course, this is going to get pretty ugly for our poor numeral calculator. We 
 => 0.8
 ```
 
-## Calling methods on the program object
+## Modulo
+
+A peculiar math operation sometimes used in programming is the _modulo_. It divides one number by another, then gives the 'remainder':
+
+```eval-ruby
+5 % 2
+```
+
+5 divided by 2 is 2.5. Modulo says "5 divided by 2 is 2, with 1 remaining."
+
+Here's another example of the modulo. Play around with it until you understand what it's doing:
+
+```eval-ruby
+6 % 3
+```
+
+> 6 divided by 3 is 2. Since 2 is a whole number, modulo says "6 divided by 3 is 2, with 0 remaining."
+
+## Making random numbers
 
 If we don't specify an object to send a message, by default it'll be sent to `main`, the main program object:
 
@@ -205,7 +223,6 @@ integer = 6
 rand(integer)
 ```
 
-You'll get a random number between zero and `integer - 1`.
+You'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
 
 - _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command-line.**_
-

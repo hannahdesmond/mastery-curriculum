@@ -253,6 +253,22 @@ if number.positive?
 end
 ```
 
+And, if there is more than one condition, you can use an `elsif` statement in between an `if` and an `else`:
+
+```eval-ruby
+number = 0
+
+if number.positive?
+  return true
+elsif number.negative?
+  return false
+else
+  return 0
+end
+```
+
+> Play with each of the examples in the REPL above until they make sense. You can always refresh the page if you messed something up!
+
 ## Comparison operators
 
 We've seen the comparison operators `>` and `<`. Here are the rest:
@@ -337,9 +353,142 @@ The code above will output 1, forever. The procedure – `puts 1` – will keep 
 
 ![A flow of control graph, demonstrating a while loop](../images/4-while-graph.jpg)
 
-Of course, being stuck in such an _infinite loop_ isn't usually that helpful – we want to quit the loop at some point, so we can keep on executing other instructions in the program.
+Of course, being stuck in such an _infinite loop_ isn't usually that helpful – we want to quit the loop at some point, so we can keep on executing other instructions in the program. Fortunately, Ruby gives us a way to exit from a `while` loop:
 
-Again, `while` loops are dependent on _conditions_. This while loop will never run at all:
+```ruby
+while true
+  puts 1
+  break
+end
+```
+
+This `break` keyword will jump out of the loop. Ruby will read the program line-by-line:
+
+- `while true`: Set up a `while` loop. Keep it going forever.
+- `puts 1`: Print `1` to the console.
+- `break`: Exit the loop.
+
+Anything _after_ a `break` won't be read. It works like a loop-style `return`:
+
+```ruby
+while true
+  puts 1
+  break
+  puts 2
+end
+```
+
+> `2` will never be printed, because it comes after the `break` statement.
+
+#### Using `while` and `break` to make games
+
+This sort of structure – `while true` with `break` – is especially useful for making games. It's especially powerful when combined with a conditional `break`: that is, a `break` that only happens under certain conditions. A regular condition for this kind of conditional `break` is the existence of a winner:
+
+```ruby
+while true
+  player_1_play
+  player_2_play
+
+  if winner_exists
+    break
+  end
+end
+```
+
+> If `winner_exists` returns false, the `break` will never be executed, returning to the top of the loop.
+
+Most games are loops, with some 'break' condition being 'the end of the game':
+
+- **Chess** is a loop that alternates turns between users forever, and `break`s when there is checkmate or stalemate:
+
+```ruby
+while true
+  player_1_play
+  player_2_play
+
+  if checkmate || stalemate
+    break
+  end
+end
+```
+
+- **Monopoly** is a loop that alternates turns between users forever, and `break`s when there is only one non-bankrupt player left.
+
+```ruby
+while true
+  player_1_play
+  player_2_play
+  player_3_play
+
+  if only_one_non_bankrupt_player_left
+    break
+  end
+end
+```
+
+- **Football** is a loop that kicks a ball around between teams, accumulating goals, and `break`s when 90 minutes have passed.
+
+```ruby
+while true
+  kick_ball
+  maybe_score_goal
+
+  if ninety_minutes_passed
+    break
+  end
+end
+```
+
+When being tasked with making a game, one of your first questions should be "what happens each game loop? And what's the break condition?". Simply by inventing new answers to these questions, new games are born.
+
+#### Using accumulators
+
+`while` loops are super-useful for repeatedly doing something to some existing variable:
+
+```ruby
+my_number = 0
+
+while true
+  my_number = my_number + 1
+
+  puts my_number
+end
+```
+
+Each time the `while` loop above runs: 
+
+- `my_number = my_number + 1`: `my_number` will increase in value by `1`.
+- `puts my_number`: `my_number` will be printed to the console.
+
+> Run this code at your peril! Infinite loops have interesting consequences on different machines.
+
+In short: `my_number` will count upwards, forever. So how about if we just wanted to print out the first ten numbers, then stop?
+
+```ruby
+my_number = 0
+
+while true
+  my_number = my_number + 1
+  puts my_number
+
+  if my_number == 10
+    break
+  end
+end
+```
+
+Now that we've added the conditional, each time the `while` loop above runs:
+
+- `my_number = my_number + 1`: `my_number` will increase in value by `1`.
+- `puts my_number`: `my_number` will be printed to the console.
+- `if my_number == 10`: only execute the following code if `my_number` is equal to `10`.
+- `break`: if the above condition was met, exit the loop.
+
+This technique is called using an **accumulator**. The accumulator 'keeps track' of what's going on in the `while` loop, and allows us to exit the loop in certain conditions. Our accumulator above keeps track of how many times the `while` loop has run.
+
+#### `while` loop conditions
+
+We've seen that we can make a `while` loop run forever with `while true`. This 'forever running' happens because `while` loops are dependent on _conditions_. This while loop will never run at all:
 
 ```
 while false
@@ -347,18 +496,27 @@ while false
 end
 ```
 
-And this while loop will print the integers 1 to 10 to the console before quitting the loop:
+And this while loop will print the integers 1 to 10 to the console before quitting the loop, by using an accumulator:
 
 ```ruby
-number = 1
+number = 0
 
-while 1 <= 10
-  puts number
+while number <= 10
   number = number + 1
+  puts number
 end
 ```
 
 - _**Using a while loop, print the numbers 10 to 100 to the console.**_
+
+I'd recommend building your `while` loops with `break`s until you're familiar with how they work, then seeing if you can turn those loops into conditional ones.
+
+#### Recap
+
+We've just seen two ways of controlling a program loop:
+
+- Using a conditional `break` with an accumulator.
+- Using a conditional `while` loop.
 
 ## Combining flows of control
 
@@ -380,7 +538,19 @@ end
 
 ## Random conditionals
 
-Last module, we met `rand`, which generates random numbers. We could use it to write a simple dice game. The rules are:
+Last module, we met `rand`, which generates random numbers. We can use it in conditionals if we want to produce random behaviour:
+
+```eval-ruby
+random_number = rand(10)
+
+if random_number < 5
+  return 0
+else
+  return 10
+end
+```
+
+We can use `rand` to, for example, write a simple dice game. (Game! You're probably going to need a loop of some sort.) The rules are:
 
 1. If I roll higher than my opponent, I win.
 

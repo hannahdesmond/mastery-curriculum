@@ -1,4 +1,4 @@
-# Arrays
+# Arrays and Iterators
 
 So far we've met objects that can really only 'contain' one thing:
 
@@ -138,3 +138,8 @@ sentence.join(" ")
 > Why can't I chain the methods together to make `sentence.delete_at(3).join(" ")`?
 
 %/accordion%
+
+- `length`
+- arrays of arrays
+- iterators: `each` (from while to each)
+- strings as lists of characters --> `split`
