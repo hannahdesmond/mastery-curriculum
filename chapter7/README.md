@@ -13,7 +13,7 @@ What if we want to store more than one thing in an object's state? Is there an o
 
 ## Collections
 
-The `Array` class is used to make a 'collection object': an object that can store many other objects inside itself. Crucially, a Ruby array is **mutable**: it can be made larger, by adding more objects. You can also remove objects from it.
+The `Array` class is used to make a 'collection object': an object that can store many other objects inside itself. Crucially, a Ruby array is **mutable**: it can be made larger, by adding more objects. You can also remove objects from it, and it'll shrink back down to size: like an elastic band.
 
 > An instance of the `Array` class is called an array.
 
@@ -28,6 +28,8 @@ an_array.push("Mario!")
 
 return an_array
 ```
+
+<animation showing adding items to an array>
 
 > Notice that I'm using Ruby's syntactic sugar to create new instances of the `String` class. Don't be fooled – under the hood, Ruby is still running `String.new("Hello World")`. It's just easier for me as a programmer to write it the shorthand way.
 
