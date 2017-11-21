@@ -215,6 +215,8 @@ This we can do with a `puts`:
 puts "You're facing forward. You can type forward, left, or right."
 ```
 
+> Every step I take, I'll test the game by running `ruby ./game.rb`. Get in the habit of running your code frequently!
+
 #### 3. Get the user's input
 
 I'm not going to write a loop yet: they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do with a `gets` and a `chomp`:
