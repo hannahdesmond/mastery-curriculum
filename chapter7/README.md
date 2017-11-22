@@ -282,7 +282,9 @@ array.length
 
 ## Using arrays to control the flow
 
-One main use of arrays is to control the flow of information. There are a few ways to do this. We can use a `while` loop with an accumulator to loop through each item of an array:
+One main use of arrays is to control the flow of information, by running a procedure once for each item of an array. This process is called **iterating** over an array. 
+
+There are a few ways to do this. We can use a `while` loop with an accumulator to loop through each item of an array:
 
 ```ruby
 my_array = ["Hello", "there", "friend!"]
@@ -373,3 +375,55 @@ end
 ```
 
 This kind of name, one that's assigned on-the-fly in a procedure, is called a **parameter**. We'll meet them in more detail, in [Chapter 9](../chapter9/README.md).
+
+> It's a good idea to name the parameter after what elements _are_. So, if you're iterating over an array of numbers, each element is a number: so the parameter should probably be called `number`. If you're iterating over an array of instances of the `Dog` class, each element is a dog: so the parameter should probably be called `dog`. The naming choice is up to you as a programmer: pick one that future programmers, who'll have to work with your procedure, will understand.
+
+## Using arrays as accumulators
+
+A common programming problem goes something like this:
+
+- Filter this list of numbers to return only numbers less than 10.
+
+To solve this, we can use an **array as an accumulator**. On each pass of a loop, we'll add items to an array if they meet a condition:
+
+```eval-ruby
+list_of_numbers = [17, 2, -1, 88, 7]
+accumulator = []
+
+list_of_numbers.each do |number|
+  if number < 10
+    accumulator.push(number)
+  end
+end
+
+accumulator
+```
+
+> The `accumulator` was mutated during the `each` loop (it had elements added to it). What happened to the `list_of_numbers`? Play with the REPL above to find out.
+
+## Checking if elements are in arrays
+
+We can use the `includes?` method to find out if an element is in an array:
+
+```eval-ruby
+words = ["Hello", "World!"]
+
+words.includes?("Hello")
+```
+
+- _**You've now met a very powerful set of array techniques. Combine them to build a program to the following specification (it's been started for you). Don't forget to break the specification into requirements!**_
+
+> I'm a client working for the Blank House. We want to display positive tweets about our president on our website. However, our president is kind of unpopular, and we pretty much only receive negative press. Write me a program that filters out the following words from tweets: "sucks", "bad", "hate", "foolish", and the most popular: "danger to society". Replace each negative word or phrase them with the word "CENSORED". Some test tweets have been provided for you.
+
+```eval-ruby
+test_tweets = [
+  "This president sucks!",
+  "I hate this Blank House!",
+  "I can't believe we're living with such a bad leadership. We were so foolish",
+  "President Presidentname is a danger to society. I hate that he's so bad – it sucks."
+]
+
+banned_phrases = ["sucks", "bad", "hate", "foolish", "danger to society"]
+```
+
+> It won't surprise you to know that these sorts of clients and these sorts of programs exist in the real world. As a programmer, you have a responsibility to build only what you're comfortable building. While you don't have to sign it, I recommend reading the [Responsible Software Manifesto](https://manifesto.responsiblesoftware.org/) and considering what sort of power you want to wield.
