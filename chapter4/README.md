@@ -344,7 +344,7 @@ So far we've met one way of controlling the flow of information in a program: co
 What about if we wanted to do a different kind of instruction? One where we don't want the computer to skip instructions: we want to repeat them.
 
 ```ruby
-while true
+while true do
   puts 1
 end
 ```
@@ -353,10 +353,12 @@ The code above will output 1, forever. The procedure – `puts 1` – will keep 
 
 ![A flow of control graph, demonstrating a while loop](../images/4-while-graph.jpg)
 
+> Notice that we wrap the procedure, `puts 1`, in a `do...end` structure. This is a structure that Ruby uses to formally designate a procedure. We don't use it with `if`, but we do with most other flows of control. It's actually optional for `while`, but I suggest using it for clarity. The takeaway is "everything between `do` and `end` is a procedure".
+
 Of course, being stuck in such an _infinite loop_ isn't usually that helpful – we want to quit the loop at some point, so we can keep on executing other instructions in the program. Fortunately, Ruby gives us a way to exit from a `while` loop:
 
 ```ruby
-while true
+while true do
   puts 1
   break
 end
@@ -364,14 +366,14 @@ end
 
 This `break` keyword will jump out of the loop. Ruby will read the program line-by-line:
 
-- `while true`: Set up a `while` loop. Keep it going forever.
+- `while true do`: Set up a `while` loop. Keep it going forever. Run the procedure inside the loop.
 - `puts 1`: Print `1` to the console.
 - `break`: Exit the loop.
 
 Anything _after_ a `break` won't be read. It works like a loop-style `return`:
 
 ```ruby
-while true
+while true do
   puts 1
   break
   puts 2
@@ -385,7 +387,7 @@ end
 This sort of structure – `while true` with `break` – is especially useful for making games. It's especially powerful when combined with a conditional `break`: that is, a `break` that only happens under certain conditions. A regular condition for this kind of conditional `break` is the existence of a winner:
 
 ```ruby
-while true
+while true do
   player_1_play
   player_2_play
 
@@ -402,7 +404,7 @@ Most games are loops, with some 'break' condition being 'the end of the game':
 - **Chess** is a loop that alternates turns between users forever, and `break`s when there is checkmate or stalemate:
 
 ```ruby
-while true
+while true do
   player_1_play
   player_2_play
 
@@ -415,7 +417,7 @@ end
 - **Monopoly** is a loop that alternates turns between users forever, and `break`s when there is only one non-bankrupt player left.
 
 ```ruby
-while true
+while true do
   player_1_play
   player_2_play
   player_3_play
@@ -429,7 +431,7 @@ end
 - **Football** is a loop that kicks a ball around between teams, accumulating goals, and `break`s when 90 minutes have passed.
 
 ```ruby
-while true
+while true do
   kick_ball
   maybe_score_goal
 
@@ -448,7 +450,7 @@ When being tasked with making a game, one of your first questions should be "wha
 ```ruby
 my_number = 0
 
-while true
+while true do
   my_number = my_number + 1
 
   puts my_number
@@ -467,7 +469,7 @@ In short: `my_number` will count upwards, forever. So how about if we just wante
 ```ruby
 my_number = 0
 
-while true
+while true do
   my_number = my_number + 1
   puts my_number
 
@@ -491,7 +493,7 @@ This technique is called using an **accumulator**. The accumulator 'keeps track'
 We've seen that we can make a `while` loop run forever with `while true`. This 'forever running' happens because `while` loops are dependent on _conditions_. This while loop will never run at all:
 
 ```
-while false
+while false do
   puts 1
 end
 ```
@@ -501,7 +503,7 @@ And this while loop will print the integers 1 to 10 to the console before quitti
 ```ruby
 number = 0
 
-while number <= 10
+while number <= 10 do
   number = number + 1
   puts number
 end
@@ -525,7 +527,7 @@ The majority of _flow of control_ combines loops and conditionals. Here's a simp
 ```ruby
 number = 1
 
-while number < 101
+while number < 101 do
   if number.even?
     puts number
   end

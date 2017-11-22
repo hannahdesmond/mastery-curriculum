@@ -188,7 +188,7 @@ So, put those things together, and we'll probably have something like this:
 ```ruby
 move_number = 1
 
-while true
+while true do
   # do a move
 
   if # some sort of death or win condition
@@ -317,7 +317,7 @@ We've seen these instructions before. OK! Now I could use a `while` loop. Of cou
 I'll have to add `break` statements where being killed should exit the program. I'll also remove the `puts`ing when the user gave either a 'forward' command, or some other command (maybe they typed 'chicken').
 
 ```ruby
-while true
+while true do
   puts "You're facing forward. You can type forward, left, or right."
 
   user_input = gets.chomp
@@ -350,7 +350,7 @@ I need something to track the turns: an accumulator. Then, I can exit depending 
 # Here's my accumulator
 move_number = 1
 
-while true
+while true do
   puts "You're facing forward. You can type forward, left, or right."
 
   user_input = gets.chomp
@@ -389,7 +389,7 @@ OK, let's tidy up this code a bit. For one, this final `else` condition doesn't 
 ```ruby
 move_number = 1
 
-while true
+while true do
   puts "You're facing forward. You can type forward, left, or right."
 
   user_input = gets.chomp
@@ -432,7 +432,7 @@ So, here's my complete program:
 ```ruby
 move_number = 1
 
-while true
+while true do
   puts "You're facing forward. You can type forward, left, or right."
 
   user_input = gets.chomp

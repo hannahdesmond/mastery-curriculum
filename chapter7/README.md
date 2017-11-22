@@ -123,6 +123,8 @@ sentence = ["Hello,", "you", "are", "NOT", "welcome", "here"]
 sentence.join(" ")
 ```
 
+> The argument you provide to `join` is the joining character. Here, we used a space (`" "`). What happens if we use a different character?
+
 - _**Add a line of code that removes the `"NOT"` string from the array, making the sentence friendlier. Don't modify the original array!**_
 
 %accordion%See how I'd do it%accordion%
@@ -139,7 +141,235 @@ sentence.join(" ")
 
 %/accordion%
 
-- `length`
-- arrays of arrays
-- iterators: `each` (from while to each)
-- strings as lists of characters --> `split`
+## Making arrays from strings
+
+Remember that strings are objects which:
+
+* Know about some text we give it, and 
+* Know how to interact with other instances of the `String` class.
+
+In [Chapter 5](../chapter5/README.md), we learned that strings store text:
+
+```eval-ruby
+string = String.new("Some text")
+```
+
+> In [Chapter 6](../chapter6/README.md), we saw that we can use Ruby's syntactic sugar to create new strings using `string = "Some text"`. Under-the-hood, this calls `String.new("Some text")`.
+
+What might surprise you is that strings are actually lists of characters. We can use some, but not all, array-like methods on them:
+
+```eval-ruby
+string = "Hello World!"
+
+string[0]
+```
+
+We just used the array reader method `[]` to pull the first character from a string (remember, lists are zero-indexed in Ruby).
+
+For more complicated strings, it can be helpful to turn them into arrays. Ruby gives us a method, `split`, to do this with:
+
+```eval-ruby
+string = "Hello World!"
+
+string.split
+```
+
+By default, `split` will split the string into an array of strings, using a space – `" "` – as the split point. 
+
+> We call this split point a _delimiter_.
+
+We can provide a different delimeter to `split` to make a different array:
+
+```eval-ruby
+string = "Hello World!"
+
+string.split("l")
+```
+
+> Where did the 'l's go in the example above? Think about this: in the first `split` example, where did the `" "` spaces go?
+
+If we provide an empty string (with no characters or spaces in it), the string will be split into an array with each element representing a character of that string:
+
+```eval-ruby
+string = "Hello World!"
+
+string.split("")
+```
+
+We've already seen that we can `join` arrays that are split. This gives us some power to manipulate strings:
+
+```eval-ruby
+bad_string = "Why|am|I|so|hard|to|read"
+
+string.split("|").join(" ")
+```
+
+## Arrays of arrays
+
+Arrays can contain any kind of object (although it's rare that they contain more than one kind at once):
+
+```eval-ruby
+array_of_strings = ["An", "array", "of", "strings!"]
+array_of_integers = [1, 4, 8]
+array_of_floats = [1.2, 1.4, 2.2]
+array_of_objects = [Object.new, Object.new, Object.new]
+
+mixed_array = ["An", 4, 2.2, Object.new]
+```
+
+Although it might seem a bit confusing, arrays can therefore contain other arrays:
+
+```eval-ruby
+array_of_arrays = [["An", "array", "of", "strings"], ["another", "array", "of", "strings"]]
+```
+
+Because this can get confusing to read, these 'arrays of arrays' are often split onto multiple lines. The following is the same as the above, just easier to read:
+
+```eval-ruby
+array_of_arrays = [
+  ["An", "array", "of", "strings"], 
+  ["another", "array", "of", "strings"]
+]
+```
+
+> Play around with `join` and the array reader function `[]` to figure out how this array of arrays works.
+
+Arrays of arrays could represent different groups (say, teams of people):
+
+```eval-ruby
+groups = [
+  ["Mary", "Sam"],
+  ["Peter", "Kay"]
+]
+
+team_1 = groups[0]
+team_2 = groups[1]
+```
+
+Or, we can make an array of arrays from different groups:
+
+```eval-ruby
+team_1 = ["Mary", "Sam"]
+team_2 = ["Peter", "Kay"]
+
+groups = [team_1, team_2]
+```
+
+> It's perfectly fine to reference variables within arrays. Why? _Referential transparency!_ Ruby just turns the names `team_1` and `team_2` into the arrays they reference.
+
+## Combining arrays
+
+You can combine arrays by adding them, just like strings:
+
+```eval-ruby
+array_1 = ["What's", "the", "last", "word", "in", "this"]
+array_2 = ["sentence?"]
+
+array_1 + array_2
+```
+
+> Since strings are actually storing lists of characters, this explains why the string method `+` does what it does.
+
+## Finding out how many elements there are
+
+We can get the length of an array (i.e. how many elements it contains) like this:
+
+```eval-ruby
+array = [1, 2, 3, 4]
+
+array.length
+```
+
+## Using arrays to control the flow
+
+One main use of arrays is to control the flow of information. There are a few ways to do this. We can use a `while` loop with an accumulator to loop through each item of an array:
+
+```ruby
+my_array = ["Hello", "there", "friend!"]
+current_index = 0
+
+while current_index < my_array.length do
+  puts "I'm looping!"
+  current_index += 1
+end
+```
+
+We could use this structure, combined with the array reader method `[]`, to run a procedure using each element of an array:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+current_index = 0
+
+while current_index < my_array.length do
+  puts my_array[current_index]
+  current_index += 1
+end
+```
+
+Ruby provides us with a neat way of doing this 'run a procedure using each element of the array' approach: the array `each` method:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do
+  puts "I'm looping!"
+end
+```
+
+What about if we want to reference each item within an array during the procedure? We can do that in the following way:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |element|
+  puts element
+end
+```
+
+This `|element|` structure looks pretty weird. It works like this:
+
+<animation demonstrating piping>
+
+In other words, as `each` walks through the array, it grabs an element and shoves it into the pipe. `each` temporarily gives that element a name – in this case, `element`. That way, we can use the element in the procedure we wrote.
+
+Just like program naming, we can call `element` whatever we like: so long as we use that name in the procedure. So, this:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |item|
+  puts item
+end
+```
+
+Is exactly the same as this:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |word|
+  puts word
+end
+```
+
+Is exactly the same as this:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |friendly_statement|
+  puts friendly_statement
+end
+```
+
+Is exactly the same as this:
+
+```eval-ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |chicken|
+  puts chicken
+end
+```
+
+This kind of name, one that's assigned on-the-fly in a procedure, is called a **parameter**. We'll meet them in more detail, in [Chapter 9](../chapter9/README.md).
