@@ -38,7 +38,7 @@ First up, I'll make a file: `greetings.rb`, and open it in a text editor (like S
 
 - The user sees a greeting, which asks them to enter their name.
 
-This one will require `puts`. Inside my `greetings.rb` file, I'll add:
+This one will require `puts`. Inside my `greetings.rb` file, I'll instruct the main object to print "Welcome user":
 
 ```ruby
 puts String.new("Welcome user")
@@ -46,16 +46,26 @@ puts String.new("Welcome user")
 
 #### 3. Get the user's name
 
-This one will require `gets`, and the string method `chomp`. Also, I'll need a variable to store the user's name:
+This one will require `gets`, and the string method `chomp`. I'll: 
+
+- Instruct the main object 'get a string' with `gets`,
+- Tell the string to remove any `\n` characters by sending it the message `chomp`,
+- Store the return value from the string in a variable called `user`.
+
+I can give these instructions in one line: `user = gets.chomp`.
 
 ```ruby
 puts String.new("Welcome user")
 user = gets.chomp
 ```
 
+> Read through this line I just added methodically. Make sure you understand which object is doing what.
+
 #### 4. Do the simplest thing first (print 'Hi ' plus the name)
 
-Even though the next requirement is to 'shout the user name if it begins with an S', I'm going to make the simplest thing first. That's generally a good strategy, as it avoids getting snarled up early on:
+Even though the next requirement is to 'shout the user name if it begins with an S', I'm going to make the simplest thing first. That's generally a good strategy, as it avoids getting snarled up in difficult things early on, allowing me to make progress.
+
+I'll instruct the main object to print a new instance of String with text "Hi, ", concatenated with the string the main object just assigned to the variable `user`:
 
 ```ruby
 puts String.new("Welcome user")
@@ -63,6 +73,8 @@ user = gets.chomp
 
 puts String.new("Hi, ") + user
 ```
+
+> _concatenated_ is a fancy way for saying 'stuck together with'.
 
 #### 5. Do the hard thing next (work out the conditional)
 
@@ -79,9 +91,11 @@ else
 end
 ```
 
+> `user.chr` gets the first character of the string referenced by `user`. I'm checking to see if it's equal to a string containing the text "S". If it is, instruct the main object to print the user. If not, instruct the main object to print a new instance of String with text "Hi, ", concatenated with the string referenced by the variable `user`.
+
 #### 6. Make sure you meet the requirements
 
-Everything's in place with the conditional, except I'm currently printing the `user` without upcasing it. So, let's fix that:
+Everything's in place with the conditional, except the main object is currently printing the `user` string without asking it to upcase itself first. So, let's call the `user` string's `upcase` method before printing it:
 
 ```ruby
 puts String.new("Welcome user")
@@ -98,7 +112,7 @@ end
 
 The last thing I'll do is _refactor_: tidy up my code so it's as good as it can be. 
 
-> Your code will be judged according to how readable and consistent it is. Refactoring is a huge field that we'll focus on a lot during the course. It's worth building the basics in here.
+> Your code will be judged according to how readable and consistent it is. Refactoring is a key skill that we'll focus on a lot during the course. It's worth building the basics here!
 
 I'm going to use several pieces of syntactic sugar to tidy up my code, so it's more readable. The first is to use Ruby's shorthand for creating strings: `"hello"` is syntactic sugar for `String.new("hello")`.
 
@@ -113,7 +127,7 @@ else
 end
 ```
 
-The second refactor I'm going to make is to use **early returns** along with one-line conditionals. Remember that `return` will break a procedure and return whatever value you pass to it. Using this knowledge, along with some syntactic sugar, we can do this:
+The second refactor I'm going to make is to use **early returns** along with one-line conditionals. `return` will stop an object from executing a procedure, and return whatever value you tell it to. Using this knowledge, along with some syntactic sugar, we can do this:
 
 ```ruby
 puts "Welcome user"
@@ -135,7 +149,7 @@ return puts user.upcase if user.chr == "S"
 return puts "Hi, #{user}"
 ```
 
-> `#{}` inside a string will allow you to execute Ruby inside a string.
+> `#{}` inside a string will allow you to execute a statement inside a string. The return value from the statement is concatenated into the surrounding string.
 
 We could get this program down to three lines if we wanted to, by using a [ternary operator](https://launchschool.com/books/ruby/read/flow_control). However, I don't think that makes it much better. This code is attractive to me because each line neatly mirrors each requirement we were given. The first line is the first requirement. The second line the second, and so on.
 
@@ -209,7 +223,7 @@ My first requirement (yours might be different) was:
 
 1. The user is told they're facing forward and can type 'forward', 'left', or 'right'.
 
-This we can do with a `puts`:
+This we can do by instructing the main object to `puts`:
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."
@@ -219,7 +233,7 @@ puts "You're facing forward. You can type forward, left, or right."
 
 #### 3. Get the user's input
 
-I'm not going to write a loop yet: they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do with a `gets` and a `chomp`:
+I'm not going to write a loop yet: they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do by telling the main object to `gets` a string, telling the string to `chomp`, and assigning the return value to a variable, `user_input`:
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."
@@ -231,7 +245,7 @@ user_input = gets.chomp
 
 2. If the user enters 'right', they die (goblin).
 
-The specification didn't say what should happen when a user dies (and we can't ask the client what they meant right now), so I'm figuring we just print something, then let the program exit (lazy programmer, right?).
+The specification didn't say what should happen when a user dies (and we can't ask the client what they meant right now), so I'm figuring we just get the main object to print something, then let the program exit (lazy programmer, right?).
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."
@@ -247,7 +261,7 @@ end
 
 3. If the user enters 'left', they die (werewolf).
 
-This is a matter of adding an `elsif` to the conditional from before:
+This is a matter of adding another branch to the procedure, by adding an `elsif` to the conditional from before:
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."

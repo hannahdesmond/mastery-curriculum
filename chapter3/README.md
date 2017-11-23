@@ -4,13 +4,11 @@ Our REPL provides us with a window through which we can interact with the progra
 
 ## Messages
 
-We interact with the program world by sending it **messages**. In response to our messages, objects **return** something (the 'return value'). In our REPL, by default we're interacting with the Main Object (the 'Universe').
+We interact with the program world by sending it **messages**. In response to our messages, objects **return** something (the 'return value'). When we're using the REPL, the program world treats us, the programmer, as if we were just another object in the object world.
 
-<gif showing me interacting with the main object by sending it messages>
+<gif showing me interacting with program objects by sending them messages>
 
-The main object will then figure out what to do with the message. Just as we, the user, send the main object messages, so the main object can send other objects messages.
-
-Here's a visual depiction of us, the programmer, interacting with the REPL by requesting an object by name (`one`). Provided that we have defined this variable, the REPL goes and fetches the object referenced by that name:
+Here's a visual depiction of us, the programmer, interacting with the REPL by requesting an object by name (`one`). Provided that we have defined this variable, the program world goes and fetches the object referenced by that name:
 
 ![Asking the program world for a variable, and the world retrieving the object via pointer](../images/2-retrieving-object-by-variable.gif)
 
@@ -54,7 +52,7 @@ Other times, a messaged object needs to know something else to answer the messag
 > => 9
 ```
 
-It's formally-correct (like dot syntax) to wrap an argument in **parentheses** `()`. But, sometimes that's optional:
+Just like dot syntax is formally-correct, it's formally-correct to wrap an argument inside **parentheses** `()` (I've done that above). But, sometimes, that's optional:
 
 ```eval-ruby
 # 2 is the argument
@@ -67,74 +65,41 @@ It's formally-correct (like dot syntax) to wrap an argument in **parentheses** `
 => 9
 ```
 
-> So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience.Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby syntax differs from normal – are rare. They're referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of the rules of the language.
+> So why does Ruby permit us to use this non-dot-syntaxy way of sending messages? In short, convenience. Ruby was designed to read as similarly to English as possible. These sorts of 'edge cases' – where Ruby syntax differs from normal – are rare. They're referred to as 'syntactic sugar' – because they are, quite literally, _sweeteners_ on top of the rules of the language.
 
 - _**Convert your numeral calculator to use dot syntax with parentheses.**_
 
-> We'll be using dot syntax with parentheses from now on.
+> We'll be using dot syntax with parentheses for now, so we can get used to writing formally-correct code.
 
-## Chaining messages
+## Making random numbers
 
-It's perfectly OK to send lots of messages to objects, one after the other:
+If we don't specify an object to send a message, by default it'll be sent to `main`, the main program object:
 
-```irb
-> four.+(five).+(seven).-(one)
-=> 15
+```eval-ruby
++(3)
 ```
 
-This 'multiple messages' is referred to as **chaining**. This works because, read left-to-right, each `object.message` is replaced by the value returned from sending that message to that object:
+The main program object has a few useful methods. You've already met one: `puts`. Another useful one is `rand`:
 
-<animation showing referential transparency through chaining>
-
-- We say "hey `4`, go get us the float with a value equal to your value".
-- `4` says "OK, here's `4.0`". 
-- Then we say "hey `4.0`, divide yourself with `5`".
-- `4.0` says "OK, that's `0.8`".
-
-> The principle that "`object.message` gets replaced by the return value, which can be a new `object` for a new `message`" is called **referential transparency**.
-
-## Interfaces
-
-What determines the possible things that can be sent to a particular object? If we wanted to, could we try:
-
-```irb
-> 1.any_message_i_want
-=> ???
+```eval-ruby
+rand
 ```
 
-Of course not. Objects have a limited number of possible messages they can be sent. In fact, it's this very set of messages that mostly determines what an object _is_ in Ruby. For instance, if an object responded to a set of messages like this:
+Each time you run `rand`, you'll get a random float between zero and one. If you give `rand` an integer argument:
 
-```irb
-> object.bark
-=> "woof!"
-> object.wag_tail
-=> "wag wag wag"
-> object.dream_about_chasing_things
-=> "*twitches*"
+```eval-ruby
+integer = 6
+
+rand(integer)
 ```
 
-Then you could pretty reasonably figure out what that object is (a dog, if you were guessing).
+You'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
 
-The set of messages that can be sent to an object is called its **interface** (from _inter_ (between) and _face_ (form) – so literally the shape of the space 'between objects'). A message that can be received by an interface is called a **method**. 
-
-Interfaces are a list of object methods. Methods make up the interfaces of objects.
-
-<diagram of interfaces as holes on an object>
-
-How do we find out what an object's interface is? Two ways:
-
-1. All Ruby objects have a method called `methods` defined on their interface. If you call it, you get a list of every method defined on that object's interface.
-2. Object interfaces are detailed in documentation, along with examples of how to use those interfaces. For instance, here's the [documentation for integers](https://ruby-doc.org/core-2.2.0/Integer.html).
-
-> If you're using the docs, right now we're using the word _interface_ interchangeably with _public instance methods_. We'll go deeper in the next module!
-
-- _**Find out every method defined on the interface of the object referenced by `1` (you don't have to memorise them).**_
-
-> Many beginner programmers feel like they have to memorise every method on an object's interface. That's not true. While there are core methods you should learn – like `+`, `-`, and so on – it's far more useful to get good at looking methods up. One benefit to Ruby methods is they're well-named: they usually do just what they say on the tin.
+- _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command-line.**_
 
 ## Integers and floats
 
-Something pretty weird happens when we do divison with our numeral calculator:
+Something pretty weird happens when we do division with our numeral calculator:
 
 ```irb
 > nine./(two)
@@ -183,46 +148,102 @@ Of course, this is going to get pretty ugly for our poor numeral calculator. We 
 => 0.8
 ```
 
-## Modulo
+## Interfaces
 
-A peculiar math operation sometimes used in programming is the _modulo_. It divides one number by another, then gives the 'remainder':
+What determines the possible messages that can be sent to a particular object? If we wanted to, could we try:
 
-```eval-ruby
-5 % 2
+```irb
+> 1.any_message_i_want
+=> ???
 ```
 
-5 divided by 2 is 2.5. Modulo says "5 divided by 2 is 2, with 1 remaining."
-
-Here's another example of the modulo. Play around with it until you understand what it's doing:
+Of course not. Objects have a limited number of possible messages they can be sent. In the case above, we'd get a useful error message telling us this:
 
 ```eval-ruby
-6 % 3
+1.any_message_i_want
 ```
 
-> 6 divided by 3 is 2. Since 2 is a whole number, modulo says "6 divided by 3 is 2, with 0 remaining."
+In fact, the very set of messages to which an object can respond mostly determines what an object _is_ in Ruby. For instance, if an object responded to a set of messages like this:
 
-## Making random numbers
-
-If we don't specify an object to send a message, by default it'll be sent to `main`, the main program object:
-
-```eval-ruby
-+(3)
+```irb
+> object.bark
+=> "woof!"
+> object.wag_tail
+=> "wag wag wag"
+> object.dream_about_chasing_things
+=> "*twitches*"
 ```
 
-The main program object has a few useful methods. You've already met one: `puts`. Another useful one is `rand`:
+Then you could pretty reasonably figure out what that object is (a dog, if you were guessing).
 
-```eval-ruby
-rand
+Likewise, if an object responded to messages like this without throwing errors:
+
+```irb
+> object.walk
+=> "waddle waddle"
+> object.quack
+=> "waak waak"
 ```
 
-Each time you run `rand`, you'll get a random float between zero and one. If you give `rand` an integer argument:
+You could guess that the object is a duck. This principle is known as **duck typing**. That is: _if it walks like a duck, and it quacks like a duck, it's a duck_. Ruby cares less about what objects are, in and of themselves, and more about what sorts of messages they respond to.
 
-```eval-ruby
-integer = 6
+Here's a more realistic example from a real-life program:
 
-rand(integer)
+```irb
+> object.calculate_average
+=> 17.4
 ```
 
-You'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
+Again, we can guess that `object` is probably some kind of 'calculator'.
 
-- _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command-line.**_
+The set of messages that can be sent to an object is called its **interface** (from _inter_ (between) and _face_ (form) – so literally the shape of the space 'between objects').
+
+<diagram of interfaces as holes on an object>
+
+## What happens when we send an object a message?
+
+Every message that can be received by an object has some sort of **procedure** attached to it. This is a set of instructions that is read by the machine, to produce some desired outcome. We'll go into much more detail about how to write these procedures later.
+
+Like many program objects, these procedures have names. A named procedure is called a **method**. Executing the procedure is referred to as _calling the method_.
+
+> An interface is a list of all the things an object can do: all the object's procedures. In other words, an interface is a list of object methods.
+
+## Investigating object interfaces
+
+How do we find out what an object's interface is (i.e. what messages they can respond to, or what methods they have)? Two ways:
+
+1. All Ruby objects have a method called `methods` defined on their interface. If you call the `methods` method, you get a list of every method defined on that object's interface.
+2. Object interfaces are detailed in documentation, along with examples of how to use those interfaces. For instance, here's the [documentation for integers](https://ruby-doc.org/core-2.2.0/Integer.html).
+
+> If you're using the docs, right now we're using the word _interface_ interchangeably with _public instance methods_.
+
+- _**Find out every method defined on the interface of the object referenced by `1`.**_
+
+> Many beginner programmers feel like they have to memorise every method on an object's interface. That's not true. While there are core methods you should learn – like `+`, `-`, and so on – it's far more useful to get good at looking methods up. One benefit to Ruby methods is they're well-named: they usually do just what they say on the tin. As a result, you can usually have a guess at the method you need before needing to look it up.
+
+## Chaining messages
+
+It's perfectly OK to send lots of messages to objects, one after the other:
+
+```irb
+> four.+(five).+(seven).-(one)
+=> 15
+```
+
+As the computer goes through the line, each `object.message` statement is replaced by the value returned from sending that message to that object:
+
+<animation showing referential transparency through chaining>
+
+This 'queueing up of messages' is referred to as **chaining**.
+
+- `four`: We say "hey program, go get us the object referenced by the name `four`".
+- _The program says "OK, here's `4`"._
+- `.+(five)`: We say "hey `4`, add the value of the object referenced by the name `five` to your value".
+- _`4` says "OK, here's `9`"._
+- `.+(seven)`: We say "hey `9`, add the value of the object referenced by the name `seven` to your value".
+- _`9` says "OK, here's `16`"._
+- `.-(one)`: We say "hey `16`, add the value of the object referenced by the name `one` to your value".
+- _`16` says: "OK, here's `15`"._
+- _The program says "I'm done with this line! Here's what it evaluated to: `15`"._
+
+> The principle that "`object.message` gets replaced by the return value, which can be a new `object` for a new `message`" is called **referential transparency**.

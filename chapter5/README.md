@@ -27,12 +27,12 @@ They're all pre-created at the point the program world starts up. This module wi
 
 ## `nil`
 
-`nil` quite simply represents _nothing_. It is used to expressly say 'there is an absence of anything here'.
+`nil` is an object that simply represents _nothing_. It can't do very much. It is used to expressly say 'there is an absence of anything here'.
 
 > If you come from a language that uses `void`, `nil` is Ruby's equivalent to the `void` return type.
 
 - _**Figure out similarities and differences between `nil`, `0`, and `false` by playing with `nil` in IRB.**_
-- _**Use the following example to figure out: is `nil` considered true, or false? How about `0`?**_
+- _**Use the following code example to figure out: is `nil` considered true, or false? How about `0`?**_
 
 ```eval-ruby
 if false
@@ -50,17 +50,17 @@ end
 
 Other than `true`, `false`, `nil`, and numbers (which, if you read the extension material, you'll know don't _really_ exist as objects until you ask for them by name), there aren't many immediately-useful objects around in a Ruby program by default. Your main job as a programmer is to make new objects to perform certain tasks.
 
-What sort of certain tasks? Let's pick a basic task from our Todo app:
+What sort of certain tasks? Let's pick a basic task from a Todo app:
 
 ```sh
 $> todo add put the dog in the car
 Todo added: Put the dog in the car
 ```
 
-In other words,
+Broken down into **requirements**, the feature above requires:
 
-- We want the user to be able to input text (a 'todo'), and retrieve it later. 
-- We might also want to manipulate that text: perhaps, to capitalize it.
+- The user to be able to input text (a 'todo'), and retrieve it later. 
+- The program to manipulate that text: perhaps, to capitalize it.
 
 We can't achieve the above just using numbers (well, not easily). We're going to need an object that stores and understands _text_, too. In a moment, we'll meet that object: the string.
 
@@ -74,15 +74,13 @@ In the program world, we call these gods **Classes**. They created all the objec
 
 Just like in myths from Ancient Greece, these 'gods' exist as objects inside the universe, and we can send them messages. Mostly, we send them messages asking them to create new objects in the program world. 
 
-> Objects created by these classes are called **Instances** of that class.
+One such 'god-like' object is the `Integer` class. Integers, like 1, 2, and 5, are called **instances** of the `Integer` class.
 
-One such 'god-like' object is the `Integer` class. Integers, like 1, 2, and 5, are 'instances of the Integer class'.
-
-When we start `irb` and the integers come into existence, they are created by this particular god. How does that happen?
+When we start `irb` and the integer objects come into existence, they are created by sending messages to the `Integer` class. How does that happen?
 
 > The true answer is complex, but for now we'll simplify.
 
-When we want to ask a Ruby class to create an instance of itself, we send it the message `new`. So it's reasonable to imagine that, when the program world starts, Ruby automatically does this sort of thing to create the pre-existing integers 'behind the scenes':
+When we want to ask a Ruby class to create an instance of itself, we send it the message `new`. So we could imagine that, when the program world starts, Ruby automatically (and secretly) does this sort of thing:
 
 ```ruby
 1 = Integer.new
@@ -104,7 +102,7 @@ We, too, can send the message `new` to these classes. This is how we create new 
 
 > The process of asking classes to create instances is called **instantiation**.
 
-Let's imagine that we wanted to populate our world with people. Each person has a height. Let's also imagine that Ruby pre-defined a `Person` class. Here's how we'd instantiate people: each time, asking the god of `Person`s to create a new instance with a certain height:
+Let's imagine that we wanted to populate our program world with person objects. Each person object has a height. Let's also imagine that Ruby pre-defined a `Person` class. Here's how we'd instantiate person objects: for each person object we want, we ask the god of `Person`s to create a new instance by calling `Person`'s `new` method with the height (an integer object) as an argument:
 
 ```irb
 > Person.new(120)
@@ -113,9 +111,9 @@ Let's imagine that we wanted to populate our world with people. Each person has 
 => #<Person:0x007fadf88045f0>
 ```
 
-> Notice how we pass the person's height to `Person` along with the `new` message. We'll find out more about how this works later.
+#### What's the return value from `new`?
 
-So what's with this `#<Person:0x007fadf88045f0>` thing? Simply: when we tell a class to create a new instance, Ruby gives us the instance we just created:
+What's with this `#<Person:0x007fadf88045f0>` thing returned by `Person.new`? Simply: when we tell a class, like `Person` to create a new instance – a new person object – that class returns to us the instance it just created:
 
 <decomposition of #<Person:0x007fadf88045f0>>
 
@@ -125,14 +123,14 @@ So what's with this `#<Person:0x007fadf88045f0>` thing? Simply: when we tell a c
 
 ## Introducing Strings
 
-We want a class whose instances understand working with text. This 'god of text' is provided by Ruby: the `String` class. The `String` class creates instances which: 
+The 'god of text' object is pre-defined by Ruby: the `String` class. The `String` class creates instances which: 
 
 * Know about some text we give it, and 
 * Know how to interact with other instances of the `String` class.
 
 > We call instances of the `String` class 'strings'.
 
-We need an object that stores and can manipulate some text. What better object than an instance of `String`?
+In our Todo example above, we need an object that stores and can manipulate some text. What better object than an instance of `String`?
 
 * _**Assign a variable `todo_1` to a new instance of `String`, storing the text `"wash the dog"`.**_
 * _**Send the string referenced by `todo_1` a message that activates the `capitalize` method on its interface.**_
@@ -151,13 +149,13 @@ todo_1.capitalize
 
 ## Different objects, different purposes
 
-When programming, we often stop to think: "what's the right class to create instances for this particular job?" 
+When programming, we often stop to think: "what's the right class to create objects to do this particular job?" 
 
-To that end, Ruby provides you a wide range of different classes, with different purposes: like `Integer` and `String`.
+Ruby provides us a wide range of different classes, each of which create instances with different purposes: like `Integer` and `String`.
 
-Objects created by these classes have quite different purposes. `Integer` instances understand the value of (whole) numbers, and `String` instances understand text. `Integer` instances (integers) know how to interact with other integers, and `String` instances (strings) know how to interact with other strings.
+`Integer` instances understand the value of (whole) numbers, and `String` instances understand text. `Integer` instances (integers) know how to interact with other integers, and `String` instances (strings) know how to interact with other strings.
 
-Even though they're different kinds of objects used for different purposes, these objects sometimes respond to the same message – but their methods might do quite different things with those messages.
+Even though they're different kinds of objects used for different purposes, strings and integers – and other sorts of objects – sometimes respond to the same message. However, their methods might do quite different things with those messages.
 
 What happens if integers try to interact with strings? In other words, what happens if instances of one class try to interact with instances of another?
 
@@ -178,44 +176,53 @@ one_string + two_string
 %/accordion%
 
 
-> As you can see, messages are interpreted differently depending on the kind of object they were sent to.
-
 ## Class and Instance interfaces
 
-It's easy to get confused between classes and instances, because they're both objects and they both exist in the program world. Both classes and instances have memory addresses: so their difference in purpose is purely a decision taken by Ruby designers.
+You might be forgiven for getting confused between classes and instances. What are some similarities between classes and instances? 
 
-> Class objects produce Instance objects: they are not the same object. A god of Fire is not the same object as a lit match. A god of Water is not the same object as a puddle.
+- They're both objects.
+- They both exist in the program world.  
+- They both have memory addresses (which is required for both of the above – both have to exist _somewhere_).
 
-Because Classes are different objects to Instances, they have different interfaces. For example: `String` defines `new` on its interface. When called, `String.new` produces a new instance of `String`. String instances, however, do not define `new` on their interfaces, because they're not classes – and so they're not responsible for creating new instances.
+But classes and instances are not the same thing: they're designed for difference purposes:
+
+- Class objects produce Instance objects.
+- Instance objects do all sorts of things.
+
+> A god of Fire is not the same object as a lit match. A god of Water is not the same object as a puddle.
+
+Because classes are different objects to instances, they have different interfaces. 
+
+> Remember that in Ruby, we mostly define what an object is by what messages it responds to: that is, what its interface is.
+
+For example: `String` defines `new` on its interface. When called, `String.new` produces a new instance of `String`. String instances, however, do not define `new` on their interfaces, because they're not classes – and so they're not responsible for creating new instances.
 
 ```eval-ruby
 string_instance = String.new("some words")
 string_instance_instance = string_instance.new
 ```
 
-Decomposing that error:
-
-<diagram of error decomposition>
-
-And visually depicting what we're trying to do:
-
-<gif showing calling #new on a class and on an object>
-
-> The methods defined on a class interface are called the `class methods`. The methods defined on an instance interface are called the `instance methods`.
-
-> `String`'s _class methods_ include `new`. `String`'s _instance methods_ include `capitalize` and `+`.
+> The methods defined on a class interface are called the `class methods`. The methods defined on an instance interface are called the `instance methods`. `String`'s _class methods_ include `new`. `String`'s _instance methods_ include `capitalize` and `+`.
 
 ## The main object
 
-Remember that the entire program world is contained within a Universe. That Universe is the Main Object.
+Remember that the entire program world is contained within a Universe. That Universe is the main object. If we don't designate an object to send a message to, the message gets sent to the program object:
 
-The Main Object is a special kind of instance: an instance of the `Object` class. When we call methods in IRB without addressing a particular object, we're calling them on the Main Object.
+```eval-ruby
+# Send the message + to integer object 1, with argument 2
+1.+(2)
+
+# Send the message + to the main object, with argument 2
++(2)
+```
+
+The main object is a special kind of instance: an instance of the `Object` class (yep, there's a class called `Object`). All instances of all classes are, ultimately, instances of the `Object` class.
 
 - _**Use the `methods` message in IRB to list the methods on the main object.**_
 - _**Send the main object the message `quit`.**_
 - _**Explain what just happened.**_
 
-> Ultimately, all classes are themselves instances of the `Object` class. So if a monotheistic version of the program universe appeals to you, you could think of `Object` as being the 'one true' god entity in Ruby. It's not very specialised – so it doesn't create objects that are very useful for us.
+> If a monotheistic version of the program universe appeals to you, you could think of `Object` as being the 'one true' god entity in Ruby. On its own, `Object.new` creates very unspecialized instances with no particular purpose. I often use `Object.new` as a 'placeholder object' if I'm programming and haven't decided which class I'll use to solve a particular problem yet.
 
 ## Input and Output
 
@@ -238,47 +245,21 @@ puts String.new("Hello World!")
 
 Here's my explanation: the REPL treats you, the REPL-typer, as if you (the programmer) were _just another object in the program_. When you ask an object something – say `1.integer?`, `1` treats that message as if it arrived from another program object. So, you get the return value (`true`), which is helpfully shown to you in the REPL.
 
-On the other hand: the method `puts` doesn't expect to be used from a REPL. It's designed to output information from the program to the console when you're _not_ using the REPL – in other words, when you're not 'inside' the program. `puts` actually does two things: outputs information to the console, and then returns `nil`.
+On the other hand: the method `puts` doesn't expect to be used from a REPL. It's designed to output information from the program to the console when you're _not_ using the REPL – in other words, when you're not 'inside' the program. `puts` actually does two things: outputs information to the console, and then returns `nil` to whichever object called it. Which, if you're pretending to be a program object by using the REPL, could be you.
 
 %/accordion%
 
-> `puts` is used a lot in pre-written programs, because it's one of the only ways to 'see into' the program world when you're not using a REPL.
+> `puts` is used a lot in non-REPL programs, because it's one of the only ways to 'see into' the program world when you're not using a REPL.
 
 #### Input
 
-How, then, do we _input_ to a program? Again, there are two ways:
+How, then, do we - as programmers – interactively _input_ information to a program? Again, there are two ways:
 
-1. Use the REPL to instruct the program, or objects in the program, directly.
+1. Use the REPL to instruct objects in the program directly.
 2. Use `gets` to input a string from 'outside the program'.
 
 - _**Investigate the difference between the two. Keep in mind the idea of being 'just another object in the program' when you're using the REPL.**_
 
-`gets` (which stands for 'get string') is very useful to add information on-the-fly to a program: the sort of thing we might need to do, say, if we were writing a build-your-own text adventure game. Which is totally what we're doing in the next module.
+`gets` (which stands for 'get string') is very useful to add information to a program on-the-fly: the sort of thing we might need to do, say, if we were writing a build-your-own text adventure game. Which is totally what we're doing in the next Chapter.
 
-> `gets` calls a method on the main object. This method returns a string. This string usually has a `\n` newline character in it. To get the string without the newline, use the string `chomp` method. A line of code using `gets` usually looks something like this: `user_input = gets.chomp`.
-
-
-## Putting it all together
-
-Let's build out the first part of our Todo app.
-
-- _**Start up IRB.**_
-- _**Define variables for three new instances of the `String` class: `todo_1`, `todo_2`, and `todo_3`. Each one should store some text with a todo item.**_
-- _**Create a pre-written world containing `todo_1`, `todo_2`, and `todo_3`, then print them immediately.**_
-
-You should be able to run:
-
-```bash
-$> irb -r ./todo.rb
-```
-
-And immediately see:
-
-```irb
-This is todo item 1
-This is todo item 2
-This is todo item 3
->
-```
-
-- _**Make it so the user can add a fourth todo item of their choice. This program should run outside of the REPL.**_
+> The message `gets` calls a method on the main object. This method returns a string. This string usually has a `\n` newline character in it. To get the string without the newline, use the string `chomp` method. A line of code using `gets` usually looks something like this: `user_input = gets.chomp`. The program will wait for the user to input a string, then continue with whatever procedure it's doing.

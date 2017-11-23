@@ -2,7 +2,9 @@
 
 We've written a lot of procedures, now. They've used conditional logic, loops, iterators, and a number of kinds of specialised object.
 
-But sometimes, we might want to reuse these procedures. Let's say that our program wants to average some test scores for classes, then average the averages of those scores to get an average for the whole school:
+But sometimes, we might want to reuse these procedures. Let's say that we have the following program specification:
+
+> We're a school. Our students have just finished taking their final test. We have test scores for each class of students, and we want to know the average for each class. We also want to know the average for the whole school.
 
 ```eval-ruby
 # Here are the scores
@@ -36,9 +38,9 @@ class_2_average = class_2_overall_score_accumulator.to_f / test_scores_for_class
 class_3_average = class_3_overall_score_accumulator.to_f / test_scores_for_class_3.length
 
 # Print out the averages
-puts "Class 1 average: " + class_1_average
-puts "Class 2 average: " + class_2_average
-puts "Class 3 average: " + class_3_average
+puts "Class 1 average: " + class_1_average.to_s
+puts "Class 2 average: " + class_2_average.to_s
+puts "Class 3 average: " + class_3_average.to_s
 
 # Store the averages in a variable
 average_scores_for_classes = [class_1_average, class_2_average, class_3_average]
@@ -55,7 +57,7 @@ end
 school_average = school_overall_score_accumulator.to_f / average_scores_for_classes.length
 
 # Print out the school average
-puts "School average: " + school_average
+puts "School average: " + school_average.to_s
 
 # And return it to the REPL
 school_average
@@ -67,12 +69,16 @@ Isn't there a better way?
 
 ## Defining methods
 
-Of course is there is. In the example above, we can extract some rules:
+Of course is there is. In the example above, we can use algorithmic thinking to extract some rules:
 
 1. Accumulate the scores.
 2. Divide the accumulation by the number of scores.
 
-And we can define a procedure that will handle it. To store this procedure, we'll need to define a method:
+We can write a procedure that will carry out these rules. And, using a method, we could give that procedure a name. That's what a method is: a **named procedure**. 
+
+> Variables are named objects. Methods are named procedures.
+
+Here's how we define a method:
 
 ```eval-ruby
 def method_name
@@ -90,7 +96,43 @@ end
 hello_world
 ```
 
+So, we're going to define a method called `average`:
+
+```eval-ruby
+def average
+end
+```
+
 > Right now, we're defining the method on the program object. That's why we can call our method without referencing an object. More on this in [Chapter 10](../chapter10/README.md) – if you're confused for now, go remind yourself about [Chapter 3](../chapter3/README.md)!
+
+## Return values from methods
+
+Remember that when we send an object a message, the object invokes a method using that message. Then, it carries out a procedure. Finally, it returns something back to whoever sent the original message.
+
+To designate what the return value should be from a method, use the `return` keyword:
+
+```eval-ruby
+def gimme_five
+  # We want the return value to be 5
+  return 5
+end
+
+gimme_five
+```
+
+Remember that procedures are read by the computer _instruction-by-instruction_. When the computer hits a `return` statement, it'll stop executing the procedure inside the method, and just return whatever it sees.
+
+That means that any instructions after a `return` instruction won't be executed:
+
+```eval-ruby
+def stop_halfway
+  return "Stop here"
+  sum = 1 + 1
+  return sum
+end
+```
+
+> Play around with the example above. How can we return `sum` instead?
 
 ## Method parameters
 
@@ -104,7 +146,27 @@ end
 hello("Sam")
 ```
 
-> Just like with the `each` loop, it doesn't matter what we call the parameter. I've called it `person` because that's a clear name for future programmers to read. But `name` would work, as would `nickname`, or `individual`, or `chicken`. So long as we refer to the parameter name we defined in the method procedure, we're golden.
+Method parameters define a variable inside the method procedure. The name of the variable is set to the parameter name, and the value is set to whatever argument you pass to the method when you execute it: 
+
+```eval-ruby
+def hello(person)
+  # In a couple of lines' time, 'person' will equal "Sam"
+  return "Hello, " + person + "!"
+end
+
+hello("Sam")
+```
+
+Just like with the `each` loop from Chapters [7](../chapter7/README.md) and [8](../chapter8/README.md), it doesn't matter what we call the parameter, so long as we refer to the parameter name in the method procedure. I've called this parameter `person` because that's a clear name for the procedure to use. But `name` would work, as would `nickname`, or `individual`, or `chicken`:
+
+```eval-ruby
+def hello(chicken)
+  # In a couple of lines' time, 'chicken' will equal "Sam"
+  return "Hello, " + chicken + "!"
+end
+
+hello("Sam")
+```
 
 ## Writing a method procedure
 
@@ -126,9 +188,9 @@ def average(scores)
 end
 ```
 
-> Remember – it doesn't matter what we call the parameter. I've called it `scores` because that's what we're going to pass to average. But `numbers` would work, as would `test_scores`, or `digits`, or `chickens`. So long as we refer to the parameter name we defined in the method procedure, we're good-to-go.
+> Remember – it doesn't matter what we call the parameter. The method will assign a variable inside itself, called `scores`, equal to whatever we pass into it. I've called the parameter `scores` because that's what we're going to pass to average. But `numbers` would work, as would `test_scores`, or `digits`, or `chickens`. So long as we refer to the parameter name we defined in the method procedure, we're good-to-go.
 
-From our code before, we know the first thing we do is accumulate the scores together:
+From the averaging code we wrote earlier, we know the first thing we do is accumulate the scores together:
 
 ```eval-ruby
 def average(scores)
@@ -170,70 +232,11 @@ end
 average([15, 23, 16, 100, 19])
 ```
 
-OK, let's use `average` to refactor our first code.
+What's the benefit of this? Well – now we can use `average` to refactor our first solution to the test scores problem.
 
 ## Refactoring code using methods
 
-Let's start with the code we had to begin with:
-
-```eval-ruby
-# Here are the scores
-test_scores_for_class_1 = [55, 78, 67, 92]
-test_scores_for_class_2 = [48, 99, 91, 70]
-test_scores_for_class_3 = [56, 58, 61, 98, 100]
-
-# Set up the accumulators
-class_1_overall_score_accumulator = 0
-class_2_overall_score_accumulator = 0
-class_3_overall_score_accumulator = 0
-
-# Add together for class 1
-test_scores_for_class_1.each do |score|
-  class_1_overall_score_accumulator += score
-end
-
-# Add together for class 2
-test_scores_for_class_2.each do |score|
-  class_2_overall_score_accumulator += score
-end
-
-# Add together for class 3
-test_scores_for_class_3.each do |score|
-  class_3_overall_score_accumulator += score
-end
-
-# Get the average for each class by dividing the sum by the number of scores
-class_1_average = class_1_overall_score_accumulator.to_f / test_scores_for_class_1.length
-class_2_average = class_2_overall_score_accumulator.to_f / test_scores_for_class_2.length
-class_3_average = class_3_overall_score_accumulator.to_f / test_scores_for_class_3.length
-
-# Print out the averages
-puts "Class 1 average: " + class_1_average
-puts "Class 2 average: " + class_2_average
-puts "Class 3 average: " + class_3_average
-
-# Store the averages in a variable
-average_scores_for_classes = [class_1_average, class_2_average, class_3_average]
-
-# Now set up an accumulator for the school scores
-school_overall_score_accumulator = 0
-
-# Add together for the school
-average_scores_for_classes.each do |class_average|
-  school_overall_score_accumulator += class_average
-end
-
-# Get the average for the whole school by dividing the sum by the number of classes
-school_average = school_overall_score_accumulator.to_f / average_scores_for_classes.length
-
-# Print out the school average
-puts "School average: " + school_average
-
-# And return it to the REPL
-school_average
-```
-
-First up, let's define and liberally apply our `average` method to it:
+First up, let's define and liberally apply our `average` method to our earlier code:
 
 ```eval-ruby
 # Define the average method
@@ -258,9 +261,9 @@ class_2_average = average(test_scores_for_class_2)
 class_3_average = average(test_scores_for_class_3)
 
 # Print out the averages
-puts "Class 1 average: " + class_1_average
-puts "Class 2 average: " + class_2_average
-puts "Class 3 average: " + class_3_average
+puts "Class 1 average: " + class_1_average.to_s
+puts "Class 2 average: " + class_2_average.to_s
+puts "Class 3 average: " + class_3_average.to_s
 
 # Store the averages in a variable
 average_scores_for_classes = [class_1_average, class_2_average, class_3_average]
@@ -269,7 +272,7 @@ average_scores_for_classes = [class_1_average, class_2_average, class_3_average]
 school_average = average(average_scores_for_classes)
 
 # Print out the school average
-puts "School average: " + school_average
+puts "School average: " + school_average.to_s
 
 # And return it to the REPL
 school_average
@@ -295,12 +298,12 @@ test_scores_for_class_2 = [48, 99, 91, 70]
 test_scores_for_class_3 = [56, 58, 61, 98, 100]
 
 # Print out the averages
-puts "Class 1 average: " + average(test_scores_for_class_1)
-puts "Class 2 average: " + average(test_scores_for_class_2)
-puts "Class 3 average: " + average(test_scores_for_class_3)
+puts "Class 1 average: " + average(test_scores_for_class_1).to_s
+puts "Class 2 average: " + average(test_scores_for_class_2).to_s
+puts "Class 3 average: " + average(test_scores_for_class_3).to_s
 
 # Print out the school average
-puts "School average: " + average([average(test_scores_for_class_1), average(test_scores_for_class_2), average(test_scores_for_class_3)])
+puts "School average: " + average([average(test_scores_for_class_1), average(test_scores_for_class_2), average(test_scores_for_class_3)]).to_s
 
 # And return it to the REPL
 average([average(test_scores_for_class_1), average(test_scores_for_class_2), average(test_scores_for_class_3)])
@@ -319,7 +322,7 @@ def average(scores)
     scores_accumulator += score
   end
 
-  puts scores_accumulator.to_f / scores.length
+  puts (scores_accumulator.to_f / scores.length).to_s
   scores_accumulator.to_f / scores.length
 end
 
@@ -358,4 +361,4 @@ If you can answer 'yes' to both 1 and 2, your method is more likely to be a good
 
 
 - `nil` in method bodies
-- `return`?
+- `return

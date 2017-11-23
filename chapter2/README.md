@@ -282,4 +282,22 @@ warning: previous definition of ONE was here
 
 This makes sense for our purposes: we don't want anyone – be it another programmer or a user of the numeral calculator – the reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear: don't reassign these names, please: they're meant to stay this way.
 
+## Modulo
+
+A peculiar math operation sometimes used in programming is the _modulo_. It divides one number by another, then gives the 'remainder':
+
+```eval-ruby
+5 % 2
+```
+
+5 divided by 2 is 2.5. Modulo says "5 divided by 2 is 2, with 1 remaining."
+
+Here's another example of the modulo. Play around with it until you understand what it's doing:
+
+```eval-ruby
+6 % 3
+```
+
+> 6 divided by 3 is 2. Since 2 is a whole number, modulo says "6 divided by 3 is 2, with 0 remaining."
+
 > I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, an smaller, sub-world (a 'function') is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction: but why does Ruby do this klind of on-the-fly generation? The answer is: this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function: it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.

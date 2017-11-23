@@ -794,30 +794,153 @@ end
 
 #### What can see a local variable?
 
-**Regular variables** are normally referred to as **local variables**. They can be 'seen' by any object _inside_ the object in which they were defined:
+**Regular variables** are normally referred to as **local variables**. Here, we're in imperative-land: telling the computer what to do, line-by-line.
+
+If a line defining that local variable _has already been executed_, that local variable is available to anything that wants it.
 
 ```eval-ruby
 # Define a local variable in the main program object
+my_variable = 1
 
-
+# We can access the local variable here, because the line above was executed before this one
+my_variable
 ```
 
+<animation showing local variables>
 
+This is the case even if the local variable was defined in a conditional branch that got executed:
 
-In programming, defining methods or variables on the main program object is called defining at **global scope**. Global, because it surrounds the entire program (sometimes it's called the '_universal_ scope'). But 'scope'?
+```eval-ruby
+if true
+  # This conditional branch will be executed
+  my_variable = 1
+end
+
+my_variable
+```
+
+One gotcha – strange things happen if you define variables in branches that _don't_ get executed:
+
+```eval-ruby
+if false
+  my_variable = 1
+end
+
+my_variable
+```
+
+The program can still read the name: but the value is set to `nil`.
+
+There's one really tricky thing about local variables, and it has to do with methods. Here it is:
+
+```eval-ruby
+def my_method
+  my_variable = 1
+end
+
+my_variable
+```
+
+Why can't the main object see the `my_variable` variable, even though it was defined in the lines above? The answer that most makes sense: `my_method` didn't get executed yet. We only declared it, but we didn't call the method.
+
+So we can solve it like this, right?
+
+```eval-ruby
+# define the method
+def my_method
+  my_variable = 1
+end
+
+# run the method, executing the procedure that defines my_variable
+my_method
+
+my_variable
+```
+
+Wrong. For some reason – even though the procedure `my_variable = 1` (inside the method `my_method`) has been executed – the main object still can't see `my_variable`. Why is this?
 
 ## Scope
 
-In Ruby, **scope** is: 'whatever an object has access to'. Think of a sniper-rifle scope: when you look down it, you can only see a part of the world: the part of the world you can shoot.
+Every time we write one of the following:
 
-In general, we want to _minimise the scope_ of objects. We don't want them to have access to more of the program than they should. When we do something like this:
+- `def`
+- `class`
+
+We 'open' something.
+
+- `def` opens a method, so we can define a procedure inside.
+- `class` opens a new class, so we can define methods inside.
+
+The keyword `end` then 'closes' that something you just opened.
 
 ```eval-ruby
-named_object = Object.new
+def average
+  # we opened the average method, so we can define procedures in it
+end
+
+class Dog
+  # we opened the Dog class, so we can define methods in it
+end
 ```
 
-Everything in the program can now access and use the name `named_object`: so everything in the program can now access and use the object it references. This can make for a super-confusing message flow, as every part of the program tries to access names declared somewhere else. Grow beyond a few dozen lines of code, and it's going to get horrible.
+Variables that we define inside these things cannot be seen outside of them:
 
-This chapter
+```eval-ruby
+def average
+  accumulator = 0
+end
 
-* Creating your own object worlds
+class Dog
+  some_variable = 1
+end
+
+puts accumulator
+puts some_variable
+```
+
+The area of a program in which a variable can be read is called the variable **scope**. `def` and `class` are known as **scope gates**: when the program runs this instruction, it enters a new scope. Variables defined inside this scope cannot be read outside of the scope gate. Variables defined outside of the scope gate cannot be read inside it.
+
+```eval-ruby
+my_variable = 1
+
+def my_method
+  # I'm in a new scope gate! I can't read my_variables
+  my_variable + my_variable
+end
+
+my_method
+```
+
+Here's a visual representation of scope:
+
+<diagram of code with highlighted scope and out of scope>
+
+> Confused by the word 'scope'? Think of the scope on top of a sniper-rifle: when you look down it, you can only see a part of the world: the part of the world you can shoot.
+
+## Scope and parameters
+
+Scope is especially helpful when it comes to understanding method parameters. For each parameter, methods will define a local variable within their scope. The name of that variable will be set to the name of the parameter:
+
+```eval-ruby
+age = 22
+
+def age_reporter(number)
+  # Whatever we pass as an argument to age_reporter will be assigned to a local variable named 'number'
+  return "Your age is " + number.to_s
+end
+
+age_reporter(age)
+```
+
+Since `def` is a scope gate, we can't read these local variables outside of them:
+
+```eval-ruby
+name = "Sam"
+
+def say_hi_to(person)
+  return "Hi, " + person
+end
+
+# We can't read this
+person
+```
