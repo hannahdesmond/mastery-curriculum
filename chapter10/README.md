@@ -42,6 +42,25 @@ And it'll just _tell you the answer_.
 
 These are the kinds of worlds we strive to create as programmers. One very popular route to doing so is to use **Object-Oriented Programming**. We've met a bunch of this already, but here's a quick refresher:
 
+```eval-ruby
+# String is a class – an object in the program world.
+# When we send the message 'new' to it, the class figures out how to make an instance
+# my_string is an instance of the String class. It's also an object in the program world: a new one
+my_string = String.new("Hello World")
+
+# We can tell my_string to do things, declaratively
+# Here, we'll tell my_string to return its text in uppercase
+# We don't really have to care about how the computer makes this happen
+# (maybe it iterates through the list of characters and upcases each one?)
+# All we care about is that it's easy to do
+my_string.upcase
+```
+
+In this chapter, we'll learn how to move from an imperative to a declarative world, by: 
+
+- defining new methods on object interfaces, then 
+- defining whole new objects.
+
 ## Back to the program world
 
 Remember our view of the program world:
@@ -106,6 +125,684 @@ end
 We defined this method _on the main object_.
 
 > In Ruby, there are no 'objectless methods'.
+
+## Defining methods on objects
+
+Remember that the main program object is an _instance of the `Object` class_. Here's how we'd define the `average` method on the main object formally:
+
+```eval-ruby
+class Object
+  def average(scores)
+    scores_accumulator = 0
+
+    scores.each do |score|
+      scores_accumulator += score
+    end
+
+    scores_accumulator.to_f / scores.length
+  end
+end
+
+average([1, 2, 3])
+```
+
+> Notice that we're _opening up the class_ to fiddle with its insides. We're essentially _rewiring the gods_ so they create slightly different kinds of things.
+
+The above simply a more formal way of writing:
+
+```eval-ruby
+def average(scores)
+  scores_accumulator = 0
+
+  scores.each do |score|
+    scores_accumulator += score
+  end
+
+  scores_accumulator.to_f / scores.length
+end
+```
+
+Because, by default, _methods are defined on the main object_.
+
+How about if we wanted to define a method on another object? Say, something that would allow us to do:
+
+```irb
+> my_object = "A string!"
+> my_object.say_hi
+=> "Hi there!"
+```
+
+That is: when we send the message `say_hi` to a string, it should return `"Hi there!"`.
+
+`say_hi` is not, by default, part of the instance methods available to strings. So, we have to define it, just like we did the `average` method on `Object` instances:
+
+```eval-ruby
+class String
+  def say_hi
+    "Hi there!"
+  end
+end
+
+my_object = "A string!"
+my_object.say_hi
+```
+
+> Again: we're _opening the String class_ to fiddle with the kinds of objects it creates. In this case, we're telling the `String` class: "when you create instances, make sure they have this method, too".
+
+- _**Define another method on the string above, called `say_hi_to`. It should take one argument, a name. It should return "Hi, <name>!"**_
+
+## Using object state in methods
+
+Let's do something useful with this information. Our `average` method would be even more ace if we could just go:
+
+```ruby
+[1, 2, 3].average
+```
+
+> `[1, 2, 3].average` feels far more declarative than `average([1, 2, 3])`. It uses the familiar dot syntax, too.
+
+To do this, we need to define a new method on `Array` instances:
+
+```eval-ruby
+class Array
+  def average
+    # Somehow, do the averaging in here
+  end
+end
+```
+
+But we have a problem – in order to average an array of number elements, we need access to those elements. Instances of the `Array` class know about their own elements: but how can we access them?
+
+
+Enter the Ruby keyword `self`. `self` refers to the 'current object we're inside'. So, when we're messing around defining methods on `Array` instances, `self` refers to the instance.
+
+```eval-ruby
+class Array
+  def average
+    return self
+  end
+end
+
+[1, 2, 3].average
+```
+
+> Notice that we get the array instance itself back when we call `self`.
+
+We can use `self` to access the array instance's own elements, and average them:
+
+```eval-ruby
+class Array
+  def average
+    accumulator = 0
+
+    self.each do |element|
+      accumulator += element
+    end
+
+    accumulator.to_f / self.length
+  end
+end
+
+[1, 2, 3].average
+```
+
+- _**Define a method on string instances, called `shoutify`. This method should return the string text in uppercase, with an extra exclamation mark on the end. In other words, `"hello world".shoutify` should return `"HELLO WORLD!"`.**_
+
+## Defining your own classes
+
+We've just seen how to use the `class` keyword to 're-open' existing classes and mess around with the instances they make. We can also use this `class` keyword to define entirely new classes – new gods – each of which can create whole new instances.
+
+We're going to try and build the following program:
+
+```ruby
+fido = Dog.new
+
+fido.bark
+# We should see "Woof!"
+```
+
+We can actually let our error messages tell us what to do at each stage. This is a helpful way to figure out what we need to do next, step-by-step. Let's try running our program as-is:
+
+```eval-ruby
+fido = Dog.new
+fido.bark
+```
+
+OK, we have an error: `uninitialized constant Dog`. What's this telling us? It's saying "I couldn't find a name 'Dog'". Let's make one!
+
+```eval-ruby
+Dog = "a dog"
+
+fido = Dog.new
+fido.bark
+```
+
+I did the simplest thing, and we have a new, explanative error. Apparently the `String` instance I made, `"a dog"`, doesn't respond to `new`. It sounds like we need `Dog` to be some kind of object that responds to `new`.
+
+What objects respond to `new`? Classes! It turns out that Ruby has a class called `Class`. It's the god of classes! Instances of the `Class` class are, well, classes. We can send `new` to it, and get a new class in response:
+
+```eval-ruby
+Dog = Class.new
+
+fido = Dog.new
+fido.bark
+```
+
+We've just defined a new class, `Dog`. However, we haven't added any methods to it. Let's do that, using the technique we used before with `Object`, `Array`, and `String`:
+
+```eval-ruby
+Dog = Class.new
+
+class Dog
+  def bark
+    return "Woof"
+  end
+end
+
+fido = Dog.new
+fido.bark
+```
+
+And that's how we define new kinds of object, and new methods on those objects.
+
+We've seen so far that the `class` keyword is shorthand for "open up this class, and do things with it". It's actually a bit cleverer than this. If the class given to `class` doesn't exist, it will be made on-the-fly. That means we can tighten the example above down to:
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof"
+  end
+end
+
+fido = Dog.new
+fido.bark
+```
+
+This is a more common way to define new kinds of object (and methods on them) in Ruby.
+
+- _**Add another method to the `Dog` class.**_
+
+## Object properties
+
+Remember how `1` knows about its value (1)? And how instances of `String` know about some text? These things are both examples of **object state**. In fact, a string's internal characters are referred to as **properties** of the string.
+
+Let's upgrade our Dog class. We'd love to be able to do something like this:
+
+```ruby
+fido = Dog.new
+
+fido.colour = "brown"
+
+fido.observe
+# returns "You see a brown dog."
+```
+
+Moreover, we'd love to be able to do something like this:
+
+```ruby
+fido = Dog.new
+chelsea = Dog.new
+
+fido.colour = "brown"
+chelsea.colour = "white"
+
+fido.observe
+# returns "You see a brown dog."
+
+chelsea.observe
+# returns "You see a white dog."
+
+fido.observe
+# returns "You see a brown dog."
+```
+
+That is: we want instances of the `Dog` class – dog objects – to:
+
+- Respond to a method `colour =` by setting a property on themselves
+- Respond to a method `observe` with a string
+- Vary that string according to the colour property
+- Remember what colour they are, so they always return 'their' string
+
+We already know how to define new methods on `Dog`, so let's allow our errors to guide us:
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+end
+
+fido = Dog.new
+fido.colour = "brown"
+fido.observe
+```
+
+We get a useful error: `colour=: undefined method 'colour=' for #<Dog:0x1b210>`. (Your memory address, '0x1b210' bit, will probably differ from mine.)
+
+> In [Chapter 5](../chapter5/README.md), we found out that the `0x1b210` (or whatever number you have) is a _hexadecimal number_ referencing the memory address of the dog instance.
+
+We can fix this by simply doing as we're told: defining a method `colour=` on dog instances:
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+
+  def colour=
+  end
+end
+
+fido = Dog.new
+fido.colour = "brown"
+fido.observe
+```
+
+Now we have a new error: `undefined method 'observe' for #<Dog:0x1b210>`. We can fix this in the same way:
+
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+
+  def colour=
+  end
+
+  def observe
+  end
+end
+
+fido = Dog.new
+fido.colour = "brown"
+fido.observe
+```
+
+> Notice that we're not doing anything with the methods, yet. We're just defining them to get rid of the errors.
+
+OK! Now we don't see any more errors. But – at the moment, `observe` just returns `nil`.
+
+> Remember, empty method procedures just return `nil` in Ruby.
+
+Let's fix that with the string we want:
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+
+  def colour=
+  end
+
+  def observe
+    return "You see a brown dog."
+  end
+end
+
+fido = Dog.new
+fido.colour = "brown"
+fido.observe
+```
+
+Awesome! Does this work for `chelsea`, the white dog, too?
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+
+  def colour=
+  end
+
+  def observe
+    return "You see a brown dog."
+  end
+end
+
+chelsea = Dog.new
+chelsea.colour = "white"
+chelsea.observe
+```
+
+Ah, the program still suggests that Chelsea is a brown dog. We need to make the program vary according to the colour we provide: we need some way for the `Dog` instance to remember the colour we give it.
+
+Here's how Ruby objects can be told to remember values:
+
+```eval-ruby
+class Dog
+  def bark
+    return "Woof!"
+  end
+
+  def colour=(colour)
+    @colour = colour
+  end
+
+  def observe
+    return "You see a " + @colour + " dog."
+  end
+end
+
+chelsea = Dog.new
+chelsea.colour = "white"
+chelsea.observe
+```
+
+The above code will work for both Fido and Chelsea. That's because we're saving the colour property, passed as an argument to the `colour=` method, to the object state. To save things to the object state, we use an **instance variable**.
+
+Let's look more closely at what the `colour=` method is doing:
+
+```eval-ruby
+def colour=(colour)
+  @colour = colour
+end
+```
+
+- In line 1, we define a new method `colour=`. It takes one argument, which we name `colour`.
+- In line 2, we set up a new name, `@colour`, and assign it to the `colour` parameter of the `colour=` method.
+- In line 3, we close the `colour=` method.
+
+Let's give another example of this.
+
+```eval-ruby
+class Person
+  def give_a_name(name)
+    @my_name = name
+  end
+
+  def introduce
+    return "Hello, I'm " + @my_name
+  end
+end
+
+woman = Person.new
+woman.give_a_name("Yasmin")
+woman.introduce
+```
+
+In the example above, we:
+
+- define a `Person` class with some methods.
+- assign a new instance of `Person` to the variable `woman`.
+- Set the property `@my_name` on the `Person` instance referenced by `woman` to a new string, `"Yasmin"`.
+- Call the `introduce` method on the `Person` instance referenced by `woman`, which returns a string, `"Hello, I'm Yasmin"`.
+
+> Look closer at the method `give_me_a_name`. We can call the parameter `name` whatever we want, so long as we reference that same parameter in the method procedure.
+
+The following code will do exactly the same thing: but I've changed some of the variable and method names around to make a point:
+
+```eval-ruby
+class Person
+  def call_me(nickname)
+    @name_i_would_like_to_be_known_by = nickname
+  end
+
+  def introduce
+    return "Hello, I'm " + @name_i_would_like_to_be_known_by
+  end
+end
+
+woman = Person.new
+woman.call_me("Yasmin")
+woman.introduce
+```
+
+Since we're free to name variables and methods as we wish, the most sensible implementation of `Person` would use nice, terse names:
+
+```eval-ruby
+class Person
+  def name=(name)
+    @name = name
+  end
+
+  def introduce
+    return "Hello, I'm " + @name
+  end
+end
+
+woman = Person.new
+woman.name=("Yasmin")
+woman.introduce
+```
+
+> Using Ruby's syntactic sugar, we can replace the penultimate line with `woman.name = "Yasmin"`.
+
+Methods that set object state – like `name=` above – are called **setters**. We've seen that setter methods can be called anything you like (`call_me` is a setter, `give_me_a_name` is a setter, and `name=` is a setter): the important thing is that they _set object state using an instance variable_.
+
+## Mutating object state
+
+We can change object state, too. Let's build the following program:
+
+```ruby
+robot = Robot.new
+robot.legs = 4
+
+robot.add_leg
+robot.add_leg
+
+robot.walk
+# returns "I'm walking on my 6 legs!"
+```
+
+We already know how to build out the first (`legs=`) and the last (`walk`) parts:
+
+```eval-ruby
+class Robot
+  def legs=(number_of_legs)
+    @number_of_legs = number_of_legs
+  end
+
+  def walk
+    return "I'm walking on my " + @number_of_legs.to_s + " legs!"
+  end
+end
+
+robot = Robot.new
+robot.legs = 4
+robot.walk
+```
+
+How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance. 
+
+Remember `+=`?
+
+```eval-ruby
+class Robot
+  def legs=(number_of_legs)
+    @number_of_legs = number_of_legs
+  end
+
+  def add_leg
+    @number_of_legs += 1
+  end
+
+  def walk
+    return "I'm walking on my " + @number_of_legs + " legs!"
+  end
+end
+
+robot = Robot.new
+robot.legs = 4
+
+robot.add_leg
+robot.add_leg
+
+robot.walk
+```
+
+## Using `initialize` to set up instances
+
+Imagine if `String` instances worked like this:
+
+```ruby
+my_string = String.new
+string.text = "Some text"
+```
+
+How annoying that would be! And yet, thanks to our obsession with setter methods above, that's exactly what we're doing with our `Dog`, `Person`, and `Robot` classes. Wouldn't it be better to write:
+
+```ruby
+woman = Person.new("Yasmin")
+```
+
+Just like we write `my_string = String.new("Some text")`?
+
+We can! Thanks to Ruby **initializers**.
+
+In Ruby, whenever we call `new` on a class, that class builds an object and then runs the method `initialize` on it:
+
+<diagram of the `new` and `initialize` process>
+
+If we want to store information about an object as part of that object's state – as a property on the object – we need to interfere with this `initialize` method.
+
+> Ruby automatically defines the `initialize` method, even if you don't write it. That's why `new` still worked for our `Dog`, `Person`, and `Robot` classes before.
+
+```eval-ruby
+class Dog
+  def initialize
+    puts "I'm initializing a dog!"
+  end
+end
+
+fido = Dog.new
+```
+
+Every argument to the `new` function is passed to the `initialize` function. Therefore, if we want to send the string `"brown"` or `"white"` to be stored on a dog as soon as we call `new`, we need to set an instance variable in the initializer.
+
+```eval-ruby
+class Dog
+  def initialize(colour)
+    @colour = colour
+  end
+
+  def observe
+    "You see a " + @colour + " dog."
+  end
+end
+
+fido = Dog.new("brown")
+fido.observe
+```
+
+No setter method needed! Let's do that again, with our `Person` class:
+
+```eval-ruby
+class Person
+  def initialize(name)
+    @name = name
+  end
+
+  def introduce
+    return "Hello, I'm " + @name
+  end
+end
+
+woman = Person.new("Yasmin")
+woman.introduce
+```
+
+And once more, with our `Robot` class:
+
+
+```eval-ruby
+class Robot
+  def initialize(number_of_legs)
+    @number_of_legs = number_of_legs
+  end
+
+  def add_leg
+    @number_of_legs += 1
+  end
+
+  def walk
+    return "I'm walking on my " + @number_of_legs + " legs!"
+  end
+end
+
+robot = Robot.new(4)
+
+robot.add_leg
+robot.add_leg
+
+robot.walk
+```
+
+By using multiple parameters with `initialize`, we can provide multiple pieces of information to an object at once:
+
+```eval-ruby
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    "Hello, I'm " + @name + ", and I'm " + @age.to_s + " years old."
+  end
+
+  def get_older
+    @age += 1
+  end
+end
+
+peter = Person.new("Peter", 17)
+peter.get_older
+
+peter.introduce
+```
+
+## Different kinds of variables
+
+All variables are references to objects in Ruby – because everything is an object: from `1`, to `"Hello world"`, to the `Dog` class.
+
+So far, we've met a few different kinds of variables:
+
+- Regular variables, like `my_string = "Hello World`
+- Constants, like `ONE = 1`
+- Variables inside methods, which get their names from parameters, like `scores` in our `average` method
+- Instance variables, like `@name`, `@colour` and `@legs`.
+
+What's the difference between these kinds of variables? They answer is, broadly speaking, _which objects can see them_.
+
+#### What can see an instance variable?
+
+**Instance variables** are the simplest: they can only be seen by the object that they're 'inside':
+
+```eval-ruby
+class Dog
+  def initialize(colour)
+    @colour = colour
+  end
+
+  # We can use @colour in any methods defined on Dog instances
+  # Such as this one
+  def observe
+    "You see a " + @colour + " dog."
+  end
+end
+
+# We can't see @colour from outside instances of the Dog class
+# Here, we're trying to access @colour from the main object
+# It can't see the instance variable @colour
+@colour
+```
+
+> If you try to reference an _instance_ variable that an object can't see, you'll get `nil`.
+
+#### What can see a local variable?
+
+**Regular variables** are normally referred to as **local variables**. They can be 'seen' by any object _inside_ the object in which they were defined:
+
+```eval-ruby
+# Define a local variable in the main program object
+
+
+```
+
+
 
 In programming, defining methods or variables on the main program object is called defining at **global scope**. Global, because it surrounds the entire program (sometimes it's called the '_universal_ scope'). But 'scope'?
 

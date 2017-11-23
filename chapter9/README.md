@@ -355,3 +355,7 @@ That said, here are some helpful rules of thumb to picking the right abstraction
 2. Can you name your method after what it returns, instead of what it does? For instance, `average(test_scores)` is a better name than `averages_scores(test_scores)`. For another example, `score(hand)` is a better method name than `scores_cards(hand)`.
 
 If you can answer 'yes' to both 1 and 2, your method is more likely to be a good one.
+
+
+- `nil` in method bodies
+- `return`?
