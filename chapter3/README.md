@@ -59,6 +59,8 @@ Just like dot syntax is formally-correct, it's formally-correct to wrap an argum
 1 + 2
 ```
 
+Here's another example of optional parentheses:
+
 ```irb
 > # five is the argument
 > four + five
@@ -71,15 +73,23 @@ Just like dot syntax is formally-correct, it's formally-correct to wrap an argum
 
 > We'll be using dot syntax with parentheses for now, so we can get used to writing formally-correct code.
 
+## What happens when we send an object a message?
+
+For every message that can be received by an object, that object has some sort of **procedure** defined on it. A procedure is a _set of instructions that is executed by the object, one after the other_. We'll go into much more detail about how to write these procedures later.
+
+Like many program objects, these procedures usually have names. A named procedure is called a **method**. Sending an object a message to execute a procedure is referred to as _calling a method_.
+
+> An interface is a list of all the things an object can do: all the object's procedures. In other words, an interface is a list of object methods.
+
 ## Making random numbers
 
-If we don't specify an object to send a message, by default it'll be sent to `main`, the main program object:
+If we don't specify an object to send a message to, by default it'll be sent to `main`, the main program object:
 
 ```eval-ruby
 +(3)
 ```
 
-The main program object has a few useful methods. You've already met one: `puts`. Another useful one is `rand`:
+The main program object can respond to a few messages by executing some useful procedures. In other words, the main object has some useful methods. You've already met one: `puts`. Another useful one is `rand`:
 
 ```eval-ruby
 rand
@@ -95,9 +105,11 @@ rand(integer)
 
 You'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
 
-- _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command-line.**_
+- _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command line.**_
 
-## Integers and floats
+## Asking objects to return other objects: integers and floats
+
+#### Introducting floats
 
 Something pretty weird happens when we do division with our numeral calculator:
 
@@ -121,6 +133,8 @@ Here are some example floats:
 ```
 
 Floats have a very specific purpose in programs: to do very fine calculations usually involving division, and as such they're rarely-used (as [Chris Pine points out](https://pine.fm/LearnToProgram/chap_01.html), who wants to look at 7.4 emails, or browse 1.8 webpages, or listen to 5.24 of their favorite songs?). But we need floats now!
+
+#### Asking integers to return floats
 
 When we send an integer object the message `to_f`, the integer object says "OK! You're looking for a float object with the same value as me", and returns that corresponding float object:
 
@@ -199,14 +213,6 @@ Again, we can guess that `object` is probably some kind of 'calculator'.
 The set of messages that can be sent to an object is called its **interface** (from _inter_ (between) and _face_ (form) – so literally the shape of the space 'between objects').
 
 <diagram of interfaces as holes on an object>
-
-## What happens when we send an object a message?
-
-Every message that can be received by an object has some sort of **procedure** attached to it. This is a set of instructions that is read by the machine, to produce some desired outcome. We'll go into much more detail about how to write these procedures later.
-
-Like many program objects, these procedures have names. A named procedure is called a **method**. Executing the procedure is referred to as _calling the method_.
-
-> An interface is a list of all the things an object can do: all the object's procedures. In other words, an interface is a list of object methods.
 
 ## Investigating object interfaces
 
