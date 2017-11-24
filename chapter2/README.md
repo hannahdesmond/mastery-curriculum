@@ -103,7 +103,7 @@ Since a Ruby program is your own Universe, you get to choose what things are cal
 
 One way to give an object a name is to make a label for it, and attach the object to that label. These labels are called **variables**, and the process of attachment is called **assignment**.
 
-<gif of setting a variable as a pointer>
+![Setting a variable as a pointer](../images/2-setting-variables.gif)
 
 Let's try this out. 
 
@@ -178,11 +178,11 @@ In the case above, here's what's happening. The interpreter executes the code `1
 - The first object referenced by `1` adds the value of the object referenced by `2` to itself. The result is returned to the program world.
 - The program world returns the result to the user: `3`.
 
-> Notice that the interpreter doesn't 'add `1` to `1`'. Instead, the first object (`1`) goes and gets another object (`1`) and then adds itself together. In Ruby, objects do all the work. The interpreter turns our code into instructions for objects to do things.
-
 Here's the above, visually:
 
-<gif of the program steps involved in the statement above>
+![Numbers interacting: the object performs the actions, not the computer](../images/2-numbers-interacting.gif)
+
+> Notice that the interpreter doesn't 'add `1` to `1`'. Instead, the first object (`1`) goes and gets another object (`1`) and then adds itself together. In Ruby, objects do all the work. The interpreter turns our code into instructions for objects to do things.
 
 We call an expression like `1 + 2` a **statement**. (We did a statement earlier, too: `one = 1` is a statement).
 
