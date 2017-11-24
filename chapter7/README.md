@@ -7,17 +7,17 @@ So far we've met objects that can really only 'contain' one thing:
 
 We call whatever an object 'contains' that object's **state**.
 
-What if we want to store more than one thing in an object's state? Is there an object for that?
+What if we want an object whose state can store more than one thing? Is there an object for that?
 
-> We've actually met an object that can contain many things: The Main Object contains all the objects in the program. Therefore, when we describe the program world, and the objects in it, we're really describing the state of the main object: the **program state**.
+## `Array`
 
-## Collections
+The `Array` class creates instances that can store many other objects inside themselves. Like `String` instances are called 'strings', `Array` instances are called 'arrays'. 
 
-The `Array` class is used to make a 'collection object': an object that can store many other objects inside itself. Crucially, a Ruby array is **mutable**: it can be made larger, by adding more objects. You can also remove objects from it, and it'll shrink back down to size: like an elastic band.
+Arrays can have objects added to them, and removed from them: they'll grow and shrink depending on how many objects they contain, like an elastic band.
 
-> An instance of the `Array` class is called an array.
+> Any object which can change its state during the course of the program world's existence is referred to as being **mutable**. Strings can be chopped up, capitalized, and so on: they're mutable, too. Integers can't be changed: `1` will always represent `1`. They're **immutable**. Because other objects can change the state of an array – by adding or removing objects to or from it – arrays in Ruby are _mutable_.
 
-Here's how you use the **Array** class:
+Let's instruct the `Array` class to create a new instance. Then, let's use the array instance method `push` to add some strings into the array:
 
 ```eval-ruby
 an_array = Array.new
@@ -26,7 +26,7 @@ an_array.push("Hello World")
 an_array.push("It's me!")
 an_array.push("Mario!")
 
-return an_array
+an_array
 ```
 
 <animation showing adding items to an array>
@@ -37,7 +37,7 @@ return an_array
 - _**Add a couple of integers and floats to the array.**_
 - _**Add the main object to the array.**_
 
-Hold on. If the main object contains all other objects – including this array we just made – how can we add it to the array? How can something inside the universe contain the universe itself?
+<!-- Hold on. If the main object contains all other objects – including this array we just made – how can we add it to the array? How can something inside the universe contain the universe itself?
 
 ## How state works in Ruby
 
@@ -45,26 +45,28 @@ It's not quite accurate to think of Ruby objects as being 'stored inside' one an
 
 <demonstrate objects being added to an array, referenced by pointer>
 
-> This is not a big deal: it's perfectly OK to think of Ruby objects as living 'inside' one another. But it's also helpful to know that this is made possible by the idea of pointers.
+> This is not a big deal: it's perfectly OK to think of Ruby objects as living 'inside' one another. But it's also helpful to know that this is made possible by the idea of pointers. -->
 
 ## Modifying arrays
 
-We've seen that we can add things to an existing array object by using the array's `push` method, with the object-to-be-added as an argument to that method:
+We've seen that we can add things to an existing array object's state by using the array's `push` method, with the object-to-be-added as an argument to that method:
 
 ```eval-ruby
 another_array = []
 another_array.push("A short string")
+
+another_array
 ```
 
 > Things inside an array are called **elements**.
 
-Arrays have syntactic sugar, too: `[]` does the same thing as `Array.new`. Using this shorthand, you can set up arrays that already contain elements:
+Just like Ruby offers syntactic sugar for creating strings with `""`, arrays have syntactic sugar, too: `[]` does the same thing as `Array.new`. Using this shorthand, we can set up arrays pre-filled with elements:
 
 ```eval-ruby
 an_array_containing_elements = ["This", "is", "an", "array"]
 ```
 
-You can remove elements from an array using `delete_at(index)`:
+We can remove elements from an array by sending it the message `delete_at`, with an argument denoting the 'index' of the element we want to remove. For arrays, this 'index' is a number, which denotes an element in the array. The first element is index `0`, the second is index `1`, the third is index `2`, and so on:
 
 ```eval-ruby
 array = ["a", "b", "c"]
@@ -74,9 +76,9 @@ array.delete_at(1)
 array
 ```
 
-> Watch out! Arrays are _zero-indexed_. That means they count from zero: the first element is in position `0`.
+> Watch out! Arrays are _zero-indexed_. That means they count from zero: the first element is in position `0`. Play with the code example above until that's clear.
 
-Or just the last element using `pop`:
+We can also remove just the _last element of an array_ by sending an array the `pop` message:
 
 ```eval-ruby
 array = [1, 2, 3]
@@ -90,7 +92,7 @@ All of the above will modify the array: that is, the array will change when you 
 
 ## Reading arrays
 
-You can read a single element from an array by using the `[]` method:
+You can read a single element from an array by sending the array the `[]` method with the index of your desired element:
 
 ```eval-ruby
 array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -103,7 +105,7 @@ array[0]
 
 - _**Access different elements of the array above using `[]`.**_
 
-You can read a bunch of elements at once, using `slice`:
+You can read a bunch of elements at once, by calling the array's `slice` method:
 
 ```eval-ruby
 array = [1, 2, 3, 4, 5, 6]
@@ -115,7 +117,7 @@ array.slice(0, 1)
 
 ## Outputting from arrays
 
-Arrays can be useful for storing elements you might want to keep separate sometimes, and have together in other times. If storing strings in an array, it's pretty common to use `join` to output them stitched-together:
+Arrays can be useful for storing elements you might want to keep separate sometimes, and join together in other times. A common use case for an array is to store strings, then to send the array of strings a `join` message, which will concatenate them:
 
 ```eval-ruby
 sentence = ["Hello,", "you", "are", "NOT", "welcome", "here"]
@@ -125,7 +127,7 @@ sentence.join(" ")
 
 > The argument you provide to `join` is the joining character. Here, we used a space (`" "`). What happens if we use a different character?
 
-- _**Add a line of code that removes the `"NOT"` string from the array, making the sentence friendlier. Don't modify the original array!**_
+- _**Add a line of code that removes the `"NOT"` string from the array, making the sentence friendlier.**_
 
 %accordion%See how I'd do it%accordion%
 
@@ -156,17 +158,19 @@ string = String.new("Some text")
 
 > In [Chapter 6](../chapter6/README.md), we saw that we can use Ruby's syntactic sugar to create new strings using `string = "Some text"`. Under-the-hood, this calls `String.new("Some text")`.
 
-What might surprise you is that strings are actually lists of characters. We can use some, but not all, array-like methods on them:
+What might surprise you is that strings actually store lists of characters – similarly to how arrays store lists of elements. We can call some – but not all – array methods on strings:
 
 ```eval-ruby
-string = "Hello World!"
+greeting = "Hello World!"
 
-string[0]
+greeting[0]
 ```
 
-We just used the array reader method `[]` to pull the first character from a string (remember, lists are zero-indexed in Ruby).
+We just used the sent the array reader method `[]` to `greeting` to pull the first character from a string (remember, lists are zero-indexed in Ruby).
 
-For more complicated strings, it can be helpful to turn them into arrays. Ruby gives us a method, `split`, to do this with:
+> This is possible because `String` instances define a method `[]` on their interface.
+
+We might want to tell a string to create a new array using its text. Strings define a method called `split` to do this:
 
 ```eval-ruby
 string = "Hello World!"
@@ -174,11 +178,9 @@ string = "Hello World!"
 string.split
 ```
 
-By default, `split` will split the string into an array of strings, using a space – `" "` – as the split point. 
+Sending `split` to a string will cause the string to invoke some procedure that returns a new array of strings. Strings will use their text to build the new array. By default, they'll use a space – `" "` – as the split point. We call this split point a _delimiter_.
 
-> We call this split point a _delimiter_.
-
-We can provide a different delimeter to `split` to make a different array:
+We can provide a different delimeter to `split` to ask the string to build a different array:
 
 ```eval-ruby
 string = "Hello World!"
@@ -188,7 +190,7 @@ string.split("l")
 
 > Where did the 'l's go in the example above? Think about this: in the first `split` example, where did the `" "` spaces go?
 
-If we provide an empty string (with no characters or spaces in it), the string will be split into an array with each element representing a character of that string:
+If we provide an empty string (with no characters or spaces in it), the string will be build an array with each element representing one character of that string's text:
 
 ```eval-ruby
 string = "Hello World!"
@@ -196,7 +198,7 @@ string = "Hello World!"
 string.split("")
 ```
 
-We've already seen that we can `join` arrays that are split. This gives us some power to manipulate strings:
+We've already seen that we can send the `join` method to arrays. The array will return a concatenation of its elements. Therefore, combining `split` and `join` gives us some power to manipulate strings:
 
 ```eval-ruby
 bad_string = "Why|am|I|so|hard|to|read"
@@ -223,7 +225,7 @@ Although it might seem a bit confusing, arrays can therefore contain other array
 array_of_arrays = [["An", "array", "of", "strings"], ["another", "array", "of", "strings"]]
 ```
 
-Because this can get confusing to read, these 'arrays of arrays' are often split onto multiple lines. The following is the same as the above, just easier to read:
+Because this can get confusing to read, these 'arrays of arrays' are often written across multiple lines. The following is the same as the above, just easier to read:
 
 ```eval-ruby
 array_of_arrays = [
@@ -234,7 +236,7 @@ array_of_arrays = [
 
 > Play around with `join` and the array reader function `[]` to figure out how this array of arrays works.
 
-Arrays of arrays could represent different groups (say, teams of people):
+Arrays of arrays could be used to represent different groups (say, teams of people):
 
 ```eval-ruby
 groups = [
@@ -246,7 +248,7 @@ team_1 = groups[0]
 team_2 = groups[1]
 ```
 
-Or, we can make an array of arrays from different groups:
+Or, we can make an array of arrays _from_ different groups:
 
 ```eval-ruby
 team_1 = ["Mary", "Sam"]
@@ -255,11 +257,11 @@ team_2 = ["Peter", "Kay"]
 groups = [team_1, team_2]
 ```
 
-> It's perfectly fine to reference variables within arrays. Why? _Referential transparency!_ Ruby just turns the names `team_1` and `team_2` into the arrays they reference.
+> It's perfectly fine to reference variables within arrays. Why? _Referential transparency!_ The main object, in which this procedure is running, just turns the names `team_1` and `team_2` into the arrays they reference.
 
 ## Combining arrays
 
-You can combine arrays by adding them, just like strings:
+You can tell arrays to build new arrays that combine their elements, using `+`:
 
 ```eval-ruby
 array_1 = ["What's", "the", "last", "word", "in", "this"]
@@ -268,11 +270,11 @@ array_2 = ["sentence?"]
 array_1 + array_2
 ```
 
-> Since strings are actually storing lists of characters, this explains why the string method `+` does what it does.
+> Notice that `+` doesn't alter `array_1` or `array_2`: it builds a new array that combines their elements.
 
 ## Finding out how many elements there are
 
-We can get the length of an array (i.e. how many elements it contains) like this:
+We can tell an array to give us its length (i.e. how many elements it contains) by calling the `length` method on it:
 
 ```eval-ruby
 array = [1, 2, 3, 4]
@@ -280,13 +282,15 @@ array = [1, 2, 3, 4]
 array.length
 ```
 
-## Using arrays to control the flow
+## Using arrays to manage control flow
 
-One main use of arrays is to control the flow of information, by running a procedure once for each item of an array. This process is called **iterating** over an array. 
+In [Chapter 4](../chapter4/README.md), we met `while`, which can be used to manage control flow by forcing an object to repeat procedures.
 
-There are a few ways to do this. We can use a `while` loop with an accumulator to loop through each item of an array:
+Arrays can be used to manage control flow too: by forcing an object to execute a procedure once for each element of an array. This process is called **iterating** over an array. 
 
-```ruby
+There are a few ways to do this. We can use a `while` loop with an accumulator to run a procedure once for each item of an array:
+
+```eval-ruby
 my_array = ["Hello", "there", "friend!"]
 current_index = 0
 
@@ -296,7 +300,9 @@ while current_index < my_array.length do
 end
 ```
 
-We could use this structure, combined with the array reader method `[]`, to run a procedure using each element of an array:
+> Still confused by `while` loops? Alter the code example above to use `break` instead.
+
+We can combine this structure with the array reader method `[]` to tell an object to do something with elements of the array one-after-the-other:
 
 ```eval-ruby
 my_array = ["Hello", "there", "friend!"]
@@ -308,7 +314,7 @@ while current_index < my_array.length do
 end
 ```
 
-Ruby provides us with a neat way of doing this 'run a procedure using each element of the array' approach: the array `each` method:
+`Array` provides us with a neat method to tell an object to 'run a procedure once for each element of the array': the `each` method:
 
 ```eval-ruby
 my_array = ["Hello", "there", "friend!"]
@@ -318,7 +324,7 @@ my_array.each do
 end
 ```
 
-What about if we want to reference each item within an array during the procedure? We can do that in the following way:
+What about if we want an object to do something with elements of the array one-after-the-other? That is: to reference each item within an array during the procedure? We can do that in the following way:
 
 ```eval-ruby
 my_array = ["Hello", "there", "friend!"]
@@ -384,7 +390,7 @@ A common programming problem goes something like this:
 
 - Filter this list of numbers to return only numbers less than 10.
 
-To solve this, we can use an **array as an accumulator**. On each pass of a loop, we'll add items to an array if they meet a condition:
+To solve this, we can use an **array as an accumulator**. On each pass of a loop, we'll tell the main object to add items to an array _if they meet a condition_ (being less than 10):
 
 ```eval-ruby
 list_of_numbers = [17, 2, -1, 88, 7]
@@ -399,11 +405,11 @@ end
 accumulator
 ```
 
-> The `accumulator` was mutated during the `each` loop (it had elements added to it). What happened to the `list_of_numbers`? Play with the REPL above to find out.
+> The `accumulator` was mutated during the `each` loop (it had elements added to it). What happened to the array referenced by `list_of_numbers`? Play with the code example above to find out.
 
 ## Checking if elements are in arrays
 
-We can use the `includes?` method to find out if an element is in an array:
+We can ask an array whether it includes an object by sending it the `includes?` method:
 
 ```eval-ruby
 words = ["Hello", "World!"]

@@ -1,10 +1,35 @@
 # Writing your own methods
 
-We've written a lot of procedures, now. They've used conditional logic, loops, iterators, and a number of kinds of specialised object.
+Most Ruby procedures are wrapped up in methods, which are defined 'inside' objects. When you call a method on an object:
 
-But sometimes, we might want to reuse these procedures. Let's say that we have the following program specification:
+```eval-ruby
+1.positive?
+```
+
+That object executes a procedure inside itself:
+
+```eval-ruby
+# Inside 1
+if self > 0
+  return true
+else
+  return false
+end
+```
+
+And then returns the outcome of the procedure (here, `true`).
+
+We've written a lot of procedures, now. They've used conditional logic, loops, iterators, and a number of kinds of specialised object. Every time we've written a procedure, we've defined it on the main object, which has carried out the procedure for us.
+
+In this chapter, we'll learn how to give these procedures a name, by wrapping them inside methods. In [Chapter 10](../chapter10/README.md), we'll learn how to define these methods on objects other than the main object.
+
+## Methods are reusable procedures
+
+Let's say that we have the following program specification:
 
 > We're a school. Our students have just finished taking their final test. We have test scores for each class of students, and we want to know the average for each class. We also want to know the average for the whole school.
+
+Here's some (horrible!) code to solve this problem. As you can see – it's really repetitive.
 
 ```eval-ruby
 # Here are the scores
@@ -73,12 +98,13 @@ Of course is there is. In the example above, we can use algorithmic thinking to 
 
 1. Accumulate the scores.
 2. Divide the accumulation by the number of scores.
+3. Return the result.
 
 We can write a procedure that will carry out these rules. And, using a method, we could give that procedure a name. That's what a method is: a **named procedure**. 
 
 > Variables are named objects. Methods are named procedures.
 
-Here's how we define a method:
+Here's how we define a method, using `def`:
 
 ```eval-ruby
 def method_name
@@ -86,7 +112,7 @@ def method_name
 end
 ```
 
-Just like variables, we need to define a name for the method – so we can call it later:
+Just like variables, we need to define a name for the method. We can use this name to call the method later:
 
 ```eval-ruby
 def hello_world
@@ -96,18 +122,20 @@ end
 hello_world
 ```
 
-So, we're going to define a method called `average`:
+To reduce the repetition of our code above, we're going to define a method called `average`:
 
 ```eval-ruby
 def average
 end
 ```
 
-> Right now, we're defining the method on the program object. That's why we can call our method without referencing an object. More on this in [Chapter 10](../chapter10/README.md) – if you're confused for now, go remind yourself about [Chapter 3](../chapter3/README.md)!
+...and we're going to put the procedure for finding an average inside it.
+
+> Right now, we're defining the method on the program object. That's why we can call our method without referencing an object using dot syntax. In [Chapter 10](../chapter10/README.md), we'll define methods on other objects. If you're confused, go remind yourself about messages and objects using [Chapter 3](../chapter3/README.md).
 
 ## Return values from methods
 
-Remember that when we send an object a message, the object invokes a method using that message. Then, it carries out a procedure. Finally, it returns something back to whoever sent the original message.
+Remember: when we send an object a message, the object invokes a method using that message. Then, the object carries out a procedure. Finally, the object returns something back to whoever sent the original message.
 
 To designate what the return value should be from a method, use the `return` keyword:
 
@@ -120,9 +148,9 @@ end
 gimme_five
 ```
 
-Remember that procedures are read by the computer _instruction-by-instruction_. When the computer hits a `return` statement, it'll stop executing the procedure inside the method, and just return whatever it sees.
+Remember from [Chapter 4](../chapter4/README.md) that procedures are executed by the object _instruction-by-instruction_. When an object hits a `return` statement, it'll stop executing the procedure inside the method, and just return whatever it's told to. In the example above, the object on which `gimme_five` is defined – the main object – proceeds through the procedure, stopping when it sees `return 5`, and returning `5` as the return value.
 
-That means that any instructions after a `return` instruction won't be executed:
+This 'stop when you see return' gimmick means that any instructions after a `return` instruction won't be executed:
 
 ```eval-ruby
 def stop_halfway
@@ -134,9 +162,68 @@ end
 
 > Play around with the example above. How can we return `sum` instead?
 
+#### Implicit returns
+
+In Ruby, any methods that don't contain a `return` statement will secretly add one on the last line of the procedure. So the following two examples are identical:
+
+```eval-ruby
+def hello
+  return "Hello World!"
+end
+
+hello
+```
+
+```eval-ruby
+def hello
+  "Hello World!"
+end
+```
+
+This kind of secret returning is called using an **implicit return** (as opposed to actually writing one out, which is an **explicit return**).
+
+#### Empty method procedures
+
+Remember that `nil` is a Ruby object used to represent the 'absence of anything'. When we define an empty method – one with no procedure inside – Ruby will secretly add a line containing `nil` to it. So, again, the following two examples are identical:
+
+```eval-ruby
+def do_nothing
+end
+
+do_nothing
+```
+
+```eval-ruby
+def do_nothing
+  nil
+end
+
+do_nothing
+```
+
+> Because of implicit returns (see the section just before this one), `do_nothing` is actually executing the following procedure: `return nil`.
+
 ## Method parameters
 
-Methods can take parameters, which are objects used in the procedure: just like the `each` loop we saw in Chapters [7](../chapter7/README.md) and [8](../chapter8/README.md):
+When we call a method on an object, we often provide it with arguments to use during the procedure:
+
+```eval-ruby
+cars_i_like = ["Citroen 2CV", "Tesla Roadster"]
+
+# push takes one argument
+cars_i_like.push("Audi TT")
+```
+
+Defined on the array `cars_i_like` is a procedure that does something like this:
+
+```ruby
+# inside cars_i_like
+self.elements = self.elements + "Audi TT"
+```
+
+In the case above, the object `"Audi TT"` is provided as an _argument_ to the method `push`. Then, in the procedure, the `"Audi TT"` object is used somehow.
+
+Method parameters are temporary names for objects provided as arguments. They're set up at the beginning of the procedure, then they go away at the end: just like the `each` loop we saw in Chapters [7](../chapter7/README.md) and [8](../chapter8/README.md):
 
 ```eval-ruby
 def hello(person)
@@ -146,7 +233,7 @@ end
 hello("Sam")
 ```
 
-Method parameters define a variable inside the method procedure. The name of the variable is set to the parameter name, and the value is set to whatever argument you pass to the method when you execute it: 
+Method parameters _define a variable inside the method procedure_. The name of the variable is set to the parameter name, and the value is set to whatever argument you pass to the method when you execute it: 
 
 ```eval-ruby
 def hello(person)
@@ -168,6 +255,20 @@ end
 hello("Sam")
 ```
 
+In this way, the object currently executing a procedure can use other objects to vary the return value:
+
+```eval-ruby
+def make_cake(flour_exists?)
+  if flour_exists?
+    return :cake
+  else
+    return 0
+  end
+end
+
+make_cake(true)
+```
+
 ## Writing a method procedure
 
 Inside the `def`...`end` statement, we write the procedure we want to run:
@@ -181,7 +282,7 @@ def average
 end
 ```
 
-We want our `average` method to work with an array of numbers, so we'll give it one parameter:
+We want the procedure inside `average` to work with an array of numbers, so we'll give it one parameter representing that array of numbers, `scores`. That way, when we call `average` we can provide an argument. That argument will be accessible (under the temporary name `scores`) to the procedure inside `average`:
 
 ```eval-ruby
 def average(scores)
@@ -190,7 +291,7 @@ end
 
 > Remember – it doesn't matter what we call the parameter. The method will assign a variable inside itself, called `scores`, equal to whatever we pass into it. I've called the parameter `scores` because that's what we're going to pass to average. But `numbers` would work, as would `test_scores`, or `digits`, or `chickens`. So long as we refer to the parameter name we defined in the method procedure, we're good-to-go.
 
-From the averaging code we wrote earlier, we know the first thing we do is accumulate the scores together:
+From the averaging procedure we wrote earlier, we know the first thing we do is accumulate the scores together:
 
 ```eval-ruby
 def average(scores)
@@ -215,6 +316,23 @@ def average(scores)
   scores_accumulator.to_f / scores.length
 end
 ```
+
+Then, we return the result:
+
+```eval-ruby
+def average(scores)
+  scores_accumulator = 0
+
+  scores.each do |score|
+    scores_accumulator += score
+  end
+
+  result = scores_accumulator.to_f / scores.length
+  return result
+end
+```
+
+Actually, we can use Ruby's implicit return policy to leave that last step out of the procedure: as the result will be implicitly returned.
 
 Tada! We now have an `average` method we can call whenever we want:
 
@@ -278,7 +396,7 @@ puts "School average: " + school_average.to_s
 school_average
 ```
 
-OK, this is much shorter. But we can do better, by eliminating some of these variables using referential transparency:
+OK, this is much easier to read. But we can do better, by eliminating some of these variables using referential transparency:
 
 ```eval-ruby
 # Define the average method
@@ -311,7 +429,7 @@ average([average(test_scores_for_class_1), average(test_scores_for_class_2), ave
 
 ## Over-simplifying
 
-We can go deeper. If we move the printing of averages into our `average` method, we can get rid of a few more cluttered lines:
+We could go deeper. If we move the printing of averages into our `average` method, we can get rid of a few more cluttered lines:
 
 ```eval-ruby
 # Define the average method
@@ -340,25 +458,28 @@ average(test_scores_for_class_3)
 average([average(test_scores_for_class_1), average(test_scores_for_class_2), average(test_scores_for_class_3)])
 ```
 
-OK, now we're printing way too much. Every time we call `average`, it prints something (even if we just want the average value). **This is a major lesson of refactoring.** It's pretty tempting to try and tidy up lines of code into methods, but we run into problems when we try to make methods that do too much. Right now our `average` method should really be called `average_and_print`.
+But is this really better? 
+
+- For one, we're printing way too much. Every time we call `average`, it prints something (even if we just want the average value).
+- For two, that last line is incredibly hard to read.
+
+**This is a major lesson of refactoring.** It's generally good to tidy up lines of code into methods, but we run into problems when we try to make methods that do too much. Right now our `average` method should really be called `average_and_print`.
 
 > Methods should **do one thing, and do it well**. The word `and` in a method name is a major clue that something's been refactored poorly. This principle is called the _Single Responsibility Principle_, and you'll meet it a lot in the next few months.
 
-This entire process – of taking lots of lines of code, each of which does some small task, and grouping it into a method, is called **abstraction**. What you are doing is taking a bunch of actions and giving that whole bunch a name. As a result, it becomes easier to work with – working with the `average` method is definitely easier than writing all those lines of code by hand – but you also lose understanding of what's happening inside it.
+Taking a procedure (lots of lines of code) and grouping it into a named method is an example of **abstraction**. Abstraction results in code that is easier to work with – using the `average` method is definitely easier than writing all those lines of code each time – but we lose understanding of what's happening inside the code.
 
 > I said in [Chapter 2](../chapter2/README.md) that naming is one of the hardest problems in programming. The other one is picking the 'right abstraction' – the right way to group and simplify your code. That's what we'll be spending a lot of time on during Makers Academy.
 
 ## Picking the right abstraction
 
-Choosing the right abstraction is incredibly hard to do. And, it's often a while before you know if you made a good choice or not.
+Picking the right abstraction is really hard. And, you often need to use your abstraction for a while before you know if you made a good choice or not. This means that, as programmers, we get used to writing and deleting code.
 
-That said, here are some helpful rules of thumb to picking the right abstraction when writing methods:
+> Code is cheap! It costs literally nothing. Get used to deleting it, and rewriting it. Practicing rewriting code from scratch will be painful for a while yet, but you'll get much faster this way. It's easy to get precious over code you've written – but the confidence of knowing you're able to reproduce it from scratch is worth having.
+
+Here are some helpful rules of thumb to picking the right abstraction when writing methods:
 
 1. Can you name your method in a simple way, without using the word 'and'? Does it do one thing, and nothing more?
 2. Can you name your method after what it returns, instead of what it does? For instance, `average(test_scores)` is a better name than `averages_scores(test_scores)`. For another example, `score(hand)` is a better method name than `scores_cards(hand)`.
 
 If you can answer 'yes' to both 1 and 2, your method is more likely to be a good one.
-
-
-- `nil` in method bodies
-- `return

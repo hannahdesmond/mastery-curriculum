@@ -1,6 +1,6 @@
 # Writing your own Classes
 
-We've been spending a lot of time writing complex procedures. We've spent a lot of time _telling the computer how to get to the answer_:
+We've been spending a lot of time writing complex procedures. We've spent a lot of time _telling program objects how to get to the answer_:
 
 ```eval-ruby
 # set up some scores
@@ -19,26 +19,26 @@ end
 accumulator.to_f / scores.length
 ```
 
-- _Telling the computer how to get to the answer_ might look like: "create an accumulator. Add the scores to it. Then divide them." This is called **imperative** programming – literally, 'ordering the computer to do things'.
+- _Telling an object how to get to the answer_ might look like: "create an accumulator. Add the scores to it. Then divide them." This is called **imperative** programming – literally, 'ordering the computer to do things'.
 
-In [Chapter 9](../chapter9/README.md), we started seeing how we could take these imperative procedures and hide them behind _method names_. This means that our code looks more like the high-level idea of _telling the computer what we want_, by interacting with abstractions:
+In [Chapter 9](../chapter9/README.md), we started seeing how we could take these imperative procedures and hide them behind _method names_. This means that our code looks more like _telling an object what we want_, by interacting with abstractions:
 
 ```ruby
 # average some scores, please
 average(scores)
 ```
 
-- _Telling the computer what we want_ might look like "average these scores." This is called **declarative** programming – literally, 'saying what we would like to happen'.
+- _Telling an object what we want_ might look like "average these scores." This is called **declarative** programming – literally, 'saying what we would like to happen'.
 
-When we're writing complex procedures, we're often working in a very _imperative_ world. We're handling things like _control flow_ with _conditionals_ and _loops_, working with simple objects like _arrays_, _strings_, _hashes_, and _integers_. It's a tough world, and it's quite unfriendly to non-programmers.
+When we're writing complex procedures, we're often working in a very _imperative_ world. We're handling things like _control flow_ with _conditionals_ and _loops_, working with simple objects like _arrays_, _strings_, _hashes_, and _integers_. It's a tough world, and it's quite unfriendly to non-programmers (and unfriendly to programmers who didn't write the procedure themselves).
 
-Therefore, as programmers, we try to abstract our work to a declarative style wherever possible. This is why I introduced you first to the program world: because it's a declarative world, where you can ask `1` if it's an integer:
+Therefore, as programmers, we try to abstract our work to a declarative style wherever possible. This is why, back in [Chapter 1](../chapter1/README.md), we were first introduced to the 'program world': because it's a declarative world, where you can ask `1` if it's an integer:
 
 ```eval-ruby
 1.integer?
 ```
 
-And it'll just _tell you the answer_.
+And it'll just _tell you the answer_. Sure, there's probably some imperative procedure going on under the hood. In fact, there _definitely is_. But we don't have to know about it. That frees us up to think about more high-level program concerns, like how to meet a particular requirement.
 
 These are the kinds of worlds we strive to create as programmers. One very popular route to doing so is to use **Object-Oriented Programming**. We've met a bunch of this already, but here's a quick refresher:
 
@@ -71,7 +71,7 @@ In particular, remember where all the complex imperative procedures we've been w
 
 <zoom in on object interface to reveal methods working 'inside'>
 
-That's right – procedures are running inside methods. We learned how to write methods in [Chapter 9](../chapter9/README.md) – but the methods we defined weren't obviously part of any given object's interface. So where have they been living?
+Procedures are running _inside methods_. We learned how to write methods in [Chapter 9](../chapter9/README.md) – but the methods we defined weren't obviously part of any given object's interface. So where have they been living?
 
 ## Global scope
 
@@ -106,9 +106,9 @@ end
 players_by_sport
 ```
 
-...we're defining variables on the main program object, creating objects inside the main program object, and returning values to the main program object (which, if we're using a REPL, the main program object returns to us). 
+...we're asking the main program object to do all this work. We're instructing the universe directly. 
 
-When we wrote the `average` method:
+In [Chapter 9](../chapter9/README.md), when we moved the averaging procedure into the method named `average`:
 
 ```eval-ruby
 def average(scores)
@@ -122,7 +122,7 @@ def average(scores)
 end
 ```
 
-We defined this method _on the main object_.
+We defined this `average` method _on the main object_.
 
 > In Ruby, there are no 'objectless methods'.
 
@@ -620,7 +620,7 @@ class Robot
   end
 
   def walk
-    return "I'm walking on my " + @number_of_legs + " legs!"
+    return "I'm walking on my " + @number_of_legs.to_s + " legs!"
   end
 end
 
@@ -883,7 +883,7 @@ class Dog
 end
 ```
 
-Variables that we define inside these things cannot be seen outside of them:
+Variables that we define inside a `def...end` or `class...end` cannot be seen outside of them:
 
 ```eval-ruby
 def average
@@ -898,7 +898,7 @@ puts accumulator
 puts some_variable
 ```
 
-The area of a program in which a variable can be read is called the variable **scope**. `def` and `class` are known as **scope gates**: when the program runs this instruction, it enters a new scope. Variables defined inside this scope cannot be read outside of the scope gate. Variables defined outside of the scope gate cannot be read inside it.
+The area of a program in which a variable can be read is called the variable **scope**. `def` and `class` are known as **scope gates**: when the program runs a line containing `def` or `class`, it enters a new scope. Variables defined inside this scope cannot be read outside of the scope gate. Variables defined outside of the scope gate cannot be read inside it.
 
 ```eval-ruby
 my_variable = 1
@@ -917,7 +917,7 @@ Here's a visual representation of scope:
 
 > Confused by the word 'scope'? Think of the scope on top of a sniper-rifle: when you look down it, you can only see a part of the world: the part of the world you can shoot.
 
-## Scope and parameters
+## Using scope to understand method parameters
 
 Scope is especially helpful when it comes to understanding method parameters. For each parameter, methods will define a local variable within their scope. The name of that variable will be set to the name of the parameter:
 
@@ -932,7 +932,22 @@ end
 age_reporter(age)
 ```
 
-Since `def` is a scope gate, we can't read these local variables outside of them:
+The same goes for parameters provided to procedures inside `each` loops:
+
+```eval-ruby
+people = ["Steve", "Yasmin", "Alex"]
+
+people.each do |name|
+  # Each element of people is assigned to a local variable called 'name'
+  # We can then read that local variable inside this loop
+  puts name
+end
+
+# But we can't read the local variable outside the loop
+puts name
+```
+
+Since `def` is a scope gate, we can't read these parameters outside of their message body:
 
 ```eval-ruby
 name = "Sam"
@@ -944,3 +959,85 @@ end
 # We can't read this
 person
 ```
+
+[This article](https://www.sitepoint.com/understanding-scope-in-ruby/) dives a little deeper into the idea of 'scope' in Ruby.
+
+- **Scope** is what parts of the program an object can 'see' at any time.
+
+## Using Objects to be more declarative
+
+By defining our own classes, we can make our programs super-readable: almost like English. Here's an example:
+
+```ruby
+heathrow = Airport.new
+plane = Plane.new
+
+heathrow.land(plane)
+
+heathrow.hangar_report
+# => "There is 1 plane in the hangar"
+```
+
+Also, we can stop programmers from doing things that don't fit with our model of how the program should work:
+
+```ruby
+heathrow = Airport.new
+
+heathrow.take_off(plane)
+# => "Error: There are no planes to take off"
+```
+
+In the examples above, the object referenced by `heathrow` is an instance of the `Airport` class. Somehow, it can store planes. At the heart of the `heathrow` object, in its state, lives an array – an object we introduced in [Chapter 7](../chapter7/README.md) as a way to store other objects. Around this array, `heathrow` defines methods which are appropriately-named for the program being run – some sort of airport simulation. Here, the 'airport simulation' is known as the program **domain**.
+
+Why don't we just use an array, instead of instaces of this `Airport` class? That way, the program could work like this:
+
+```ruby
+heathrow = []
+plane = "Boeing 737"
+
+heathrow.push(plane)
+
+"There is #{ heathrow.length } plane in the hangar"
+```
+
+The answer is: the second describes the program domain less effectively. As programmers, we strive to write code that accurately reflects the program domain.
+
+Here's how `Airport` 'wraps' an array:
+
+```eval-ruby
+class Airport
+  def initialize
+    @hangar = []
+  end
+
+  def land(plane)
+    @hangar.push(plane)
+  end
+
+  def take_off(plane)
+    if @hanger.length > 0
+      if @hangar.includes? plane
+        plane_index = @hangar.index(plane)
+        @hangar.delete_at(plane_index)
+        return plane
+      else
+        return "Error: plane not in hangar"
+      end
+    else
+      return "Error: there are no planes to take off"
+    end
+  end
+
+  def hangar_report
+    if @hangar.length == 1
+      "There is 1 plane in the hangar"
+    else
+      "There are #{ @hanger.length } planes in the hangar"
+    end
+  end
+end
+```
+
+Because the array is referenced only by an _instance variable_, nothing outside of `Airport` instances can read it: so we're protected from programmers trying to `pop` a plane from `heathrow`, and so on. This essentially _limits the interface of the array_ to only methods we want to allow.
+
+> Spend some time playing with the code example above. Write a `Plane` class if you can – get the initial code example running. The code here is similar to code introduced in the first week of Makers Academy, so don't worry if it boggles you at the moment.

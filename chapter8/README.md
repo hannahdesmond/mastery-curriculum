@@ -1,12 +1,14 @@
 # Hashes
 
-We've just met a very powerful way of storing information in the program world: instances of the `Array` class. Arrays are good, but they struggle with a lot of information. For example, what does each element in the following array mean?
+We've just met a very powerful object for storing information in the program world: instances of the `Array` class. 
+
+Arrays are great for storing objects, but they get harder to understand the more objects they contain. For example: what does each element in the following array _mean_?
 
 ```ruby
 important_program_information = [0, "Hello", ["Sam", 1.17]]
 ```
 
-Moreover, accessing elements in arrays is a bit difficult to understand without intimately knowing how the array was designed:
+Moreover, reading elements from arrays using `[]` gets harder to understand as the array grows in complexity:
 
 ```ruby
 teams_with_substitutes = [[["Jim", "Yasmin", "Audrey"], ["Alex", "Mustafa"]], [["Pyotr", "Canace"], ["Xi"]]]
@@ -15,7 +17,9 @@ team_1_substitutes = teams_with_substitutes[0][0][1]
 team_2_players = teams_with_substitutes[1][0][0]
 ```
 
-...and it's a pain to read. Is there a solution? Sure there is: the `Hash` class, and its instances: hashes.
+...and it's a pain to read. Remember how important _naming_ is for helping other programmers understand your program: what does `[0][0][1]` mean? How is it different from `[1][0][0]`?
+
+Is there a solution? Sure there is: the `Hash` class, and its instances: hashes.
 
 ## From arrays to hashes
 
@@ -28,17 +32,17 @@ Arrays and hashes are similar in that they both contain lists of _elements_. The
 
 Remember how variables are _names_ for _objects_? In programming, we sometimes refer to these names as **keys** and the objects they reference as **values**. Together, they make a 'key-value pair'.
 
-Arrays use _indices_ as their keys. That is, the first element of an array has an index of `0`. The second has an index of `1`. Given an array, you can get the value with key `0` in the following way:
+Arrays use _indices_ as their keys. That is, the first element of an array has an index of `0`. The second has an index of `1`. Given an array, you can ask it for the value with key `0` in the following way:
 
 ```eval-ruby
 # Given an array
 array = [1, 2, 3]
 
-# Get the value with key 0
+# Read value with key 0
 array[0]
 ```
 
-And you can set the value at key `0` in the following way:
+And you can tell the array to set the value at key `0` in the following way:
 
 ```eval-ruby
 # Given an array
@@ -59,13 +63,13 @@ Hashes can use _any object as a key_:
 hash = { String.new("first item") => 1, 44.2 => 2, Object.new => 3 }
 ```
 
-Most commonly, we'll use strings:
+Commonly, we'll use strings:
 
 ```eval-ruby
 favourite_things = { "sport" => "tennis", "food" => "chunky bacon" }
 ```
 
-This is because, like arrays, we often want to read the data. String keys provide us with an easy way to read this data:
+This is because, like arrays, we often want to read the data. String keys provide us with an easy, clearly-named way to read this data:
 
 ```eval-ruby
 favourite_things = { "sport" => "tennis", "food" => "chunky bacon" }
@@ -92,7 +96,7 @@ hash_pretending_to_be_an_array[0] = "football"
 hash_pretending_to_be_an_array
 ```
 
-Even more commonly than strings, we'll use **symbols**. These are a special object in Ruby. They work like strings, except they're _immutable_ – they can't be changed once they've been set.
+Even more commonly than strings, we'll use **symbols**. Symbols are a special, and very widespread object in Ruby. They work like strings, except they're _immutable_ – they can't be changed once they've been set.
 
 Since we rarely want to change the keys in a hash, symbols are a perfect choice:
 
@@ -102,7 +106,7 @@ favourite_things = { :"sport" => "tennis", :"food" => "chunky bacon" }
 favourite_things[:"sport"]
 ```
 
-> To write a symbol, add a semicolon `:` before a name. There's syntactic sugar, too: you don't need the quotes (`""` around the symbol). Also, you can as a string to fetch its equivalent symbol very easily: simply send the string the message `to_sym` (like how `to_f` worked for integers and floats).
+> To write a symbol, add a semicolon `:` before a name. There's syntactic sugar, too: you don't need the quotes (`""` around the symbol). Also, you can ask a string to fetch its equivalent symbol very easily: simply send the string the message `to_sym` (like how `to_f` worked for integers and floats). Using symbols makes your code look super-programmery, and tells other programmers which objects they should expect to change, and which should stay the same.
 
 So, this is the first function of hashes: as a **key-value store** for named information.
 
@@ -110,7 +114,7 @@ So, this is the first function of hashes: as a **key-value store** for named inf
 
 ## Using hashes to control the flow of information
 
-One major value of a hash is that it can be used to refactor a conditional: especially if that conditional is getting too long. Here's an example program, which berates you if you curse at it:
+One major value of a hash is that it can be used to refactor a conditional: especially if that conditional is getting too long. Here's an example procedure. The object running this procedure berates you if you curse at it:
 
 ```eval-ruby
 curse = "dang"

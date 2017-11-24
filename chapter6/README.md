@@ -1,6 +1,14 @@
 # Advanced Control Flow
 
-We now have access to the following tools:
+We've met the following kinds of object:
+
+* Integers
+* True and False
+* Nil
+* Floats
+* Strings
+
+And we the following tools:
 
 * Naming
 * Statements
@@ -10,11 +18,21 @@ We now have access to the following tools:
 * Strings
 * `gets` and `puts`
 
-These are all the things required to write a more complex interactive procedural program!
+We can now control these objects using these tools, to write a more complex procedural program. Let's do it!
 
 ## Using string input conditionally
 
-Let's say we want to have the following program:
+A user is asking us for the following program:
+
+> I hate my mate Steve: so much so that my hatred spills over to anyone with a first name beginning with 'S'. I want a program that, when anyone types their name in, shouts at them if their name begins with an 'S'. Anyone else should just get a friendly greeting.
+
+The statement above is an example of a **specification**: a vague answer to the question "what do you want this program to do?". Our first job as programmers is to break specifications into manageable, step-by-step instructions that we can then feed into the machine.
+
+We do this to avoid biting off more than we can chew. The most common programming mistake is to try and build too much, too fast. We want to decompose this specification into really clear, step-by-step **requirements**.
+
+> The process of breaking a specification into requirements is called **algorithmic thinking**.
+
+Here's the list of requirements for the specification above:
 
 - The user sees a greeting, which asks them to enter their name.
 - The user enters their name.
@@ -28,7 +46,7 @@ Let's say we want to have the following program:
 
 When building a program, we move step-by-step through the requirements.
 
-> Biting off too many requirements at once is the #1 mistake in programming. The best programmers do everything they can to avoid it. That's why the idea of the 'best programmer is a lazy programmer' took hold. Force yourself to move in small steps now! It's a habit that will pay off.
+> The best programmers do everything they can to avoid 'biting off more than they can chew', or 'moving in too large a step'. That's why the idea of the 'best programmer is a lazy programmer' took hold. Force yourself to move in small steps now! It's a habit that will pay off. During the Makers Academy course, we'll meet tools designed to force us to move in small steps.
 
 #### 1. Make the file
 
