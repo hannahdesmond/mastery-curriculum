@@ -55,7 +55,7 @@ We can interact with these numbers in `irb`. Start `irb` from the console. Then,
 %/accordion%
 
 
-> This 'enter your instruction' followed by 'send your instruction to the program world' pattern is the basis by which all coding happens.
+> The pattern 'enter your instruction' followed by 'send your instruction to the program world' is the basis by which all REPL interactions happen.
 
 Let's try this again with another number:
 
@@ -169,7 +169,7 @@ Here's an example of that in action in `irb`:
 1 + 2
 ```
 
-In the case above, here's what's happening. The computer executes the code `1 + 1` character-by-character:
+In the case above, here's what's happening. The interpreter executes the code `1 + 1` character-by-character:
 
 - The program world fetches the object referenced by the name `1`.
 - The program world asks the object referenced by `1` if it understands the message `+`. 
@@ -177,6 +177,8 @@ In the case above, here's what's happening. The computer executes the code `1 + 
 - The program world fetches the object referenced by the name `2`.
 - The first object referenced by `1` adds the value of the object referenced by `2` to itself. The result is returned to the program world.
 - The program world returns the result to the user: `3`.
+
+> Notice that the interpreter doesn't 'add `1` to `1`'. Instead, the first object (`1`) goes and gets another object (`1`) and then adds itself together. In Ruby, objects do all the work. The interpreter turns our code into instructions for objects to do things.
 
 Here's the above, visually:
 
@@ -232,11 +234,11 @@ Some objects cannot change throughout the course of the program. Integers, like 
 
 `1` doesn't turn into `3`, it just stays as `1`. Forever. Or, until we turn off the program.
 
-In Ruby, we call these never-changing objects **constants**. We use naming for assigning constants, just like variables. But, there are special rules for naming constants: they have to start with a capital letter. Conventionally, the entire name is in capital letters.
+In Ruby, we give these never-changing objects a special kind of name: a **constant**. Just like variables, we assign constants using `=`. But, there are special rules for naming constants: they have to start with a capital letter. Conventionally, the entire name is in capital letters.
 
 Here's an example of assigning a name, `CONSTANT`, to an object called `object`:
 
-```
+```ruby
 CONSTANT = object
 ```
 
@@ -255,7 +257,7 @@ When we start the program world, some constants come into existence automaticall
 %/accordion%
 
 
-In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants.
+In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants. (The reasons for why are tricky, but for now, remember that variables can't be read outside the file they're written in, but constants can be.)
 
 That's OK, though, as each name should be pointing to a different integer: and the integers are constant objects.
 

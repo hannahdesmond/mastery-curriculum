@@ -917,6 +917,8 @@ Here's a visual representation of scope:
 
 > Confused by the word 'scope'? Think of the scope on top of a sniper-rifle: when you look down it, you can only see a part of the world: the part of the world you can shoot.
 
+One more gotcha: even though files containing Ruby code are all loaded into the program straight away, local variables cannot be read from outside of the file they're declared in. So files act as scope gates, too.
+
 ## Using scope to understand method parameters
 
 Scope is especially helpful when it comes to understanding method parameters. For each parameter, methods will define a local variable within their scope. The name of that variable will be set to the name of the parameter:
