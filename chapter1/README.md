@@ -133,7 +133,7 @@ Instead of starting from scratch each time, we can use a **file** to store the i
 
 > a set of instructions stored up one after the other (for instance, in a file), is called a **procedure**. A real-world cake recipe (take a bowl, add flour, add eggs, add sugar, turn on oven to 200, cook for 20 minutes, remove mixture, cool) is an example of a procedure. Each step is executed one-at-a-time. The whole recipe can be 'reloaded' to create a ready-to-go cake at any time.
 
-<gif of world being created from a file>
+![A world being created from a file](../images/1-prewritten-world.gif)
 
 To move your instructions into a file, we must make a Ruby-specific file (just as a Microsoft Word document has the file suffix `.doc`, so Ruby has the suffix `.rb`), and then write our instructions into it, just as we would the REPL:
 
