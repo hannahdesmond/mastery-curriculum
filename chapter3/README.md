@@ -75,9 +75,13 @@ Here's another example of optional parentheses:
 
 ## What happens when we send an object a message?
 
-For every message that can be received by an object, that object has some sort of **procedure** defined on it. A procedure is a _set of instructions that is executed by the object, one after the other_. We'll go into much more detail about how to write these procedures later.
+For every message that can be received by an object, that object has some sort of **procedure** defined on it. A procedure is a _set of instructions that is executed by the object, one after the other_. 
 
-Like many program objects, these procedures usually have names. A named procedure is called a **method**. Sending an object a message to execute a procedure is referred to as _calling a method_.
+We'll go into much more detail about how to write these procedures later.
+
+Like many program objects, these procedures usually have names. A named procedure is called a **method**. Sending an object a message to execute a procedure is referred to as _calling a method_:
+
+![Zooming into an object's interface, and demonstrating the procedures](../images/3-interfaces.gif)
 
 > An interface is a list of all the things an object can do: all the object's procedures. In other words, an interface is a list of object methods.
 
@@ -210,9 +214,9 @@ Here's a more realistic example from a real-life program:
 
 Again, we can guess that `object` is probably some kind of 'calculator'.
 
-The set of messages that can be sent to an object is called its **interface** (from _inter_ (between) and _face_ (form) – so literally the shape of the space 'between objects').
+The set of messages that can be sent to an object is called its **interface** (from _inter_ (between) and _face_ (form) – so literally the shape of the space 'between objects'). Messages that can't be sent to an object simply won't have any way 'into' the object, which will throw an error:
 
-<diagram of interfaces as holes on an object>
+![Zooming into an object's interface, and sending it a message it doesn't understand](../images/3-interfaces-and-errors.gif)
 
 ## Investigating object interfaces
 
