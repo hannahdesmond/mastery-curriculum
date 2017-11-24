@@ -97,7 +97,7 @@ And yet `-1` knows to return `false`?
 
 There must be some procedure inside the `positive?` method defined on integer objects. This procedure determines whether to return `true`, or `false`. Let's go inside the `positive?` method defined on the interface of `1`:
 
-<animation showing 'going into' the method defined on these interfaces and seeing some instructions>
+!['Going into' the method defined on the interface of 1, which is depicted as a machine, and seeing some instructions](../images/4-inside-methods.gif)
 
 Inside `1`'s `positive?` method is a procedure something like this:
 

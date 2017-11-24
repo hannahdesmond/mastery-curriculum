@@ -37,16 +37,6 @@ an_array
 - _**Add a couple of integers and floats to the array.**_
 - _**Add the main object to the array.**_
 
-<!-- Hold on. If the main object contains all other objects – including this array we just made – how can we add it to the array? How can something inside the universe contain the universe itself?
-
-## How state works in Ruby
-
-It's not quite accurate to think of Ruby objects as being 'stored inside' one another: that's a convenient mental model. In fact, Ruby objects that reference one another do so by using **pointers**. Pointers are the arrows that join _names_ with _objects_.
-
-<demonstrate objects being added to an array, referenced by pointer>
-
-> This is not a big deal: it's perfectly OK to think of Ruby objects as living 'inside' one another. But it's also helpful to know that this is made possible by the idea of pointers. -->
-
 ## Modifying arrays
 
 We've seen that we can add things to an existing array object's state by using the array's `push` method, with the object-to-be-added as an argument to that method:

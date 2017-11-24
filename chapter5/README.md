@@ -2,7 +2,7 @@
 
 We already know that when we start a Ruby program, some **objects** are made for us.
 
-<gif (from before) demonstarting program starting and some numbers coming into existence: zoom in on the numbers to show they exist>
+![A Ruby program starting up, showing the numbers as objects inside an elliptical world](../images/2-numbers.gif)
 
 In [module 2](./2_variables_and_statements.md), we saw that numbers were ready and waiting for us whenever we set up the Ruby world. And, we **assigned** these pre-existent numbers to **variables**: in other words, we gave them programmer-friendly **names**.
 

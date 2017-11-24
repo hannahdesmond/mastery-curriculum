@@ -22,7 +22,7 @@ We can now control these objects using these tools, to write a more complex proc
 
 ## Using string input conditionally
 
-A user is asking us for the following program:
+A client is asking us for the following program:
 
 > I hate my mate Steve: so much so that my hatred spills over to anyone with a first name beginning with 'S'. I want a program that, when anyone types their name in, shouts at them if their name begins with an 'S'. Anyone else should just get a friendly greeting.
 
