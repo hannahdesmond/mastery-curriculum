@@ -242,7 +242,7 @@ It's perfectly OK to send lots of messages to objects, one after the other:
 
 As the computer goes through the line, each `object.message` statement is replaced by the value returned from sending that message to that object:
 
-<animation showing referential transparency through chaining>
+![An animation demonstrating referential transparency through chaining. Each variable is replaced by the object it references, and each dot is executed in turn](../images/3-referential-transparency.gif)
 
 This 'queueing up of messages' is referred to as **chaining**.
 
