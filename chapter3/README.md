@@ -6,7 +6,7 @@ Our REPL provides us with a window through which we can interact with the progra
 
 We interact with the program world by sending it **messages**. In response to our messages, objects **return** something (the 'return value'). When we're using the REPL, the program world treats us, the programmer, as if we were just another object in the object world.
 
-<gif showing me interacting with program objects by sending them messages>
+![Interacting with program objects by sending them messages, as if the REPL were an object](../images/3-repl-as-object.gif)
 
 Here's a visual depiction of us, the programmer, interacting with the REPL by requesting an object by name (`one`). Provided that we have defined this variable, the program world goes and fetches the object referenced by that name:
 
