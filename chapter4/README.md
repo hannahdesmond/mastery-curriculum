@@ -709,4 +709,4 @@ Let's agree now that the program returning `false` means 'I lose', and `true` me
 
 - _**Write the dice game as above.**_
 - _**Upgrade the dice game: now both I and my opponent roll two six-sided dice each.**_
-- _**Upgrade the game once more: now we play the best of three rounds (still with two dice each).**_
+- _**Upgrade the game once more: now we play several rounds for each game.  The first player to win two rounds wins the game. (Still with two dice each.)**_
