@@ -193,7 +193,7 @@ We've already seen that we can send the `join` method to arrays. The array will 
 ```eval-ruby
 bad_string = "Why|am|I|so|hard|to|read"
 
-string.split("|").join(" ")
+bad_string.split("|").join(" ")
 ```
 
 ## Arrays of arrays
