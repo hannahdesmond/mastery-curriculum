@@ -39,7 +39,7 @@ In the first case, `1 + 2`, Ruby is actually translating this to `1.+(2)`. We sa
 
 Sometimes, a messaged object knows everything it needs to know to answer the message. For instance: `1.integer?` is perfectly answerable by `1` all on its own: it doesn't need any other object to tell us whether it's an integer.
 
-Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example: `1` would right ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
+Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example: `1` would rightly ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
 
 ```eval-ruby
 # 2 is the argument
