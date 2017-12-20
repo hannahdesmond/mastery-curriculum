@@ -277,7 +277,7 @@ warning: previous definition of ONE was here
 => 2
 ```
 
-This makes sense for our purposes: we don't want anyone – be it another programmer or a user of the numeral calculator – the reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear: don't reassign these names, please: they're meant to stay this way.
+This makes sense for our purposes: we don't want anyone – be it another programmer or a user of the numeral calculator – to reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear: don't reassign these names, please: they're meant to stay this way.
 
 ## Modulo
 
