@@ -7,7 +7,7 @@ Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to becom
 
 ## Approach
 
-1. Work through a chapter (see below).
+1. Work through a chapter \(see below\).
 
 2. When you feel confident with the **Learning Objectives** at the top of each chapter, complete the quiz for the chapter.  You can do that at the [quiz repository](https://github.com/makersacademy/mastery-quizzes).
 
@@ -17,4 +17,7 @@ Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to becom
 
 Your aim is to get through all the chapters, but the most important thing for your learning is to only move on from a chapter once you've completed the quiz.
 
-Ready? [Go to the Instructions](./INSTRUCTIONS.md)
+**Note: the mastery learning quizzes can take a long time to complete. Also, the later quizzes tend to take more time than the earlier quizzes. It's really important to get started on Monday of week 2 of the precourse and put in lots of time over the next 2 weeks.**
+
+Ready? [Go to the Instructions](./INSTRUCTIONS.md)!
+
