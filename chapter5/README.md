@@ -263,3 +263,7 @@ How, then, do we - as programmers – interactively _input_ information to a pro
 `gets` (which stands for 'get string') is very useful to add information to a program on-the-fly: the sort of thing we might need to do, say, if we were writing a build-your-own text adventure game. Which is totally what we're doing in the next Chapter.
 
 > The message `gets` calls a method on the main object. This method returns a string. This string usually has a `\n` newline character in it. To get the string without the newline, use the string `chomp` method. A line of code using `gets` usually looks something like this: `user_input = gets.chomp`. The program will wait for the user to input a string, then continue with whatever procedure it's doing.
+
+## Complete the mastery quiz for chapter 5
+
+Use your mastery quizzes repository to complete the quiz for chapter 5.
