@@ -260,4 +260,4 @@ This 'queueing up of messages' is referred to as **chaining**.
 
 ## Complete the mastery quiz for chapter 3
 
-Use your mastery quizzes repository to do the quiz for chapter 3.
+Use your mastery quizzes repository to complete the quiz for chapter 3.
