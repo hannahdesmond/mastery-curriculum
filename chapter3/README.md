@@ -257,3 +257,7 @@ This 'queueing up of messages' is referred to as **chaining**.
 - _The program says "I'm done with this line! Here's what it evaluated to: `15`"._
 
 > The principle that "`object.message` gets replaced by the return value, which can be a new `object` for a new `message`" is called **referential transparency**.
+
+## Complete the mastery quiz for chapter 3
+
+Use your mastery quizzes repository to do the quiz for chapter 3.
