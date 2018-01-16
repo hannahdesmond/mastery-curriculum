@@ -1043,3 +1043,7 @@ end
 Because the array is referenced only by an _instance variable_, nothing outside of `Airport` instances can read it: so we're protected from programmers trying to `pop` a plane from `heathrow`, and so on. This essentially _limits the interface of the array_ to only methods we want to allow.
 
 > Spend some time playing with the code example above. Write a `Plane` class if you can – get the initial code example running. The code here is similar to code introduced in the first week of Makers Academy, so don't worry if it boggles you at the moment.
+
+## Complete the mastery quiz for chapter 10
+
+Use your mastery quizzes repository to complete the quiz for chapter 10.
