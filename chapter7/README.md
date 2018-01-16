@@ -423,3 +423,7 @@ banned_phrases = ["sucks", "bad", "hate", "foolish", "danger to society"]
 ```
 
 > It won't surprise you to know that these sorts of clients and these sorts of programs exist in the real world. As a programmer, you have a responsibility to build only what you're comfortable building. While you don't have to sign it, I recommend reading the [Responsible Software Manifesto](https://manifesto.responsiblesoftware.org/) and considering what sort of power you want to wield.
+
+## Complete the mastery quiz for chapter 7
+
+Use your mastery quizzes repository to complete the quiz for chapter 7.
