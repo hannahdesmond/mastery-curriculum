@@ -1,6 +1,6 @@
 # Hashes
 
-We've just met a very powerful object for storing information in the program world: instances of the `Array` class. 
+We've just met a very powerful object for storing information in the program world: instances of the `Array` class.
 
 Arrays are great for storing objects, but they get harder to understand the more objects they contain. For example: what does each element in the following array _mean_?
 
@@ -25,8 +25,8 @@ Is there a solution? Sure there is: the `Hash` class, and its instances: hashes.
 
 Arrays and hashes are similar in that they both contain lists of _elements_. The main difference is that:
 
-- Array elements are objects
-- Hash elements are two objects, one used to reference the other.
+* Array elements are objects
+* Hash elements are two objects, one used to reference the other.
 
 > This 'two objects, one used to reference the other' might seem confusing. But there are similarities with how variables are used to reference objects. Although a variable isn't strictly an object, it's a similar concept.
 
@@ -106,7 +106,7 @@ favourite_things = { :"sport" => "tennis", :"food" => "chunky bacon" }
 favourite_things[:"sport"]
 ```
 
-> To write a symbol, add a semicolon `:` before a name. There's syntactic sugar, too: you don't need the quotes (`""` around the symbol). Also, you can ask a string to fetch its equivalent symbol very easily: simply send the string the message `to_sym` (like how `to_f` worked for integers and floats). Using symbols makes your code look super-programmery, and tells other programmers which objects they should expect to change, and which should stay the same.
+> To write a symbol, add a semicolon `:` before a name. There's syntactic sugar, too: you don't need the quotes \(`""` around the symbol\). Also, you can ask a string to fetch its equivalent symbol very easily: simply send the string the message `to_sym` \(like how `to_f` worked for integers and floats\). Using symbols makes your code look super-programmery, and tells other programmers which objects they should expect to change, and which should stay the same.
 
 So, this is the first function of hashes: as a **key-value store** for named information.
 
@@ -149,14 +149,15 @@ beratings[curse]
 
 This is a pretty powerful technique!
 
-- _**Using the technique above, implement a program to the following specification without using a conditional.**_
+* _**Using the technique above, implement a program to the following specification without using a conditional.**_
 
 > I want a simple dictionary. I put in the word, and I get out the definition of that word. Here are the definitions I want:
-> - **bear**: a creature that fishes in the river for salmon.
-> - **river**: a body of water that contains salmon, and sometimes bears.
-> - **salmon**: a fish, sometimes in a river, sometimes in a bear, and sometimes in both.
-
-> In general, programmers try to minimise the amount of conditionals in a program. This is because such pathways can quickly multiply in number (especially if a lot of programmers are working on the codebase). Each pathway can lead to a new program state, which results in more program states than any one programmer can reason about. [This article](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) is a fantastic recent case study into what happens when programmers can no longer reason about the complexity of their codebases. Lookup tables are one way to reduce conditional complexity in a program, by centralising possible program states. In [Chapter 9](../chapter9/README.md), we'll see that we can use procedures as values to lookup tables, which allows us to control program state even more tightly.
+>
+> * **bear**: a creature that fishes in the river for salmon.
+> * **river**: a body of water that contains salmon, and sometimes bears.
+> * **salmon**: a fish, sometimes in a river, sometimes in a bear, and sometimes in both.
+>
+> In general, programmers try to minimise the amount of conditionals in a program. This is because such pathways can quickly multiply in number \(especially if a lot of programmers are working on the codebase\). Each pathway can lead to a new program state, which results in more program states than any one programmer can reason about. [This article](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) is a fantastic recent case study into what happens when programmers can no longer reason about the complexity of their codebases. Lookup tables are one way to reduce conditional complexity in a program, by centralising possible program states. In [Chapter 9](../chapter9/README.md), we'll see that we can use procedures as values to lookup tables, which allows us to control program state even more tightly.
 
 ## Grouping things in hashes
 
@@ -177,7 +178,7 @@ my_hash[:my_array].push("like").push("this")
 my_hash
 ```
 
-- _**Group the array of hashes below into a hash, where each key of the hash is a sport, and each value of the hash is a list of names of people who play that sport.**_
+* _**Group the array of hashes below into a hash, where each key of the hash is a sport, and each value of the hash is a list of names of people who play that sport.**_
 
 ```eval-ruby
 players = [
@@ -196,9 +197,9 @@ So no worries if you find this tough! I do too, and we're in good company. We ca
 
 Let's decompose the specification into requirements.
 
-1. Set up a new hash (`sorted_by_sport` will do as a name for now).
+1. Set up a new hash \(`sorted_by_sport` will do as a name for now\).
 2. Go through the players.
-3. For each player (`player_under_consideration` will do as a name for now), take a note of the sport they play (`sport` will do as a name for now).
+3. For each player \(`player_under_consideration` will do as a name for now\), take a note of the sport they play \(`sport` will do as a name for now\).
 4. Check the `sorted_by_sport` hash. If `sport` does not exist as a **key** on that hash, set `sport` equal to an array containing the name of `player_under_consideration`. Then move to the next player.
 5. Else, if `sport` DOES exist as a key on the hash, push the `player_under_consideration`'s' name into the array that already exists. Then go to the next player.
 
@@ -208,7 +209,7 @@ OK, this should get us started. Step-by-step.
 
 #### 1. Set up a new hash
 
-1. Set up a new hash (`sorted_by_sport` will do as a name for now).
+1. Set up a new hash \(`sorted_by_sport` will do as a name for now\).
 
 ```eval-ruby
 players = [
@@ -223,7 +224,7 @@ sorted_by_sport = {}
 
 #### 2. Set up a loop on the players
 
-2. Go through the players.
+1. Go through the players.
 
 ```eval-ruby
 players = [
@@ -244,7 +245,7 @@ sorted_by_sport
 
 #### 3. Name the sport each player plays, using a variable
 
-3. For each player (`player_under_consideration` will do as a name for now), take a note of the sport they play (`sport` will do as a name for now).
+1. For each player \(`player_under_consideration` will do as a name for now\), take a note of the sport they play \(`sport` will do as a name for now\).
 
 ```eval-ruby
 players = [
@@ -265,7 +266,7 @@ sorted_by_sport
 
 #### 4. Set the key on `sorted_by_sport` if there isn't one already
 
-4. Check the `sorted_by_sport` hash. If `sport` does not exist as a **key** on that hash, set `sport` equal to an array containing the name of `player_under_consideration`. Then move to the next player.
+1. Check the `sorted_by_sport` hash. If `sport` does not exist as a **key** on that hash, set `sport` equal to an array containing the name of `player_under_consideration`. Then move to the next player.
 
 ```eval-ruby
 players = [
@@ -292,7 +293,7 @@ sorted_by_sport
 
 #### 5. Push the player name into the key on `sorted_by_sport` if the key already exists
 
-5. Else, if `sport` DOES exist as a key on the hash, push the `player_under_consideration`'s' name into the array that already exists. Then go to the next player.
+1. Else, if `sport` DOES exist as a key on the hash, push the `player_under_consideration`'s' name into the array that already exists. Then go to the next player.
 
 ```eval-ruby
 players = [
@@ -403,7 +404,7 @@ This feels much more readable!
 
 ## Iterating over hashes
 
-When we iterate over a hash, we get both the key and value as parameters to a procedure (since the elements of a hash are key-value pairs):
+When we iterate over a hash, we get both the key and value as parameters to a procedure \(since the elements of a hash are key-value pairs\):
 
 ```eval-ruby
 my_favourite_things = { :sport => "tennis", :music => "classical" }
@@ -414,3 +415,8 @@ end
 ```
 
 > Remember – just like array `each`es, you can name the parameters whatever you like. Just like the `each` parameter for an array represented each element – no matter what you called it – the first parameter for a hash `each` will be the element key, and the second will be the element value.
+
+## Complete the mastery quiz for chapter 8
+
+Use your mastery quizzes repository to complete the quiz for chapter 8.
+
