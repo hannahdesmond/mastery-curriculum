@@ -166,5 +166,5 @@ When we get to 'messages and interfaces', we'll think more about this. For now, 
 
 ## Complete the mastery quiz for chapter 1
 
-Go to the [mastery quizzes repository](https://github.com/makersacademy/mastery-quizzes) to get and complete the mastery quizzes.
+Follow the instructions on the [mastery quizzes repository](https://github.com/makersacademy/mastery-quizzes) to complete the quiz for chapter 1.
 
