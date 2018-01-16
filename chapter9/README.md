@@ -483,3 +483,7 @@ Here are some helpful rules of thumb to picking the right abstraction when writi
 2. Can you name your method after what it returns, instead of what it does? For instance, `average(test_scores)` is a better name than `averages_scores(test_scores)`. For another example, `score(hand)` is a better method name than `scores_cards(hand)`.
 
 If you can answer 'yes' to both 1 and 2, your method is more likely to be a good one.
+
+## Complete the mastery quiz for chapter 9
+
+Use your mastery quizzes repository to complete the quiz for chapter 9.
