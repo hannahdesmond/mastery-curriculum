@@ -164,11 +164,7 @@ puts 1 + 1
 
 When we get to 'messages and interfaces', we'll think more about this. For now, it's enough to know that `puts`** can be used to print information from a program without a REPL**.
 
-## Now complete the mastery quiz for chapter 1
+## Complete the mastery quiz for chapter 1
 
 Go to the [mastery quizzes repository](https://github.com/makersacademy/mastery-quizzes) to get and complete the mastery quizzes.
-
-
-
-
 
