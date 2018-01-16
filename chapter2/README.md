@@ -301,5 +301,5 @@ Here's another example of the modulo. Play around with it until you understand w
 
 ## Complete the mastery quiz for chapter 2
 
-Use your mastery quizzes repository to do the quiz for chapter 2.
+Use your mastery quizzes repository to complete the quiz for chapter 2.
 
