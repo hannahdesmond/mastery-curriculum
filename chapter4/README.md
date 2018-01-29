@@ -323,7 +323,7 @@ We've just met the comparison operators `>` and `<`. Here are the rest:
 ```
 ==
 !=
-=>
+>=
 <=
 ```
 
