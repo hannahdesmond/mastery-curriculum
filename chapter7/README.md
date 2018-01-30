@@ -399,12 +399,12 @@ accumulator
 
 ## Checking if elements are in arrays
 
-We can ask an array whether it includes an object by sending it the `includes?` method:
+We can ask an array whether it includes an object by sending it the `include?` method:
 
 ```eval-ruby
 words = ["Hello", "World!"]
 
-words.includes?("Hello")
+words.include?("Hello")
 ```
 
 - _**You've now met a very powerful set of array techniques. Combine them to build a program to the following specification (it's been started for you). Don't forget to break the specification into requirements!**_
