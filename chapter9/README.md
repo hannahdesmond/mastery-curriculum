@@ -258,8 +258,8 @@ hello("Sam")
 In this way, the object currently executing a procedure can use other objects to vary the return value:
 
 ```eval-ruby
-def make_cake(flour_exists?)
-  if flour_exists?
+def make_cake(flour_exists)
+  if flour_exists
     return :cake
   else
     return 0
