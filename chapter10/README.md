@@ -718,7 +718,7 @@ class Robot
   end
 
   def walk
-    return "I'm walking on my " + @number_of_legs + " legs!"
+    return "I'm walking on my " + @number_of_legs.to_s + " legs!"
   end
 end
 
