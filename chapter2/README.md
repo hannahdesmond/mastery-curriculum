@@ -247,7 +247,7 @@ When we start the program world, some constants come into existence automaticall
 
 ```eval-ruby
 > RUBY_VERSION
-=> "2.4.1"
+# => "2.4.1"
 ```
 
 %/accordion%
