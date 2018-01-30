@@ -280,7 +280,7 @@ Arrays can be used to manage control flow too: by forcing an object to execute a
 
 There are a few ways to do this. We can use a `while` loop with an accumulator to run a procedure once for each item of an array:
 
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 current_index = 0
 
@@ -294,7 +294,7 @@ end
 
 We can combine this structure with the array reader method `[]` to tell an object to do something with elements of the array one-after-the-other:
 
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 current_index = 0
 
