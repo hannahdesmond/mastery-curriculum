@@ -8,7 +8,7 @@ Most Ruby procedures are wrapped up in methods, which are defined 'inside' objec
 
 That object executes a procedure inside itself:
 
-```eval-ruby
+```ruby
 # Inside 1
 if self > 0
   return true
