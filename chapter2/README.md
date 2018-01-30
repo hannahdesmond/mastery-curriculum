@@ -245,9 +245,9 @@ When we start the program world, some constants come into existence automaticall
 
 %accordion%See how I'd do this%accordion%
 
-```eval-ruby
+```bash
 > RUBY_VERSION
-# => "2.4.1"
+=> "2.4.1"
 ```
 
 %/accordion%
