@@ -103,7 +103,7 @@ array = [1, 2, 3, 4, 5, 6]
 array.slice(0, 1)
 ```
 
-> This is the first method we've met that takes two arguments. `slice`'s first argument is the starting index, and the last argument is the index to stop on. Play around to figure it out.
+> This is the first method we've met that takes two arguments. `slice`'s first argument is the starting index, and the last argument is length of the slice. Play around to figure it out.
 
 ## Outputting from arrays
 
