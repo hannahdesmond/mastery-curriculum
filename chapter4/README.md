@@ -621,7 +621,7 @@ By using an accumulator, we can tell an object executing the following while loo
 ```ruby
 number = 0
 
-while number <= 10 do
+while number < 10 do
   number = number + 1
   puts number
 end
