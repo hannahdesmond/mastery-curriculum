@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Instructions](./INSTRUCTIONS.md)
 * [Hello World](./chapter1/README.md)
 * [Variables and Statements](./chapter2/README.md)
@@ -11,3 +12,4 @@
 * [Hashes](./chapter8/README.md)
 * [Methods](./chapter9/README.md)
 * [Classes](./chapter10/README.md)
+

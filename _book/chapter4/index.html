@@ -1,0 +1,942 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Flow of Control · Mastery Curriculum</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mary Rose Cook and Sam Morgan">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chapter5/" />
+    
+    
+    <link rel="prev" href="../chapter3/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../INSTRUCTIONS.html">
+            
+                <a href="../INSTRUCTIONS.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Variables and Statements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Messages and Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter5/">
+            
+                <a href="../chapter5/">
+            
+                    
+                    Other Objects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter6/">
+            
+                <a href="../chapter6/">
+            
+                    
+                    Advanced Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapter7/">
+            
+                <a href="../chapter7/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter8/">
+            
+                <a href="../chapter8/">
+            
+                    
+                    Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter9/">
+            
+                <a href="../chapter9/">
+            
+                    
+                    Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Flow of Control</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="flow-of-control">Flow of Control</h1>
+<p>We already know that when we start a Ruby program, some <strong>objects</strong> are made for us.</p>
+<p><img src="../images/2-numbers.gif" alt="A user starting IRB in the terminal, causing a world to come into existence with a window as the &apos;REPL&apos;"></p>
+<p>In <a href="../chapter2/">module 2</a>, we saw that integer objects were ready and waiting for us whenever we set up the Ruby world. And, we <strong>assigned</strong> these pre-existent numbers to <strong>variables</strong>: in other words, we gave them programmer-friendly <strong>names</strong>.</p>
+<p>In <a href="../chapter3/">module 3</a>, we found out that we could instruct objects to do things using <strong>messages</strong>. Objects might require <strong>arguments</strong> to be able to answer a message. We learned that the list of messages we can send to an object is called its <strong>interface</strong>. We saw that you could make a good guess at what an object was, based on the <strong>methods</strong> defined on its interface. We also saw that you can <strong>chain</strong> messages, thanks to <strong>referential transparency</strong>.</p>
+<blockquote>
+<p><strong>Messages</strong> call <strong>methods</strong> on an object&apos;s <strong>interface</strong>.</p>
+</blockquote>
+<p>So far, we&apos;ve looked a lot at what exists in the program world (objects), and how those things communicate (messages). But our understanding of how messages are handled by methods is fuzzy. What happens <em>inside</em> object methods?</p>
+<h2 id="going-inside-methods">Going inside methods</h2>
+<p>Methods contain pre-written instructions &#x2013; <strong>procedures</strong> &#x2013; for their object to do.</p>
+<p>Just as we have used line-by-line instructions to control our program world (and objects in it), so object methods contain pre-written lines of instructions to control their objects, and everything inside them. You could think of them as being &apos;programs within programs&apos;.</p>
+<p>We can cause an object to execute a procedure by <em>calling a method</em> defined on that object. We call methods by sending objects messages.</p>
+<blockquote>
+<p>If we don&apos;t designate an object to send a message to, and just send a message, we send that message to the main object. The main object will happily carry out procedures, like any other object.</p>
+</blockquote>
+<h2 id="whats-a-procedure">What&apos;s a procedure?</h2>
+<p>Let&apos;s say we&apos;re an object in the program world. We want a cake: but we don&apos;t know how to bake the cake. Fortunately, there&apos;s another object in this world, <code>dad</code>, that does know how.</p>
+<p>So, we send <code>dad</code> a message: &quot;Hey Dad, can you bake me a cake?&quot;. Maybe we ask this a lot (and we&apos;re rude), so we&apos;ll just shorten the message we send to <code>cake</code>. When <code>dad</code> receives the <code>cake</code> method, he immediately executes his stored procedure. That procedure looks something like this:</p>
+<ol>
+<li>Get bowl.</li>
+<li>Add flour.</li>
+<li>Add eggs.</li>
+<li>Add sugar.</li>
+<li>Bake mixture for 20 minutes.</li>
+<li>Cool mixture.</li>
+<li>Return mixture.</li>
+</ol>
+<p>Dad goes off and does that, and once he&apos;s done, he <code>return</code>s the cake to us. Let&apos;s represent that as a flowchart:</p>
+<p><img src="../images/4-flowchart-cake.png" alt="A flowchart of Dad&apos;s cake recipe"></p>
+<blockquote>
+<p>Procedures can be thought of as cooking recipes, which contain steps to produce a result.</p>
+</blockquote>
+<p>Here&apos;s a code-y version of what <code>dad</code> just did. I&apos;m using a bunch of program structures we&apos;ll see later: don&apos;t sweat it if this makes only vague sense to you right now:</p>
+<pre><code class="lang-ruby">bowl = []
+bowl.push(flour)
+bowl.push(eggs)
+bowl.push(sugar)
+
+mixture = bowl.contents
+mixture.bake
+
+<span class="hljs-keyword">return</span> mixture
+</code></pre>
+<blockquote>
+<p>The keyword <code>return</code> says &quot;whatever follows is the return value from this procedure&quot;. More on this further down.</p>
+</blockquote>
+<h2 id="conditional-procedures">Conditional procedures</h2>
+<p>Procedures are about more than just unquestioningly executing one set of instructions.</p>
+<p>What happens if <code>dad</code> tries to execute his <code>cake</code> procedure without any flour? It might just blow up, and crash Dad. Or worse: Dad might keep trying to make the cake without having any flour, resulting in an eggy, sugary mess (or, at best, some sort of meringue).</p>
+<p>We&apos;d like Dad to be able to stop his procedure if he doesn&apos;t have any flour. And we&apos;d like him to give us a return value in this case (maybe <code>0</code>, representing an &apos;error code&apos; we agreed with him earlier), so we know what&apos;s gone wrong. Let&apos;s amend the first few parts of the procedure:</p>
+<ol>
+<li>Get bowl.</li>
+<li><em>If flour exists</em> add flour.</li>
+<li><em>If flour exists</em> add eggs.</li>
+<li><em>If flour exists</em> add sugar.</li>
+<li><em>If flour exists</em> bake mixture for 20 minutes.</li>
+<li><em>If flour exists</em> cool mixture.</li>
+<li><em>If flour exists</em> return mixture.</li>
+<li><em>If flour does not exist</em> return <code>0</code>.</li>
+</ol>
+<p>Instructions 2 through 8 will now only be executed by Dad if flour exists. If flour doesn&apos;t exist, he&apos;ll jump straight to step 9, and return <code>0</code>. Since we know what <code>0</code> means when we ask Dad to <code>cake</code> (it means there&apos;s no flour), we can make a decision about what to do next. Here&apos;s the new flowchart:</p>
+<p><img src="../images/4-flowchart-conditional-cake.jpg" alt="An updated flowchart, with a conditional"></p>
+<p>These sorts of &apos;conditional&apos; procedures are how the majority of objects &#x2013; and hence the majority of programs &#x2013; work. Depending on things happening, or not happening, programs can do different things.</p>
+<blockquote>
+<p>Conditional procedures depend on the outcome of a <strong>condition</strong>. Here, the condition is &apos;does flour exist?&apos;</p>
+</blockquote>
+<p>Let&apos;s investigate a more code-oriented example. How does <code>1</code> know to return <code>true</code> here?</p>
+<pre><code class="lang-eval-ruby">1.positive?
+</code></pre>
+<p>And yet <code>-1</code> knows to return <code>false</code>?</p>
+<pre><code class="lang-eval-ruby">-1.positive?
+</code></pre>
+<p>There must be some procedure inside the <code>positive?</code> method defined on integer objects. This procedure determines whether to return <code>true</code>, or <code>false</code>. Let&apos;s go inside the <code>positive?</code> method defined on the interface of <code>1</code>:</p>
+<p><img src="../images/4-inside-methods.gif" alt="&apos;Going into&apos; the method defined on the interface of 1, which is depicted as a machine, and seeing some instructions"></p>
+<p>Inside <code>1</code>&apos;s <code>positive?</code> method is a procedure something like this:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span> &gt; <span class="hljs-number">0</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>So what the heck do these instructions do?</p>
+<h2 id="writing-conditionals">Writing Conditionals</h2>
+<p>Let&apos;s identify the parts of this code:</p>
+<ul>
+<li><code>if</code> is an instruction to look at the statement that follows. If that statement returns anything <em>not false</em>, the instructions following it are executed. If the statement returns anything <em>false</em>, look for an <code>else</code>, and execute the instructions following that instead.</li>
+<li><code>self</code> is the object in which this procedure will be executed (i.e. the object on which this method is defined). In this case, since we&apos;re &apos;inside&apos; <code>1</code>, <code>self</code> is <code>1</code>.</li>
+<li><code>self &gt; 0</code> is a statement comparing <code>self</code> with <code>0</code>. It&apos;s: <ul>
+<li><code>true</code> if <code>self</code> is greater than <code>0</code>. </li>
+<li><code>false</code> if <code>self</code> is less than or equal to <code>0</code>.</li>
+</ul>
+</li>
+<li><code>end</code> says &quot;OK, return to executing every line after this one as normal, thanks.&quot;</li>
+</ul>
+<p>There are two ways this code could be executed.</p>
+<ul>
+<li>If the <code>if</code> way is executed, the procedure will <code>return true</code>. </li>
+<li>If the <code>else</code> way is executed, the procedure will <code>return false</code>. </li>
+</ul>
+<p>Each possibility is called a <strong>branch</strong>. The object must make a choice as to which branch should be executed, depending on the return value of the statement <code>self &gt; 0</code>. The return value of this statement depends only on the value of <code>self</code>: that is, the value of the object executing the procedure.</p>
+<blockquote>
+<p>A structure that tells an object to &apos;do one thing or the other&apos; is called a <strong>conditional</strong>. <code>if</code>/<code>else</code> is a conditional. The statement which determines which branch the object proceeds down is called a <strong>condition</strong>. Here, <code>self &gt; 0</code> is the condition.</p>
+</blockquote>
+<h2 id="working-out-which-branch-gets-executed">Working out which branch gets executed</h2>
+<p>Let&apos;s depict the contents of the <code>positive?</code> method as a flow chart, and simplify the chart in the way the object does.</p>
+<p><img src="../images/4-flowchart-self.png" alt="A flowchart demonstrating the flow of information through the statement"></p>
+<p>Since we&apos;re currently inside a method defined on the object <code>1</code>, we can use referential transparency to replace <code>self</code> with <code>1</code>. That gives us:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><img src="../images/4-flowchart-1.png" alt="A flowchart demonstrating the flow of information through the statement, with self substituted for 1"></p>
+<p>Next, we can use referential transparency again, to replace the statement <code>1 &gt; 0</code> with its return value, <code>true</code>:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Let&apos;s update the flow chart, with the obvious conclusion of the flow:</p>
+<p><img src="../images/4-flowchart-true.png" alt="A flowchart demonstrating the flow of information through the statement, with 1 &amp;gt; 0 substituted for true"></p>
+<blockquote>
+<p>This kind of process, replacing statements and names via referential transparency, is the first key skill in <strong>computational thinking</strong>.</p>
+</blockquote>
+<p>So, when the program world runs the instructions within <code>1</code> (i.e. with <code>self</code> set to <code>1</code>), the result is:</p>
+<pre><code class="lang-eval-ruby">if 1 &gt; 0
+  return true
+else
+  return false
+end
+</code></pre>
+<p>And that&apos;s how <code>positive?</code> works.</p>
+<blockquote>
+<p>Ruby will translate code statements like <code>if 1 &lt; 0; else...</code> into something very similar to the flowchart we made: an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank">Abstract Syntax Tree</a>. Being able to deconstruct code into similar structures &#x2013; whether you verbalise them, draw them out, or something else &#x2013; is a crucial part of learning to work with code.</p>
+</blockquote>
+<h2 id="control-flow">Control Flow</h2>
+<p>The order in which an object executes instructions is called the <strong>control flow</strong>. We&apos;ve just met one way of controlling this order: using a conditional to control which instructions get executed and which don&apos;t. There are other ways to adjust the control flow: we&apos;ll meet them in a minute.</p>
+<ul>
+<li><em><strong>Imagine you are a program object. Imagine also that these instructions are defined a method defined on you. Draw out flow charts for the control flow of these instructions. You should be able to guess the comparison operators. Your aim is to use referential transparency to replace the instructions, chunk-by-chunk, until your flowchart looks like the last one we made.</strong></em></li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-number">1</span> + <span class="hljs-number">2</span> &gt; <span class="hljs-number">2</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> -<span class="hljs-number">1</span>.negative?
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> -<span class="hljs-number">1</span>.negative?
+  <span class="hljs-keyword">return</span> <span class="hljs-number">150</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-keyword">false</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> + <span class="hljs-number">8</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>.integer?
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="more-complex-conditional-procedures">More complex conditional procedures</h2>
+<p>So far, we&apos;ve seen conditionals with the simplest possible procedures on their branches: procedures that just <code>return</code> a value depending on the truthiness or falsiness of some condition:</p>
+<pre><code class="lang-eval-ruby">if 1 &gt; 0
+  return true
+else
+  return false
+end
+</code></pre>
+<p>In the last example you drew out above, you saw that these &apos;conditional procedures&apos; could be statements, too:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-keyword">false</span>
+  <span class="hljs-comment"># look, a statement!</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> + <span class="hljs-number">8</span>
+<span class="hljs-keyword">else</span>
+  <span class="hljs-comment"># another statement!</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>.integer?
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The truth is: a procedure inside a conditional can be as simple or as complex as you like. For instance, you can assign names within conditional procedures:</p>
+<pre><code class="lang-eval-ruby">a = 10
+
+if a.integer?
+  a = a * -1
+  return a
+else
+  return a.to_f
+end
+</code></pre>
+<p>You could write further conditionals within conditional procedures (although this can get confusing pretty quickly):</p>
+<pre><code class="lang-eval-ruby">if 1 &gt; 0
+  if 2 &lt; 0
+    return true
+  else
+    return 0
+  end
+else
+  return 15
+end
+</code></pre>
+<p>It&apos;s even commonplace to make calls to other objects within conditional procedures:</p>
+<pre><code class="lang-ruby">cake = dad.cake
+
+<span class="hljs-keyword">if</span> cake.zero?
+  flour.buy
+  dad.cake
+<span class="hljs-keyword">else</span>
+  <span class="hljs-keyword">self</span>.feed(cake)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>If there are more than two possible branches, you can use an <code>elsif</code> statement in between an <code>if</code> and an <code>else</code>:</p>
+<pre><code class="lang-eval-ruby">number = 0
+
+if number.positive?
+  return true
+elsif number.negative?
+  return false
+else
+  return 0
+end
+</code></pre>
+<p>Finally, it&apos;s perfectly OK to have an <code>if</code> statement without an <code>else</code>:</p>
+<pre><code class="lang-eval-ruby">number = 1
+
+if number.positive?
+  return number
+end
+</code></pre>
+<blockquote>
+<p>Play with each of the examples in the REPL above until they make sense. You can always refresh the page if you messed something up!</p>
+</blockquote>
+<h2 id="writing-conditions-comparison">Writing conditions: Comparison</h2>
+<p>Here are the sorts of conditions we might meet in a program:</p>
+<ul>
+<li>If the stock of products is less than 100, order more products.</li>
+<li>If this password matches the password on record, log the user in.</li>
+<li>If the player&apos;s score is greater than or equal to 501, they win.</li>
+<li>If the user has no more money, kick them off the table.</li>
+</ul>
+<p>These sorts of conditions are known as <strong>comparison</strong> conditions, because they compare one thing with another.</p>
+<p>We&apos;ve just met the comparison operators <code>&gt;</code> and <code>&lt;</code>. Here are the rest:</p>
+<pre><code>==
+!=
+&gt;=
+&lt;=
+</code></pre><ul>
+<li><em><strong>Play with the code example below to figure out which comparison operator means what.</strong></em></li>
+</ul>
+<pre><code class="lang-eval-ruby">1 &gt; 0
+</code></pre>
+<blockquote>
+<p>Comparison operators are methods defined on, among other things, integers. Don&apos;t believe me? Try changing <code>1 &gt; 0</code> to <code>1.&gt;(0)</code> in the code example above.</p>
+</blockquote>
+<h2 id="writing-conditions-logical-operations">Writing conditions: Logical operations</h2>
+<p>What the heck are these things <code>true</code> and <code>false</code>, anyway?</p>
+<p>They&apos;re objects, of course! And, like <code>1</code>, <code>2</code>, <code>3</code>, and all the other integers, they have meaning in the program world. They represent <em>boolean values</em>. <code>true</code> and <code>false</code>:</p>
+<ul>
+<li>Know about the truth or falsity of things, and</li>
+<li>Know how to interact with each other.</li>
+</ul>
+<p><code>true</code> and <code>false</code> are used to do logic: often, to manage the control flow.</p>
+<p>Here are some logical conditions we might meet in a program:</p>
+<ul>
+<li>If the user logs out and their cart isn&apos;t empty, send them an email to log back in and buy stuff.</li>
+<li>If the player is bankrupt or the player is out of pieces, send them a &apos;you lose!&apos; message.</li>
+<li>If the user is not logged-in and a member, don&apos;t show them the member&apos;s area.</li>
+</ul>
+<p>In Ruby, the logical operators include:</p>
+<pre><code>&amp;&amp;
+||
+!
+</code></pre><ul>
+<li><em><strong>Play with the code example below to figure out which logical operator means what.</strong></em></li>
+</ul>
+<pre><code class="lang-eval-ruby">!true
+</code></pre>
+<blockquote>
+<p>Are logical operators methods? On which objects are they defined?</p>
+</blockquote>
+<h2 id="manually-managing-control-flow-with-parentheses">Manually managing control flow with parentheses</h2>
+<p><em>Generally speaking</em>, an object will evaluate statements in parentheses <code>()</code> before any other statement in an instruction:</p>
+<pre><code class="lang-eval-ruby">!true &amp;&amp; false
+</code></pre>
+<pre><code class="lang-eval-ruby">!(true &amp;&amp; false)
+</code></pre>
+<blockquote>
+<p>If these two examples are confusing you, use referential transparency to replace each part of the line.</p>
+</blockquote>
+<p>Here&apos;s another example:</p>
+<pre><code class="lang-eval-ruby">2 * 3 + 2
+</code></pre>
+<pre><code class="lang-eval-ruby">2 * (3 + 2)
+</code></pre>
+<h2 id="repeating-instructions">Repeating instructions</h2>
+<p>So far we&apos;ve met one way of managing the control flow for an object: conditionals.</p>
+<p><img src="../images/4-conditional-graph.jpg" alt="A flow of control graph, demonstrating conditional logic"></p>
+<p>What about if we wanted to do a different kind of instruction? One where we don&apos;t want the object to skip instructions in a program branch: we want it to <em>repeat</em> instructions.</p>
+<p>Let&apos;s imagine an object that prints <code>1</code> to the console forever:</p>
+<pre><code class="lang-ruby">eternal_printer.print_1_forever
+</code></pre>
+<p>Here&apos;s how the procedure inside the <code>print_1_forever</code> method defined on <code>eternal_printer</code> might look:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The code above will output 1, forever. The procedure &#x2013; <code>puts 1</code> &#x2013; will keep being called. That&apos;s because every time the <code>eternal_printer</code> object reaches the <code>end</code> statement, it&apos;ll jump back up to the <code>while true</code> statement:</p>
+<p><img src="../images/4-while-graph.jpg" alt="A flow of control graph, demonstrating a while loop"></p>
+<blockquote>
+<p>Notice that we wrap the procedure, <code>puts 1</code>, in a <code>do...end</code> structure. This is a structure that Ruby uses to formally designate a procedure. We don&apos;t use it with <code>if</code>, but we do with most other control flows. It&apos;s actually optional for <code>while</code>, but I suggest using it for clarity. The takeaway is &quot;everything between <code>do</code> and <code>end</code> is a procedure&quot;.</p>
+</blockquote>
+<p>Of course, the <code>eternal_printer</code> object being stuck in such an <em>infinite loop</em> isn&apos;t usually that helpful &#x2013; we probably want the object to quit its loop at some point, so we can set it to executing other program instructions.</p>
+<blockquote>
+<p>In Ruby, only one object can run procedures at a time. Since an object executing a procedure in a <code>while true</code> loop will just keep repeating the procedure forever, this means that your whole Ruby program will never do anything else. Unless the procedure has some kind of output &#x2013; like printing to the console &#x2013; this will give the appearance of your program &apos;freezing&apos;!</p>
+</blockquote>
+<p>Fortunately, Ruby gives us a way to exit from a <code>while</code> loop:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-number">1</span>
+  <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>This <code>break</code> keyword will jump out of the loop. The object will execute the procedure line-by-line:</p>
+<ul>
+<li><code>while true do</code>: Set up a <code>while</code> loop. Keep it going forever. Run the procedure inside the loop.</li>
+<li><code>puts 1</code>: Print <code>1</code> to the console.</li>
+<li><code>break</code>: Exit the loop.</li>
+</ul>
+<p>Anything <em>after</em> a <code>break</code> won&apos;t be executed by an object. In the example below, <code>2</code> will never be printed, because the instruction to do so comes after the instruction to <code>break</code> out of the loop.</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-number">1</span>
+  <span class="hljs-keyword">break</span>
+  puts <span class="hljs-number">2</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="using-while-and-break-to-make-games">Using <code>while</code> and <code>break</code> to make games</h4>
+<p>This sort of structure &#x2013; <code>while true</code> with <code>break</code> &#x2013; is especially useful for making games. It&apos;s especially powerful when combined with a conditional <code>break</code>: that is, a <code>break</code> that only happens under certain conditions. A regular condition for this kind of conditional <code>break</code> is the existence of a winner.</p>
+<p>Let&apos;s imagine that we have a <code>game</code> object with a method, <code>start</code>:</p>
+<pre><code class="lang-ruby">game.start
+</code></pre>
+<p>Inside the <code>start</code> method, there might be a procedure like this:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># run a method on a player object</span>
+  player_1.play
+  <span class="hljs-comment"># run a method on the other player object</span>
+  player_2.play
+
+  <span class="hljs-comment"># wins? is another method on player object, that returns true if they won</span>
+  <span class="hljs-keyword">if</span> player_1.wins?
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> player_2.wins?
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p>If both <code>player_1.wins?</code> and <code>player_2.wins?</code> is false, the <code>break</code> will not be executed, returning to the top of the loop so both players can play again. Each time <code>game</code> passes through the loop is a &apos;turn&apos;.</p>
+</blockquote>
+<p>Most games are built around loops, with some &apos;break&apos; condition being &apos;the end of the game&apos;:</p>
+<ul>
+<li><strong>Chess</strong> is a loop that alternates turns between users forever, and <code>break</code>s when there is checkmate or stalemate.</li>
+</ul>
+<pre><code class="lang-ruby">chess.start
+</code></pre>
+<p>Inside the <code>start</code> method defined on the <code>chess</code> object:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  player_1.play
+  player_2.play
+
+  <span class="hljs-keyword">if</span> checkmate || stalemate
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ul>
+<li><strong>Monopoly</strong> is a loop that alternates turns between users forever, and <code>break</code>s when there is only one non-bankrupt player left.</li>
+</ul>
+<pre><code class="lang-ruby">monopoly.start
+</code></pre>
+<p>Inside the <code>start</code> method defined on the <code>monopoly</code> object:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  player_1.play
+  player_2.play
+  player_3.play
+
+  <span class="hljs-keyword">if</span> only_one_non_bankrupt_player_left
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p><code>only_one_non_bankrupt_player_left</code> could be another method defined on the <code>monopoly</code> object.</p>
+</blockquote>
+<ul>
+<li><strong>Football</strong> is a loop that kicks a ball around between teams, accumulating goals, and <code>break</code>s when 90 minutes have passed.</li>
+</ul>
+<pre><code class="lang-ruby">football_game.play
+</code></pre>
+<p>Inside the <code>play</code> method defined on the <code>football_game</code> object:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  thierry_henri.kick_ball
+  eric_cantona.maybe_score_goal
+
+  <span class="hljs-keyword">if</span> ninety_minutes_passed
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p><code>ninety_minutes_passed</code> could be another method defined on the <code>football_game</code> object.</p>
+</blockquote>
+<p>When being tasked with making a game, one of your first questions should be &quot;what happens each game loop? And what&apos;s the break condition?&quot;.</p>
+<blockquote>
+<p>Simply by inventing new answers to these questions, new games are born. Invent one!</p>
+</blockquote>
+<h4 id="using-accumulators">Using accumulators</h4>
+<p>An object might want to keep track of some value during a <code>while</code> loop. The object can&apos;t just define a variable inside the loop:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  goals_scored = <span class="hljs-number">0</span>
+
+  <span class="hljs-keyword">if</span> eric_cantona.score_goal
+    goals_scored = goals_scored + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Because each time the loop runs, the variable will be reset to its initial value. No matter how many times <code>eric_cantona</code> scores a goal, <code>goals_scored</code> will always be reset to <code>0</code>.</p>
+<p>If we want to keep track of a value during a loop, we have to declare a variable outside of the loop:</p>
+<pre><code class="lang-ruby">my_number = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  my_number = my_number + <span class="hljs-number">1</span>
+
+  puts my_number
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Each time the <code>while</code> loop above runs:</p>
+<ul>
+<li><code>my_number = my_number + 1</code>: <code>my_number</code> will increase in value by <code>1</code>.</li>
+<li><code>puts my_number</code>: <code>my_number</code> will be printed to the console.</li>
+</ul>
+<p>In short: <code>my_number</code> will count upwards, forever. So how about if we just wanted to print out the first ten numbers, then stop?</p>
+<pre><code class="lang-ruby">my_number = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  my_number = my_number + <span class="hljs-number">1</span>
+  puts my_number
+
+  <span class="hljs-keyword">if</span> my_number == <span class="hljs-number">10</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now that we&apos;ve added the conditional, each time the <code>while</code> loop above runs the object does the following:</p>
+<ul>
+<li><code>my_number = my_number + 1</code>: increase the value of <code>my_number</code> by <code>1</code>.</li>
+<li><code>puts my_number</code>: print <code>my_number</code> to the console.</li>
+<li><code>if my_number == 10</code>: only execute the following procedure if <code>my_number</code> is equal to <code>10</code>.</li>
+<li><code>break</code>: if the above condition was met, exit the loop.</li>
+</ul>
+<p>This technique is called using an <strong>accumulator</strong>. The accumulator &apos;keeps track&apos; of what&apos;s going on in the <code>while</code> loop, and allows the object to exit the loop in certain conditions. Our accumulator above keeps track of how many times the <code>while</code> loop has run.</p>
+<h4 id="while-loop-conditions"><code>while</code> loop conditions</h4>
+<p>We&apos;ve seen that an object can execute procedures in a <code>while</code> loop forever, if we tell it to run <code>while true</code>. How about if we tell it to run <code>while something else</code>?</p>
+<pre><code>while false do
+  puts 1
+end
+</code></pre><p>The while loop above will never run at all: <code>while</code> loops are dependent on <em>conditions</em>.</p>
+<p>By using an accumulator, we can tell an object executing the following while loop to print the integers 1 to 10 to the console, then to quit the loop.</p>
+<pre><code class="lang-ruby">number = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> number &lt; <span class="hljs-number">10</span> <span class="hljs-keyword">do</span>
+  number = number + <span class="hljs-number">1</span>
+  puts number
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ul>
+<li><em><strong>Using a while loop, instruct the main object to print the numbers 10 to 100 to the console.</strong></em></li>
+</ul>
+<p>I&apos;d recommend building your <code>while</code> loops with <code>break</code>s until you&apos;re familiar with how they work, then seeing if you can turn those loops into conditional ones.</p>
+<h2 id="return"><code>return</code></h2>
+<p><code>return</code> says to an object:</p>
+<ul>
+<li>Stop from executing this procedure. </li>
+<li>Return this value as the &apos;return value&apos; from the procedure. </li>
+</ul>
+<p>It&apos;s typically used inside a method, to say &quot;this is what should come back from calling this method&quot;. However, we can use it to manage the control flow: because <em>instructions after a return will never be executed</em>:</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-keyword">true</span>
+  puts <span class="hljs-number">1</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+  puts <span class="hljs-number">2</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Breaking down the control flow line-by-line, these are instructions to the main object as follows:</p>
+<ul>
+<li><code>if true</code>: Always execute the following branch.</li>
+<li><code>puts 1</code>: Print <code>1</code> to the console.</li>
+<li><code>return</code>: Stop execution here, return <code>0</code> to the object that called you (if that&apos;s a REPL, return <code>0</code> to the REPL)</li>
+</ul>
+<p>Notice that I didn&apos;t even write the instruction to <code>puts 2</code>. That&apos;s because it never gets executed, because <code>return</code> stopped the main object from executing any further parts of the procedure.</p>
+<ul>
+<li><em><strong>Play with the code example below. Can you make it return </strong></em><code>b</code><em><strong>, instead of </strong></em><code>a</code><em><strong>?</strong></em></li>
+</ul>
+<pre><code class="lang-eval-ruby">if true
+  a = 1
+  return a
+
+  b = 2
+  return b
+end
+</code></pre>
+<h2 id="combining-flows-of-control">Combining flows of control</h2>
+<p>The majority of code for managing control flow combines loops and conditionals. Here&apos;s a simple example, instructing the main object to print only even numbers under 101 to the console:</p>
+<pre><code class="lang-ruby">number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> number &lt; <span class="hljs-number">101</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">if</span> number.even?
+    puts number
+  <span class="hljs-keyword">end</span>
+
+  number = number + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ul>
+<li><em><strong>Instruct the main object to print only odd numbers under 100 to the console.</strong></em></li>
+</ul>
+<h2 id="random-conditionals">Random conditionals</h2>
+<p>Last module, we met <code>rand</code>, which generates random numbers. We can use it in conditionals if we want objects to execute random branches. This simulates random behaviour:</p>
+<pre><code class="lang-eval-ruby">random_number = rand(10)
+
+if random_number &lt; 5
+  return 0
+else
+  return 10
+end
+</code></pre>
+<p>We can use <code>rand</code> to, for example, write a simple dice game. (Game! You&apos;re probably going to need a loop of some sort.) The rules are:</p>
+<ol>
+<li>If I roll higher than my opponent, I win.</li>
+</ol>
+<p>Let&apos;s agree now that the program returning <code>false</code> means &apos;I lose&apos;, and <code>true</code> means &apos;I win&apos;.</p>
+<ul>
+<li><em><strong>Write the dice game as above.</strong></em></li>
+<li><em><strong>Upgrade the dice game: now both I and my opponent roll two six-sided dice each.</strong></em></li>
+<li><em><strong>Upgrade the game once more: now we play several rounds for each game.  The first player to win two rounds wins the game. (Still with two dice each.)</strong></em></li>
+</ul>
+<h2 id="complete-the-mastery-quiz-for-chapter-4">Complete the mastery quiz for chapter 4</h2>
+<p>Use your mastery quizzes repository to complete the quiz for chapter 4.</p>
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter3/" class="navigation navigation-prev " aria-label="Previous page: Messages and Interfaces">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chapter5/" class="navigation navigation-next " aria-label="Next page: Other Objects">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Flow of Control","level":"1.6","depth":1,"next":{"title":"Other Objects","level":"1.7","depth":1,"path":"chapter5/README.md","ref":"./chapter5/README.md","articles":[]},"previous":{"title":"Messages and Interfaces","level":"1.5","depth":1,"path":"chapter3/README.md","ref":"./chapter3/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter4/README.md","mtime":"2018-12-10T17:09:43.965Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-13T17:08:42.135Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
