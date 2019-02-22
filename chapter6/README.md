@@ -152,8 +152,8 @@ The second refactor I'm going to make is to use **early returns** along with one
 puts "Welcome user"
 user = gets.chomp
 
-return puts user.upcase if user.chr == "S"
-return puts "Hi, " + user
+return user.upcase if user.chr == "S"
+return "Hi, " + user
 ```
 
 > Confused by these `return`s along with `if`s? Weirded out by how the `else` disappeared? Draw out the flow diagram for these two examples, and you'll see it's just the same thing. I prefer it written like this, but others prefer `if`/`else` syntax. Either is fine!
@@ -164,8 +164,8 @@ The final refactor I'm going to make is to use Ruby's syntactic sugar of **strin
 puts "Welcome user"
 user = gets.chomp
 
-return puts user.upcase if user.chr == "S"
-return puts "Hi, #{user}"
+return user.upcase if user.chr == "S"
+return "Hi, #{user}"
 ```
 
 > `#{}` inside a string will allow you to execute a statement inside a string. The return value from the statement is concatenated into the surrounding string.
@@ -492,4 +492,3 @@ end
 ## Complete the mastery quiz for chapter 6
 
 Use your mastery quizzes repository to complete the quiz for chapter 6.
-
