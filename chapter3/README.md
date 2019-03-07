@@ -252,7 +252,7 @@ This 'queueing up of messages' is referred to as **chaining**.
 - _`4` says "OK, here's `9`"._
 - `.+(seven)`: We say "hey `9`, add the value of the object referenced by the name `seven` to your value".
 - _`9` says "OK, here's `16`"._
-- `.-(one)`: We say "hey `16`, add the value of the object referenced by the name `one` to your value".
+- `.-(one)`: We say "hey `16`, subtract the value of the object referenced by the name `one` from your value".
 - _`16` says: "OK, here's `15`"._
 - _The program says "I'm done with this line! Here's what it evaluated to: `15`"._
 
