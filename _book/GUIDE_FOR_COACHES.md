@@ -26,6 +26,19 @@ In order to deploy the book to Heroku, the book needs to be migrated to use a Si
 
 1. Run `bundle install` to install the `sinatra` gem
 
+2. Create an `app.rb` file in the `_book` directory, and set up the following code:
+
+```
+require 'sinatra'
+
+
+get '/' do
+  File.read(File.join('public', 'index.html'))
+end
+
+```
+
+
 
 
 

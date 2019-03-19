@@ -1,0 +1,29 @@
+{
+  "name": "mastery-curriculum",
+  "version": "1.0.0",
+  "description": "Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to become confident writing real-world procedural programs in Ruby.",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-plugin-disqus": "^0.1.0",
+    "gitbook-plugin-klipse": "^1.2.0",
+    "gitbook-plugin-accordion": "^1.1.3"
+  },
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gitbook build .",
+    "serve": "gitbook serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makersacademy/mastery-curriculum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makersacademy/mastery-curriculum/issues"
+  },
+  "homepage": "https://github.com/makersacademy/mastery-curriculum#readme"
+}
