@@ -16,7 +16,18 @@ Below are instructions for building the application.
 
 1. Install the required packages by running `npm install`
 
-2. To build the GitBook run the command: `npm run build`
+2. To build the GitBook run the command `npm run build`. This will create a `_book` directory in the current folder.
+
+3. To serve the book locally and check changes, simply run `npm run serve`, this will server the app to `localhost:4000`.
+
+## Preparing the book for deployment
+
+In order to deploy the book to Heroku, the book needs to be migrated to use a Sinatra server.
+
+1. Run `bundle install` to install the `sinatra` gem
+
+2. Create an `app.rb` file in the `_book` directory, and set up the following text:
+
 
 
 
