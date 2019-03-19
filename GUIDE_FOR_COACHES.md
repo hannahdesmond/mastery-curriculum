@@ -7,3 +7,19 @@ In general, the curriculum should introduce concepts through analogy, followed b
 Where possible, include an animation to reference an analogy.
 
 Each chapter _may_ end with a quiz.
+
+## Building the app using `gitbook-cli`
+
+Gitbook removed support for REPL integrations and animations in their upgraded version. To continue to provide the Mastery Curriculum using the Gitbook format, we are in the process of migrating to our deployment, utilising the `gitbook-cli` to build the book.
+
+Below are instructions for building the application.
+
+1. Install the required packages by running `npm install`
+
+2. To build the GitBook run the command: `npm run build`
+
+
+
+### Useful links
+
+[gitbook-cli](https://github.com/GitbookIO/gitbook-cli)
