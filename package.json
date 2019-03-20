@@ -13,9 +13,11 @@
     "gitbook-cli": "^2.3.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gitbook build .",
-    "serve": "node app.js"
+    "clean": "rm -r ./_book",
+    "gitbook-serve": "gitbook serve .",
+    "serve": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

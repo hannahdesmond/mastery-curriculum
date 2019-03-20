@@ -8,7 +8,13 @@ Where possible, include an animation to reference an analogy.
 
 Each chapter _may_ end with a quiz.
 
-## Building the app using `gitbook-cli`
+## Build and serve using `gitbook-cli`
+
+Run `npm run gitbook-serve`
+
+The app will run on `localhost:4000`.
+
+## Build the app using `gitbook-cli` and serve
 
 Gitbook removed support for REPL integrations and animations in their upgraded version. To continue to provide the Mastery Curriculum using the Gitbook format, we are in the process of migrating to our deployment, utilising the `gitbook-cli` to build the book.
 
@@ -20,66 +26,9 @@ Below are instructions for building the application.
 
 3. To serve the book locally and check changes, simply run `npm run serve`, this will server the app to `localhost:4000`.
 
-## Preparing the book for deployment
+## Remove the `_book` directory
 
-In order to deploy the book to Heroku, the book needs to be migrated to use a Sinatra server.
-
-1. Run `bundle install` to install the `sinatra` gem
-
-2. Copy the `gitbook` and `images` into a `public` directory within the `_book` directory.
-
-2. Create an `app.rb` file in the `_book` directory, and set up the following code:
-
-```
-require 'sinatra'
-
-get '/' do
-  File.read('index.html')
-end
-
-get '/chapter1/' do
-  File.read(File.join('chapter1', 'index.html'))
-end
-
-get '/chapter2/' do
-  File.read(File.join('chapter2', 'index.html'))
-end
-
-get '/chapter3/' do
-  File.read(File.join('chapter3', 'index.html'))
-end
-
-get '/chapter4/' do
-  File.read(File.join('chapter4', 'index.html'))
-end
-
-get '/chapter5/' do
-  File.read(File.join('chapter5', 'index.html'))
-end
-
-get '/chapter6/' do
-  File.read(File.join('chapter6', 'index.html'))
-end
-
-get '/chapter7/' do
-  File.read(File.join('chapter7', 'index.html'))
-end
-get '/chapter8/' do
-  File.read(File.join('chapter8', 'index.html'))
-end
-
-get '/chapter9/' do
-  File.read(File.join('chapter9', 'index.html'))
-end
-
-get '/chapter10/' do
-  File.read(File.join('chapter10', 'index.html'))
-end
-```
-
-
-
-
+Run `npm run clean`.
 
 ### Useful links
 
