@@ -2,8 +2,9 @@
   "name": "mastery-curriculum",
   "version": "1.0.0",
   "description": "Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to become confident writing real-world procedural programs in Ruby.",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
+    "express": "^4.16.4",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-accordion": "^1.1.3",
     "gitbook-plugin-disqus": "^0.1.0",
@@ -11,6 +12,7 @@
   },
   "scripts": {
     "gitbook-serve": "gitbook serve .",
+    "build": "gitbook build && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
