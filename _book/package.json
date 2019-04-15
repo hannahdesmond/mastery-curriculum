@@ -16,7 +16,7 @@
     "gitbook-serve": "gitbook serve .",
     "build": "npm run clean && gitbook build .",
     "clean": "rm -rf ./_book",
-    "start": "node app.js",
+    "start": "node ./_book/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
