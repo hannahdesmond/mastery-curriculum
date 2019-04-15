@@ -1,0 +1,720 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Arrays · Mastery Curriculum</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mary Rose Cook and Sam Morgan">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chapter8/" />
+    
+    
+    <link rel="prev" href="../chapter6/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../INSTRUCTIONS.html">
+            
+                <a href="../INSTRUCTIONS.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Variables and Statements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Messages and Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter5/">
+            
+                <a href="../chapter5/">
+            
+                    
+                    Other Objects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter6/">
+            
+                <a href="../chapter6/">
+            
+                    
+                    Advanced Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter8/">
+            
+                <a href="../chapter8/">
+            
+                    
+                    Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter9/">
+            
+                <a href="../chapter9/">
+            
+                    
+                    Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Arrays</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="arrays-and-iterators">Arrays and Iterators</h1>
+<p>So far we&apos;ve met objects that can really only &apos;contain&apos; one thing:</p>
+<ul>
+<li>Integers contain the value of the integer.</li>
+<li>Strings contain a bit of text.</li>
+</ul>
+<p>We call whatever an object &apos;contains&apos; that object&apos;s <strong>state</strong>.</p>
+<p>What if we want an object whose state can store more than one thing? Is there an object for that?</p>
+<h2 id="array"><code>Array</code></h2>
+<p>The <code>Array</code> class creates instances that can store many other objects inside themselves. Like <code>String</code> instances are called &apos;strings&apos;, <code>Array</code> instances are called &apos;arrays&apos;. </p>
+<p>Arrays can have objects added to them, and removed from them: they&apos;ll grow and shrink depending on how many objects they contain, like an elastic band.</p>
+<blockquote>
+<p>Any object which can change its state during the course of the program world&apos;s existence is referred to as being <strong>mutable</strong>. Strings can be chopped up, capitalized, and so on: they&apos;re mutable, too. Integers can&apos;t be changed: <code>1</code> will always represent <code>1</code>. They&apos;re <strong>immutable</strong>. Because other objects can change the state of an array &#x2013; by adding or removing objects to or from it &#x2013; arrays in Ruby are <em>mutable</em>.</p>
+</blockquote>
+<p>Let&apos;s instruct the <code>Array</code> class to create a new instance. Then, let&apos;s use the array instance method <code>push</code> to add some strings into the array:</p>
+<pre><code class="lang-eval-ruby">an_array = Array.new
+
+an_array.push(&quot;Hello World&quot;)
+an_array.push(&quot;It&apos;s me!&quot;)
+an_array.push(&quot;Mario!&quot;)
+
+an_array
+</code></pre>
+<animation showing="" adding="" items="" to="" an="" array="">
+
+<blockquote>
+<p>Notice that I&apos;m using Ruby&apos;s syntactic sugar to create new instances of the <code>String</code> class. Don&apos;t be fooled &#x2013; under the hood, Ruby is still running <code>String.new(&quot;Hello World&quot;)</code>. It&apos;s just easier for me as a programmer to write it the shorthand way.</p>
+</blockquote>
+<ul>
+<li><em><strong>Add a couple more strings to the array.</strong></em></li>
+<li><em><strong>Add a couple of integers and floats to the array.</strong></em></li>
+<li><em><strong>Add the main object to the array.</strong></em></li>
+</ul>
+<h2 id="modifying-arrays">Modifying arrays</h2>
+<p>We&apos;ve seen that we can add things to an existing array object&apos;s state by using the array&apos;s <code>push</code> method, with the object-to-be-added as an argument to that method:</p>
+<pre><code class="lang-eval-ruby">another_array = []
+another_array.push(&quot;A short string&quot;)
+
+another_array
+</code></pre>
+<blockquote>
+<p>Things inside an array are called <strong>elements</strong>.</p>
+</blockquote>
+<p>Just like Ruby offers syntactic sugar for creating strings with <code>&quot;&quot;</code>, arrays have syntactic sugar, too: <code>[]</code> does the same thing as <code>Array.new</code>. Using this shorthand, we can set up arrays pre-filled with elements:</p>
+<pre><code class="lang-eval-ruby">an_array_containing_elements = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;array&quot;]
+</code></pre>
+<p>We can remove elements from an array by sending it the message <code>delete_at</code>, with an argument denoting the &apos;index&apos; of the element we want to remove. For arrays, this &apos;index&apos; is a number, which denotes an element in the array. The first element is index <code>0</code>, the second is index <code>1</code>, the third is index <code>2</code>, and so on:</p>
+<pre><code class="lang-eval-ruby">array = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+
+array.delete_at(1)
+
+array
+</code></pre>
+<blockquote>
+<p>Watch out! Arrays are <em>zero-indexed</em>. That means they count from zero: the first element is in position <code>0</code>. Play with the code example above until that&apos;s clear.</p>
+</blockquote>
+<p>We can also remove just the <em>last element of an array</em> by sending an array the <code>pop</code> message:</p>
+<pre><code class="lang-eval-ruby">array = [1, 2, 3]
+
+array.pop
+
+array
+</code></pre>
+<p>All of the above will modify the array: that is, the array will change when you run <code>push</code>, <code>delete_at</code>, or <code>pop</code>.</p>
+<h2 id="reading-arrays">Reading arrays</h2>
+<p>You can read a single element from an array by sending the array the <code>[]</code> method with the index of your desired element:</p>
+<pre><code class="lang-eval-ruby">array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Let&apos;s get the first element
+array[0]
+</code></pre>
+<blockquote>
+<p>The <code>[]</code> method won&apos;t accept dot syntax. It&apos;s one of the only things in Ruby that won&apos;t.</p>
+</blockquote>
+<ul>
+<li><em><strong>Access different elements of the array above using <code>[]</code>.</strong></em></li>
+</ul>
+<p>You can read a bunch of elements at once, by calling the array&apos;s <code>slice</code> method:</p>
+<pre><code class="lang-eval-ruby">array = [1, 2, 3, 4, 5, 6]
+
+array.slice(0, 1)
+</code></pre>
+<blockquote>
+<p>This is the first method we&apos;ve met that takes two arguments. <code>slice</code>&apos;s first argument is the starting index, and the last argument is length of the slice. Play around to figure it out.</p>
+</blockquote>
+<h2 id="outputting-from-arrays">Outputting from arrays</h2>
+<p>Arrays can be useful for storing elements you might want to keep separate sometimes, and join together in other times. A common use case for an array is to store strings, then to send the array of strings a <code>join</code> message, which will concatenate them:</p>
+<pre><code class="lang-eval-ruby">sentence = [&quot;Hello,&quot;, &quot;you&quot;, &quot;are&quot;, &quot;NOT&quot;, &quot;welcome&quot;, &quot;here&quot;]
+
+sentence.join(&quot; &quot;)
+</code></pre>
+<blockquote>
+<p>The argument you provide to <code>join</code> is the joining character. Here, we used a space (<code>&quot; &quot;</code>). What happens if we use a different character?</p>
+</blockquote>
+<ul>
+<li><em><strong>Add a line of code that removes the <code>&quot;NOT&quot;</code> string from the array, making the sentence friendlier.</strong></em></li>
+</ul>
+<div class="accordion accordionClose"><div class="accordionButton"><div class="accordionTitle">See how I&apos;d do it</div><div class="accordionSpinnerBox"><div class="accordionSpinner"></div></div></div><div class="accordionContent">
+<pre><code class="lang-eval-ruby">sentence = [&quot;Hello,&quot;, &quot;you&quot;, &quot;are&quot;, &quot;NOT&quot;, &quot;welcome&quot;, &quot;here&quot;]
+
+sentence.delete_at(3)
+
+sentence.join(&quot; &quot;)
+</code></pre>
+<blockquote>
+<p>Why can&apos;t I chain the methods together to make <code>sentence.delete_at(3).join(&quot; &quot;)</code>?</p>
+</blockquote>
+</div></div>
+<h2 id="making-arrays-from-strings">Making arrays from strings</h2>
+<p>Remember that strings are objects which:</p>
+<ul>
+<li>Know about some text we give it, and </li>
+<li>Know how to interact with other instances of the <code>String</code> class.</li>
+</ul>
+<p>In <a href="../chapter5/">Chapter 5</a>, we learned that strings store text:</p>
+<pre><code class="lang-eval-ruby">string = String.new(&quot;Some text&quot;)
+</code></pre>
+<blockquote>
+<p>In <a href="../chapter6/">Chapter 6</a>, we saw that we can use Ruby&apos;s syntactic sugar to create new strings using <code>string = &quot;Some text&quot;</code>. Under-the-hood, this calls <code>String.new(&quot;Some text&quot;)</code>.</p>
+</blockquote>
+<p>What might surprise you is that strings actually store lists of characters &#x2013; similarly to how arrays store lists of elements. We can call some &#x2013; but not all &#x2013; array methods on strings:</p>
+<pre><code class="lang-eval-ruby">greeting = &quot;Hello World!&quot;
+
+greeting[0]
+</code></pre>
+<p>We just used the sent the array reader method <code>[]</code> to <code>greeting</code> to pull the first character from a string (remember, lists are zero-indexed in Ruby).</p>
+<blockquote>
+<p>This is possible because <code>String</code> instances define a method <code>[]</code> on their interface.</p>
+</blockquote>
+<p>We might want to tell a string to create a new array using its text. Strings define a method called <code>split</code> to do this:</p>
+<pre><code class="lang-eval-ruby">string = &quot;Hello World!&quot;
+
+string.split
+</code></pre>
+<p>Sending <code>split</code> to a string will cause the string to invoke some procedure that returns a new array of strings. Strings will use their text to build the new array. By default, they&apos;ll use a space &#x2013; <code>&quot; &quot;</code> &#x2013; as the split point. We call this split point a <em>delimiter</em>.</p>
+<p>We can provide a different delimeter to <code>split</code> to ask the string to build a different array:</p>
+<pre><code class="lang-eval-ruby">string = &quot;Hello World!&quot;
+
+string.split(&quot;l&quot;)
+</code></pre>
+<blockquote>
+<p>Where did the &apos;l&apos;s go in the example above? Think about this: in the first <code>split</code> example, where did the <code>&quot; &quot;</code> spaces go?</p>
+</blockquote>
+<p>If we provide an empty string (with no characters or spaces in it), the string will be build an array with each element representing one character of that string&apos;s text:</p>
+<pre><code class="lang-eval-ruby">string = &quot;Hello World!&quot;
+
+string.split(&quot;&quot;)
+</code></pre>
+<p>We&apos;ve already seen that we can send the <code>join</code> method to arrays. The array will return a concatenation of its elements. Therefore, combining <code>split</code> and <code>join</code> gives us some power to manipulate strings:</p>
+<pre><code class="lang-eval-ruby">bad_string = &quot;Why|am|I|so|hard|to|read&quot;
+
+bad_string.split(&quot;|&quot;).join(&quot; &quot;)
+</code></pre>
+<h2 id="arrays-of-arrays">Arrays of arrays</h2>
+<p>Arrays can contain any kind of object (although it&apos;s rare that they contain more than one kind at once):</p>
+<pre><code class="lang-eval-ruby">array_of_strings = [&quot;An&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings!&quot;]
+array_of_integers = [1, 4, 8]
+array_of_floats = [1.2, 1.4, 2.2]
+array_of_objects = [Object.new, Object.new, Object.new]
+
+mixed_array = [&quot;An&quot;, 4, 2.2, Object.new]
+</code></pre>
+<p>Although it might seem a bit confusing, arrays can therefore contain other arrays:</p>
+<pre><code class="lang-eval-ruby">array_of_arrays = [[&quot;An&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;], [&quot;another&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;]]
+</code></pre>
+<p>Because this can get confusing to read, these &apos;arrays of arrays&apos; are often written across multiple lines. The following is the same as the above, just easier to read:</p>
+<pre><code class="lang-eval-ruby">array_of_arrays = [
+  [&quot;An&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;], 
+  [&quot;another&quot;, &quot;array&quot;, &quot;of&quot;, &quot;strings&quot;]
+]
+</code></pre>
+<blockquote>
+<p>Play around with <code>join</code> and the array reader function <code>[]</code> to figure out how this array of arrays works.</p>
+</blockquote>
+<p>Arrays of arrays could be used to represent different groups (say, teams of people):</p>
+<pre><code class="lang-eval-ruby">groups = [
+  [&quot;Mary&quot;, &quot;Sam&quot;],
+  [&quot;Peter&quot;, &quot;Kay&quot;]
+]
+
+team_1 = groups[0]
+team_2 = groups[1]
+</code></pre>
+<p>Or, we can make an array of arrays <em>from</em> different groups:</p>
+<pre><code class="lang-eval-ruby">team_1 = [&quot;Mary&quot;, &quot;Sam&quot;]
+team_2 = [&quot;Peter&quot;, &quot;Kay&quot;]
+
+groups = [team_1, team_2]
+</code></pre>
+<blockquote>
+<p>It&apos;s perfectly fine to reference variables within arrays. Why? <em>Referential transparency!</em> The main object, in which this procedure is running, just turns the names <code>team_1</code> and <code>team_2</code> into the arrays they reference.</p>
+</blockquote>
+<h2 id="combining-arrays">Combining arrays</h2>
+<p>You can tell arrays to build new arrays that combine their elements, using <code>+</code>:</p>
+<pre><code class="lang-eval-ruby">array_1 = [&quot;What&apos;s&quot;, &quot;the&quot;, &quot;last&quot;, &quot;word&quot;, &quot;in&quot;, &quot;this&quot;]
+array_2 = [&quot;sentence?&quot;]
+
+array_1 + array_2
+</code></pre>
+<blockquote>
+<p>Notice that <code>+</code> doesn&apos;t alter <code>array_1</code> or <code>array_2</code>: it builds a new array that combines their elements.</p>
+</blockquote>
+<h2 id="finding-out-how-many-elements-there-are">Finding out how many elements there are</h2>
+<p>We can tell an array to give us its length (i.e. how many elements it contains) by calling the <code>length</code> method on it:</p>
+<pre><code class="lang-eval-ruby">array = [1, 2, 3, 4]
+
+array.length
+</code></pre>
+<h2 id="using-arrays-to-manage-control-flow">Using arrays to manage control flow</h2>
+<p>In <a href="../chapter4/">Chapter 4</a>, we met <code>while</code>, which can be used to manage control flow by forcing an object to repeat procedures.</p>
+<p>Arrays can be used to manage control flow too: by forcing an object to execute a procedure once for each element of an array. This process is called <strong>iterating</strong> over an array. </p>
+<p>There are a few ways to do this. We can use a <code>while</code> loop with an accumulator to run a procedure once for each item of an array:</p>
+<pre><code class="lang-ruby">my_array = [<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;there&quot;</span>, <span class="hljs-string">&quot;friend!&quot;</span>]
+current_index = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> current_index &lt; my_array.length <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;I&apos;m looping!&quot;</span>
+  current_index += <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p>Still confused by <code>while</code> loops? Alter the code example above to use <code>break</code> instead.</p>
+</blockquote>
+<p>We can combine this structure with the array reader method <code>[]</code> to tell an object to do something with elements of the array one-after-the-other:</p>
+<pre><code class="lang-ruby">my_array = [<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;there&quot;</span>, <span class="hljs-string">&quot;friend!&quot;</span>]
+current_index = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> current_index &lt; my_array.length <span class="hljs-keyword">do</span>
+  puts my_array[current_index]
+  current_index += <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><code>Array</code> provides us with a neat method to tell an object to &apos;run a procedure once for each element of the array&apos;: the <code>each</code> method:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do
+  puts &quot;I&apos;m looping!&quot;
+end
+</code></pre>
+<p>What about if we want an object to do something with elements of the array one-after-the-other? That is: to reference each item within an array during the procedure? We can do that in the following way:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do |element|
+  puts element
+end
+</code></pre>
+<p>This <code>|element|</code> structure looks pretty weird. It works like this:</p>
+<animation demonstrating="" piping="">
+
+<p>In other words, as <code>each</code> walks through the array, it grabs an element and shoves it into the pipe. <code>each</code> temporarily gives that element a name &#x2013; in this case, <code>element</code>. That way, we can use the element in the procedure we wrote.</p>
+<p>Just like program naming, we can call <code>element</code> whatever we like: so long as we use that name in the procedure. So, this:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do |item|
+  puts item
+end
+</code></pre>
+<p>Is exactly the same as this:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do |word|
+  puts word
+end
+</code></pre>
+<p>Is exactly the same as this:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do |friendly_statement|
+  puts friendly_statement
+end
+</code></pre>
+<p>Is exactly the same as this:</p>
+<pre><code class="lang-eval-ruby">my_array = [&quot;Hello&quot;, &quot;there&quot;, &quot;friend!&quot;]
+
+my_array.each do |chicken|
+  puts chicken
+end
+</code></pre>
+<p>This kind of name, one that&apos;s assigned on-the-fly in a procedure, is called a <strong>parameter</strong>. We&apos;ll meet them in more detail, in <a href="../chapter9/">Chapter 9</a>.</p>
+<blockquote>
+<p>It&apos;s a good idea to name the parameter after what elements <em>are</em>. So, if you&apos;re iterating over an array of numbers, each element is a number: so the parameter should probably be called <code>number</code>. If you&apos;re iterating over an array of instances of the <code>Dog</code> class, each element is a dog: so the parameter should probably be called <code>dog</code>. The naming choice is up to you as a programmer: pick one that future programmers, who&apos;ll have to work with your procedure, will understand.</p>
+</blockquote>
+<h2 id="using-arrays-as-accumulators">Using arrays as accumulators</h2>
+<p>A common programming problem goes something like this:</p>
+<ul>
+<li>Filter this list of numbers to return only numbers less than 10.</li>
+</ul>
+<p>To solve this, we can use an <strong>array as an accumulator</strong>. On each pass of a loop, we&apos;ll tell the main object to add items to an array <em>if they meet a condition</em> (being less than 10):</p>
+<pre><code class="lang-eval-ruby">list_of_numbers = [17, 2, -1, 88, 7]
+accumulator = []
+
+list_of_numbers.each do |number|
+  if number &lt; 10
+    accumulator.push(number)
+  end
+end
+
+accumulator
+</code></pre>
+<blockquote>
+<p>The <code>accumulator</code> was mutated during the <code>each</code> loop (it had elements added to it). What happened to the array referenced by <code>list_of_numbers</code>? Play with the code example above to find out.</p>
+</blockquote>
+<h2 id="checking-if-elements-are-in-arrays">Checking if elements are in arrays</h2>
+<p>We can ask an array whether it includes an object by sending it the <code>include?</code> method:</p>
+<pre><code class="lang-eval-ruby">words = [&quot;Hello&quot;, &quot;World!&quot;]
+
+words.include?(&quot;Hello&quot;)
+</code></pre>
+<ul>
+<li><em><strong>You&apos;ve now met a very powerful set of array techniques. Combine them to build a program to the following specification (it&apos;s been started for you). Don&apos;t forget to break the specification into requirements!</strong></em></li>
+</ul>
+<blockquote>
+<p>I&apos;m a client working for the Blank House. We want to display positive tweets about our president on our website. However, our president is kind of unpopular, and we pretty much only receive negative press. Write me a program that filters out the following words from tweets: &quot;sucks&quot;, &quot;bad&quot;, &quot;hate&quot;, &quot;foolish&quot;, and the most popular: &quot;danger to society&quot;. Replace each negative word or phrase them with the word &quot;CENSORED&quot;. Some test tweets have been provided for you.</p>
+</blockquote>
+<pre><code class="lang-eval-ruby">test_tweets = [
+  &quot;This president sucks!&quot;,
+  &quot;I hate this Blank House!&quot;,
+  &quot;I can&apos;t believe we&apos;re living with such a bad leadership. We were so foolish&quot;,
+  &quot;President Presidentname is a danger to society. I hate that he&apos;s so bad &#x2013; it sucks.&quot;
+]
+
+banned_phrases = [&quot;sucks&quot;, &quot;bad&quot;, &quot;hate&quot;, &quot;foolish&quot;, &quot;danger to society&quot;]
+</code></pre>
+<blockquote>
+<p>It won&apos;t surprise you to know that these sorts of clients and these sorts of programs exist in the real world. As a programmer, you have a responsibility to build only what you&apos;re comfortable building. While you don&apos;t have to sign it, I recommend reading the <a href="https://manifesto.responsiblesoftware.org/" target="_blank">Responsible Software Manifesto</a> and considering what sort of power you want to wield.</p>
+</blockquote>
+<h2 id="complete-the-mastery-quiz-for-chapter-7">Complete the mastery quiz for chapter 7</h2>
+<p>Use your mastery quizzes repository to complete the quiz for chapter 7.</p>
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script></animation></animation>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter6/" class="navigation navigation-prev " aria-label="Previous page: Advanced Flow of Control">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chapter8/" class="navigation navigation-next " aria-label="Next page: Hashes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Arrays","level":"1.9","depth":1,"next":{"title":"Hashes","level":"1.10","depth":1,"path":"chapter8/README.md","ref":"./chapter8/README.md","articles":[]},"previous":{"title":"Advanced Flow of Control","level":"1.8","depth":1,"path":"chapter6/README.md","ref":"./chapter6/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter7/README.md","mtime":"2019-04-02T13:52:35.332Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T14:15:01.439Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,734 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Hashes · Mastery Curriculum</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mary Rose Cook and Sam Morgan">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chapter9/" />
+    
+    
+    <link rel="prev" href="../chapter7/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../INSTRUCTIONS.html">
+            
+                <a href="../INSTRUCTIONS.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Variables and Statements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Messages and Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter5/">
+            
+                <a href="../chapter5/">
+            
+                    
+                    Other Objects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter6/">
+            
+                <a href="../chapter6/">
+            
+                    
+                    Advanced Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapter7/">
+            
+                <a href="../chapter7/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter9/">
+            
+                <a href="../chapter9/">
+            
+                    
+                    Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Hashes</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="hashes">Hashes</h1>
+<p>We&apos;ve just met a very powerful object for storing information in the program world: instances of the <code>Array</code> class.</p>
+<p>Arrays are great for storing objects, but they get harder to understand the more objects they contain. For example: what does each element in the following array <em>mean</em>?</p>
+<pre><code class="lang-ruby">important_program_information = [<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Hello&quot;</span>, [<span class="hljs-string">&quot;Sam&quot;</span>, <span class="hljs-number">1.17</span>]]
+</code></pre>
+<p>Moreover, reading elements from arrays using <code>[]</code> gets harder to understand as the array grows in complexity:</p>
+<pre><code class="lang-ruby">teams_with_substitutes = [[[<span class="hljs-string">&quot;Jim&quot;</span>, <span class="hljs-string">&quot;Yasmin&quot;</span>, <span class="hljs-string">&quot;Audrey&quot;</span>], [<span class="hljs-string">&quot;Alex&quot;</span>, <span class="hljs-string">&quot;Mustafa&quot;</span>]], [[<span class="hljs-string">&quot;Pyotr&quot;</span>, <span class="hljs-string">&quot;Canace&quot;</span>], [<span class="hljs-string">&quot;Xi&quot;</span>]]]
+
+team_1_substitutes = teams_with_substitutes[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]
+team_2_players = teams_with_substitutes[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]
+</code></pre>
+<p>...and it&apos;s a pain to read. Remember how important <em>naming</em> is for helping other programmers understand your program: what does <code>[0][0][1]</code> mean? How is it different from <code>[1][0][0]</code>?</p>
+<p>Is there a solution? Sure there is: the <code>Hash</code> class, and its instances: hashes.</p>
+<h2 id="from-arrays-to-hashes">From arrays to hashes</h2>
+<p>Arrays and hashes are similar in that they both contain lists of <em>elements</em>. The main difference is that:</p>
+<ul>
+<li>Array elements are objects</li>
+<li>Hash elements are two objects, one used to reference the other.</li>
+</ul>
+<blockquote>
+<p>This &apos;two objects, one used to reference the other&apos; might seem confusing. But there are similarities with how variables are used to reference objects. Although a variable isn&apos;t strictly an object, it&apos;s a similar concept.</p>
+</blockquote>
+<p>Remember how variables are <em>names</em> for <em>objects</em>? In programming, we sometimes refer to these names as <strong>keys</strong> and the objects they reference as <strong>values</strong>. Together, they make a &apos;key-value pair&apos;.</p>
+<p>Arrays use <em>indices</em> as their keys. That is, the first element of an array has an index of <code>0</code>. The second has an index of <code>1</code>. Given an array, you can ask it for the value with key <code>0</code> in the following way:</p>
+<pre><code class="lang-eval-ruby"># Given an array
+array = [1, 2, 3]
+
+# Read value with key 0
+array[0]
+</code></pre>
+<p>And you can tell the array to set the value at key <code>0</code> in the following way:</p>
+<pre><code class="lang-eval-ruby"># Given an array
+array = [1, 2, 3]
+
+# Set the value with key 0
+array[0] = 999
+
+# Return the array
+array
+</code></pre>
+<p>So, for arrays &#x2013; you can only use integers as keys. <code>0</code>, <code>1</code>, <code>2</code>, and <code>550</code> are all valid array keys.</p>
+<p>Hashes can use <em>any object as a key</em>:</p>
+<pre><code class="lang-eval-ruby">hash = { String.new(&quot;first item&quot;) =&gt; 1, 44.2 =&gt; 2, Object.new =&gt; 3 }
+</code></pre>
+<p>Commonly, we&apos;ll use strings:</p>
+<pre><code class="lang-eval-ruby">favourite_things = { &quot;sport&quot; =&gt; &quot;tennis&quot;, &quot;food&quot; =&gt; &quot;chunky bacon&quot; }
+</code></pre>
+<p>This is because, like arrays, we often want to read the data. String keys provide us with an easy, clearly-named way to read this data:</p>
+<pre><code class="lang-eval-ruby">favourite_things = { &quot;sport&quot; =&gt; &quot;tennis&quot;, &quot;food&quot; =&gt; &quot;chunky bacon&quot; }
+
+favourite_things[&quot;sport&quot;]
+</code></pre>
+<p>If this is confusing, let&apos;s make a &apos;pretend array&apos; with a hash, and read the <code>0</code>th item from it:</p>
+<pre><code class="lang-eval-ruby">hash_pretending_to_be_an_array = { 0 =&gt; &quot;tennis&quot;, 1 =&gt; &quot;sport&quot; }
+
+hash_pretending_to_be_an_array[0]
+</code></pre>
+<p>Now let&apos;s set the <code>0</code>th item, just like we would an array:</p>
+<pre><code class="lang-eval-ruby">hash_pretending_to_be_an_array = { 0 =&gt; &quot;tennis&quot;, 1 =&gt; &quot;sport&quot; }
+
+hash_pretending_to_be_an_array[0] = &quot;football&quot;
+
+# See that the hash (pretending to be an array) has changed
+hash_pretending_to_be_an_array
+</code></pre>
+<p>Even more commonly than strings, we&apos;ll use <strong>symbols</strong>. Symbols are a special, and very widespread object in Ruby. They work like strings, except they&apos;re <em>immutable</em> &#x2013; they can&apos;t be changed once they&apos;ve been set.</p>
+<p>Since we rarely want to change the keys in a hash, symbols are a perfect choice:</p>
+<pre><code class="lang-eval-ruby">favourite_things = { :&quot;sport&quot; =&gt; &quot;tennis&quot;, :&quot;food&quot; =&gt; &quot;chunky bacon&quot; }
+
+favourite_things[:&quot;sport&quot;]
+</code></pre>
+<blockquote>
+<p>To write a symbol, add a semicolon <code>:</code> before a name. There&apos;s syntactic sugar, too: you don&apos;t need the quotes (<code>&quot;&quot;</code> around the symbol). Also, you can ask a string to fetch its equivalent symbol very easily: simply send the string the message <code>to_sym</code> (like how <code>to_f</code> worked for integers and floats). Using symbols makes your code look super-programmery, and tells other programmers which objects they should expect to change, and which should stay the same.</p>
+</blockquote>
+<p>So, this is the first function of hashes: as a <strong>key-value store</strong> for named information.</p>
+<blockquote>
+<p>This kind of key-value store in programming is sometimes called a <strong>dictionary</strong>. Sometimes, it&apos;s called a <strong>lookup table</strong> &#x2013; because you can use dictionaries to look things up.</p>
+</blockquote>
+<h2 id="using-hashes-to-control-the-flow-of-information">Using hashes to control the flow of information</h2>
+<p>One major value of a hash is that it can be used to refactor a conditional: especially if that conditional is getting too long. Here&apos;s an example procedure. The object running this procedure berates you if you curse at it:</p>
+<pre><code class="lang-eval-ruby">curse = &quot;dang&quot;
+
+if curse == &quot;damn&quot;
+  return &quot;That&apos;s a curse word! How dare you&quot;
+elsif curse == &quot;dang&quot;
+  return &quot;That&apos;s a less bad curse word! Still, how dare you&quot;
+elsif curse == &quot;darn&quot;
+  return &quot;Hmm, I&apos;m mildly offended but I&apos;ll survive. Watch your language!&quot;
+elsif curse == &quot;durn&quot;
+  return &quot;Ahh, that&apos;s good Southern swearing, that is!&quot;
+end
+</code></pre>
+<p>We can refactor the above example to use a hash:</p>
+<pre><code class="lang-eval-ruby">curse = &quot;dang&quot;
+
+# First, set up the options
+beratings = {
+  &quot;damn&quot; =&gt; &quot;That&apos;s a curse word! How dare you&quot;,
+  &quot;dang&quot; =&gt; &quot;That&apos;s a less bad curse word! Still, how dare you&quot;,
+  &quot;darn&quot; =&gt; &quot;Hmm, I&apos;m mildly offended but I&apos;ll survive. Watch your language!&quot;,
+  &quot;durn&quot; =&gt; &quot;Ahh, that&apos;s good Southern swearing, that is!&quot;
+}
+
+# Second, do a lookup on the beratings hash
+beratings[curse]
+</code></pre>
+<p>This is a pretty powerful technique!</p>
+<ul>
+<li><em><strong>Using the technique above, implement a program to the following specification without using a conditional.</strong></em></li>
+</ul>
+<blockquote>
+<p>I want a simple dictionary. I put in the word, and I get out the definition of that word. Here are the definitions I want:</p>
+<ul>
+<li><strong>bear</strong>: a creature that fishes in the river for salmon.</li>
+<li><strong>river</strong>: a body of water that contains salmon, and sometimes bears.</li>
+<li><strong>salmon</strong>: a fish, sometimes in a river, sometimes in a bear, and sometimes in both.</li>
+</ul>
+<p>In general, programmers try to minimise the amount of conditionals in a program. This is because such pathways can quickly multiply in number (especially if a lot of programmers are working on the codebase). Each pathway can lead to a new program state, which results in more program states than any one programmer can reason about. <a href="https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/" target="_blank">This article</a> is a fantastic recent case study into what happens when programmers can no longer reason about the complexity of their codebases. Lookup tables are one way to reduce conditional complexity in a program, by centralising possible program states. In <a href="../chapter9/">Chapter 9</a>, we&apos;ll see that we can use procedures as values to lookup tables, which allows us to control program state even more tightly.</p>
+</blockquote>
+<h2 id="grouping-things-in-hashes">Grouping things in hashes</h2>
+<p>One other useful application of hashes is <em>grouping</em>. Grouping makes use of the fact that we can <em>set the value of a hash key to an array</em>:</p>
+<pre><code class="lang-eval-ruby">my_hash = { :my_array =&gt; [&quot;an&quot;, &quot;array&quot;, &quot;containing&quot;, &quot;elements&quot;] }
+</code></pre>
+<p>We can use all our regular array methods to read elements, add elements, remove elements, and so on, from an array inside a hash:</p>
+<pre><code class="lang-eval-ruby">my_hash = { :my_array =&gt; [&quot;an&quot;, &quot;array&quot;, &quot;containing&quot;, &quot;elements&quot;] }
+
+my_hash[:my_array].delete_at(0)
+my_hash[:my_array].push(&quot;like&quot;).push(&quot;this&quot;)
+
+my_hash
+</code></pre>
+<ul>
+<li><em><strong>Group the array of hashes below into a hash, where each key of the hash is a sport, and each value of the hash is a list of names of people who play that sport.</strong></em></li>
+</ul>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+</code></pre>
+<div class="accordion accordionClose"><div class="accordionButton"><div class="accordionTitle">See how I&apos;d do it</div><div class="accordionSpinnerBox"><div class="accordionSpinner"></div></div></div><div class="accordionContent">
+<p>This is a very tricky program to pull off. It&apos;s actually one of the things I find hardest in all programming, because it feels like I have to keep track of so much at once: what keys mean what, which values are where, and so on.</p>
+<p>So no worries if you find this tough! I do too, and we&apos;re in good company. We can make life easier for ourselves by moving in small steps.</p>
+<p>Let&apos;s decompose the specification into requirements.</p>
+<ol>
+<li>Set up a new hash (<code>sorted_by_sport</code> will do as a name for now).</li>
+<li>Go through the players.</li>
+<li>For each player (<code>player_under_consideration</code> will do as a name for now), take a note of the sport they play (<code>sport</code> will do as a name for now).</li>
+<li>Check the <code>sorted_by_sport</code> hash. If <code>sport</code> does not exist as a <strong>key</strong> on that hash, set <code>sport</code> equal to an array containing the name of <code>player_under_consideration</code>. Then move to the next player.</li>
+<li>Else, if <code>sport</code> DOES exist as a key on the hash, push the <code>player_under_consideration</code>&apos;s&apos; name into the array that already exists. Then go to the next player.</li>
+</ol>
+<blockquote>
+<p>When making these requirements, I actually went back-and-forth a bunch. The first set I tried didn&apos;t work, so I had to come back. Then the second set worked up to 3, but broke at 4. I ended up with this set of &apos;perfect requirements&apos; third time round. So I didn&apos;t just &apos;come up with this&apos; on the spot! Programmers rarely crank out known code: &apos;back and forth&apos;, deleting code, zooming in and out is all normal.</p>
+</blockquote>
+<p>OK, this should get us started. Step-by-step.</p>
+<h4 id="1-set-up-a-new-hash">1. Set up a new hash</h4>
+<ol>
+<li>Set up a new hash (<code>sorted_by_sport</code> will do as a name for now).</li>
+</ol>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+sorted_by_sport = {}
+</code></pre>
+<h4 id="2-set-up-a-loop-on-the-players">2. Set up a loop on the players</h4>
+<ol>
+<li>Go through the players.</li>
+</ol>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+sorted_by_sport = {}
+
+players.each do |player_under_consideration|
+end
+
+# Let&apos;s return the sorted_by_sport hash so we can see it in the REPL too
+sorted_by_sport
+</code></pre>
+<h4 id="3-name-the-sport-each-player-plays-using-a-variable">3. Name the sport each player plays, using a variable</h4>
+<ol>
+<li>For each player (<code>player_under_consideration</code> will do as a name for now), take a note of the sport they play (<code>sport</code> will do as a name for now).</li>
+</ol>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+sorted_by_sport = {}
+
+players.each do |player_under_consideration|
+  sport = player_under_consideration[:sport]
+end
+
+sorted_by_sport
+</code></pre>
+<h4 id="4-set-the-key-on-sortedbysport-if-there-isnt-one-already">4. Set the key on <code>sorted_by_sport</code> if there isn&apos;t one already</h4>
+<ol>
+<li>Check the <code>sorted_by_sport</code> hash. If <code>sport</code> does not exist as a <strong>key</strong> on that hash, set <code>sport</code> equal to an array containing the name of <code>player_under_consideration</code>. Then move to the next player.</li>
+</ol>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+sorted_by_sport = {}
+
+players.each do |player_under_consideration|
+  sport = player_under_consideration[:sport]
+  # I think I&apos;ll also give a variable for the name, since we did with the sport
+  name = player_under_consideration[:name]
+
+  if sorted_by_sport[sport] == nil
+    sorted_by_sport[sport] = [name]
+  end
+end
+
+sorted_by_sport
+</code></pre>
+<h4 id="5-push-the-player-name-into-the-key-on-sortedbysport-if-the-key-already-exists">5. Push the player name into the key on <code>sorted_by_sport</code> if the key already exists</h4>
+<ol>
+<li>Else, if <code>sport</code> DOES exist as a key on the hash, push the <code>player_under_consideration</code>&apos;s&apos; name into the array that already exists. Then go to the next player.</li>
+</ol>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+sorted_by_sport = {}
+
+players.each do |player_under_consideration|
+  sport = player_under_consideration[:sport]
+  name = player_under_consideration[:name]
+
+  if sorted_by_sport[sport] == nil
+    sorted_by_sport[sport] = [name]
+  else
+    sorted_by_sport[sport].push(name)
+  end
+end
+
+sorted_by_sport
+</code></pre>
+<h4 id="6-refactor">6. Refactor</h4>
+<p>I&apos;m going to tidy up these names first, to make them a bit terser without losing clarity:</p>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+players_by_sport = {}
+
+players.each do |player|
+  sport = player[:sport]
+  name  = player[:name]
+
+  if players_by_sport[sport] == nil
+    players_by_sport[sport] = [name]
+  else
+    players_by_sport[sport].push(name)
+  end
+end
+
+players_by_sport
+</code></pre>
+<p>I can get rid of an <code>else</code> here, reducing the conditional complexity:</p>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+players_by_sport = {}
+
+players.each do |player|
+  sport = player[:sport]
+  name  = player[:name]
+
+  if players_by_sport[sport] == nil
+    players_by_sport[sport] = []
+  end
+
+  players_by_sport[sport].push(name)
+end
+
+players_by_sport
+</code></pre>
+<p>Since I&apos;m only using <code>name</code> once, it doesn&apos;t feel that helpful to keep it around:</p>
+<pre><code class="lang-eval-ruby">players = [
+  { :name =&gt; &quot;Sam&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mary&quot;, :sport =&gt; &quot;squash&quot; },
+  { :name =&gt; &quot;Ed&quot;, :sport =&gt; &quot;tennis&quot; },
+  { :name =&gt; &quot;Mark&quot;, :sport =&gt; &quot;football&quot; }
+]
+
+players_by_sport = {}
+
+players.each do |player|
+  sport = player[:sport]
+
+  if players_by_sport[sport] == nil
+    players_by_sport[sport] = []
+  end
+
+  players_by_sport[sport].push(player[:name])
+end
+
+players_by_sport
+</code></pre>
+<p>This feels much more readable!</p>
+</div></div>
+<h2 id="iterating-over-hashes">Iterating over hashes</h2>
+<p>When we iterate over a hash, we get both the key and value as parameters to a procedure (since the elements of a hash are key-value pairs):</p>
+<pre><code class="lang-eval-ruby">my_favourite_things = { :sport =&gt; &quot;tennis&quot;, :music =&gt; &quot;classical&quot; }
+
+my_favourite_things.each do |key, value|
+  # Do something with key and value
+end
+</code></pre>
+<blockquote>
+<p>Remember &#x2013; just like array <code>each</code>es, you can name the parameters whatever you like. Just like the <code>each</code> parameter for an array represented each element &#x2013; no matter what you called it &#x2013; the first parameter for a hash <code>each</code> will be the element key, and the second will be the element value.</p>
+</blockquote>
+<h2 id="complete-the-mastery-quiz-for-chapter-8">Complete the mastery quiz for chapter 8</h2>
+<p>Use your mastery quizzes repository to complete the quiz for chapter 8.</p>
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter7/" class="navigation navigation-prev " aria-label="Previous page: Arrays">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chapter9/" class="navigation navigation-next " aria-label="Next page: Methods">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Hashes","level":"1.10","depth":1,"next":{"title":"Methods","level":"1.11","depth":1,"path":"chapter9/README.md","ref":"./chapter9/README.md","articles":[]},"previous":{"title":"Arrays","level":"1.9","depth":1,"path":"chapter7/README.md","ref":"./chapter7/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter8/README.md","mtime":"2019-04-02T13:52:35.333Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T14:15:01.439Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
