@@ -1,0 +1,799 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Advanced Flow of Control · Mastery Curriculum</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mary Rose Cook and Sam Morgan">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chapter7/" />
+    
+    
+    <link rel="prev" href="../chapter5/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../INSTRUCTIONS.html">
+            
+                <a href="../INSTRUCTIONS.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    Variables and Statements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    Messages and Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter5/">
+            
+                <a href="../chapter5/">
+            
+                    
+                    Other Objects
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Advanced Flow of Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapter7/">
+            
+                <a href="../chapter7/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter8/">
+            
+                <a href="../chapter8/">
+            
+                    
+                    Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter9/">
+            
+                <a href="../chapter9/">
+            
+                    
+                    Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Advanced Flow of Control</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="advanced-control-flow">Advanced Control Flow</h1>
+<p>We&apos;ve met the following kinds of object:</p>
+<ul>
+<li>Integers</li>
+<li>True and False</li>
+<li>Nil</li>
+<li>Floats</li>
+<li>Strings</li>
+</ul>
+<p>And we the following tools:</p>
+<ul>
+<li>Naming</li>
+<li>Statements</li>
+<li>Messages and Methods</li>
+<li>Conditionals</li>
+<li>While loops</li>
+<li>Strings</li>
+<li><code>gets</code> and <code>puts</code></li>
+</ul>
+<p>We can now control these objects using these tools, to write a more complex procedural program. Let&apos;s do it!</p>
+<h2 id="using-string-input-conditionally">Using string input conditionally</h2>
+<p>A client is asking us for the following program:</p>
+<blockquote>
+<p>I hate my mate Steve: so much so that my hatred spills over to anyone with a first name beginning with &apos;S&apos;. I want a program that, when anyone types their name in, shouts at them if their name begins with an &apos;S&apos;. Anyone else should just get a friendly greeting.</p>
+</blockquote>
+<p>The statement above is an example of a <strong>specification</strong>: a vague answer to the question &quot;what do you want this program to do?&quot;. Our first job as programmers is to break specifications into manageable, step-by-step instructions that we can then feed into the machine.</p>
+<p>We do this to avoid biting off more than we can chew. The most common programming mistake is to try and build too much, too fast. We want to decompose this specification into really clear, step-by-step <strong>requirements</strong>.</p>
+<blockquote>
+<p>The process of breaking a specification into requirements is called <strong>algorithmic thinking</strong>.</p>
+</blockquote>
+<p>Here&apos;s the list of requirements for the specification above:</p>
+<ul>
+<li>The user sees a greeting, which asks them to enter their name.</li>
+<li>The user enters their name.</li>
+<li>If the user&apos;s name begins with &apos;S&apos;, the program shouts the user&apos;s name back at them.</li>
+<li><p>If the user&apos;s name begins with any other letter, the program just says &apos;Hi, &apos; plus their name.</p>
+</li>
+<li><p><em><strong>You have all the parts required to build this program. Go build it!</strong></em></p>
+</li>
+<li><p><em><strong>Once you&apos;ve had a go, read the hidden section below for a step-by-step approach, as well as some tips on better code.</strong></em></p>
+</li>
+</ul>
+<div class="accordion accordionClose"><div class="accordionButton"><div class="accordionTitle">Here&apos;s how I&apos;d do it</div><div class="accordionSpinnerBox"><div class="accordionSpinner"></div></div></div><div class="accordionContent">
+<p>When building a program, we move step-by-step through the requirements.</p>
+<blockquote>
+<p>The best programmers do everything they can to avoid &apos;biting off more than they can chew&apos;, or &apos;moving in too large a step&apos;. That&apos;s why the idea of the &apos;best programmer is a lazy programmer&apos; took hold. Force yourself to move in small steps now! It&apos;s a habit that will pay off. During the Makers Academy course, we&apos;ll meet tools designed to force us to move in small steps.</p>
+</blockquote>
+<h4 id="1-make-the-file">1. Make the file</h4>
+<p>First up, I&apos;ll make a file: <code>greetings.rb</code>, and open it in a text editor (like Sublime Text).</p>
+<h4 id="2-puts-the-greeting">2. <code>puts</code> the greeting</h4>
+<ul>
+<li>The user sees a greeting, which asks them to enter their name.</li>
+</ul>
+<p>This one will require <code>puts</code>. Inside my <code>greetings.rb</code> file, I&apos;ll instruct the main object to print &quot;Welcome user&quot;:</p>
+<pre><code class="lang-ruby">puts String.new(<span class="hljs-string">&quot;Welcome user&quot;</span>)
+</code></pre>
+<h4 id="3-get-the-users-name">3. Get the user&apos;s name</h4>
+<p>This one will require <code>gets</code>, and the string method <code>chomp</code>. I&apos;ll:</p>
+<ul>
+<li>Instruct the main object &apos;get a string&apos; with <code>gets</code>,</li>
+<li>Tell the string to remove any <code>\n</code> characters by sending it the message <code>chomp</code>,</li>
+<li>Store the return value from the string in a variable called <code>user</code>.</li>
+</ul>
+<p>I can give these instructions in one line: <code>user = gets.chomp</code>.</p>
+<pre><code class="lang-ruby">puts String.new(<span class="hljs-string">&quot;Welcome user&quot;</span>)
+user = gets.chomp
+</code></pre>
+<blockquote>
+<p>Read through this line I just added methodically. Make sure you understand which object is doing what.</p>
+</blockquote>
+<h4 id="4-do-the-simplest-thing-first-print-hi--plus-the-name">4. Do the simplest thing first (print &apos;Hi &apos; plus the name)</h4>
+<p>Even though the next requirement is to &apos;shout the user name if it begins with an S&apos;, I&apos;m going to make the simplest thing first. That&apos;s generally a good strategy, as it avoids getting snarled up in difficult things early on, allowing me to make progress.</p>
+<p>I&apos;ll instruct the main object to print a new instance of String with text &quot;Hi, &quot;, concatenated with the string the main object just assigned to the variable <code>user</code>:</p>
+<pre><code class="lang-ruby">puts String.new(<span class="hljs-string">&quot;Welcome user&quot;</span>)
+user = gets.chomp
+
+puts String.new(<span class="hljs-string">&quot;Hi, &quot;</span>) + user
+</code></pre>
+<blockquote>
+<p><em>concatenated</em> is a fancy way for saying &apos;stuck together with&apos;.</p>
+</blockquote>
+<h4 id="5-do-the-hard-thing-next-work-out-the-conditional">5. Do the hard thing next (work out the conditional)</h4>
+<p>Conditionals are tricky, so I&apos;ve saved it for nearly-last:</p>
+<pre><code class="lang-ruby">puts String.new(<span class="hljs-string">&quot;Welcome user&quot;</span>)
+user = gets.chomp
+
+<span class="hljs-keyword">if</span> user.chr == String.new(<span class="hljs-string">&quot;S&quot;</span>)
+  puts user
+<span class="hljs-keyword">else</span>
+  puts String.new(<span class="hljs-string">&quot;Hi, &quot;</span>) + user
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p><code>user.chr</code> gets the first character of the string referenced by <code>user</code>. I&apos;m checking to see if it&apos;s equal to a string containing the text &quot;S&quot;. If it is, instruct the main object to print the user. If not, instruct the main object to print a new instance of String with text &quot;Hi, &quot;, concatenated with the string referenced by the variable <code>user</code>.</p>
+</blockquote>
+<h4 id="6-make-sure-you-meet-the-requirements">6. Make sure you meet the requirements</h4>
+<p>Everything&apos;s in place with the conditional, except the main object is currently printing the <code>user</code> string without asking it to upcase itself first. So, let&apos;s call the <code>user</code> string&apos;s <code>upcase</code> method before printing it:</p>
+<pre><code class="lang-ruby">puts String.new(<span class="hljs-string">&quot;Welcome user&quot;</span>)
+user = gets.chomp
+
+<span class="hljs-keyword">if</span> user.chr == String.new(<span class="hljs-string">&quot;S&quot;</span>)
+  puts user.upcase
+<span class="hljs-keyword">else</span>
+  puts String.new(<span class="hljs-string">&quot;Hi, &quot;</span>) + user
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="7-refactor">7. Refactor</h4>
+<p>The last thing I&apos;ll do is <em>refactor</em>: tidy up my code so it&apos;s as good as it can be.</p>
+<blockquote>
+<p>Your code will be judged according to how readable and consistent it is. Refactoring is a key skill that we&apos;ll focus on a lot during the course. It&apos;s worth building the basics here!</p>
+</blockquote>
+<p>I&apos;m going to use several pieces of syntactic sugar to tidy up my code, so it&apos;s more readable. The first is to use Ruby&apos;s shorthand for creating strings: <code>&quot;hello&quot;</code> is syntactic sugar for <code>String.new(&quot;hello&quot;)</code>.</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;Welcome user&quot;</span>
+user = gets.chomp
+
+<span class="hljs-keyword">if</span> user.chr == <span class="hljs-string">&quot;S&quot;</span>
+  puts user.upcase
+<span class="hljs-keyword">else</span>
+  puts <span class="hljs-string">&quot;Hi, &quot;</span> + user
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The second refactor I&apos;m going to make is to use <strong>early returns</strong> along with one-line conditionals. <code>return</code> will stop an object from executing a procedure, and return whatever value you tell it to. Using this knowledge, along with some syntactic sugar, we can do this:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;Welcome user&quot;</span>
+user = gets.chomp
+
+<span class="hljs-keyword">return</span> user.upcase <span class="hljs-keyword">if</span> user.chr == <span class="hljs-string">&quot;S&quot;</span>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hi, &quot;</span> + user
+</code></pre>
+<blockquote>
+<p>Confused by these <code>return</code>s along with <code>if</code>s? Weirded out by how the <code>else</code> disappeared? Draw out the flow diagram for these two examples, and you&apos;ll see it&apos;s just the same thing. I prefer it written like this, but others prefer <code>if</code>/<code>else</code> syntax. Either is fine!</p>
+</blockquote>
+<p>The final refactor I&apos;m going to make is to use Ruby&apos;s syntactic sugar of <strong>string interpolation</strong> to print the return value from a statement directly into a string:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;Welcome user&quot;</span>
+user = gets.chomp
+
+<span class="hljs-keyword">return</span> user.upcase <span class="hljs-keyword">if</span> user.chr == <span class="hljs-string">&quot;S&quot;</span>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hi, <span class="hljs-subst">#{user}</span>&quot;</span>
+</code></pre>
+<blockquote>
+<p><code>#{}</code> inside a string will allow you to execute a statement inside a string. The return value from the statement is concatenated into the surrounding string.</p>
+</blockquote>
+<p>We could get this program down to three lines if we wanted to, by using a <a href="https://launchschool.com/books/ruby/read/flow_control" target="_blank">ternary operator</a>. However, I don&apos;t think that makes it much better. This code is attractive to me because each line neatly mirrors each requirement we were given. The first line is the first requirement. The second line the second, and so on.</p>
+<blockquote>
+<p>Good code is not as terse as possible: good code fulfils the requirements as closely as possible.</p>
+</blockquote>
+</div></div>
+<h2 id="more-complicated-loops">More complicated loops</h2>
+<p>Let&apos;s say we want to write a simple text-based adventure game, to the following specification:</p>
+<blockquote>
+<p>The user starts by facing forward. They can move right, left, or forward. If they move right, they die (there&apos;s a goblin). If they move left, they die (there&apos;s a werewolf). If they move forward, they live. They have to do this twice to win.</p>
+</blockquote>
+<ul>
+<li><em><strong>Considering the step-by-step approach I outlined before, turn this specification into requirements (where each requirement details one feature of the game).</strong></em></li>
+</ul>
+<div class="accordion accordionClose"><div class="accordionButton"><div class="accordionTitle">Here&apos;s how I&apos;d get those requirements</div><div class="accordionSpinnerBox"><div class="accordionSpinner"></div></div></div><div class="accordionContent">
+<p>We want to decompose this specification into really clear, step-by-step requirements. This is <strong>algorithmic thinking</strong>.</p>
+<ol>
+<li>The user is told they&apos;re facing forward and can type &apos;forward&apos;, &apos;left&apos;, or &apos;right&apos;.</li>
+<li>If the user enters &apos;right&apos;, they die (goblin).</li>
+<li>If the user enters &apos;left&apos;, they die (werewolf).</li>
+<li>If the user enters &apos;forward&apos;, they&apos;re told they live, and can move again.</li>
+<li>If the user enters anything other than &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, they just get the message from 1 again.</li>
+<li>If the user enters &apos;right&apos;, they die (goblin).</li>
+<li>If the user enters &apos;left&apos;, they die (werewolf).</li>
+<li>If the user enters &apos;forward&apos;, they&apos;re told they won and the game exits.</li>
+<li>If the user enters anything other than &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, they just get the message from 4 again.</li>
+</ol>
+<p>This is just the right amount of detail: now I know exactly what to program, step-by-step. No way am I gonna get overwhelmed by this.</p>
+<blockquote>
+<p>Programming is hard. Just keep going, keep breaking it down. You can train yourself to think algorithmically: it&apos;s not a natural or intuitive way to think. Once you get better, you&apos;ll forget how tough it used to be!</p>
+</blockquote>
+</div></div>
+<ul>
+<li><em><strong>Go build this game!</strong></em></li>
+</ul>
+<div class="accordion accordionClose"><div class="accordionButton"><div class="accordionTitle">Here&apos;s how I&apos;d build it</div><div class="accordionSpinnerBox"><div class="accordionSpinner"></div></div></div><div class="accordionContent">
+<p>OK, this game sucks, but it&apos;s an interesting thing to build out. Before jumping into coding up the requirements, let&apos;s think about what we already know.</p>
+<p>First thing: this is a game. It has repeat actions: we&apos;re going to need a <code>while true</code> loop. We have to get user input twice (once for the first move, then again for the second move).</p>
+<p>Second thing: we need something to track what&apos;s happened across both moves (is this the first move or the second move?). Since the moves will probably happen in a <code>while</code> loop, we&apos;re probably going to need an accumulator to track the loop.</p>
+<p>Third thing: It has a <code>break</code> condition when the user dies or wins: we&apos;re going to need <code>break</code>, probably.</p>
+<p>So, put those things together, and we&apos;ll probably have something like this:</p>
+<pre><code class="lang-ruby">move_number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># do a move</span>
+
+  <span class="hljs-keyword">if</span> <span class="hljs-comment"># some sort of death or win condition</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>OK, that&apos;s the high-level thinking done. Now, let&apos;s build out the first requirement!</p>
+<h4 id="1-make-the-file">1. Make the file</h4>
+<p>First, I&apos;ll make the game file. I&apos;ll call it <code>game.rb</code>, and open it in a text editor.</p>
+<h4 id="2-puts-the-greeting">2. <code>puts</code> the greeting</h4>
+<p>My first requirement (yours might be different) was:</p>
+<ol>
+<li>The user is told they&apos;re facing forward and can type &apos;forward&apos;, &apos;left&apos;, or &apos;right&apos;.</li>
+</ol>
+<p>This we can do by instructing the main object to <code>puts</code>:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+</code></pre>
+<blockquote>
+<p>Every step I take, I&apos;ll test the game by running <code>ruby ./game.rb</code>. Get in the habit of running your code frequently!</p>
+</blockquote>
+<h4 id="3-get-the-users-input">3. Get the user&apos;s input</h4>
+<p>I&apos;m not going to write a loop yet: they&apos;re complicated, and I like to save up the complicated stuff til last. Let&apos;s just get the user input. This we can do by telling the main object to <code>gets</code> a string, telling the string to <code>chomp</code>, and assigning the return value to a variable, <code>user_input</code>:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+user_input = gets.chomp
+</code></pre>
+<h4 id="4-kill-the-user-with-a-goblin-if-they-said-right">4. Kill the user with a goblin if they said &apos;right&apos;</h4>
+<ol>
+<li>If the user enters &apos;right&apos;, they die (goblin).</li>
+</ol>
+<p>The specification didn&apos;t say what should happen when a user dies (and we can&apos;t ask the client what they meant right now), so I&apos;m figuring we just get the main object to print something, then let the program exit (lazy programmer, right?).</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+user_input = gets.chomp
+
+<span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="5-kill-the-user-with-a-werewolf-if-they-said-left">5. Kill the user with a werewolf if they said &apos;left&apos;</h4>
+<ol>
+<li>If the user enters &apos;left&apos;, they die (werewolf).</li>
+</ol>
+<p>This is a matter of adding another branch to the procedure, by adding an <code>elsif</code> to the conditional from before:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+user_input = gets.chomp
+
+<span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+<span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<blockquote>
+<p>Note that I still haven&apos;t gotten to a <code>while</code> loop yet. I don&apos;t need it for these requirements! Maybe I will later.</p>
+</blockquote>
+<h4 id="6-give-the-user-a-you-live-message-if-they-said-forward">6. Give the user a &apos;you live!&apos; message if they said &apos;forward&apos;</h4>
+<ol>
+<li>If the user enters &apos;forward&apos;, they&apos;re told they live, and can move again.</li>
+</ol>
+<p>OK, I <em>could</em> use a <code>while</code> loop here, but it&apos;s a pretty complicated thing to do. I&apos;d prefer to just duplicate my code for now, and only use a loop if I really need one. Besides, if I use a <code>while</code> loop right now I&apos;ll have to add <code>break</code>s to all my conditionals. That sounds like a pain. Let&apos;s just do the simplest, laziest thing, and add another <code>elsif</code>.</p>
+<blockquote>
+<p>I&apos;ve got a pattern going here, and that feels good. So I&apos;m going to keep using that pattern.</p>
+</blockquote>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+user_input = gets.chomp
+
+<span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+<span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+<span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+  puts <span class="hljs-string">&quot;You live! Go again. You can type forward, left, or right.&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="7-handle-users-typing-the-wrong-thing">7. Handle users typing the wrong thing</h4>
+<ol>
+<li>If the user enters anything other than &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, they just get the message from 1 again.</li>
+</ol>
+<p>I can catch all other inputs other than &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, by adding an <code>else</code> to my conditional:</p>
+<pre><code class="lang-ruby">puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+user_input = gets.chomp
+
+<span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+<span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+  puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+<span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+<span class="hljs-keyword">else</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="8-repeating">8. Repeating</h4>
+<ol>
+<li>If the user enters &apos;right&apos;, they die (goblin).</li>
+<li>If the user enters &apos;left&apos;, they die (werewolf).</li>
+</ol>
+<p>We&apos;ve seen these instructions before. OK! Now I could use a <code>while</code> loop. Of course, this is just going to run forever &#x2013; but it solves all the requirements so far.</p>
+<p>I&apos;ll have to add <code>break</code> statements where being killed should exit the program. I&apos;ll also remove the <code>puts</code>ing when the user gave either a &apos;forward&apos; command, or some other command (maybe they typed &apos;chicken&apos;).</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+  user_input = gets.chomp
+
+  <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+    <span class="hljs-comment"># Nothing happens here, we just start the loop again.</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-comment"># Same here. Maybe they entered &apos;chicken&apos; or something.</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="9-going-forward-again">9. Going forward again</h4>
+<ol>
+<li>If the user enters &apos;forward&apos;, they&apos;re told they won and the game exits.</li>
+</ol>
+<p>At the moment, our game has <em>loss conditions</em> &#x2013; going right or left &#x2013; which will exit the game. However, there isn&apos;t a win condition &#x2013; both typing <code>forward</code> and typing some other command, like <code>chicken</code>, will result in the same thing happening: the loop restarts, and the user sees &quot;You&apos;re facing forward. You can type forward, left, or right&quot;.</p>
+<p>There&apos;s no <em>win condition</em> that will exit the game. I can&apos;t just add a <code>break</code> statement after the line <code>elsif user_input == &quot;forward&quot;</code>, because then the user won&apos;t get to take two turns (like the client asked).</p>
+<p>I need something to track the turns: an accumulator. Then, I can exit depending on the value of the accumulator.</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># Here&apos;s my accumulator</span>
+move_number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+  user_input = gets.chomp
+
+  <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+    <span class="hljs-comment"># if this is the second turn, let&apos;s quit!</span>
+    <span class="hljs-keyword">if</span> move_number == <span class="hljs-number">2</span>
+      puts <span class="hljs-string">&quot;You win!&quot;</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">end</span>
+
+    <span class="hljs-comment"># increase the move number here, because we&apos;re getting closer to victory</span>
+    move_number = move_number + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-comment"># don&apos;t increase the move number here, because we&apos;re no closer to victory</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h4 id="10-the-final-requirement">10. The final requirement</h4>
+<ol>
+<li>If the user enters anything other than &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, they just get the message from 4 again.</li>
+</ol>
+<p>We&apos;ve actually already solved this requirement: if the user doesn&apos;t type &apos;right&apos;, &apos;left&apos;, or &apos;forward&apos;, the move number will never increase.</p>
+<h4 id="11-refactor">11. Refactor</h4>
+<p>OK, let&apos;s tidy up this code a bit. For one, this final <code>else</code> condition doesn&apos;t seem to contain any procedures any more. Let&apos;s kill it.</p>
+<pre><code class="lang-ruby">move_number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+  user_input = gets.chomp
+
+  <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+    <span class="hljs-keyword">if</span> move_number == <span class="hljs-number">2</span>
+      puts <span class="hljs-string">&quot;You win!&quot;</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">end</span>
+
+    move_number = move_number + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The only refactor I&apos;m going to do here is using some more syntactic sugar. Ruby allows you to squish together the following:</p>
+<pre><code class="lang-eval-ruby">move_number = 1
+move_number = move_number + 1
+</code></pre>
+<p>Into this:</p>
+<pre><code class="lang-eval-ruby">move_number = 1
+move_number += 1
+</code></pre>
+<p>That is to say: <code>a += b</code> is the same as writing <code>a = (a + b)</code>. It&apos;s a powerful, space-saving feature!</p>
+<p>So, here&apos;s my complete program:</p>
+<pre><code class="lang-ruby">move_number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;You&apos;re facing forward. You can type forward, left, or right.&quot;</span>
+
+  user_input = gets.chomp
+
+  <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;right&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a goblin!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;left&quot;</span>
+    puts <span class="hljs-string">&quot;You were killed by a werewolf!&quot;</span>
+    <span class="hljs-keyword">break</span>
+  <span class="hljs-keyword">elsif</span> user_input == <span class="hljs-string">&quot;forward&quot;</span>
+    <span class="hljs-keyword">if</span> move_number == <span class="hljs-number">2</span>
+      puts <span class="hljs-string">&quot;You win!&quot;</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">end</span>
+
+    move_number += <span class="hljs-number">1</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+</div></div>
+<h2 id="complete-the-mastery-quiz-for-chapter-6">Complete the mastery quiz for chapter 6</h2>
+<p>Use your mastery quizzes repository to complete the quiz for chapter 6.</p>
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter5/" class="navigation navigation-prev " aria-label="Previous page: Other Objects">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chapter7/" class="navigation navigation-next " aria-label="Next page: Arrays">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Advanced Flow of Control","level":"1.8","depth":1,"next":{"title":"Arrays","level":"1.9","depth":1,"path":"chapter7/README.md","ref":"./chapter7/README.md","articles":[]},"previous":{"title":"Other Objects","level":"1.7","depth":1,"path":"chapter5/README.md","ref":"./chapter5/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter6/README.md","mtime":"2019-04-15T13:53:49.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T14:15:01.439Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
