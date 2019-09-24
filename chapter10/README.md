@@ -1017,17 +1017,15 @@ class Airport
   end
 
   def take_off(plane)
-    if @hangar.length > 0
-      if @hangar.include? plane
-        plane_index = @hangar.index(plane)
-        @hangar.delete_at(plane_index)
-        return plane
-      else
-        return "Error: plane not in hangar"
-      end
-    else
+    if @hangar.length < 1
       return "Error: there are no planes to take off"
     end
+
+    unless @hangar.include?(plane)
+      return "Error: plane not in hangar"
+    end
+
+    @hangar.delete(plane)
   end
 
   def hangar_report
