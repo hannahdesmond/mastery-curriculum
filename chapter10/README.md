@@ -56,9 +56,9 @@ my_string = String.new("Hello World")
 my_string.upcase
 ```
 
-In this chapter, we'll learn how to move from an imperative to a declarative world, by: 
+In this chapter, we'll learn how to move from an imperative to a declarative world, by:
 
-- defining new methods on object interfaces, then 
+- defining new methods on object interfaces, then
 - defining whole new objects.
 
 ## Back to the program world
@@ -106,7 +106,7 @@ end
 players_by_sport
 ```
 
-...we're asking the main program object to do all this work. We're instructing the universe directly. 
+...we're asking the main program object to do all this work. We're instructing the universe directly.
 
 In [Chapter 9](../chapter9/README.md), when we moved the averaging procedure into the method named `average`:
 
@@ -605,7 +605,7 @@ robot.legs = 4
 robot.walk
 ```
 
-How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance. 
+How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance.
 
 Remember `+=`?
 
