@@ -1017,8 +1017,8 @@ class Airport
   end
 
   def take_off(plane)
-    if @hanger.length > 0
-      if @hangar.includes? plane
+    if @hangar.length > 0
+      if @hangar.include? plane
         plane_index = @hangar.index(plane)
         @hangar.delete_at(plane_index)
         return plane
@@ -1034,7 +1034,7 @@ class Airport
     if @hangar.length == 1
       "There is 1 plane in the hangar"
     else
-      "There are #{ @hanger.length } planes in the hangar"
+      "There are #{ @hangar.length } planes in the hangar"
     end
   end
 end
