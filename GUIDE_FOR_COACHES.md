@@ -24,7 +24,7 @@ Below are instructions for building the application.
 
 2. To build the GitBook run the command `npm run build`. This will create a `_book` directory in the current folder.
 
-3. To serve the book locally and check changes, simply run `npm run serve`, this will server the app to `localhost:4000`.
+3. To serve the book locally and check changes, simply run `npm run start`, this will server the app to `localhost:4000`.
 
 ## Deploying the book
 
