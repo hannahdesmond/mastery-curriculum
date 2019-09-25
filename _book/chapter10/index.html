@@ -341,9 +341,9 @@ my_string = String.new(&quot;Hello World&quot;)
 # All we care about is that it&apos;s easy to do
 my_string.upcase
 </code></pre>
-<p>In this chapter, we&apos;ll learn how to move from an imperative to a declarative world, by: </p>
+<p>In this chapter, we&apos;ll learn how to move from an imperative to a declarative world, by:</p>
 <ul>
-<li>defining new methods on object interfaces, then </li>
+<li>defining new methods on object interfaces, then</li>
 <li>defining whole new objects.</li>
 </ul>
 <h2 id="back-to-the-program-world">Back to the program world</h2>
@@ -380,7 +380,7 @@ end
 
 players_by_sport
 </code></pre>
-<p>...we&apos;re asking the main program object to do all this work. We&apos;re instructing the universe directly. </p>
+<p>...we&apos;re asking the main program object to do all this work. We&apos;re instructing the universe directly.</p>
 <p>In <a href="../chapter9/">Chapter 9</a>, when we moved the averaging procedure into the method named <code>average</code>:</p>
 <pre><code class="lang-eval-ruby">def average(scores)
   scores_accumulator = 0
@@ -784,7 +784,7 @@ robot = Robot.new
 robot.legs = 4
 robot.walk
 </code></pre>
-<p>How does <code>add_leg</code> work, though? We&apos;re changing a the <code>@legs</code> property of the <code>Robot</code> instance. </p>
+<p>How does <code>add_leg</code> work, though? We&apos;re changing a the <code>@legs</code> property of the <code>Robot</code> instance.</p>
 <p>Remember <code>+=</code>?</p>
 <pre><code class="lang-eval-ruby">class Robot
   def legs=(number_of_legs)
@@ -1106,16 +1106,15 @@ heathrow.push(plane)
   end
 
   def take_off(plane)
-    if @hanger.length &gt; 0
-      if @hangar.includes? plane
-        plane_index = @hangar.index(plane)
-        @hangar.delete_at(plane_index)
-        return plane
-      else
-        return &quot;Error: plane not in hangar&quot;
-      end
-    else
+    if @hangar.length &lt; 1
       return &quot;Error: there are no planes to take off&quot;
+    end
+
+    if @hangar.includes?(plane)
+      @hangar.delete(plane)
+      return plane
+    else
+      return &quot;Error: plane not in hangar&quot;
     end
   end
 
@@ -1123,7 +1122,7 @@ heathrow.push(plane)
     if @hangar.length == 1
       &quot;There is 1 plane in the hangar&quot;
     else
-      &quot;There are #{ @hanger.length } planes in the hangar&quot;
+      &quot;There are #{ @hangar.length } planes in the hangar&quot;
     end
   end
 end
@@ -1173,7 +1172,7 @@ end
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Classes","level":"1.12","depth":1,"previous":{"title":"Methods","level":"1.11","depth":1,"path":"chapter9/README.md","ref":"./chapter9/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter10/README.md","mtime":"2019-04-02T13:52:35.329Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T14:15:01.439Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Classes","level":"1.12","depth":1,"previous":{"title":"Methods","level":"1.11","depth":1,"path":"chapter9/README.md","ref":"./chapter9/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["klipse","accordion","disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"makers-mastery"},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"klipse":{"myConfigKey":"it's the default value"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Mary Rose Cook and Sam Morgan","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Mastery Curriculum","gitbook":"*","description":"The Mastery Curriculum for the Makers Academy PreCourse."},"file":{"path":"chapter10/README.md","mtime":"2019-09-25T08:58:28.389Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-25T09:14:42.933Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
