@@ -56,9 +56,9 @@ my_string = String.new("Hello World")
 my_string.upcase
 ```
 
-In this chapter, we'll learn how to move from an imperative to a declarative world, by: 
+In this chapter, we'll learn how to move from an imperative to a declarative world, by:
 
-- defining new methods on object interfaces, then 
+- defining new methods on object interfaces, then
 - defining whole new objects.
 
 ## Back to the program world
@@ -106,7 +106,7 @@ end
 players_by_sport
 ```
 
-...we're asking the main program object to do all this work. We're instructing the universe directly. 
+...we're asking the main program object to do all this work. We're instructing the universe directly.
 
 In [Chapter 9](../chapter9/README.md), when we moved the averaging procedure into the method named `average`:
 
@@ -605,7 +605,7 @@ robot.legs = 4
 robot.walk
 ```
 
-How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance. 
+How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance.
 
 Remember `+=`?
 
@@ -1017,16 +1017,15 @@ class Airport
   end
 
   def take_off(plane)
-    if @hanger.length > 0
-      if @hangar.includes? plane
-        plane_index = @hangar.index(plane)
-        @hangar.delete_at(plane_index)
-        return plane
-      else
-        return "Error: plane not in hangar"
-      end
-    else
+    if @hangar.length < 1
       return "Error: there are no planes to take off"
+    end
+
+    if @hangar.includes?(plane)
+      @hangar.delete(plane)
+      return plane
+    else
+      return "Error: plane not in hangar"
     end
   end
 
@@ -1034,7 +1033,7 @@ class Airport
     if @hangar.length == 1
       "There is 1 plane in the hangar"
     else
-      "There are #{ @hanger.length } planes in the hangar"
+      "There are #{ @hangar.length } planes in the hangar"
     end
   end
 end
