@@ -1021,11 +1021,11 @@ class Airport
       return "Error: there are no planes to take off"
     end
 
-    unless @hangar.include?(plane)
+    if @hangar.includes?(plane)
+      return @hangar.delete(plane)
+    else
       return "Error: plane not in hangar"
     end
-
-    @hangar.delete(plane)
   end
 
   def hangar_report
