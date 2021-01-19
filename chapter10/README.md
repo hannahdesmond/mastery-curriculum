@@ -1021,7 +1021,7 @@ class Airport
       return "Error: there are no planes to take off"
     end
 
-    if @hangar.includes?(plane)
+    if @hangar.include?(plane)
       @hangar.delete(plane)
       return plane
     else
