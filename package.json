@@ -6,6 +6,9 @@
   "dependencies": {
     "express": "^4.16.4"
   },
+  "resolutions": {
+  "**/graceful-fs": "^4.2.4"
+  },
   "devDependencies": {
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-accordion": "^1.1.3",
