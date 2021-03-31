@@ -17,7 +17,6 @@ Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to becom
 
 Your aim is to get through all the chapters, but the most important thing for your learning is to only move on from a chapter once you've completed the quiz.
 
-**Note: the mastery learning quizzes can take a long time to complete. Also, the later quizzes tend to take more time than the earlier quizzes. It's really important to get started on Monday of week 2 of the precourse and put in lots of time over the next 2 weeks.**
+**Note: the mastery learning quizzes can take a long time to complete. Also, the later quizzes tend to take more time than the earlier quizzes. It's really important to get started on Monday of Week 2 of the PreCourse and put in lots of time over the next 2 weeks.**
 
 Ready? [Go to the Instructions](./INSTRUCTIONS.md)!
-
