@@ -157,15 +157,8 @@ So how can we get a view into this world while it exists – while the program's
 > We'll find out more about strings in [Chapter 5](../chapter5/README.md).
 
 `puts` is really only useful to us when we run pre-written code \(for example, by running `ruby hello_world.rb` like we did above\). In fact, something weird goes on when we try to use it in the REPL.
-<!--
-, or in these interactive code examples:
 
-```eval-ruby
-puts 1 + 1
-```
--->
-
-When we get to 'messages and interfaces', we'll think more about this. For now, it's enough to know that `puts`** can be used to print information from a program without a REPL**.
+When we get to 'messages and interfaces', we'll think more about this. For now, it's enough to know that `puts` can be used to print information from a program without a REPL.
 
 ## Complete the mastery quiz for chapter 1
 
