@@ -137,7 +137,7 @@ Instead of starting from scratch each time, we can use a **file** to store the i
 To move your instructions into a file, we must make a Ruby-specific file \(just as a Microsoft Word document has the file suffix `.doc`, so Ruby has the suffix `.rb`\), and then write our instructions into it, just as we would the REPL:
 
 1. _**Create a Ruby file. Call the file **_`hello_world.rb`_**.**_
-2. _**Open this file in a text editor, such as **_[_**Sublime Text**_](https://www.sublimetext.com/)_**.**_
+2. _**Open this file in your text editor, such as **_[_**VS Code**_](https://code.visualstudio.com/)_**.**_
 3. _**Inside the file, type a line: **_`puts 1 + 1`_**.**_
 4. _**Save the file.**_
 5. _**Launch IRB, immediately requiring this file using **_`irb -r ./hello_world.rb`_**.**_
