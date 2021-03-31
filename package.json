@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to become confident writing real-world procedural programs in Ruby.",
   "main": "app.js",
+  "engines": {
+    "node": "12.18.2"
+  },
   "dependencies": {
     "express": "^4.16.4"
-  },
-  "resolutions": {
-  "**/graceful-fs": "^4.2.4"
   },
   "devDependencies": {
     "gitbook-cli": "^2.3.2",
