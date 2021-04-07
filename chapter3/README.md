@@ -16,7 +16,7 @@ Now that we have the object referenced by `one`, we can send it messages directl
 
 ![Numbers interacting inside a program, by adding together](../images/2-numbers-interacting.gif)
 
-Or, we can send the object referenced by `one` other messages, like `integer?`, to tell us about itself:
+Or, we can send the object referenced by `one` other messages, like `integer?`, to tell us about itself.
 
 <gif showing me executing `1.integer?` and the resulting messages that are sent in the world>
 
@@ -37,9 +37,9 @@ In the first case, `1 + 2`, Ruby is actually translating this to `1.+(2)`. We sa
 
 ## Arguments
 
-Sometimes, a messaged object knows everything it needs to know to answer the message. For instance: `1.integer?` is perfectly answerable by `1` all on its own: it doesn't need any other object to tell us whether it's an integer.
+Sometimes, a messaged object knows everything it needs to know to answer the message. For instance, `1.integer?` is perfectly answerable by `1` all on its own, it doesn't need any other object to tell us whether it's an integer.
 
-Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example: `1` would rightly ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
+Other times, a messaged object needs to know something else to answer the message. We couldn't get away with just saying `1.+`, for example, `1` would rightly ask _"`+` what? What am I mean to add with?"_. In that case, we can give the object a reference to another object required to fulfil the message. We call this second object an **argument**:
 
 ```eval-ruby
 # 2 is the argument
@@ -52,7 +52,7 @@ Other times, a messaged object needs to know something else to answer the messag
 > => 9
 ```
 
-Just like dot syntax is formally-correct, it's formally-correct to wrap an argument inside **parentheses** `()` (I've done that above). But, sometimes, that's optional:
+Just like dot syntax is formally correct, it's formally correct to wrap an argument inside **parentheses** `()` (I've done that above). But, sometimes, that's optional:
 
 ```eval-ruby
 # 2 is the argument
@@ -71,7 +71,7 @@ Here's another example of optional parentheses:
 
 - _**Convert your numeral calculator to use dot syntax with parentheses.**_
 
-> We'll be using dot syntax with parentheses for now, so we can get used to writing formally-correct code.
+> We'll be using dot syntax with parentheses for now, so we can get used to writing formally correct code.
 
 ## What happens when we send an object a message?
 
@@ -83,7 +83,7 @@ Like many program objects, these procedures usually have names. A named procedur
 
 ![Zooming into an object's interface, and demonstrating the procedures](../images/3-interfaces.gif)
 
-> An interface is a list of all the things an object can do: all the object's procedures. In other words, an interface is a list of object methods.
+> An interface is a list of all the things an object can do - all the object's procedures. In other words, an interface is a list of object methods.
 
 ## Making random numbers
 
@@ -99,7 +99,8 @@ The main program object can respond to a few messages by executing some useful p
 rand
 ```
 
-Each time you run `rand`, you'll get a random float between zero and one. If you give `rand` an integer argument:
+Each time you run `rand`, you'll get a random float between zero and one. If you give `rand` an integer argument, you'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
+
 
 ```eval-ruby
 integer = 6
@@ -107,13 +108,11 @@ integer = 6
 rand(integer)
 ```
 
-You'll get a random number between zero and `integer - 1` (so here, `0` to `5`).
-
 - _**Write a program that rolls a six-sided die and returns the result. This program should be runnable from the command line.**_
 
 ## Asking objects to return other objects: integers and floats
 
-#### Introducting floats
+#### Introducing floats
 
 Something pretty weird happens when we do division with our numeral calculator:
 
@@ -136,7 +135,7 @@ Here are some example floats:
 -0.41
 ```
 
-Floats have a very specific purpose in programs: to do very fine calculations usually involving division, and as such they're rarely-used (as [Chris Pine points out](https://pine.fm/LearnToProgram/chap_01.html), who wants to look at 7.4 emails, or browse 1.8 webpages, or listen to 5.24 of their favorite songs?). But we need floats now!
+Floats have a very specific purpose in programs: to do very fine calculations usually involving division, and as such they're rarely used (as Chris Pine points out, who wants to look at 7.4 emails, or browse 1.8 webpages, or listen to 5.24 of their favourite songs?). But we need floats now!
 
 #### Asking integers to return floats
 
@@ -152,7 +151,7 @@ We can now divide this returned float object by another integer (or another floa
 4.to_f./(5)
 ```
 
-Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division; it makes the code super-hard to read:
+Of course, this is going to get pretty ugly for our poor numeral calculator. We don't want to be jamming `to_f` on the first numeral every time we want to do division as it makes the code super-hard to read:
 
 ```irb
 > four.to_f./(five)
@@ -200,7 +199,7 @@ Likewise, if an object responded to messages like this without throwing errors:
 > object.walk
 => "waddle waddle"
 > object.quack
-=> "waak waak"
+=> "Quack quack"
 ```
 
 You could guess that the object is a duck. This principle is known as **duck typing**. That is: _if it walks like a duck, and it quacks like a duck, it's a duck_. Ruby cares less about what objects are, in and of themselves, and more about what sorts of messages they respond to.
@@ -246,13 +245,13 @@ As the computer goes through the line, each `object.message` statement is replac
 
 This 'queueing up of messages' is referred to as **chaining**.
 
-- `four`: We say "hey program, go get us the object referenced by the name `four`".
+- `four`: We say "Hey program, go get us the object referenced by the name `four`".
 - _The program says "OK, here's `4`"._
-- `.+(five)`: We say "hey `4`, add the value of the object referenced by the name `five` to your value".
+- `.+(five)`: We say "Hey `4`, add the value of the object referenced by the name `five` to your value".
 - _`4` says "OK, here's `9`"._
-- `.+(seven)`: We say "hey `9`, add the value of the object referenced by the name `seven` to your value".
+- `.+(seven)`: We say "Hey `9`, add the value of the object referenced by the name `seven` to your value".
 - _`9` says "OK, here's `16`"._
-- `.-(one)`: We say "hey `16`, subtract the value of the object referenced by the name `one` from your value".
+- `.-(one)`: We say "Hey `16`, subtract the value of the object referenced by the name `one` from your value".
 - _`16` says: "OK, here's `15`"._
 - _The program says "I'm done with this line! Here's what it evaluated to: `15`"._
 
