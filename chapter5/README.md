@@ -153,7 +153,7 @@ todo_1.capitalize
 
 ## Different objects, different purposes
 
-When programming, we often stop to think: "what's the right class to create objects to do this particular job?" 
+When programming, we often stop to think 'what's the right class to create objects to do this particular job?' 
 
 Ruby provides us a wide range of different classes, each of which create instances with different purposes: like `Integer` and `String`.
 
@@ -197,7 +197,7 @@ But classes and instances are not the same thing, they're designed for different
 
 Because classes are different objects to instances, they have different interfaces. 
 
-> Remember that in Ruby, we mostly define what an object is by what messages it responds to: that is, what its interface is.
+> Remember that in Ruby, we mostly define what an object is by what messages it responds to, that is, what its interface is.
 
 For example, `String` defines `new` on its interface. When called, `String.new` produces a new instance of `String`. String instances, however, do not define `new` on their interfaces, because they're not classes – and so they're not responsible for creating new instances.
 
@@ -220,7 +220,7 @@ Remember that the entire program world is contained within a Universe. That Univ
 +(2)
 ```
 
-The main object is a special kind of instance: an instance of the `Object` class (yep, there's a class called `Object`). All instances of all classes are, ultimately, instances of the `Object` class.
+The main object is a special kind of instance of the `Object` class (yep, there's a class called `Object`). All instances of all classes are, ultimately, instances of the `Object` class.
 
 - _**Use the `methods` message in IRB to list the methods on the main object.**_
 - _**Send the main object the message `quit`.**_
@@ -249,9 +249,9 @@ Hello World!
 
 %accordion%Here's my explanation%accordion%
 
-Here's my explanation: the REPL treats you, the REPL-typer, as if you (the programmer) were _just another object in the program_. When you ask an object something – say `1.integer?`, `1` treats that message as if it arrived from another program object. So, you get the return value (`true`), which is helpfully shown to you in the REPL.
+The REPL treats you, the REPL-typer, as if you (the programmer) were _just another object in the program_. When you ask an object something – say `1.integer?`, `1` treats that message as if it arrived from another program object. So, you get the return value (`true`), which is helpfully shown to you in the REPL.
 
-On the other hand: the method `puts` doesn't expect to be used from a REPL. It's designed to output information from the program to the console when you're _not_ using the REPL – in other words, when you're not 'inside' the program. `puts` actually does two things: outputs information to the console, and then returns `nil` to whichever object called it. Which, if you're pretending to be a program object by using the REPL, could be you.
+On the other hand, the method `puts` doesn't expect to be used from a REPL. It's designed to output information from the program to the console when you're _not_ using the REPL – in other words, when you're not 'inside' the program. `puts` actually does two things, it outputs information to the console, and then returns `nil` to whichever object called it. Which, if you're pretending to be a program object by using the REPL, could be you.
 
 %/accordion%
 
@@ -266,9 +266,9 @@ How, then, do we - as programmers – interactively _input_ information to a pro
 
 - _**Investigate the difference between the two. Keep in mind the idea of being 'just another object in the program' when you're using the REPL.**_
 
-`gets` (which stands for 'get string') is very useful to add information to a program on-the-fly: the sort of thing we might need to do, say, if we were writing a build-your-own text adventure game. Which is totally what we're doing in the next Chapter.
+`gets` (which stands for 'get string') is very useful to add information to a program on the fly. This is the sort of thing we might need to do, say, if we were writing a build-your-own text adventure game. Which is totally what we're doing in the next chapter.
 
-> The message `gets` calls a method on the main object. This method returns a string. This string usually has a `\n` newline character in it. To get the string without the newline, use the string `chomp` method. A line of code using `gets` usually looks something like this: `user_input = gets.chomp`. The program will wait for the user to input a string, then continue with whatever procedure it's doing.
+The message `gets` calls a method on the main object. This method returns a string. This string usually has a `\n` newline character in it. To get the string without the newline, use the string `chomp` method. A line of code using `gets` usually looks something like this: `user_input = gets.chomp`. The program will wait for the user to input a string, then continue with whatever procedure it's doing.
 
 ## Complete the mastery quiz for chapter 5
 
