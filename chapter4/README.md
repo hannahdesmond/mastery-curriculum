@@ -4,7 +4,7 @@ We already know that when we start a Ruby program, some **objects** are made for
 
 ![A user starting IRB in the terminal, causing a world to come into existence with a window as the &apos;REPL&apos;](../images/2-numbers.gif)
 
-In [module 2](../chapter2/README.md), we saw that integer objects were ready and waiting for us whenever we set up the Ruby world. And, we **assigned** these pre-existent numbers to **variables**: in other words, we gave them programmer-friendly **names**.
+In [module 2](../chapter2/README.md), we saw that integer objects were ready and waiting for us whenever we set up the Ruby world. And we **assigned** these pre-existent numbers to **variables**, in other words, we gave them programmer-friendly **names**.
 
 In [module 3](../chapter3/README.md), we found out that we could instruct objects to do things using **messages**. Objects might require **arguments** to be able to answer a message. We learned that the list of messages we can send to an object is called its **interface**. We saw that you could make a good guess at what an object was, based on the **methods** defined on its interface. We also saw that you can **chain** messages, thanks to **referential transparency**.
 
@@ -42,7 +42,7 @@ Dad goes off and does that, and once he's done, he `return`s the cake to us. Let
 
 > Procedures can be thought of as cooking recipes, which contain steps to produce a result.
 
-Here's a code-y version of what `dad` just did. I'm using a bunch of program structures we'll see later: don't sweat it if this makes only vague sense to you right now:
+Here's a code-y version of what `dad` just did. I'm using a bunch of program structures we'll see later, don't sweat if this makes only vague sense to you right now:
 
 ```ruby
 bowl = []
@@ -62,7 +62,7 @@ return mixture
 
 Procedures are about more than just unquestioningly executing one set of instructions.
 
-What happens if `dad` tries to execute his `cake` procedure without any flour? It might just blow up, and crash Dad. Or worse: Dad might keep trying to make the cake without having any flour, resulting in an eggy, sugary mess \(or, at best, some sort of meringue\).
+What happens if `dad` tries to execute his `cake` procedure without any flour? It might just blow up, and crash Dad. Or worse, Dad might keep trying to make the cake without having any flour, resulting in an eggy, sugary mess \(or, at best, some sort of meringue\).
 
 We'd like Dad to be able to stop his procedure if he doesn't have any flour. And we'd like him to give us a return value in this case \(maybe `0`, representing an 'error code' we agreed with him earlier\), so we know what's gone wrong. Let's amend the first few parts of the procedure:
 
@@ -111,7 +111,7 @@ end
 
 So what the heck do these instructions do?
 
-## Writing Conditionals
+## Writing conditionals
 
 Let's identify the parts of this code:
 
@@ -179,11 +179,11 @@ And that's how `positive?` works.
 
 > Ruby will translate code statements like `if 1 < 0; else...` into something very similar to the flowchart we made: an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree). Being able to deconstruct code into similar structures – whether you verbalise them, draw them out, or something else – is a crucial part of learning to work with code.
 
-## Control Flow
+## Control flow
 
-The order in which an object executes instructions is called the **control flow**. We've just met one way of controlling this order: using a conditional to control which instructions get executed and which don't. There are other ways to adjust the control flow: we'll meet them in a minute.
+The order in which an object executes instructions is called the **control flow**. We've just met one way of controlling this order - using a conditional to control which instructions get executed and which don't. There are other ways to adjust the control flow which we'll meet in a minute.
 
-* _**Imagine you are a program object. Imagine also that these instructions are defined a method defined on you. Draw out flow charts for the control flow of these instructions. You should be able to guess the comparison operators. Your aim is to use referential transparency to replace the instructions, chunk-by-chunk, until your flowchart looks like the last one we made.**_
+* _**Imagine you are a program object. Imagine also that these instructions are defined on a method defined on you. Draw out flow charts for the control flow of these instructions. You should be able to guess the comparison operators. Your aim is to use referential transparency to replace the instructions, chunk-by-chunk, until your flowchart looks like the last one we made.**_
 
 ```ruby
 if 1 + 2 > 2
@@ -219,7 +219,7 @@ end
 
 ## More complex conditional procedures
 
-So far, we've seen conditionals with the simplest possible procedures on their branches: procedures that just `return` a value depending on the truthiness or falsiness of some condition:
+So far, we've seen conditionals with the simplest possible procedures on their branches - procedures that just `return` a value depending on the truthiness or falsiness of some condition:
 
 ```eval-ruby
 if 1 > 0
@@ -229,7 +229,7 @@ else
 end
 ```
 
-In the last example you drew out above, you saw that these 'conditional procedures' could be statements, too:
+In the last example you drew out above, you saw that these 'conditional procedures' could be statements too:
 
 ```ruby
 if false
@@ -241,7 +241,7 @@ else
 end
 ```
 
-The truth is: a procedure inside a conditional can be as simple or as complex as you like. For instance, you can assign names within conditional procedures:
+The truth is, a procedure inside a conditional can be as simple or as complex as you like. For instance, you can assign names within conditional procedures:
 
 ```eval-ruby
 a = 10
@@ -344,7 +344,7 @@ They're objects, of course! And, like `1`, `2`, `3`, and all the other integers,
 * Know about the truth or falsity of things, and
 * Know how to interact with each other.
 
-`true` and `false` are used to do logic: often, to manage the control flow.
+`true` and `false` are used to do logic, often to manage the control flow.
 
 Here are some logical conditions we might meet in a program:
 
@@ -398,7 +398,7 @@ So far we've met one way of managing the control flow for an object: conditional
 
 ![A flow of control graph, demonstrating conditional logic](../images/4-conditional-graph.jpg)
 
-What about if we wanted to do a different kind of instruction? One where we don't want the object to skip instructions in a program branch: we want it to _repeat_ instructions.
+What about if we wanted to do a different kind of instruction? One where we don't want the object to skip instructions in a program branch, we want it to _repeat_ instructions.
 
 Let's imagine an object that prints `1` to the console forever:
 
@@ -414,7 +414,7 @@ while true do
 end
 ```
 
-The code above will output 1, forever. The procedure – `puts 1` – will keep being called. That's because every time the `eternal_printer` object reaches the `end` statement, it'll jump back up to the `while true` statement:
+The code above will output 1, forever. The procedure `puts 1` will keep being called. That's because every time the `eternal_printer` object reaches the `end` statement, it'll jump back up to the `while true` statement:
 
 ![A flow of control graph, demonstrating a while loop](../images/4-while-graph.jpg)
 
@@ -532,8 +532,8 @@ Inside the `play` method defined on the `football_game` object:
 
 ```ruby
 while true do
-  thierry_henri.kick_ball
-  eric_cantona.maybe_score_goal
+  cristiano_ronaldo.kick_ball
+  lionel_messi.maybe_score_goal
 
   if ninety_minutes_passed
     break
@@ -555,13 +555,13 @@ An object might want to keep track of some value during a `while` loop. The obje
 while true do
   goals_scored = 0
 
-  if eric_cantona.score_goal
+  if lionel_messi.score_goal
     goals_scored = goals_scored + 1
   end
 end
 ```
 
-Because each time the loop runs, the variable will be reset to its initial value. No matter how many times `eric_cantona` scores a goal, `goals_scored` will always be reset to `0`.
+Because each time the loop runs, the variable will be reset to its initial value. No matter how many times `lionel_messi` scores a goal, `goals_scored` will always be reset to `0`.
 
 If we want to keep track of a value during a loop, we have to declare a variable outside of the loop:
 
@@ -580,7 +580,7 @@ Each time the `while` loop above runs:
 * `my_number = my_number + 1`: `my_number` will increase in value by `1`.
 * `puts my_number`: `my_number` will be printed to the console.
 
-In short: `my_number` will count upwards, forever. So how about if we just wanted to print out the first ten numbers, then stop?
+In short, `my_number` will count upwards, forever. So how about if we just wanted to print out the first ten numbers, then stop?
 
 ```ruby
 my_number = 0
@@ -638,7 +638,7 @@ I'd recommend building your `while` loops with `break`s until you're familiar wi
 * Stop from executing this procedure. 
 * Return this value as the 'return value' from the procedure. 
 
-It's typically used inside a method, to say "this is what should come back from calling this method". However, we can use it to manage the control flow: because _instructions after a return will never be executed_:
+It's typically used inside a method, to say "this is what should come back from calling this method". However, we can use it to manage the control flow because _instructions after a return will never be executed_:
 
 ```ruby
 if true
@@ -668,6 +668,8 @@ if true
   return b
 end
 ```
+
+If you try these examples in IRB or run locally as Ruby code you might see a `LocalJumpError (unexpected return)` error. This is due to us returning from a loop block that isn't within a method, we'll move on to methods soon don't worry.
 
 ## Combining flows of control
 
