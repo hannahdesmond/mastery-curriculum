@@ -21,7 +21,7 @@ This curriculum is a little different. In it, you’ll form a good model of
 * How all the things above act to make the world a living, breathing place
 * How to construct sophisticated worlds with interacting entities inside
 
-Although we’re going to build your understanding of programming in a different way to normal, we’re still going to start with ‘Hello World!’. Why? Because ‘Hello World’ is a small, minimal program, and we as programmers always try to build the smallest, most minimal things we can get away with.
+Although we’re going to build your understanding of programming in a different way to normal, we’re still going to start with ‘Hello, World!’. Why? Because ‘Hello, World!’ is a small, minimal program, and we as programmers always try to build the smallest, most minimal things we can get away with.
 
 The difference for us is that we’re actually going to introduce a World, of sorts, in this chapter. So we really are saying, ‘Hello World!’
 
@@ -110,7 +110,7 @@ $> irb
 
 In these code examples, I'll include the IRB prompt as a chevron \('`>`'\). You don't need to enter the chevron into your IRB. If I'm typing in the console \(Terminal\), rather than in IRB, I'll include the prompt as a dollar-chevron `$>`. Again, you don't need to enter the dollar-chevron into the console.
 
-> Each line of the interactive code examples can be typed into IRB as a separate instruction. In Ruby, generally speaking, a newline \(↵\) means 'execute this instruction'. IRB allows you to send line-by-line instructions: interactive examples allow you to queue up instructions to send one-after-the-other.
+> Each line of the interactive code examples can be typed into IRB as a separate instruction. In Ruby, generally speaking, a newline \(↵\) means 'execute this instruction'. IRB allows you to send line-by-line instructions: interactive examples allow you to queue up instructions to send one after the other.
 
 When I want to illustrate something but I don't want the code to be executed, I'll put a hashtag \(`#`\) in front of the code:
 
@@ -130,7 +130,7 @@ Closing `irb` with `exit` will result in the program world being destroyed. Next
 
 Instead of starting from scratch each time, we can use a **file** to store the instructions we would have to type into the REPL. When we **require** \(import\) the file into the program, it'll be **executed** automatically. The result of executing these pre-written instructions is the world we want – and the REPL, if we want to use that, can provide an interactive window into that world.
 
-> a set of instructions stored up one after the other \(for instance, in a file\), is called a **procedure**. A real-world cake recipe \(take a bowl, add flour, add eggs, add sugar, turn on oven to 200, cook for 20 minutes, remove mixture, cool\) is an example of a procedure. Each step is executed one-at-a-time. The whole recipe can be 'reloaded' to create a ready-to-go cake at any time.
+> a set of instructions stored up one after the other \(for instance, in a file\), is called a **procedure**. A real-world cake recipe \(take a bowl, add flour, add eggs, add sugar, turn on oven to 200, cook for 20 minutes, remove mixture, cool\) is an example of a procedure. Each step is executed one at a time. The whole recipe can be 'reloaded' to create a ready-to-go cake at any time.
 
 ![A world being created from a file](../images/1-prewritten-world.gif)
 
