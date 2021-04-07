@@ -16,7 +16,7 @@ And we the following tools:
 * Conditionals
 * While loops
 * Strings
-* `gets` and `puts`
+* `puts` and `gets`
 
 We can now control these objects using these tools, to write a more complex procedural program. Let's do it!
 
@@ -24,9 +24,9 @@ We can now control these objects using these tools, to write a more complex proc
 
 A client is asking us for the following program:
 
-> I hate my mate Steve: so much so that my hatred spills over to anyone with a first name beginning with 'S'. I want a program that, when anyone types their name in, shouts at them if their name begins with an 'S'. Anyone else should just get a friendly greeting.
+> I don't like my friend Sam, so much so that my hatred spills over to anyone with a first name beginning with 'S'. I want a program that, when anyone types their name in, shouts at them if their name begins with an 'S'. Anyone else should just get a friendly greeting.
 
-The statement above is an example of a **specification**: a vague answer to the question "what do you want this program to do?". Our first job as programmers is to break specifications into manageable, step-by-step instructions that we can then feed into the machine.
+The statement above is an example of a **specification** or a vague answer to the question 'what do you want this program to do?'. Our first job as programmers is to break specifications into manageable, step-by-step instructions that we can then feed into the machine.
 
 We do this to avoid biting off more than we can chew. The most common programming mistake is to try and build too much, too fast. We want to decompose this specification into really clear, step-by-step **requirements**.
 
@@ -47,7 +47,7 @@ Here's the list of requirements for the specification above:
 
 When building a program, we move step-by-step through the requirements.
 
-> The best programmers do everything they can to avoid 'biting off more than they can chew', or 'moving in too large a step'. That's why the idea of the 'best programmer is a lazy programmer' took hold. Force yourself to move in small steps now! It's a habit that will pay off. During the Makers Academy course, we'll meet tools designed to force us to move in small steps.
+> The best programmers do everything they can to avoid 'biting off more than they can chew', or 'moving in too large a step'. That's why the idea of the 'best programmer is a lazy programmer' took hold. Force yourself to move in small steps now! It's a habit that will pay off. During the Makers course, we'll meet tools designed to force us to move in small steps.
 
 #### 1. Make the file
 
@@ -170,9 +170,9 @@ return "Hi, #{user}"
 
 > `#{}` inside a string will allow you to execute a statement inside a string. The return value from the statement is concatenated into the surrounding string.
 
-We could get this program down to three lines if we wanted to, by using a [ternary operator](https://launchschool.com/books/ruby/read/flow_control). However, I don't think that makes it much better. This code is attractive to me because each line neatly mirrors each requirement we were given. The first line is the first requirement. The second line the second, and so on.
+We could get this program down to three lines if we wanted to, by using a [ternary operator](https://www.rubyguides.com/2019/10/ruby-ternary-operator/). However, I don't think that makes it much better. This code is attractive to me because each line neatly mirrors each requirement we were given. The first line is the first requirement. The second line the second, and so on.
 
-> Good code is not as terse as possible: good code fulfils the requirements as closely as possible.
+> Good code is not as terse as possible, good code fulfils the requirements as closely as possible.
 
 %/accordion%
 
@@ -198,9 +198,9 @@ We want to decompose this specification into really clear, step-by-step requirem
 8. If the user enters 'forward', they're told they won and the game exits.
 9. If the user enters anything other than 'right', 'left', or 'forward', they just get the message from 4 again.
 
-This is just the right amount of detail: now I know exactly what to program, step-by-step. No way am I gonna get overwhelmed by this.
+This is just the right amount of detail. Now I know exactly what to program, step-by-step. No way am I gonna get overwhelmed by this.
 
-> Programming is hard. Just keep going, keep breaking it down. You can train yourself to think algorithmically: it's not a natural or intuitive way to think. Once you get better, you'll forget how tough it used to be!
+> Programming is hard. Just keep going, keep breaking it down. You can train yourself to think algorithmically. It's not a natural or intuitive way to think. Once you get better, you'll forget how tough it used to be!
 
 %/accordion%
 
@@ -210,11 +210,11 @@ This is just the right amount of detail: now I know exactly what to program, ste
 
 OK, this game sucks, but it's an interesting thing to build out. Before jumping into coding up the requirements, let's think about what we already know.
 
-First thing: this is a game. It has repeat actions: we're going to need a `while true` loop. We have to get user input twice \(once for the first move, then again for the second move\).
+Firstly, this is a game. It has repeat actions so we're going to need a `while true` loop. We have to get user input twice \(once for the first move, then again for the second move\).
 
-Second thing: we need something to track what's happened across both moves \(is this the first move or the second move?\). Since the moves will probably happen in a `while` loop, we're probably going to need an accumulator to track the loop.
+Secondly, we need something to track what's happened across both moves \(is this the first move or the second move?\). Since the moves will probably happen in a `while` loop, we're probably going to need an accumulator to track the loop.
 
-Third thing: It has a `break` condition when the user dies or wins: we're going to need `break`, probably.
+Third, It has a `break` condition when the user dies or wins so we're going to need `break`, probably.
 
 So, put those things together, and we'll probably have something like this:
 
@@ -252,7 +252,7 @@ puts "You're facing forward. You can type forward, left, or right."
 
 #### 3. Get the user's input
 
-I'm not going to write a loop yet: they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do by telling the main object to `gets` a string, telling the string to `chomp`, and assigning the return value to a variable, `user_input`:
+I'm not going to write a loop yet as they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do by telling the main object to `gets` a string, telling the string to `chomp`, and assigning the return value to a variable, `user_input`:
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."
