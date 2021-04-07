@@ -15,17 +15,17 @@ We're going to build a numeral calculator. It'll work just like a normal calcula
 
 ### Introduction
 
-We know now that typing `irb` into the console starts a REPL: the computer sets up a Ruby world, and we, the user, get the ability to write Ruby code to modify that world on-the-fly.
+We know now that typing `irb` into the console starts a REPL. The computer sets up a Ruby world, and we, the user, get the ability to write Ruby code to modify that world on the fly.
 
 ![A user starting IRB in the terminal, causing a world to come into existence with a window as the &apos;REPL&apos;](../images/2-irb-world.gif)
 
-You might think this world starts off empty: but it doesn't.
+You might think this world starts off empty, but it doesn't.
 
 ## What exists inside a Ruby program?
 
 When the Universe began, the great computer in the sky ran a 'Universe' program, and created the Universe. It also created some denizens for that Universe: the moon and stars.
 
-When our computer sets up a Ruby world, it creates a Universe \('main program function'\), and it adds a bunch of useful denizens to it. In Ruby, we call these denizens 'objects'. One good example of such a 'pre-created' object are _numbers_.
+When our computer sets up a Ruby world, it creates a Universe \('main program function'\), and it adds a bunch of useful denizens to it. In Ruby, we call these denizens 'objects'. One good example of such a pre-created object are _numbers_.
 
 ![Animation showing the number objects being created on startup](../images/2-numbers.gif)
 
@@ -91,7 +91,7 @@ In short, the program world is saying "you asked for something called `one`. It 
 
 So why does `1` exist and `one` doesn't? This is a choice the creators of Ruby made. They believed that plenty of people would want to use numbers using the [glyph](https://en.wikipedia.org/wiki/Glyph) form `1` \(or `2`, `3`, and so on\). They believed that few people would want to use the numeral form `one` \(or `two`, `three` and so on\).
 
-Bad news for them, then: that's exactly what we want to do. To do it, we're going to have to create something inside our program world: a **name**. Then, we're going to point our name to the number object that already exists.
+However, that's exactly what we want to do. To do it, we're going to have to create something inside our program world, a **name**. Then, we're going to point our name to the number object that already exists.
 
 ## Giving names to things
 
@@ -106,7 +106,7 @@ One way to give an object a name is to make a label for it, and attach the objec
 Let's try this out.
 
 * _**Open **_`irb`_**, and give the object **_`1`_** another name: **_`one`_**.**_
-* _\*\*\(\_In other words_: define a variable `one` that points to the object referenced by the name `1`.\)\*\*\_
+* _**(\_In other words_: define a variable `one` that points to the object referenced by the name `1`.\)**_
 
 > In Ruby, we use `=` to point names at objects. It's called the **assignment operator**.
 
@@ -247,14 +247,14 @@ When we start the program world, some constants come into existence automaticall
 
 ```bash
 > RUBY_VERSION
-=> "2.4.1"
+=> "3.0.0"
 ```
 
 %/accordion%
 
-In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants. \(The reasons for why are tricky, but for now, remember that variables can't be read outside the file they're written in, but constants can be.\)
+In order to load all the names for your numeral calculator from a file and into the REPL, the names will need to be written as constants. \(The reasons why are tricky, but for now, remember that variables can't be read outside the file they're written in, but constants can be.\)
 
-That's OK, though, as each name should be pointing to a different integer: and the integers are constant objects.
+That's OK, though, as each name should be pointing to a different integer and the integers are constant objects.
 
 * _**Extract your numeral calculator into a prewritten file, **_`variables.rb`_**.**_
 * _**Load **_`variables.rb`_** into IRB immediately, with **_`irb -r ./variables.rb`_**.**_
@@ -277,7 +277,7 @@ warning: previous definition of ONE was here
 => 2
 ```
 
-This makes sense for our purposes: we don't want anyone – be it another programmer or a user of the numeral calculator – to reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear: don't reassign these names, please: they're meant to stay this way.
+This makes sense for our purposes as we don't want anyone – be it another programmer or a user of the numeral calculator – to reassign the variables `one` through `ten` to any other numbers. By naming them `ONE` through `TEN`, we're making our intention clear - don't reassign these names, please, they're meant to stay this way.
 
 ## Modulo
 
@@ -297,7 +297,7 @@ Here's another example of the modulo. Play around with it until you understand w
 
 > 6 divided by 3 is 2. Since 2 is a whole number, modulo says "6 divided by 3 is 2, with 0 remaining."
 >
-> I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, an smaller, sub-world \(a 'function'\) is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction: but why does Ruby do this kind of on-the-fly generation? The answer is: this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function: it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.
+> I've lied a bit about how numbers work in Ruby. Numbers aren't actually created at the same time as the main program function. In reality, a smaller, sub-world \(a 'function'\) is created. When we type `100`, that function is executed in such a way as to return the number 100 to the world on-the-fly. It's a small distinction, but why does Ruby do this kind of on the fly generation? The answer is that this is a way to avoid slow program start-up, where the program has to generate loads of numbers before it can show the prompt. The reason we're not covering this in detail here is because this function isn't actually a Ruby function, it's a C function, which Ruby executes. You can learn more [here](https://stackoverflow.com/questions/3430280/how-does-object-id-assignment-work) if you're interested.
 
 ## Complete the mastery quiz for chapter 2
 
