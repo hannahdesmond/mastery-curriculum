@@ -107,7 +107,7 @@ array.slice(0, 1)
 
 ## Outputting from arrays
 
-Arrays can be useful for storing elements you might want to keep separate sometimes, and join together in other times. A common use case for an array is to store strings, then to send the array of strings a `join` message, which will concatenate them:
+Arrays can be useful for storing elements you might want to keep separate sometimes and join together at others. A common use case for an array is to store strings, then to send the array of strings a `join` message, which will concatenate them:
 
 ```eval-ruby
 sentence = ["Hello,", "you", "are", "NOT", "welcome", "here"]
@@ -170,7 +170,7 @@ string.split
 
 Sending `split` to a string will cause the string to invoke some procedure that returns a new array of strings. Strings will use their text to build the new array. By default, they'll use a space – `" "` – as the split point. We call this split point a _delimiter_.
 
-We can provide a different delimeter to `split` to ask the string to build a different array:
+We can provide a different delimiter to `split` to ask the string to build a different array:
 
 ```eval-ruby
 string = "Hello World!"
@@ -180,7 +180,7 @@ string.split("l")
 
 > Where did the 'l's go in the example above? Think about this: in the first `split` example, where did the `" "` spaces go?
 
-If we provide an empty string (with no characters or spaces in it), the string will be build an array with each element representing one character of that string's text:
+If we provide an empty string (with no characters or spaces in it), the string will build an array with each element representing one character of that string's text:
 
 ```eval-ruby
 string = "Hello World!"
@@ -292,7 +292,7 @@ end
 
 > Still confused by `while` loops? Alter the code example above to use `break` instead.
 
-We can combine this structure with the array reader method `[]` to tell an object to do something with elements of the array one-after-the-other:
+We can combine this structure with the array reader method `[]` to tell an object to do something with elements of the array one after the other:
 
 ```ruby
 my_array = ["Hello", "there", "friend!"]
@@ -314,7 +314,7 @@ my_array.each do
 end
 ```
 
-What about if we want an object to do something with elements of the array one-after-the-other? That is: to reference each item within an array during the procedure? We can do that in the following way:
+What about if we want an object to do something with elements of the array one after the other? That is: to reference each item within an array during the procedure? We can do that in the following way:
 
 ```eval-ruby
 my_array = ["Hello", "there", "friend!"]
@@ -370,7 +370,7 @@ my_array.each do |chicken|
 end
 ```
 
-This kind of name, one that's assigned on-the-fly in a procedure, is called a **parameter**. We'll meet them in more detail, in [Chapter 9](../chapter9/README.md).
+This kind of name, one that's assigned on the fly in a procedure, is called a **parameter**. We'll meet them in more detail, in [Chapter 9](../chapter9/README.md).
 
 > It's a good idea to name the parameter after what elements _are_. So, if you're iterating over an array of numbers, each element is a number: so the parameter should probably be called `number`. If you're iterating over an array of instances of the `Dog` class, each element is a dog: so the parameter should probably be called `dog`. The naming choice is up to you as a programmer: pick one that future programmers, who'll have to work with your procedure, will understand.
 
@@ -415,14 +415,14 @@ words.include?("Hello")
 test_tweets = [
   "This president sucks!",
   "I hate this Blank House!",
-  "I can't believe we're living with such a bad leadership. We were so foolish",
+  "I can't believe we're living under such bad leadership. We were so foolish",
   "President Presidentname is a danger to society. I hate that he's so bad – it sucks."
 ]
 
 banned_phrases = ["sucks", "bad", "hate", "foolish", "danger to society"]
 ```
 
-> It won't surprise you to know that these sorts of clients and these sorts of programs exist in the real world. As a programmer, you have a responsibility to build only what you're comfortable building. While you don't have to sign it, I recommend reading the [Responsible Software Manifesto](https://manifesto.responsiblesoftware.org/) and considering what sort of power you want to wield.
+> It won't surprise you to know that these sorts of clients and these sorts of programs exist in the real world. As a programmer, you have a responsibility to build only what you're comfortable building. While you don't have to sign it, I recommend reading the [Responsible Software Manifesto](https://manifesto.responsiblesoftware.org/) and considering what sort of power you want to wield. Makers founder, Evgeny, wrote a great blog article on the subject too called [On Building Good Things](https://blog.makersacademy.com/on-building-good-things-fe75981a860e).
 
 ## Complete the mastery quiz for chapter 7
 
