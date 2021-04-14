@@ -146,17 +146,14 @@ else
 end
 ```
 
-The second refactor I'm going to make is to use **early returns** along with one-line conditionals. `return` will stop an object from executing a procedure, and return whatever value you tell it to. Using this knowledge, along with some syntactic sugar, we can do this:
+The second refactor I'm going to make is to use one-line conditionals or [ternary operator](https://www.rubyguides.com/2019/10/ruby-ternary-operator/). Ternary operator logic uses `condition ? (true return value) : (false return value)` statements to shorten your if/else structures. Which means we can do this:
 
 ```ruby
 puts "Welcome user"
 user = gets.chomp
 
-return user.upcase if user.chr == "S"
-return "Hi, " + user
+user.chr == "S" ? (puts user.upcase) : (puts "Hi, "  + user)
 ```
-
-> Confused by these `return`s along with `if`s? Weirded out by how the `else` disappeared? Draw out the flow diagram for these two examples, and you'll see it's just the same thing. I prefer it written like this, but others prefer `if`/`else` syntax. Either is fine!
 
 The final refactor I'm going to make is to use Ruby's syntactic sugar of **string interpolation** to print the return value from a statement directly into a string:
 
@@ -164,15 +161,10 @@ The final refactor I'm going to make is to use Ruby's syntactic sugar of **strin
 puts "Welcome user"
 user = gets.chomp
 
-return user.upcase if user.chr == "S"
-return "Hi, #{user}"
+user.chr == "S" ? (puts user.upcase) : (puts "Hi, #{user}")
 ```
 
-> `#{}` inside a string will allow you to execute a statement inside a string. The return value from the statement is concatenated into the surrounding string.
-
-We could get this program down to three lines if we wanted to, by using a [ternary operator](https://www.rubyguides.com/2019/10/ruby-ternary-operator/). However, I don't think that makes it much better. This code is attractive to me because each line neatly mirrors each requirement we were given. The first line is the first requirement. The second line the second, and so on.
-
-> Good code is not as terse as possible, good code fulfils the requirements as closely as possible.
+> `#{}` inside a string will allow you to execute a statement inside a string. The return value from the statement is converted to a string and concatenated into the surrounding string for you.
 
 %/accordion%
 
