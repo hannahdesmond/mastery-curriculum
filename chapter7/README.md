@@ -66,7 +66,7 @@ array.delete_at(1)
 array
 ```
 
-> Watch out! Arrays are _zero-indexed_. That means they count from zero: the first element is in position `0`. Play with the code example above until that's clear.
+> Watch out! Arrays are _zero-indexed_. That means they count from zero, the first element is in position `0`. Play with the code example above to remove "a".
 
 We can also remove just the _last element of an array_ by sending an array the `pop` message:
 
@@ -78,7 +78,7 @@ array.pop
 array
 ```
 
-All of the above will modify the array: that is, the array will change when you run `push`, `delete_at`, or `pop`.
+All of the above will modify the array. That is, the original array will change when you run `push`, `delete_at`, or `pop`.
 
 ## Reading arrays
 
@@ -115,7 +115,7 @@ sentence = ["Hello,", "you", "are", "NOT", "welcome", "here"]
 sentence.join(" ")
 ```
 
-> The argument you provide to `join` is the joining character. Here, we used a space (`" "`). What happens if we use a different character?
+> The argument you provide to `join` is the joining character. Here, we used a space `" "`. What happens if we use a different character?
 
 - _**Add a line of code that removes the `"NOT"` string from the array, making the sentence friendlier.**_
 
@@ -168,7 +168,7 @@ string = "Hello World!"
 string.split
 ```
 
-Sending `split` to a string will cause the string to invoke some procedure that returns a new array of strings. Strings will use their text to build the new array. By default, they'll use a space – `" "` – as the split point. We call this split point a _delimiter_.
+Sending `split` to a string will cause the string to invoke some procedure that returns a new array of strings. Strings will use their text to build the new array. By default, they'll use a space `" "` as the split point. We call this split point a _delimiter_.
 
 We can provide a different delimiter to `split` to ask the string to build a different array:
 
@@ -178,7 +178,7 @@ string = "Hello World!"
 string.split("l")
 ```
 
-> Where did the 'l's go in the example above? Think about this: in the first `split` example, where did the `" "` spaces go?
+> Where did the 'l's go in the example above? Think about this, in the first `split` example, where did the `" "` spaces go?
 
 If we provide an empty string (with no characters or spaces in it), the string will build an array with each element representing one character of that string's text:
 
@@ -247,7 +247,7 @@ team_2 = ["Peter", "Kay"]
 groups = [team_1, team_2]
 ```
 
-> It's perfectly fine to reference variables within arrays. Why? _Referential transparency!_ The main object, in which this procedure is running, just turns the names `team_1` and `team_2` into the arrays they reference.
+> It's perfectly fine to reference variables within arrays. Why? _Referential transparency!_ The `main` object, in which this procedure is running, just turns the names `team_1` and `team_2` into the arrays they reference.
 
 ## Combining arrays
 
@@ -260,7 +260,7 @@ array_2 = ["sentence?"]
 array_1 + array_2
 ```
 
-> Notice that `+` doesn't alter `array_1` or `array_2`: it builds a new array that combines their elements.
+> Notice that `+` doesn't alter `array_1` or `array_2`, it builds a new array that combines their elements.
 
 ## Finding out how many elements there are
 
@@ -276,9 +276,9 @@ array.length
 
 In [Chapter 4](../chapter4/README.md), we met `while`, which can be used to manage control flow by forcing an object to repeat procedures.
 
-Arrays can be used to manage control flow too: by forcing an object to execute a procedure once for each element of an array. This process is called **iterating** over an array. 
+Arrays can also be used to manage control flow by forcing an object to execute a procedure once for each element of an array. This process is called **iterating** over an array. 
 
-There are a few ways to do this. We can use a `while` loop with an accumulator to run a procedure once for each item of an array:
+There are a few ways to do this. We can use a `while` loop with an accumulator to run a procedure once for each item of an array. Create a file called `arrays.rb` and individually run each of the below code examples with `ruby arrays.rb` in Terminal to help you understand iteration.
 
 ```ruby
 my_array = ["Hello", "there", "friend!"]
@@ -290,7 +290,7 @@ while current_index < my_array.length do
 end
 ```
 
-> Still confused by `while` loops? Alter the code example above to use `break` instead.
+> Still confused by `while` loops? Alter the code example to use `break` instead.
 
 We can combine this structure with the array reader method `[]` to tell an object to do something with elements of the array one after the other:
 
@@ -304,9 +304,9 @@ while current_index < my_array.length do
 end
 ```
 
-`Array` provides us with a neat method to tell an object to 'run a procedure once for each element of the array': the `each` method:
+`Array` provides us with a neat method to tell an object to 'run a procedure once for each element of the array' called the `each` method:
 
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 
 my_array.each do
@@ -316,7 +316,7 @@ end
 
 What about if we want an object to do something with elements of the array one after the other? That is: to reference each item within an array during the procedure? We can do that in the following way:
 
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 
 my_array.each do |element|
@@ -324,15 +324,11 @@ my_array.each do |element|
 end
 ```
 
-This `|element|` structure looks pretty weird. It works like this:
+This `|element|` structure looks pretty weird. As `each` walks through the array, it grabs an element and shoves it into the pipe. `each` temporarily gives that element a name, in this case `element`. That way, we can use the element in the procedure we wrote.
 
-<animation demonstrating piping>
+Just like program naming, we can call `element` whatever we like, so long as we use the same name in the procedure. So, this:
 
-In other words, as `each` walks through the array, it grabs an element and shoves it into the pipe. `each` temporarily gives that element a name – in this case, `element`. That way, we can use the element in the procedure we wrote.
-
-Just like program naming, we can call `element` whatever we like: so long as we use that name in the procedure. So, this:
-
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 
 my_array.each do |item|
@@ -342,27 +338,7 @@ end
 
 Is exactly the same as this:
 
-```eval-ruby
-my_array = ["Hello", "there", "friend!"]
-
-my_array.each do |word|
-  puts word
-end
-```
-
-Is exactly the same as this:
-
-```eval-ruby
-my_array = ["Hello", "there", "friend!"]
-
-my_array.each do |friendly_statement|
-  puts friendly_statement
-end
-```
-
-Is exactly the same as this:
-
-```eval-ruby
+```ruby
 my_array = ["Hello", "there", "friend!"]
 
 my_array.each do |chicken|
@@ -370,9 +346,19 @@ my_array.each do |chicken|
 end
 ```
 
-This kind of name, one that's assigned on the fly in a procedure, is called a **parameter**. We'll meet them in more detail, in [Chapter 9](../chapter9/README.md).
+Is exactly the same as this:
 
-> It's a good idea to name the parameter after what elements _are_. So, if you're iterating over an array of numbers, each element is a number: so the parameter should probably be called `number`. If you're iterating over an array of instances of the `Dog` class, each element is a dog: so the parameter should probably be called `dog`. The naming choice is up to you as a programmer: pick one that future programmers, who'll have to work with your procedure, will understand.
+```ruby
+my_array = ["Hello", "there", "friend!"]
+
+my_array.each do |friendly_statement|
+  puts friendly_statement
+end
+```
+
+This kind of name, one that's assigned on the fly in a procedure, is called a **parameter**. We'll meet them in more detail in [Chapter 9](../chapter9/README.md).
+
+> It's a good idea to name the parameter after what elements _are_. So, if you're iterating over an array of numbers and each element is a number, the parameter should probably be called `number`. If you're iterating over an array of instances of the `Dog` class, each element is a dog, so the parameter should probably be called `dog`. The naming choice is up to you as a programmer. Pick one that future programmers, who'll have to work with your code, will understand.
 
 ## Using arrays as accumulators
 
@@ -380,7 +366,7 @@ A common programming problem goes something like this:
 
 - Filter this list of numbers to return only numbers less than 10.
 
-To solve this, we can use an **array as an accumulator**. On each pass of a loop, we'll tell the main object to add items to an array _if they meet a condition_ (being less than 10):
+To solve this, we can use an **array as an accumulator**. On each pass of a loop, we'll tell the `main` object to add items to an array _if they meet a condition_ (being less than 10):
 
 ```eval-ruby
 list_of_numbers = [17, 2, -1, 88, 7]
