@@ -96,7 +96,7 @@ hash_pretending_to_be_an_array[0] = "football"
 hash_pretending_to_be_an_array
 ```
 
-Even more commonly than strings, we'll use **symbols**. Symbols are a special, and very widespread object in Ruby. They work like strings, except they're _immutable_ – they can't be changed once they've been set.
+Even more commonly than strings, we'll use **symbols**. Symbols are a special and very widespread object in Ruby. They work like strings, except they're _immutable_ – they can't be changed once they've been set.
 
 Since we rarely want to change the keys in a hash, symbols are a perfect choice:
 
@@ -157,7 +157,7 @@ This is a pretty powerful technique!
 > * **river**: a body of water that contains salmon, and sometimes bears.
 > * **salmon**: a fish, sometimes in a river, sometimes in a bear, and sometimes in both.
 >
-> In general, programmers try to minimise the amount of conditionals in a program. This is because such pathways can quickly multiply in number \(especially if a lot of programmers are working on the codebase\). Each pathway can lead to a new program state, which results in more program states than any one programmer can reason about. [This article](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) is a fantastic case study into what happens when programmers can no longer reason about the complexity of their codebases. Lookup tables are one way to reduce conditional complexity in a program, by centralising possible program states. In [Chapter 9](../chapter9/README.md), we'll see that we can use procedures as values to lookup tables, which allows us to control program state even more tightly.
+> In general, programmers try to minimise the number of conditionals in a program. This is because such pathways can quickly multiply in number \(especially if a lot of programmers are working on the codebase\). Each pathway can lead to a new program state, which results in more program states than any one programmer can reason about. [This article](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) is a fantastic case study into what happens when programmers can no longer reason about the complexity of their codebases. Lookup tables are one way to reduce conditional complexity in a program, by centralising possible program states. In [Chapter 9](../chapter9/README.md), we'll see that we can use procedures as values to lookup tables, which allows us to control program state even more tightly.
 
 ## Grouping things in hashes
 
