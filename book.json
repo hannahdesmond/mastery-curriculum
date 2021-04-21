@@ -4,12 +4,8 @@
   "author": "Mary Rose Cook and Sam Morgan",
   "plugins": [
     "klipse",
-    "accordion",
-    "disqus"
+    "accordion"
   ],
   "pluginsConfig": {
-   "disqus": {
-      "shortName": "makers-mastery"
-    }
   }
 }
