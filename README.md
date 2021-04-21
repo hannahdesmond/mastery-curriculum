@@ -1,9 +1,14 @@
 # Mastery Curriculum
 
-Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to become confident writing real-world procedural programs in Ruby.
+Welcome to the Makers Ruby mastery curriculum! Your aim will be to become confident writing real-world procedural programs in Ruby.
 
 * **Real-world?** Programs that are useful in the real world. For example, a program to manage your todo list.
 * **Procedural?** Programs that do something by working through a series of steps. Somewhat like cooking recipes.
+
+## Pace
+Your aim is to finish all 10 chapters and their respective quizzes over the next **two weeks**. The quizzes can take a long time to complete and the later quizzes tend to take more time than the earlier quizzes. Therefore, aim to have completed chapters 1 - 6 by the end of Week 2 and finish chapters 7 - 10 in Week 3. Chapter 7 onwards is quite a step up in difficulty so leave good time for them.
+
+Some of you will have more time than others, and others of you will find some quizzes easier and some harder. Try not to compare your progress with your peers and feel confident to ask for help whatever stage your at. If you're moving through the material quickly, help and go deeper rather than further ahead - assist your cohort peers, play with the code examples, search Google for deeper explainations, etc.
 
 ## Approach
 
@@ -14,9 +19,5 @@ Welcome to the Makers Academy Ruby mastery curriculum! Your aim will be to becom
 3. Once you have submitted your quiz answers, and your answers have been verified as correct, continue to the next chapter.
 
 > The chapters here aren't the only way to become confident with the Learning Objectives. Research them using Google, play with the code in the code examples or on your own computer, or diagram the sorts of processes being described. Get interactive with the material, and pick your own learning route!
-
-Your aim is to get through all the chapters, but the most important thing for your learning is to only move on from a chapter once you've completed the quiz.
-
-**Note: the mastery learning quizzes can take a long time to complete. Also, the later quizzes tend to take more time than the earlier quizzes. It's really important to get started on Monday of Week 2 of the PreCourse and put in lots of time over the next 2 weeks.**
 
 Ready? [Go to the Instructions](./INSTRUCTIONS.md)!
