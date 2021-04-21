@@ -19,7 +19,7 @@ end
 accumulator.to_f / scores.length
 ```
 
-- _Telling an object how to get to the answer_ might look like: "create an accumulator. Add the scores to it. Then divide them." This is called **imperative** programming – literally, 'ordering the computer to do things'.
+- _Telling an object how to get to the answer_ might look like: 'Create an accumulator. Add the scores to it. Then divide them.' This is called **imperative** programming – literally, 'ordering the computer to do things'.
 
 In [Chapter 9](../chapter9/README.md), we started seeing how we could take these imperative procedures and hide them behind _method names_. This means that our code looks more like _telling an object what we want_, by interacting with abstractions:
 
@@ -28,11 +28,11 @@ In [Chapter 9](../chapter9/README.md), we started seeing how we could take these
 average(scores)
 ```
 
-- _Telling an object what we want_ might look like "average these scores." This is called **declarative** programming – literally, 'saying what we would like to happen'.
+- _Telling an object what we want_ might look like: 'average these scores.' This is called **declarative** programming – literally, 'saying what we would like to happen'.
 
 When we're writing complex procedures, we're often working in a very _imperative_ world. We're handling things like _control flow_ with _conditionals_ and _loops_, working with simple objects like _arrays_, _strings_, _hashes_, and _integers_. It's a tough world, and it's quite unfriendly to non-programmers (and unfriendly to programmers who didn't write the procedure themselves).
 
-Therefore, as programmers, we try to abstract our work to a declarative style wherever possible. This is why, back in [Chapter 1](../chapter1/README.md), we were first introduced to the 'program world': because it's a declarative world, where you can ask `1` if it's an integer:
+Therefore, as programmers, we try to abstract our work to a declarative style wherever possible. This is why, back in [Chapter 1](../chapter1/README.md), we were first introduced to the 'program world' because it's a declarative world, where you can ask `1` if it's an integer:
 
 ```eval-ruby
 1.integer?
@@ -40,7 +40,7 @@ Therefore, as programmers, we try to abstract our work to a declarative style wh
 
 And it'll just _tell you the answer_. Sure, there's probably some imperative procedure going on under the hood. In fact, there _definitely is_. But we don't have to know about it. That frees us up to think about more high-level program concerns, like how to meet a particular requirement.
 
-These are the kinds of worlds we strive to create as programmers. One very popular route to doing so is to use **Object-Oriented Programming**. We've met a bunch of this already, but here's a quick refresher:
+These are the kinds of worlds we strive to create as programmers. One very popular route to doing so is to use **Object-Oriented Programming (OOP)**. We've met a bunch of this already, but here's a quick refresher:
 
 ```eval-ruby
 # String is a class – an object in the program world.
@@ -65,13 +65,9 @@ In this chapter, we'll learn how to move from an imperative to a declarative wor
 
 Remember our view of the program world:
 
-<objects interacting in the program world>
+![Numbers interacting inside a program, by adding together](../images/2-numbers-interacting.gif)
 
-In particular, remember where all the complex imperative procedures we've been writing are actually running:
-
-<zoom in on object interface to reveal methods working 'inside'>
-
-Procedures are running _inside methods_. We learned how to write methods in [Chapter 9](../chapter9/README.md) – but the methods we defined weren't obviously part of any given object's interface. So where have they been living?
+In particular, remember that procedures are running _inside methods_. We learned how to write methods in [Chapter 9](../chapter9/README.md) – but the methods we defined weren't obviously part of any given object's interface. So where have they been living?
 
 ## Global scope
 
@@ -85,10 +81,10 @@ So, for the past few chapters we've been defining all of our procedures on the m
 
 ```eval-ruby
 players = [
-  { :name => "Sam", :sport => "tennis" },
-  { :name => "Mary", :sport => "squash" },
-  { :name => "Ed", :sport => "tennis" },
-  { :name => "Mark", :sport => "football" }
+  { :name => "Alice", :sport => "tennis" },
+  { :name => "Simo", :sport => "squash" },
+  { :name => "Katerina", :sport => "tennis" },
+  { :name => "Alex", :sport => "football" }
 ]
 
 players_by_sport = {}
@@ -110,7 +106,7 @@ players_by_sport
 
 In [Chapter 9](../chapter9/README.md), when we moved the averaging procedure into the method named `average`:
 
-```eval-ruby
+```ruby
 def average(scores)
   scores_accumulator = 0
 
@@ -146,23 +142,9 @@ end
 average([1, 2, 3])
 ```
 
-> Notice that we're _opening up the class_ to fiddle with its insides. We're essentially _rewiring the gods_ so they create slightly different kinds of things.
+> Notice that we're _opening up the class_ to fiddle with its insides. We're essentially _augmenting the gods_ so they can create slightly different kinds of things - giving the gods new powers, if you will.
 
-The above simply a more formal way of writing:
-
-```eval-ruby
-def average(scores)
-  scores_accumulator = 0
-
-  scores.each do |score|
-    scores_accumulator += score
-  end
-
-  scores_accumulator.to_f / scores.length
-end
-```
-
-Because, by default, _methods are defined on the main object_.
+The above is simply a more formal way of writing the method named `average` because, by default, _methods are defined on the main object_.
 
 How about if we wanted to define a method on another object? Say, something that would allow us to do:
 
@@ -172,7 +154,7 @@ How about if we wanted to define a method on another object? Say, something that
 => "Hi there!"
 ```
 
-That is: when we send the message `say_hi` to a string, it should return `"Hi there!"`.
+That is, when we send the message `say_hi` to a string, it should return `"Hi there!"`.
 
 `say_hi` is not, by default, part of the instance methods available to strings. So, we have to define it, just like we did the `average` method on `Object` instances:
 
@@ -187,9 +169,9 @@ my_object = "A string!"
 my_object.say_hi
 ```
 
-> Again: we're _opening the String class_ to fiddle with the kinds of objects it creates. In this case, we're telling the `String` class: "when you create instances, make sure they have this method, too".
+> Again, we're _opening up the String class_ to fiddle with the kinds of objects it can create. In this case, we're telling the `String` class: 'when you create instances, make sure they have this method too'.
 
-- _**Define another method on the string above, called `say_hi_to`. It should take one argument, a name. It should return "Hi, <name>!"**_
+- _**Define another method on the string above, called `say_hi_to`. It should take one argument, a name. It should return "Hi, #{name}!"**_
 
 ## Using object state in methods
 
@@ -203,7 +185,7 @@ Let's do something useful with this information. Our `average` method would be e
 
 To do this, we need to define a new method on `Array` instances:
 
-```eval-ruby
+```ruby
 class Array
   def average
     # Somehow, do the averaging in here
@@ -211,8 +193,7 @@ class Array
 end
 ```
 
-But we have a problem – in order to average an array of number elements, we need access to those elements. Instances of the `Array` class know about their own elements: but how can we access them?
-
+But we have a problem. In order to average an array of number elements, we need access to those elements. Instances of the `Array` class know about their own elements, but how can we access them?
 
 Enter the Ruby keyword `self`. `self` refers to the 'current object we're inside'. So, when we're messing around defining methods on `Array` instances, `self` refers to the instance.
 
@@ -305,7 +286,7 @@ fido.bark
 
 And that's how we define new kinds of object, and new methods on those objects.
 
-We've seen so far that the `class` keyword is shorthand for "open up this class, and do things with it". It's actually a bit cleverer than this. If the class given to `class` doesn't exist, it will be made on-the-fly. That means we can tighten the example above down to:
+We've seen so far that the `class` keyword is shorthand for "open up this class, and do things with it". It's actually a bit cleverer than this. If the class given to `class` doesn't exist, it will be made on the fly. That means we can tighten the example above down to:
 
 ```eval-ruby
 class Dog
@@ -356,7 +337,7 @@ fido.observe
 # returns "You see a brown dog."
 ```
 
-That is: we want instances of the `Dog` class – dog objects – to:
+That is, we want instances of the `Dog` class – dog objects – to:
 
 - Respond to a method `colour =` by setting a property on themselves
 - Respond to a method `observe` with a string
@@ -381,7 +362,7 @@ We get a useful error: `colour=: undefined method 'colour=' for #<Dog:0x1b210>`.
 
 > In [Chapter 5](../chapter5/README.md), we found out that the `0x1b210` (or whatever number you have) is a _hexadecimal number_ referencing the memory address of the dog instance.
 
-We can fix this by simply doing as we're told: defining a method `colour=` on dog instances:
+We can fix this by simply doing as we're told, defining a method `colour=` on dog instances:
 
 ```eval-ruby
 class Dog
@@ -467,7 +448,7 @@ chelsea.colour = "white"
 chelsea.observe
 ```
 
-Ah, the program still suggests that Chelsea is a brown dog. We need to make the program vary according to the colour we provide: we need some way for the `Dog` instance to remember the colour we give it.
+Ah, the program still suggests that Chelsea is a brown dog. We need to make the program vary according to the colour we provide. We need some way for the `Dog` instance to remember the colour we give it.
 
 Here's how Ruby objects can be told to remember values:
 
@@ -491,7 +472,7 @@ chelsea.colour = "white"
 chelsea.observe
 ```
 
-The above code will work for both Fido and Chelsea. That's because we're saving the colour property, passed as an argument to the `colour=` method, to the object state. To save things to the object state, we use an **instance variable**.
+The above code will work for both Fido and Chelsea. That's because we're saving the colour property, passed as an argument to the `colour=` method, to the object state. To save things to the object state, we use an **instance variable** definied with the `@` symbol.
 
 Let's look more closely at what the `colour=` method is doing:
 
@@ -532,7 +513,7 @@ In the example above, we:
 
 > Look closer at the method `give_me_a_name`. We can call the parameter `name` whatever we want, so long as we reference that same parameter in the method procedure.
 
-The following code will do exactly the same thing: but I've changed some of the variable and method names around to make a point:
+The following code will do exactly the same thing but I've changed some of the variable and method names around to make a point:
 
 ```eval-ruby
 class Person
@@ -570,7 +551,7 @@ woman.introduce
 
 > Using Ruby's syntactic sugar, we can replace the penultimate line with `woman.name = "Yasmin"`.
 
-Methods that set object state – like `name=` above – are called **setters**. We've seen that setter methods can be called anything you like (`call_me` is a setter, `give_me_a_name` is a setter, and `name=` is a setter): the important thing is that they _set object state using an instance variable_.
+Methods that set object state – like `name=` above – are called **setters**. We've seen that setter methods can be called anything you like (`call_me` is a setter, `give_me_a_name` is a setter, and `name=` is a setter). The important thing is that they _set object state using an instance variable_.
 
 ## Mutating object state
 
@@ -605,7 +586,7 @@ robot.legs = 4
 robot.walk
 ```
 
-How does `add_leg` work, though? We're changing a the `@legs` property of the `Robot` instance.
+How does `add_leg` work, though? We're changing the `@legs` property of the `Robot` instance.
 
 Remember `+=`?
 
@@ -652,23 +633,9 @@ Just like we write `my_string = String.new("Some text")`?
 
 We can! Thanks to Ruby **initializers**.
 
-In Ruby, whenever we call `new` on a class, that class builds an object and then runs the method `initialize` on it:
-
-<diagram of the `new` and `initialize` process>
-
-If we want to store information about an object as part of that object's state – as a property on the object – we need to interfere with this `initialize` method.
+In Ruby, whenever we call `new` on a class, that class builds an object and then runs the method `initialize` on it. If we want to store information about an object as part of that object's state – as a property on the object – we need to interfere with this `initialize` method.
 
 > Ruby automatically defines the `initialize` method, even if you don't write it. That's why `new` still worked for our `Dog`, `Person`, and `Robot` classes before.
-
-```eval-ruby
-class Dog
-  def initialize
-    puts "I'm initializing a dog!"
-  end
-end
-
-fido = Dog.new
-```
 
 Every argument to the `new` function is passed to the `initialize` function. Therefore, if we want to send the string `"brown"` or `"white"` to be stored on a dog as soon as we call `new`, we need to set an instance variable in the initializer.
 
@@ -730,7 +697,7 @@ robot.add_leg
 robot.walk
 ```
 
-By using multiple parameters with `initialize`, we can provide multiple pieces of information to an object at once:
+By using multiple parameters with `initialize`, we can provide multiple pieces of information to an object at once and assign them in order:
 
 ```eval-ruby
 class Person
@@ -756,7 +723,7 @@ peter.introduce
 
 ## Different kinds of variables
 
-All variables are references to objects in Ruby – because everything is an object: from `1`, to `"Hello world"`, to the `Dog` class.
+All variables are references to objects in Ruby because everything is an object, from `1`, to `"Hello world"`, to the `Dog` class.
 
 So far, we've met a few different kinds of variables:
 
@@ -765,7 +732,7 @@ So far, we've met a few different kinds of variables:
 - Variables inside methods, which get their names from parameters, like `scores` in our `average` method
 - Instance variables, like `@name`, `@colour` and `@legs`.
 
-What's the difference between these kinds of variables? They answer is, broadly speaking, _which objects can see them_.
+What's the difference between these kinds of variables? The answer is, broadly speaking, _which objects can see them_.
 
 #### What can see an instance variable?
 
@@ -794,7 +761,7 @@ end
 
 #### What can see a local variable?
 
-**Regular variables** are normally referred to as **local variables**. Here, we're in imperative-land: telling the computer what to do, line-by-line.
+**Regular variables** are normally referred to as **local variables**. Here, we're in imperative-land - telling the computer what to do, line-by-line.
 
 If a line defining that local variable _has already been executed_, that local variable is available to anything that wants it.
 
@@ -802,7 +769,7 @@ If a line defining that local variable _has already been executed_, that local v
 # Define a local variable in the main program object
 my_variable = 1
 
-# We can access the local variable here, because the line above was executed before this one
+# We can access the local variable here because the line above was executed before this one
 my_variable
 ```
 
@@ -819,7 +786,7 @@ end
 my_variable
 ```
 
-One gotcha – strange things happen if you define variables in branches that _don't_ get executed:
+One gotcha, strange things happen if you define variables in branches that _don't_ get executed:
 
 ```eval-ruby
 if false
@@ -829,7 +796,7 @@ end
 my_variable
 ```
 
-The program can still read the name: but the value is set to `nil`.
+The program can still read the name, but the value is set to `nil`.
 
 There's one really tricky thing about local variables, and it has to do with methods. Here it is:
 
@@ -857,7 +824,7 @@ my_method
 my_variable
 ```
 
-Wrong. For some reason – even though the procedure `my_variable = 1` (inside the method `my_method`) has been executed – the main object still can't see `my_variable`. Why is this?
+Wrong. For some reason, even though the procedure `my_variable = 1` (inside the method `my_method`) has now been executed the main object still can't see `my_variable`. Why is this?
 
 ## Scope
 
@@ -894,11 +861,11 @@ class Dog
   some_variable = 1
 end
 
-puts accumulator
-puts some_variable
+accumulator
+some_variable
 ```
 
-The area of a program in which a variable can be read is called the variable **scope**. `def` and `class` are known as **scope gates**: when the program runs a line containing `def` or `class`, it enters a new scope. Variables defined inside this scope cannot be read outside of the scope gate. Variables defined outside of the scope gate cannot be read inside it.
+The area of a program in which a variable can be read is called the variable **scope**. `def` and `class` are known as **scope gates**. When the program runs a line containing `def` or `class`, it enters a new scope. Variables defined inside this scope cannot be read outside of the scope gate. Variables defined outside of the scope gate cannot be read inside it.
 
 ```eval-ruby
 my_variable = 1
@@ -911,13 +878,9 @@ end
 my_method
 ```
 
-Here's a visual representation of scope:
-
-<diagram of code with highlighted scope and out of scope>
-
 > Confused by the word 'scope'? Think of the scope on top of a sniper-rifle: when you look down it, you can only see a part of the world: the part of the world you can shoot.
 
-One more gotcha: even though files containing Ruby code are all loaded into the program straight away, local variables cannot be read from outside of the file they're declared in. So files act as scope gates, too.
+One more gotcha, even though files containing Ruby code are all loaded into the program straight away, local variables cannot be read from outside of the file they're declared in. So files act as scope gates, too.
 
 ## Using scope to understand method parameters
 
@@ -942,11 +905,11 @@ people = ["Steve", "Yasmin", "Alex"]
 people.each do |name|
   # Each element of people is assigned to a local variable called 'name'
   # We can then read that local variable inside this loop
-  puts name
+  name
 end
 
 # But we can't read the local variable outside the loop
-puts name
+name
 ```
 
 Since `def` is a scope gate, we can't read these parameters outside of their message body:
@@ -968,7 +931,7 @@ person
 
 ## Using Objects to be more declarative
 
-By defining our own classes, we can make our programs super-readable: almost like English. Here's an example:
+By defining our own classes, we can make our programs super-readable, almost like English. Here's an example:
 
 ```ruby
 heathrow = Airport.new
@@ -989,9 +952,9 @@ heathrow.take_off(plane)
 # => "Error: There are no planes to take off"
 ```
 
-In the examples above, the object referenced by `heathrow` is an instance of the `Airport` class. Somehow, it can store planes. At the heart of the `heathrow` object, in its state, lives an array – an object we introduced in [Chapter 7](../chapter7/README.md) as a way to store other objects. Around this array, `heathrow` defines methods which are appropriately-named for the program being run – some sort of airport simulation. Here, the 'airport simulation' is known as the program **domain**.
+In the examples above, the object referenced by `heathrow` is an instance of the `Airport` class. Somehow, it can store planes. At the heart of the `heathrow` object, in its state, lives an array – an object we introduced in [Chapter 7](../chapter7/README.md) as a way to store other objects. Around this array, `heathrow` defines methods which are appropriately named for the program being run – some sort of airport simulation. Here, the 'airport simulation' is known as the program **domain**.
 
-Why don't we just use an array, instead of instaces of this `Airport` class? That way, the program could work like this:
+Why don't we just use an array, instead of instances of this `Airport` class? That way, the program could work like this:
 
 ```ruby
 heathrow = []
@@ -1002,7 +965,7 @@ heathrow.push(plane)
 "There is #{ heathrow.length } plane in the hangar"
 ```
 
-The answer is: the second describes the program domain less effectively. As programmers, we strive to write code that accurately reflects the program domain.
+The answer is, using arrays describes the program domain less effectively. As programmers, we strive to write code that accurately reflects the program domain.
 
 Here's how `Airport` 'wraps' an array:
 
@@ -1037,11 +1000,14 @@ class Airport
     end
   end
 end
+
+heathrow = Airport.new
+heathrow.hangar_report
 ```
 
-Because the array is referenced only by an _instance variable_, nothing outside of `Airport` instances can read it: so we're protected from programmers trying to `pop` a plane from `heathrow`, and so on. This essentially _limits the interface of the array_ to only methods we want to allow.
+Because the array is referenced only by an _instance variable_, nothing outside of `Airport` instances can read it, so we're protected from programmers trying to `pop` a plane from `heathrow`, and so on. This essentially _limits the interface of the array_ to only methods we want to allow.
 
-> Spend some time playing with the code example above. Write a `Plane` class if you can – get the initial code example running. The code here is similar to code introduced in the first week of Makers Academy, so don't worry if it boggles you at the moment.
+> Spend some time playing with the code example above. Write a `Plane` class if you can and land it. The code here is similar to the code introduced in the first week of Makers, so don't worry if it boggles you at the moment.
 
 ## Complete the mastery quiz for chapter 10
 
