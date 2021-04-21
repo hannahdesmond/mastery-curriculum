@@ -8,7 +8,7 @@ Welcome to the Makers Ruby mastery curriculum! Your aim will be to become confid
 ## Pace
 Your aim is to finish all 10 chapters and their respective quizzes over the next **two weeks**. The quizzes can take a long time to complete and the later quizzes tend to take more time than the earlier quizzes. Therefore, aim to have completed chapters 1 - 6 by the end of Week 2 and finish chapters 7 - 10 in Week 3. Chapter 7 onwards is quite a step up in difficulty so leave good time for them.
 
-Some of you will have more time than others, and others of you will find some quizzes easier and some harder. Try not to compare your progress with your peers and feel confident to ask for help whatever stage your at. If you're moving through the material quickly, help and go deeper rather than further ahead - assist your cohort peers, play with the code examples, search Google for deeper explainations, etc.
+Some of you will have more time than others, and others of you will find some quizzes easier and some harder. Try not to compare your progress with your peers and feel confident to ask for help whatever stage you're at. If you're moving through the material quickly, help and go deeper rather than further ahead - assist your cohort peers, play with the code examples, search Google for deeper explanations, etc.
 
 ## Approach
 
