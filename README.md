@@ -20,4 +20,6 @@ Some of you will have more time than others, and others of you will find some qu
 
 > The chapters here aren't the only way to become confident with the Learning Objectives. Research them using Google, play with the code in the code examples or on your own computer, or diagram the sorts of processes being described. Get interactive with the material, and pick your own learning route!
 
+> Your code will be automatically tested that it correctly fulfills the requirements (outputs the correct results) and that it is well written code. These automated tests are done using RSpec - a very commonly used testing tool for Ruby. You might find it useful to read the [RSpec Pill](https://makersacademy.teachable.com/courses/makers-academy-mastery-precourse/lectures/3989149) before you run your first test.
+
 Ready? [Go to the Instructions](./INSTRUCTIONS.md)!
