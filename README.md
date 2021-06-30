@@ -6,9 +6,13 @@ Welcome to the Makers Ruby mastery curriculum! Your aim will be to become confid
 * **Procedural?** Programs that do something by working through a series of steps. Somewhat like cooking recipes.
 
 ## Pace
-Your aim is to finish all 10 chapters and their respective quizzes over the next **two weeks**. The quizzes can take a long time to complete and the later quizzes tend to take more time than the earlier quizzes. Therefore, aim to have completed chapters 1 - 6 by the end of Week 2 and finish chapters 7 - 10 in Week 3. Chapter 7 onwards is quite a step up in difficulty so leave good time for them.
-
 Some of you will have more time than others, and others of you will find some quizzes easier and some harder. Try not to compare your progress with your peers and feel confident to ask for help whatever stage you're at. If you're moving through the material quickly, help and go deeper rather than further ahead - assist your cohort peers, play with the code examples, search Google for deeper explanations, etc.
+
+### Academy Students
+As an Academy student completing the PreCourse part-time, your aim is to finish all 10 chapters and their respective quizzes over the next **two weeks**. The quizzes can take a long time to complete and the later quizzes tend to take more time than the earlier quizzes. Therefore, aim to have completed chapters 1 - 6 by the end of Week 2 and finish chapters 7 - 10 in Week 3. Chapter 7 onwards is quite a step up in difficulty so leave good time for them.
+
+### Apprentices
+If you are an Apprentice working on this as part of the main course, your aim is to finish all 10 chapters and their respective quizzes by the end of **week two**. The quizzes can take a long time to complete and the later quizzes tend to take more time than the earlier quizzes. Therefore, aim to have completed chapters 1 - 6 by the end of Week 1 and finish chapters 7 - 10 in Week 2. Chapter 7 onwards is quite a step up in difficulty so leave good time for them.
 
 ## Approach
 
