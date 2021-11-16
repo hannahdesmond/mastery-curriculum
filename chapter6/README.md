@@ -8,7 +8,7 @@ We've met the following kinds of object:
 * Floats
 * Strings
 
-And we the following tools:
+And we have used the following tools:
 
 * Naming
 * Statements
@@ -97,7 +97,7 @@ puts String.new("Hi, ") + user
 
 #### 5. Do the hard thing next \(work out the conditional\)
 
-Conditionals are tricky, so I've saved it for nearly-last:
+Conditionals are tricky, so I've saved it for (nearly) last:
 
 ```ruby
 puts String.new("Welcome user")
@@ -206,7 +206,7 @@ Firstly, this is a game. It has repeat actions so we're going to need a `while t
 
 Secondly, we need something to track what's happened across both moves \(is this the first move or the second move?\). Since the moves will probably happen in a `while` loop, we're probably going to need an accumulator to track the loop.
 
-Third, It has a `break` condition when the user dies or wins so we're going to need `break`, probably.
+Third, it has a `break` condition when the user dies or wins so we're going to need `break`, probably.
 
 So, put those things together, and we'll probably have something like this:
 
@@ -244,7 +244,7 @@ puts "You're facing forward. You can type forward, left, or right."
 
 #### 3. Get the user's input
 
-I'm not going to write a loop yet as they're complicated, and I like to save up the complicated stuff til last. Let's just get the user input. This we can do by telling the main object to `gets` a string, telling the string to `chomp`, and assigning the return value to a variable, `user_input`:
+I'm not going to write a loop yet as they're complicated, and I like to save up the complicated stuff 'til last. Let's just get the user input. This we can do by telling the main object to `gets` a string, telling the string to `chomp`, and assigning the return value to a variable, `user_input`:
 
 ```ruby
 puts "You're facing forward. You can type forward, left, or right."
